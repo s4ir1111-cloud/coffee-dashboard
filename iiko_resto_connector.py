@@ -144,10 +144,10 @@ def olap_weekly_report(host: str, token: str, week_start: str, next_day: str) ->
 
 
 def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
-    """OLAP-отчёт: топ позиций по выручке за день."""
+    """OLAP-отчёт: топ позиций по выручке за день (с группой блюда для фильтра летних напитков)."""
     body = {
         "reportType": "SALES",
-        "groupByRowFields": ["DishName"],
+        "groupByRowFields": ["DishName", "DishGroup"],
         "groupByColFields": [],
         "aggregateFields": ["DishSumInt", "DishAmountInt"],
         "filters": {

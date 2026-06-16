@@ -136,9 +136,6 @@
     border-bottom:1px solid var(--border);
   }
   .name-cell{
-    max-width:200px;
-    overflow:hidden;
-    text-overflow:ellipsis;
     white-space:nowrap;
   }
   .bottom-row{
@@ -289,8 +286,8 @@
     <canvas id="revenueChart"></canvas>
   </div>
   <div class="card-block">
-    <h2 class="section-title" style="margin-bottom:6px;">Топ позиций по продажам</h2>
-    <ul class="top-items" id="top-items-list">
+    <h2 class="section-title" style="margin-bottom:6px;">Топ: летние напитки</h2>
+    <ul class="top-items" id="summer-list">
       <li>Загрузка…</li>
     </ul>
   </div>
@@ -369,13 +366,18 @@
       (idx < half ? tbody1 : tbody2).appendChild(tr);
     });
 
-    const itemsList = document.getElementById('top-items-list');
-    itemsList.innerHTML = '';
-    data.top_items.slice(0, 6).forEach(it => {
-      const li = document.createElement('li');
-      li.innerHTML = `<span>${it.name}</span><span class="qty">${it.qty} шт · ${fmtMoneyShort(it.revenue)}</span>`;
-      itemsList.appendChild(li);
-    });
+    const summerList = document.getElementById('summer-list');
+    summerList.innerHTML = '';
+    const summerItems = data.summer_drinks || [];
+    if(summerItems.length === 0){
+      summerList.innerHTML = '<li style="color:var(--muted)">Нет данных — обновится при следующем запуске</li>';
+    } else {
+      summerItems.slice(0, 8).forEach(it => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${it.name}</span><span class="qty">${it.qty} шт · ${fmtMoneyShort(it.revenue)}</span>`;
+        summerList.appendChild(li);
+      });
+    }
 
     weeklyData = data.weekly || [];
     todayStr = data.date;

@@ -19,6 +19,19 @@ import calendar
 
 DAYS_RU = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
 
+# Ключевые слова для определения летних/холодных напитков
+# Проверяются в названии группы (DishGroup) и названии блюда (DishName)
+SUMMER_GROUP_KW = ['лет', 'холод', 'смузи', 'лимонад', 'summer', 'cold', 'ice', 'fresh']
+SUMMER_NAME_KW  = ['лимонад', 'смузи', 'фреш', 'айс', 'холодн', 'мохито', 'тоник',
+                   'милкшейк', 'шейк', 'фраппе', 'гранита', 'матча', 'cold brew',
+                   'ice', 'iced', 'lemonade', 'smoothie']
+
+def is_summer_drink(name: str, group: str) -> bool:
+    g = group.lower()
+    n = name.lower()
+    return (any(kw in g for kw in SUMMER_GROUP_KW) or
+            any(kw in n for kw in SUMMER_NAME_KW))
+
 BASE_DIR = os.path.dirname(__file__)
 IN_PATH = os.path.join(BASE_DIR, "dashboard_data.json")
 PLANS_PATH = os.path.join(BASE_DIR, "plans.json")
@@ -78,12 +91,21 @@ def main():
 
     # --- Топ позиций (исключаем модификаторы с нулевой суммой) ---
     items = [
-        {"name": r["DishName"].strip(), "qty": r["DishAmountInt"], "revenue": r["DishSumInt"]}
+        {
+            "name": r["DishName"].strip(),
+            "group": r.get("DishGroup", "").strip(),
+            "qty": r["DishAmountInt"],
+            "revenue": r["DishSumInt"],
+        }
         for r in top_rows
         if r.get("DishSumInt", 0) > 0
     ]
     items.sort(key=lambda x: -x["revenue"])
     top_items = items[:8]
+
+    # --- Топ летних напитков ---
+    summer_drinks = [it for it in items if is_summer_drink(it["name"], it["group"])]
+    summer_drinks = summer_drinks[:8]
 
     # --- Итоги (сегодня) ---
     total_revenue = sum(p["revenue"] for p in points)
@@ -144,6 +166,7 @@ def main():
         "hourly": hourly,
         "weekly": weekly,
         "top_items": top_items,
+        "summer_drinks": summer_drinks,
         "plan": {
             "summary": plan_summary,
             "points": plan_rows,
