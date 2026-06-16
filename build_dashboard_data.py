@@ -19,6 +19,11 @@ import calendar
 
 DAYS_RU = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
 
+# Переименования точек (IIKO-название → отображаемое)
+DEPT_ALIASES = {
+    "Преображенский": "Прео",
+}
+
 # Ключевые слова для определения летних/холодных напитков
 # Проверяются в названии группы (DishGroup) и названии блюда (DishName)
 SUMMER_GROUP_KW = ['лет', 'холод', 'смузи', 'лимонад', 'summer', 'cold', 'ice', 'fresh']
@@ -43,7 +48,8 @@ def main():
         raw = json.load(f)
 
     with open(PLANS_PATH, "r", encoding="utf-8") as f:
-        plans = json.load(f).get("monthly_plans", {})
+        raw_plans = json.load(f).get("monthly_plans", {})
+    plans = {DEPT_ALIASES.get(k, k): v for k, v in raw_plans.items()}
 
     today = date.today()
 
@@ -54,7 +60,7 @@ def main():
     # --- По точкам (сегодня) ---
     by_dept = {}
     for r in rows:
-        dept = r["Department"]
+        dept = DEPT_ALIASES.get(r["Department"], r["Department"])
         d = by_dept.setdefault(dept, {"revenue": 0, "orders": 0})
         d["revenue"] += r.get("DishDiscountSumInt", 0)
         d["orders"] += r.get("UniqOrderId.OrdersCount", 0)
@@ -121,7 +127,7 @@ def main():
 
     mtd_by_dept = {}
     for r in mtd_rows:
-        dept = r["Department"]
+        dept = DEPT_ALIASES.get(r["Department"], r["Department"])
         mtd_by_dept[dept] = mtd_by_dept.get(dept, 0) + r.get("DishDiscountSumInt", 0)
 
     plan_rows = []
