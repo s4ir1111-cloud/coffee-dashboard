@@ -95,7 +95,7 @@ def main():
     items = [
         {
             "name": r["DishName"].strip(),
-            "group": r.get("DishGroup", "").strip(),
+            "group": (r.get("DishGroup") or "").strip(),
             "qty": r["DishAmountInt"],
             "revenue": r["DishSumInt"],
         }
