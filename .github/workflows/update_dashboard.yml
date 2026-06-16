@@ -1,0 +1,43 @@
+name: Update Dashboard Data
+
+on:
+  schedule:
+    # Каждые 15 минут (UTC). Для Тюмени/Сургута UTC+5 — т.е. с 05:00 до 23:00 местного.
+    - cron: '*/15 * * * *'
+  workflow_dispatch:  # ручной запуск из интерфейса GitHub
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch IIKO data
+        env:
+          IIKO_HOST: ${{ secrets.IIKO_HOST }}
+          IIKO_LOGIN: ${{ secrets.IIKO_LOGIN }}
+          IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
+        run: python iiko_resto_connector.py
+
+      - name: Build dashboard data
+        run: python build_dashboard_data.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dashboard_data_view.json dashboard_data.json
+          git diff --staged --quiet || git commit -m "data: update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
