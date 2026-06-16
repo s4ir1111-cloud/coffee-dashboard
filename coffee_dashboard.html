@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Дашборд продаж — Кофейни</title>
+<style>
+  :root{
+    --bg:#0b0f17;
+    --card:#141b29;
+    --card2:#1b2434;
+    --text:#e7edf5;
+    --muted:#8a98ad;
+    --accent:#ffb547;
+    --good:#3ddc97;
+    --bad:#ff5d6c;
+    --border:#26324a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    height:100vh;
+    width:100vw;
+    overflow:hidden;
+  }
+  body{
+    display:flex;
+    flex-direction:column;
+    padding:14px 22px;
+    gap:10px;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex:0 0 auto;
+  }
+  header h1{
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.5px;
+  }
+  header .clock{
+    font-size:18px;
+    color:var(--muted);
+    font-weight:500;
+  }
+  .summary{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+    flex:0 0 auto;
+  }
+  .summary .card{
+    background:linear-gradient(145deg,var(--card2),var(--card));
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px 14px;
+  }
+  .summary .card .label{
+    color:var(--muted);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-bottom:4px;
+    white-space:nowrap;
+  }
+  .summary .card .value{
+    font-size:24px;
+    font-weight:700;
+    line-height:1.1;
+  }
+  .summary .card .sub{
+    margin-top:3px;
+    font-size:11px;
+    color:var(--muted);
+  }
+  .good{color:var(--good);}
+  .bad{color:var(--bad);}
+
+  h2.section-title{
+    font-size:12px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    flex:0 0 auto;
+  }
+
+  .tables-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    flex:1 1 auto;
+    min-height:0;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--card);
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    height:100%;
+    font-size:13px;
+  }
+  th,td{
+    padding:4px 10px;
+    text-align:left;
+    white-space:nowrap;
+  }
+  th{
+    background:var(--card2);
+    color:var(--muted);
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:0.5px;
+    font-weight:600;
+  }
+  tbody tr:not(:last-child){
+    border-bottom:1px solid var(--border);
+  }
+  .name-cell{
+    max-width:140px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .bottom-row{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:14px;
+    flex:0 0 26%;
+    min-height:0;
+  }
+  .card-block{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px 14px;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .card-block canvas{
+    flex:1 1 auto;
+    min-height:0;
+  }
+  .top-items{list-style:none;overflow:hidden;flex:1 1 auto;}
+  .top-items li{
+    display:flex;
+    justify-content:space-between;
+    padding:4px 0;
+    border-bottom:1px solid var(--border);
+    font-size:13px;
+  }
+  .top-items li:last-child{border-bottom:none;}
+  .top-items .qty{color:var(--muted);font-size:11px;}
+  footer{
+    flex:0 0 auto;
+    color:var(--muted);
+    font-size:11px;
+    text-align:center;
+  }
+  .badge-source{
+    display:inline-block;
+    background:var(--card2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:2px 8px;
+    font-size:11px;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>☕ Продажи · Кофейни</h1>
+  <div class="clock" id="clock">--:--:--</div>
+</header>
+
+<section class="summary">
+  <div class="card">
+    <div class="label">Выручка за день</div>
+    <div class="value" id="sum-revenue">—</div>
+    <div class="sub" id="sum-date">—</div>
+  </div>
+  <div class="card">
+    <div class="label">Заказов сегодня</div>
+    <div class="value" id="sum-orders">—</div>
+    <div class="sub" id="sum-avg">—</div>
+  </div>
+  <div class="card">
+    <div class="label">Точек в отчёте</div>
+    <div class="value" id="sum-points">—</div>
+    <div class="sub" id="status-badge">загрузка...</div>
+  </div>
+  <div class="card">
+    <div class="label">Факт МТД</div>
+    <div class="value" id="plan-mtd">—</div>
+    <div class="sub" id="plan-day">—</div>
+  </div>
+  <div class="card">
+    <div class="label">План на месяц</div>
+    <div class="value" id="plan-month">—</div>
+    <div class="sub">Сумма по всем точкам</div>
+  </div>
+  <div class="card">
+    <div class="label">% от плана месяца</div>
+    <div class="value" id="plan-pct">—</div>
+    <div class="sub" id="plan-expected">—</div>
+  </div>
+  <div class="card">
+    <div class="label">% от темпа</div>
+    <div class="value" id="plan-pace">—</div>
+    <div class="sub">100% = идём по плану</div>
+  </div>
+</section>
+
+<h2 class="section-title">Продажи по точкам · план/факт с начала месяца</h2>
+<div class="tables-row">
+  <table>
+    <thead>
+      <tr>
+        <th>Кофейня</th>
+        <th>Выручка</th>
+        <th>Заказы</th>
+        <th>Ср.чек</th>
+        <th>МТД факт</th>
+        <th>План мес.</th>
+        <th>% плана</th>
+        <th>% темпа</th>
+      </tr>
+    </thead>
+    <tbody id="points-tbody-1">
+      <tr><td colspan="8">Загрузка данных…</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Кофейня</th>
+        <th>Выручка</th>
+        <th>Заказы</th>
+        <th>Ср.чек</th>
+        <th>МТД факт</th>
+        <th>План мес.</th>
+        <th>% плана</th>
+        <th>% темпа</th>
+      </tr>
+    </thead>
+    <tbody id="points-tbody-2">
+    </tbody>
+  </table>
+</div>
+
+<div class="bottom-row">
+  <div class="card-block">
+    <h2 class="section-title" style="margin-bottom:6px;">Динамика выручки по часам</h2>
+    <canvas id="revenueChart"></canvas>
+  </div>
+  <div class="card-block">
+    <h2 class="section-title" style="margin-bottom:6px;">Топ позиций по продажам</h2>
+    <ul class="top-items" id="top-items-list">
+      <li>Загрузка…</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  Данные из IIKO Server (iikoOffice) · OLAP-отчёт по продажам · файл dashboard_data_view.json
+</footer>
+
+<script>
+  function updateClock(){
+    const now = new Date();
+    document.getElementById('clock').textContent = now.toLocaleTimeString('ru-RU');
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  function fmtMoney(n){
+    return Math.round(n).toLocaleString('ru-RU') + ' ₽';
+  }
+  function fmtMoneyShort(n){
+    n = Math.round(n);
+    if(Math.abs(n) >= 1000){
+      return (n/1000).toLocaleString('ru-RU', {maximumFractionDigits:0}) + ' тыс ₽';
+    }
+    return n.toLocaleString('ru-RU') + ' ₽';
+  }
+
+  let hourlyData = [];
+
+  function renderData(data){
+    document.getElementById('sum-revenue').textContent = fmtMoney(data.summary.revenue);
+    document.getElementById('sum-date').textContent = data.date;
+    document.getElementById('sum-orders').textContent = data.summary.orders.toLocaleString('ru-RU');
+    document.getElementById('sum-avg').textContent = 'Средний чек: ' + fmtMoney(data.summary.avg_check);
+    document.getElementById('sum-points').textContent = data.points.length;
+    document.getElementById('status-badge').textContent = 'данные загружены';
+
+    // карта планов по имени точки
+    const planMap = {};
+    if(data.plan){
+      data.plan.points.forEach(p => { planMap[p.name] = p; });
+    }
+
+    const tbody1 = document.getElementById('points-tbody-1');
+    const tbody2 = document.getElementById('points-tbody-2');
+    tbody1.innerHTML = '';
+    tbody2.innerHTML = '';
+    const half = Math.ceil(data.points.length / 2);
+
+    data.points.forEach((p, idx) => {
+      const plan = planMap[p.name];
+      const paceClass = plan ? (plan.pct_vs_expected >= 100 ? 'good' : (plan.pct_vs_expected >= 90 ? '' : 'bad')) : '';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="name-cell">${p.name}</td>
+        <td>${fmtMoneyShort(p.revenue)}</td>
+        <td>${p.orders}</td>
+        <td>${fmtMoneyShort(p.avg_check)}</td>
+        <td>${plan ? fmtMoneyShort(plan.mtd_revenue) : '—'}</td>
+        <td>${plan ? fmtMoneyShort(plan.plan_month) : '—'}</td>
+        <td>${plan ? plan.pct_of_plan + '%' : '—'}</td>
+        <td class="${paceClass}">${plan ? plan.pct_vs_expected + '%' : '—'}</td>`;
+      (idx < half ? tbody1 : tbody2).appendChild(tr);
+    });
+
+    const itemsList = document.getElementById('top-items-list');
+    itemsList.innerHTML = '';
+    data.top_items.slice(0, 6).forEach(it => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${it.name}</span><span class="qty">${it.qty} шт · ${fmtMoneyShort(it.revenue)}</span>`;
+      itemsList.appendChild(li);
+    });
+
+    hourlyData = data.hourly;
+    drawChart();
+
+    // --- План/факт с начала месяца (сводка) ---
+    if(data.plan){
+      const ps = data.plan.summary;
+      document.getElementById('plan-mtd').textContent = fmtMoneyShort(ps.mtd_revenue);
+      document.getElementById('plan-day').textContent = `День ${ps.day_of_month} из ${ps.days_in_month}`;
+      document.getElementById('plan-month').textContent = fmtMoneyShort(ps.plan_month);
+      document.getElementById('plan-pct').textContent = ps.pct_of_plan + '%';
+      document.getElementById('plan-expected').textContent = 'Ожидалось: ' + fmtMoneyShort(ps.expected_to_date);
+      const paceEl = document.getElementById('plan-pace');
+      paceEl.textContent = ps.pct_vs_expected + '%';
+      paceEl.className = 'value ' + (ps.pct_vs_expected >= 100 ? 'good' : (ps.pct_vs_expected >= 90 ? '' : 'bad'));
+    }
+  }
+
+  function loadData(){
+    fetch('dashboard_data_view.json', {cache: 'no-store'})
+      .then(r => {
+        if(!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(renderData)
+      .catch(err => {
+        document.getElementById('status-badge').textContent = 'ошибка загрузки: ' + err.message;
+        document.getElementById('status-badge').style.color = '#ff5d6c';
+      });
+  }
+
+  loadData();
+  // Автообновление каждые 5 минут — подходит для мониторов
+  setInterval(loadData, 5 * 60 * 1000);
+
+  const canvas = document.getElementById('revenueChart');
+  const ctx = canvas.getContext('2d');
+
+  function drawChart(){
+    if(!hourlyData.length) return;
+    const data = hourlyData.map(h => h.revenue);
+    const labels = hourlyData.map(h => h.hour);
+
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight || 140;
+    canvas.width = w*dpr;
+    canvas.height = h*dpr;
+    ctx.scale(dpr,dpr);
+
+    ctx.clearRect(0,0,w,h);
+    const max = Math.max(...data, 1);
+    const padding = 26;
+    const chartW = w - padding*2;
+    const chartH = h - padding*2;
+    const stepX = data.length > 1 ? chartW / (data.length-1) : 0;
+
+    ctx.strokeStyle = '#26324a';
+    ctx.lineWidth = 1;
+    for(let i=0;i<=4;i++){
+      const y = padding + chartH/4*i;
+      ctx.beginPath();
+      ctx.moveTo(padding,y);
+      ctx.lineTo(w-padding,y);
+      ctx.stroke();
+    }
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#ffb547';
+    ctx.lineWidth = 3;
+    data.forEach((v,i)=>{
+      const x = padding + stepX*i;
+      const y = padding + chartH - (v/max)*chartH;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+
+    ctx.fillStyle = '#8a98ad';
+    ctx.font = '11px Segoe UI';
+    ctx.textAlign = 'center';
+    data.forEach((v,i)=>{
+      const x = padding + stepX*i;
+      const y = padding + chartH - (v/max)*chartH;
+      ctx.beginPath();
+      ctx.arc(x,y,3,0,Math.PI*2);
+      ctx.fillStyle = '#3ddc97';
+      ctx.fill();
+      ctx.fillStyle = '#8a98ad';
+      ctx.fillText(labels[i] + ':00', x, h-6);
+    });
+  }
+  window.addEventListener('resize', drawChart);
+</script>
+
+</body>
+</html>
