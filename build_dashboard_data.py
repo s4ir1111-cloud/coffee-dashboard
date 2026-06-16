@@ -45,6 +45,8 @@ def main():
     with open(PLANS_PATH, "r", encoding="utf-8") as f:
         plans = json.load(f).get("monthly_plans", {})
 
+    today = date.today()
+
     rows = raw["sales_raw"]["data"]
     mtd_rows = raw["sales_mtd_raw"]["data"]
     top_rows = raw["top_items_raw"]["data"]
@@ -113,7 +115,6 @@ def main():
     total_avg_check = round(total_revenue / total_orders) if total_orders else 0
 
     # --- План/факт с начала месяца ---
-    today = date.today()
     day_of_month = today.day
     days_in_month = calendar.monthrange(today.year, today.month)[1]
     pace = day_of_month / days_in_month  # доля месяца, прошедшая к сегодняшнему дню
