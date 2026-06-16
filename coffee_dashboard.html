@@ -37,28 +37,31 @@
     align-items:center;
     flex:0 0 auto;
   }
-  header h1{
-    font-size:26px;
+  .logo-wrap{display:flex;flex-direction:column;justify-content:center;}
+  .logo-text{
+    font-size:48px;
     font-weight:700;
-    letter-spacing:2px;
+    letter-spacing:4px;
     text-transform:uppercase;
     font-family:'Barlow Condensed', Arial, sans-serif;
     color:var(--accent);
+    line-height:1;
   }
-  header h1 span{
-    color:var(--text);
+  .logo-sub{
+    color:var(--muted);
     font-weight:400;
-    font-size:16px;
-    letter-spacing:1px;
-    display:block;
-    margin-top:1px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-top:3px;
+    font-family:'Barlow Condensed', Arial, sans-serif;
   }
   header .clock{
-    font-size:20px;
+    font-size:36px;
     color:var(--accent);
     font-weight:700;
     font-family:'Barlow Condensed', Arial, sans-serif;
-    letter-spacing:2px;
+    letter-spacing:3px;
   }
   .summary{
     display:grid;
@@ -196,12 +199,10 @@
 <body>
 
 <header>
-  <h1>
-    <img src="https://static.tildacdn.com/tild6335-6330-4239-a234-386233326264/garden_guide-04.svg"
-         alt="GARDEN"
-         style="height:54px;vertical-align:middle;margin-right:14px;filter:brightness(0) saturate(100%) invert(79%) sepia(48%) saturate(623%) hue-rotate(29deg) brightness(102%) contrast(96%);">
-    <span>Продажи кофеен · онлайн-дашборд</span>
-  </h1>
+  <div class="logo-wrap">
+    <div class="logo-text">GARDEN</div>
+    <div class="logo-sub">Продажи кофеен · онлайн-дашборд</div>
+  </div>
   <div class="clock" id="clock">--:--:--</div>
 </header>
 
