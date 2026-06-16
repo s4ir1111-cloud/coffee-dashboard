@@ -37,23 +37,14 @@
     align-items:center;
     flex:0 0 auto;
   }
-  .logo-wrap{display:flex;flex-direction:column;justify-content:center;}
-  .logo-text{
-    font-size:48px;
-    font-weight:700;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    font-family:'Barlow Condensed', Arial, sans-serif;
-    color:var(--accent);
-    line-height:1;
-  }
+  .logo-wrap{display:flex;flex-direction:column;justify-content:center;gap:4px;}
+  .logo-svg{display:block;height:60px;width:auto;}
   .logo-sub{
     color:var(--muted);
     font-weight:400;
-    font-size:12px;
-    letter-spacing:2px;
+    font-size:11px;
+    letter-spacing:2.5px;
     text-transform:uppercase;
-    margin-top:3px;
     font-family:'Barlow Condensed', Arial, sans-serif;
   }
   header .clock{
@@ -145,9 +136,10 @@
     border-bottom:1px solid var(--border);
   }
   .name-cell{
-    max-width:140px;
+    max-width:200px;
     overflow:hidden;
     text-overflow:ellipsis;
+    white-space:nowrap;
   }
   .bottom-row{
     display:grid;
@@ -200,7 +192,17 @@
 
 <header>
   <div class="logo-wrap">
-    <div class="logo-text">GARDEN</div>
+    <!-- GARDEN wordmark — vector paths extracted from official brand PDF -->
+    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="535 258 850 142" aria-label="GARDEN">
+      <g fill="#bedf3d">
+        <path d="M 1243.589844 380.964844 C 1244.8125 389.808594 1231.257812 384.707031 1226.089844 384.15625 C 1192.828125 380.605469 1175.636719 390.074219 1171.566406 392.722656 C 1170.894531 393.160156 1170.113281 393.390625 1169.3125 393.390625 L 1132.347656 393.390625 C 1130.0625 393.390625 1128.210938 391.539062 1128.210938 389.257812 L 1128.210938 269.066406 C 1128.210938 266.78125 1130.0625 264.929688 1132.347656 264.929688 L 1169.898438 264.929688 C 1170.835938 264.929688 1171.742188 265.25 1172.476562 265.832031 C 1175.925781 268.570312 1187.214844 276.574219 1200.796875 276.070312 C 1209.550781 275.742188 1215.292969 276.925781 1215.730469 281.15625 C 1216.304688 286.675781 1210.632812 285.390625 1206.136719 284.644531 C 1190.101562 281.984375 1178.941406 285.503906 1169.980469 289.746094 C 1183.28125 305.761719 1205.976562 307.308594 1212.648438 307.214844 C 1221.113281 307.101562 1224.257812 308.980469 1224.703125 312.5 C 1225.164062 316.136719 1222.429688 317.707031 1217.246094 316.902344 C 1185.441406 311.964844 1172.058594 322.226562 1172.058594 322.226562 C 1172.058594 322.226562 1184.644531 340.828125 1221.472656 340.527344 C 1234.984375 340.417969 1235.234375 344.695312 1234.703125 347.304688 C 1233.59375 352.78125 1223.640625 349.917969 1220.316406 349.488281 C 1188.75 345.402344 1175.410156 355.589844 1171.6875 357.777344 C 1188.257812 374.1875 1203.347656 375.101562 1228.539062 375.269531 C 1238.496094 375.335938 1243.078125 377.269531 1243.589844 380.964844 "/>
+        <path d="M 1379.820312 269.066406 L 1379.820312 389.257812 C 1379.820312 391.539062 1377.96875 393.390625 1375.683594 393.390625 L 1290.226562 393.390625 C 1314.292969 384.488281 1319.136719 357.492188 1319.136719 357.492188 C 1301.898438 354.75 1284.125 359.839844 1271.582031 371.175781 C 1266.894531 375.414062 1260.703125 384.714844 1255.6875 379.207031 C 1250.273438 373.257812 1258.507812 367.222656 1264.660156 364.527344 C 1300.910156 348.648438 1300.496094 328.3125 1300.496094 324.804688 C 1294.625 322.398438 1271.367188 323.171875 1256.714844 339.707031 C 1255.203125 341.414062 1249.445312 348.929688 1244.625 345.648438 C 1242.707031 344.339844 1239.5625 336.894531 1250.523438 332.167969 C 1280.636719 319.179688 1284.941406 302.410156 1284.882812 295.890625 C 1277.433594 293.015625 1258.695312 295.117188 1245.769531 307.523438 C 1244.488281 308.75 1237.109375 315.820312 1233.457031 311.261719 C 1230.550781 307.636719 1232.042969 301.894531 1241.980469 298.5625 C 1271.585938 288.636719 1271.273438 269.117188 1271.273438 269.117188 C 1271.273438 269.117188 1257.871094 267.738281 1245.960938 271.46875 C 1239.597656 273.464844 1230.203125 281.246094 1228.457031 282.023438 C 1224.632812 283.722656 1222.546875 280.554688 1223.105469 277.460938 C 1223.738281 273.960938 1226.5 272.03125 1229.730469 271.128906 C 1236.382812 269.265625 1241.890625 266.640625 1244.109375 265.511719 C 1244.824219 265.148438 1245.605469 264.960938 1246.40625 264.960938 C 1253.859375 264.960938 1292.355469 264.960938 1300.394531 264.953125 C 1302.039062 264.953125 1303.523438 265.929688 1304.183594 267.4375 L 1330.636719 328.164062 C 1330.949219 328.882812 1331.65625 329.347656 1332.441406 329.347656 C 1333.53125 329.347656 1334.414062 328.464844 1334.414062 327.378906 L 1334.414062 269.066406 C 1334.414062 266.78125 1336.261719 264.929688 1338.546875 264.929688 L 1375.683594 264.929688 C 1377.96875 264.929688 1379.820312 266.78125 1379.820312 269.066406 "/>
+        <path fill-rule="evenodd" d="M 889.949219 325.828125 L 906.234375 325.828125 C 917.492188 325.828125 923.199219 320.886719 923.199219 311.148438 C 923.199219 304.339844 920.257812 296.226562 906.234375 296.226562 L 889.949219 296.226562 Z M 923.777344 391.050781 L 907.40625 357.09375 L 889.949219 357.09375 L 889.949219 389.257812 C 889.949219 391.539062 888.097656 393.390625 885.816406 393.390625 L 849.804688 393.390625 C 847.523438 393.390625 845.671875 391.539062 845.671875 389.257812 L 845.671875 269.097656 C 845.671875 266.8125 847.523438 264.960938 849.804688 264.960938 L 911.257812 264.960938 C 948.683594 264.960938 966.113281 279.636719 966.113281 311.148438 C 966.113281 327.96875 961.097656 339.804688 950.78125 347.332031 L 948.105469 349.285156 L 968.507812 387.300781 C 969.984375 390.054688 967.988281 393.390625 964.863281 393.390625 L 927.503906 393.390625 C 925.914062 393.390625 924.46875 392.484375 923.777344 391.050781 "/>
+        <path fill-rule="evenodd" d="M 612.953125 397.105469 C 570 397.105469 540 369.183594 540 329.203125 C 540 289.222656 570 261.296875 612.953125 261.296875 C 646.472656 261.296875 673.175781 281.242188 679.953125 308.476562 C 680.605469 311.097656 678.640625 313.636719 675.941406 313.636719 L 637.667969 313.636719 C 636.433594 313.636719 635.238281 313.097656 634.472656 312.128906 C 630.21875 306.730469 623.058594 302.660156 614.511719 302.660156 C 599.695312 302.660156 588.941406 313.820312 588.941406 329.203125 C 588.941406 344.027344 596.816406 357.972656 614.414062 358.421875 L 615.382812 358.433594 C 625.171875 358.433594 630.722656 350.78125 631.746094 349.230469 C 631.859375 349.058594 631.917969 348.859375 631.917969 348.648438 C 631.917969 348.058594 631.441406 347.582031 630.851562 347.582031 L 621.253906 347.582031 C 618.972656 347.582031 617.121094 345.730469 617.121094 343.445312 L 617.121094 331.671875 C 617.121094 329.390625 618.972656 327.535156 621.253906 327.535156 L 677.304688 327.535156 C 679.589844 327.535156 681.441406 329.390625 681.441406 331.671875 L 681.441406 389.277344 C 681.441406 391.5625 679.589844 393.414062 677.304688 393.414062 L 654.28125 393.414062 C 651.996094 393.414062 650.144531 391.5625 650.144531 389.277344 L 650.144531 382.511719 C 650.144531 382.007812 649.535156 381.753906 649.1875 382.117188 C 645.75 385.6875 633.179688 397.105469 612.953125 397.105469 "/>
+        <path fill-rule="evenodd" d="M 749.234375 338.839844 L 777.066406 338.839844 L 768.914062 303.613281 L 757.386719 303.613281 Z M 788.9375 390.195312 L 784.65625 371.859375 L 741.640625 371.859375 L 737.363281 390.195312 C 736.925781 392.066406 735.257812 393.390625 733.335938 393.390625 L 694.695312 393.390625 C 691.925781 393.390625 689.9375 390.71875 690.734375 388.066406 L 726.824219 267.90625 C 727.351562 266.160156 728.960938 264.960938 730.785156 264.960938 L 795.515625 264.960938 C 797.339844 264.960938 798.949219 266.160156 799.476562 267.90625 L 835.5625 388.066406 C 836.359375 390.71875 834.375 393.390625 831.601562 393.390625 L 792.960938 393.390625 C 791.039062 393.390625 789.371094 392.066406 788.9375 390.195312 "/>
+        <path fill-rule="evenodd" d="M 1027.433594 354.359375 L 1045.996094 354.359375 C 1063.839844 354.359375 1074.070312 345.175781 1074.070312 329.171875 C 1074.070312 313.167969 1063.839844 303.992188 1045.996094 303.992188 L 1027.433594 303.992188 Z M 983.148438 389.257812 L 983.148438 269.097656 C 983.148438 266.8125 985 264.960938 987.285156 264.960938 L 1053.148438 264.960938 C 1095.9375 264.960938 1120.480469 288.367188 1120.480469 329.171875 C 1120.480469 370.589844 1096.566406 393.390625 1053.148438 393.390625 L 987.285156 393.390625 C 985 393.390625 983.148438 391.539062 983.148438 389.257812 "/>
+      </g>
+    </svg>
     <div class="logo-sub">Продажи кофеен · онлайн-дашборд</div>
   </div>
   <div class="clock" id="clock">--:--:--</div>
@@ -283,7 +285,7 @@
 
 <div class="bottom-row">
   <div class="card-block">
-    <h2 class="section-title" style="margin-bottom:6px;">Динамика выручки по часам</h2>
+    <h2 class="section-title" style="margin-bottom:6px;">Выручка по дням (7 дней)</h2>
     <canvas id="revenueChart"></canvas>
   </div>
   <div class="card-block">
@@ -306,6 +308,17 @@
   updateClock();
   setInterval(updateClock, 1000);
 
+  // Убираем "Гарден", "Кофе", "кофейня" из названий — оставляем только уникальную часть
+  function cleanName(name) {
+    return name
+      .replace(/Гарден\s+Кофе\s+/gi, '')
+      .replace(/Гарден\s+/gi, '')
+      .replace(/\s*Кофе\b/gi, '')
+      .replace(/\s*кофейня\b/gi, '')
+      .replace(/\s*Кофейня\b/gi, '')
+      .trim();
+  }
+
   function fmtMoney(n){
     return Math.round(n).toLocaleString('ru-RU') + ' ₽';
   }
@@ -317,7 +330,8 @@
     return n.toLocaleString('ru-RU') + ' ₽';
   }
 
-  let hourlyData = [];
+  let weeklyData = [];
+  let todayStr = '';
 
   function renderData(data){
     document.getElementById('sum-revenue').textContent = fmtMoney(data.summary.revenue);
@@ -344,7 +358,7 @@
       const paceClass = plan ? (plan.pct_vs_expected >= 100 ? 'good' : (plan.pct_vs_expected >= 90 ? '' : 'bad')) : '';
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td class="name-cell">${p.name}</td>
+        <td class="name-cell">${cleanName(p.name)}</td>
         <td>${fmtMoneyShort(p.revenue)}</td>
         <td>${p.orders}</td>
         <td>${fmtMoneyShort(p.avg_check)}</td>
@@ -363,7 +377,8 @@
       itemsList.appendChild(li);
     });
 
-    hourlyData = data.hourly;
+    weeklyData = data.weekly || [];
+    todayStr = data.date;
     drawChart();
 
     // --- План/факт с начала месяца (сводка) ---
@@ -401,56 +416,70 @@
   const ctx = canvas.getContext('2d');
 
   function drawChart(){
-    if(!hourlyData.length) return;
-    const data = hourlyData.map(h => h.revenue);
-    const labels = hourlyData.map(h => h.hour);
-
+    if(!weeklyData.length) return;
     const dpr = window.devicePixelRatio || 1;
     const w = canvas.clientWidth;
     const h = canvas.clientHeight || 140;
-    canvas.width = w*dpr;
-    canvas.height = h*dpr;
-    ctx.scale(dpr,dpr);
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
 
-    ctx.clearRect(0,0,w,h);
-    const max = Math.max(...data, 1);
-    const padding = 26;
-    const chartW = w - padding*2;
-    const chartH = h - padding*2;
-    const stepX = data.length > 1 ? chartW / (data.length-1) : 0;
+    const padL = 8, padR = 8, padT = 10, padB = 28;
+    const chartW = w - padL - padR;
+    const chartH = h - padT - padB;
+    const n = weeklyData.length;
+    const values = weeklyData.map(d => d.revenue);
+    const max = Math.max(...values, 1);
+    const barGap = 6;
+    const barW = (chartW - barGap * (n - 1)) / n;
 
+    // Горизонтальные линии сетки
     ctx.strokeStyle = '#26324a';
     ctx.lineWidth = 1;
-    for(let i=0;i<=4;i++){
-      const y = padding + chartH/4*i;
+    for(let i = 0; i <= 4; i++){
+      const y = padT + (chartH / 4) * i;
       ctx.beginPath();
-      ctx.moveTo(padding,y);
-      ctx.lineTo(w-padding,y);
+      ctx.moveTo(padL, y);
+      ctx.lineTo(w - padR, y);
       ctx.stroke();
     }
 
-    ctx.beginPath();
-    ctx.strokeStyle = '#ffb547';
-    ctx.lineWidth = 3;
-    data.forEach((v,i)=>{
-      const x = padding + stepX*i;
-      const y = padding + chartH - (v/max)*chartH;
-      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    });
-    ctx.stroke();
+    weeklyData.forEach((d, i) => {
+      const x = padL + i * (barW + barGap);
+      const barH = (d.revenue / max) * chartH;
+      const y = padT + chartH - barH;
+      const isToday = d.date === todayStr;
 
-    ctx.fillStyle = '#8a98ad';
-    ctx.font = '11px Segoe UI';
-    ctx.textAlign = 'center';
-    data.forEach((v,i)=>{
-      const x = padding + stepX*i;
-      const y = padding + chartH - (v/max)*chartH;
+      // Столбик
+      ctx.fillStyle = isToday ? '#bedf3d' : '#4a5b7a';
+      const r = 4;
       ctx.beginPath();
-      ctx.arc(x,y,3,0,Math.PI*2);
-      ctx.fillStyle = '#3ddc97';
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + barW - r, y);
+      ctx.quadraticCurveTo(x + barW, y, x + barW, y + r);
+      ctx.lineTo(x + barW, y + barH);
+      ctx.lineTo(x, y + barH);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
       ctx.fill();
-      ctx.fillStyle = '#8a98ad';
-      ctx.fillText(labels[i] + ':00', x, h-6);
+
+      // Значение над столбиком
+      if(d.revenue > 0){
+        ctx.fillStyle = isToday ? '#bedf3d' : '#9da5c0';
+        ctx.font = `bold ${Math.max(9, Math.min(11, Math.floor(barW * 0.4)))}px 'Barlow Condensed', sans-serif`;
+        ctx.textAlign = 'center';
+        const label = d.revenue >= 1000000
+          ? (d.revenue / 1000000).toFixed(1) + 'М'
+          : Math.round(d.revenue / 1000) + 'к';
+        ctx.fillText(label, x + barW / 2, Math.max(padT + 10, y - 3));
+      }
+
+      // День недели внизу
+      ctx.fillStyle = isToday ? '#bedf3d' : '#9da5c0';
+      ctx.font = `${isToday ? 'bold' : 'normal'} 12px 'Barlow Condensed', sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText(d.day_name, x + barW / 2, h - 6);
     });
   }
   window.addEventListener('resize', drawChart);

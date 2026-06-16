@@ -14,8 +14,10 @@
 
 import json
 import os
-from datetime import date
+from datetime import date, timedelta
 import calendar
+
+DAYS_RU = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
 
 BASE_DIR = os.path.dirname(__file__)
 IN_PATH = os.path.join(BASE_DIR, "dashboard_data.json")
@@ -54,13 +56,25 @@ def main():
             "avg_check": avg_check,
         })
 
-    # --- По часам (для графика) ---
+    # --- По часам (для совместимости, не отображается) ---
     by_hour = {}
     for r in rows:
         hour = r["HourOpen"]
         by_hour[hour] = by_hour.get(hour, 0) + r.get("DishDiscountSumInt", 0)
     hours_sorted = sorted(by_hour.keys())
     hourly = [{"hour": h, "revenue": by_hour[h]} for h in hours_sorted]
+
+    # --- Выручка по дням (последние 7 дней) ---
+    weekly_rows = raw.get("sales_weekly_raw", {}).get("data", [])
+    weekly_by_date = {}
+    for r in weekly_rows:
+        d = r.get("OpenDate.Typed", "")
+        weekly_by_date[d] = weekly_by_date.get(d, 0) + r.get("DishDiscountSumInt", 0)
+    weekly = []
+    for i in range(6, -1, -1):
+        d = today - timedelta(days=i)
+        ds = d.isoformat()
+        weekly.append({"date": ds, "day_name": DAYS_RU[d.weekday()], "revenue": weekly_by_date.get(ds, 0)})
 
     # --- Топ позиций (исключаем модификаторы с нулевой суммой) ---
     items = [
@@ -128,6 +142,7 @@ def main():
         },
         "points": points,
         "hourly": hourly,
+        "weekly": weekly,
         "top_items": top_items,
         "plan": {
             "summary": plan_summary,

@@ -124,6 +124,25 @@ def olap_mtd_report(host: str, token: str, month_start: str, next_day: str) -> d
     return _olap(host, token, body)
 
 
+def olap_weekly_report(host: str, token: str, week_start: str, next_day: str) -> dict:
+    """OLAP-отчёт по продажам за последние 7 дней (сгруппировано по дате)."""
+    body = {
+        "reportType": "SALES",
+        "groupByRowFields": ["OpenDate.Typed"],
+        "groupByColFields": [],
+        "aggregateFields": ["DishSumInt", "DishDiscountSumInt"],
+        "filters": {
+            "OpenDate.Typed": {
+                "filterType": "DateRange",
+                "periodType": "CUSTOM",
+                "from": week_start,
+                "to": next_day,
+            }
+        },
+    }
+    return _olap(host, token, body)
+
+
 def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
     """OLAP-отчёт: топ позиций по выручке за день."""
     body = {
@@ -148,6 +167,7 @@ def main():
     today_str = today.isoformat()
     tomorrow = (today + timedelta(days=1)).isoformat()
     month_start = today.replace(day=1).isoformat()
+    week_start = (today - timedelta(days=6)).isoformat()
 
     username = os.environ.get("IIKO_LOGIN")
     password = os.environ.get("IIKO_PASSWORD")
@@ -170,12 +190,16 @@ def main():
         print("4. Строим топ позиций...")
         top_items = olap_top_items(HOST, token, today_str, tomorrow)
 
+        print(f"5. Строим выручку за 7 дней ({week_start} -> {today_str})...")
+        weekly = olap_weekly_report(HOST, token, week_start, tomorrow)
+
         output = {
             "date": today_str,
             "month_start": month_start,
             "sales_raw": sales,
             "sales_mtd_raw": sales_mtd,
             "top_items_raw": top_items,
+            "sales_weekly_raw": weekly,
         }
 
         out_path = os.path.join(os.path.dirname(__file__), "dashboard_data.json")
@@ -184,7 +208,7 @@ def main():
 
         print(f"Готово. Сырые данные сохранены в {out_path}")
     finally:
-        print("5. Разлогиниваемся (освобождаем слот лицензии)...")
+        print("6. Разлогиниваемся (освобождаем слот лицензии)...")
         logout(HOST, token)
         print("   OK")
 
