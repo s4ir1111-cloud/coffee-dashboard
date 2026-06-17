@@ -217,9 +217,9 @@
     <div class="sub" id="sum-avg">—</div>
   </div>
   <div class="card">
-    <div class="label">Точек в отчёте</div>
-    <div class="value" id="sum-points">—</div>
-    <div class="sub" id="status-badge">загрузка...</div>
+    <div class="label">Скидки сегодня</div>
+    <div class="value" id="sum-discount">—</div>
+    <div class="sub">% от полной суммы</div>
   </div>
   <div class="card">
     <div class="label">Факт МТД</div>
@@ -335,8 +335,7 @@
     document.getElementById('sum-date').textContent = data.date;
     document.getElementById('sum-orders').textContent = data.summary.orders.toLocaleString('ru-RU');
     document.getElementById('sum-avg').textContent = 'Средний чек: ' + fmtMoney(data.summary.avg_check);
-    document.getElementById('sum-points').textContent = data.points.length;
-    document.getElementById('status-badge').textContent = 'данные загружены';
+    document.getElementById('sum-discount').textContent = (data.summary.discount_pct ?? '—') + (data.summary.discount_pct != null ? ' %' : '');
 
     // карта планов по имени точки
     const planMap = {};

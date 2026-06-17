@@ -120,6 +120,11 @@ def main():
     total_orders = sum(p["orders"] for p in points)
     total_avg_check = round(total_revenue / total_orders) if total_orders else 0
 
+    # --- % скидки (сегодня) ---
+    total_sum_full = sum(r.get("DishSumInt", 0) for r in rows)
+    total_sum_disc = sum(r.get("DishDiscountSumInt", 0) for r in rows)
+    discount_pct = round((1 - total_sum_disc / total_sum_full) * 1000) / 10 if total_sum_full else 0
+
     # --- План/факт с начала месяца ---
     day_of_month = today.day
     days_in_month = calendar.monthrange(today.year, today.month)[1]
@@ -168,6 +173,7 @@ def main():
             "revenue": total_revenue,
             "orders": total_orders,
             "avg_check": total_avg_check,
+            "discount_pct": discount_pct,
         },
         "points": points,
         "hourly": hourly,
