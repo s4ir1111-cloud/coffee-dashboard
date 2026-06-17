@@ -143,6 +143,28 @@ def olap_weekly_report(host: str, token: str, week_start: str, next_day: str) ->
     return _olap(host, token, body)
 
 
+def olap_discounts_report(host: str, token: str, day: str, next_day: str) -> dict:
+    """OLAP-отчёт о скидках за день: по типу скидки и точке."""
+    body = {
+        "reportType": "SALES",
+        "groupByRowFields": ["Department", "DiscountType"],
+        "groupByColFields": [],
+        "aggregateFields": [
+            "DishSumInt",
+            "DishDiscountSumInt",
+        ],
+        "filters": {
+            "OpenDate.Typed": {
+                "filterType": "DateRange",
+                "periodType": "CUSTOM",
+                "from": day,
+                "to": next_day,
+            }
+        },
+    }
+    return _olap(host, token, body)
+
+
 def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
     """OLAP-отчёт: топ позиций по выручке за день (с группой блюда для фильтра летних напитков)."""
     body = {
@@ -193,6 +215,9 @@ def main():
         print(f"5. Строим выручку за 7 дней ({week_start} -> {today_str})...")
         weekly = olap_weekly_report(HOST, token, week_start, tomorrow)
 
+        print(f"6. Строим отчёт о скидках за {today_str}...")
+        discounts = olap_discounts_report(HOST, token, today_str, tomorrow)
+
         output = {
             "date": today_str,
             "month_start": month_start,
@@ -200,6 +225,7 @@ def main():
             "sales_mtd_raw": sales_mtd,
             "top_items_raw": top_items,
             "sales_weekly_raw": weekly,
+            "discounts_raw": discounts,
         }
 
         out_path = os.path.join(os.path.dirname(__file__), "dashboard_data.json")

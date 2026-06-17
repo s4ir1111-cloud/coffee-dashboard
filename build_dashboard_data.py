@@ -120,10 +120,14 @@ def main():
     total_orders = sum(p["orders"] for p in points)
     total_avg_check = round(total_revenue / total_orders) if total_orders else 0
 
-    # --- % скидки (сегодня) ---
+    # --- % скидки из отчёта о скидках (IIKO discounts_raw) ---
+    discount_rows = raw.get("discounts_raw", {}).get("data", [])
+    disc_full = sum(r.get("DishSumInt", 0) for r in discount_rows)
+    disc_after = sum(r.get("DishDiscountSumInt", 0) for r in discount_rows)
+    disc_amount = disc_full - disc_after  # сумма скидок в рублях
+    # % от общей выручки (до скидок)
     total_sum_full = sum(r.get("DishSumInt", 0) for r in rows)
-    total_sum_disc = sum(r.get("DishDiscountSumInt", 0) for r in rows)
-    discount_pct = round((1 - total_sum_disc / total_sum_full) * 1000) / 10 if total_sum_full else 0
+    discount_pct = round((disc_amount / total_sum_full) * 1000) / 10 if total_sum_full else 0
 
     # --- План/факт с начала месяца ---
     day_of_month = today.day
