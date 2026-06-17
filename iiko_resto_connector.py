@@ -216,7 +216,11 @@ def main():
         weekly = olap_weekly_report(HOST, token, week_start, tomorrow)
 
         print(f"6. Строим отчёт о скидках за {today_str}...")
-        discounts = olap_discounts_report(HOST, token, today_str, tomorrow)
+        try:
+            discounts = olap_discounts_report(HOST, token, today_str, tomorrow)
+        except Exception as e:
+            print(f"   Предупреждение: отчёт о скидках недоступен ({e}), пропускаем")
+            discounts = {"data": []}
 
         output = {
             "date": today_str,
