@@ -48,8 +48,11 @@ def main():
         raw = json.load(f)
 
     with open(PLANS_PATH, "r", encoding="utf-8") as f:
-        raw_plans = json.load(f).get("monthly_plans", {})
+        raw_file = json.load(f)
+    raw_plans = raw_file.get("monthly_plans", {})
+    raw_avg_check_plans = raw_file.get("avg_check_plans", {})
     plans = {DEPT_ALIASES.get(k, k): v for k, v in raw_plans.items()}
+    avg_check_plans = {DEPT_ALIASES.get(k, k): v for k, v in raw_avg_check_plans.items()}
 
     today = date.today()
 
@@ -132,34 +135,49 @@ def main():
     pace = day_of_month / days_in_month  # доля месяца, прошедшая к сегодняшнему дню
 
     mtd_by_dept = {}
+    mtd_orders_by_dept = {}
     for r in mtd_rows:
         dept = DEPT_ALIASES.get(r["Department"], r["Department"])
         mtd_by_dept[dept] = mtd_by_dept.get(dept, 0) + r.get("DishDiscountSumInt", 0)
+        mtd_orders_by_dept[dept] = mtd_orders_by_dept.get(dept, 0) + r.get("UniqOrderId.OrdersCount", 0)
 
     plan_rows = []
     total_mtd = 0
     total_plan = 0
+    total_mtd_orders = 0
     for dept, plan_month in plans.items():
         mtd_revenue = mtd_by_dept.get(dept, 0)
+        mtd_orders = mtd_orders_by_dept.get(dept, 0)
+        mtd_avg_check = round(mtd_revenue / mtd_orders) if mtd_orders else 0
         expected_to_date = round(plan_month * pace)
         pct_of_plan = round((mtd_revenue / plan_month) * 1000) / 10 if plan_month else 0
         pct_vs_expected = round((mtd_revenue / expected_to_date) * 1000) / 10 if expected_to_date else 0
+        avg_check_plan = avg_check_plans.get(dept)
+        pct_avg_check = round((mtd_avg_check / avg_check_plan) * 1000) / 10 if (avg_check_plan and mtd_avg_check) else None
         plan_rows.append({
             "name": dept,
             "mtd_revenue": mtd_revenue,
+            "mtd_orders": mtd_orders,
+            "mtd_avg_check": mtd_avg_check,
             "plan_month": plan_month,
             "expected_to_date": expected_to_date,
             "pct_of_plan": pct_of_plan,
             "pct_vs_expected": pct_vs_expected,
+            "avg_check_plan": avg_check_plan,
+            "pct_avg_check": pct_avg_check,
         })
+        total_mtd_orders += mtd_orders
         total_mtd += mtd_revenue
         total_plan += plan_month
 
     plan_rows.sort(key=lambda x: -x["mtd_revenue"])
 
     total_expected_to_date = round(total_plan * pace)
+    total_mtd_avg_check = round(total_mtd / total_mtd_orders) if total_mtd_orders else 0
     plan_summary = {
         "mtd_revenue": total_mtd,
+        "mtd_orders": total_mtd_orders,
+        "mtd_avg_check": total_mtd_avg_check,
         "plan_month": total_plan,
         "expected_to_date": total_expected_to_date,
         "pct_of_plan": round((total_mtd / total_plan) * 1000) / 10 if total_plan else 0,

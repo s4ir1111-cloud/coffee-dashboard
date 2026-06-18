@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden · Выполнение плана</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap');
+  :root{
+    --bg:#2d3147;
+    --card:#363b57;
+    --card2:#3f4460;
+    --text:#e7edf5;
+    --muted:#9da5c0;
+    --accent:#bedf3d;
+    --good:#bedf3d;
+    --warn:#ffd166;
+    --bad:#ff5d6c;
+    --border:#4a5070;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Barlow', 'Segoe UI', Arial, sans-serif;
+    min-height:100vh;
+  }
+  body{
+    padding:14px 20px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  /* HEADER */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo-wrap{display:flex;align-items:center;gap:16px;}
+  .logo-svg{display:block;height:40px;width:auto;}
+  .page-title{
+    color:var(--muted);
+    font-size:13px;
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:2px;
+  }
+  .header-right{display:flex;align-items:center;gap:20px;}
+  .clock{
+    font-size:28px;
+    color:var(--accent);
+    font-weight:700;
+    font-family:'Barlow Condensed',sans-serif;
+    letter-spacing:2px;
+  }
+  .date-badge{
+    background:var(--card2);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:4px 12px;
+    font-size:12px;
+    color:var(--muted);
+    font-family:'Barlow Condensed',sans-serif;
+  }
+
+  /* ИТОГО */
+  .summary-bar{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+    gap:10px;
+  }
+  .sum-card{
+    background:linear-gradient(145deg,var(--card2),var(--card));
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .sum-card .lbl{
+    font-size:10px;
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+  }
+  .sum-card .val{
+    font-size:28px;
+    font-weight:700;
+    font-family:'Barlow Condensed',sans-serif;
+    line-height:1;
+  }
+  .sum-card .sub{font-size:11px;color:var(--muted);}
+
+  /* СЕКЦИЯ */
+  .sec{
+    font-size:10px;
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+  }
+
+  /* СЕТКА КАРТОЧЕК */
+  .cards-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+  }
+  @media(max-width:1200px){.cards-grid{grid-template-columns:repeat(4,1fr);}}
+  @media(max-width:900px){.cards-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:600px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+
+  .point-card{
+    background:linear-gradient(160deg,var(--card2),var(--card));
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    transition:transform .15s;
+  }
+  .point-card:hover{transform:translateY(-2px);}
+
+  .point-name{
+    font-size:13px;
+    font-weight:600;
+    color:var(--muted);
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  /* БОЛ. ПРОЦЕНТ */
+  .pct-main{
+    font-size:48px;
+    font-weight:700;
+    font-family:'Barlow Condensed',sans-serif;
+    line-height:1;
+  }
+  .pct-label{
+    font-size:10px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+
+  /* ПРОГРЕСС-БАР */
+  .progress-wrap{
+    background:var(--bg);
+    border-radius:4px;
+    height:6px;
+    overflow:hidden;
+  }
+  .progress-bar{
+    height:100%;
+    border-radius:4px;
+    transition:width .5s ease;
+  }
+
+  /* ср. ЧЕК */
+  .check-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:4px;
+    border-top:1px solid var(--border);
+  }
+  .check-label{
+    font-size:10px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    font-family:'Barlow Condensed',sans-serif;
+  }
+  .check-val{
+    font-size:16px;
+    font-weight:700;
+    font-family:'Barlow Condensed',sans-serif;
+  }
+  .check-plan{
+    font-size:10px;
+    color:var(--muted);
+    margin-top:1px;
+    text-align:right;
+  }
+
+  /* PACE */
+  .pace-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .pace-lbl{font-size:10px;color:var(--muted);}
+  .pace-val{
+    font-size:13px;
+    font-weight:600;
+    font-family:'Barlow Condensed',sans-serif;
+  }
+
+  /* ЦВЕТА */
+  .c-good{color:var(--good);}
+  .c-warn{color:var(--warn);}
+  .c-bad{color:var(--bad);}
+
+  footer{color:var(--muted);font-size:10px;text-align:center;padding-top:8px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="535 258 850 142" aria-label="GARDEN">
+      <g fill="#bedf3d">
+        <path d="M 1243.589844 380.964844 C 1244.8125 389.808594 1231.257812 384.707031 1226.089844 384.15625 C 1192.828125 380.605469 1175.636719 390.074219 1171.566406 392.722656 C 1170.894531 393.160156 1170.113281 393.390625 1169.3125 393.390625 L 1132.347656 393.390625 C 1130.0625 393.390625 1128.210938 391.539062 1128.210938 389.257812 L 1128.210938 269.066406 C 1128.210938 266.78125 1130.0625 264.929688 1132.347656 264.929688 L 1169.898438 264.929688 C 1170.835938 264.929688 1171.742188 265.25 1172.476562 265.832031 C 1175.925781 268.570312 1187.214844 276.574219 1200.796875 276.070312 C 1209.550781 275.742188 1215.292969 276.925781 1215.730469 281.15625 C 1216.304688 286.675781 1210.632812 285.390625 1206.136719 284.644531 C 1190.101562 281.984375 1178.941406 285.503906 1169.980469 289.746094 C 1183.28125 305.761719 1205.976562 307.308594 1212.648438 307.214844 C 1221.113281 307.101562 1224.257812 308.980469 1224.703125 312.5 C 1225.164062 316.136719 1222.429688 317.707031 1217.246094 316.902344 C 1185.441406 311.964844 1172.058594 322.226562 1172.058594 322.226562 C 1172.058594 322.226562 1184.644531 340.828125 1221.472656 340.527344 C 1234.984375 340.417969 1235.234375 344.695312 1234.703125 347.304688 C 1233.59375 352.78125 1223.640625 349.917969 1220.316406 349.488281 C 1188.75 345.402344 1175.410156 355.589844 1171.6875 357.777344 C 1188.257812 374.1875 1203.347656 375.101562 1228.539062 375.269531 C 1238.496094 375.335938 1243.078125 377.269531 1243.589844 380.964844 "/>
+        <path d="M 1379.820312 269.066406 L 1379.820312 389.257812 C 1379.820312 391.539062 1377.96875 393.390625 1375.683594 393.390625 L 1290.226562 393.390625 C 1314.292969 384.488281 1319.136719 357.492188 1319.136719 357.492188 C 1301.898438 354.75 1284.125 359.839844 1271.582031 371.175781 C 1266.894531 375.414062 1260.703125 384.714844 1255.6875 379.207031 C 1250.273438 373.257812 1258.507812 367.222656 1264.660156 364.527344 C 1300.910156 348.648438 1300.496094 328.3125 1300.496094 324.804688 C 1294.625 322.398438 1271.367188 323.171875 1256.714844 339.707031 C 1255.203125 341.414062 1249.445312 348.929688 1244.625 345.648438 C 1242.707031 344.339844 1239.5625 336.894531 1250.523438 332.167969 C 1280.636719 319.179688 1284.941406 302.410156 1284.882812 295.890625 C 1277.433594 293.015625 1258.695312 295.117188 1245.769531 307.523438 C 1244.488281 308.75 1237.109375 315.820312 1233.457031 311.261719 C 1230.550781 307.636719 1232.042969 301.894531 1241.980469 298.5625 C 1271.585938 288.636719 1271.273438 269.117188 1271.273438 269.117188 C 1271.273438 269.117188 1257.871094 267.738281 1245.960938 271.46875 C 1239.597656 273.464844 1230.203125 281.246094 1228.457031 282.023438 C 1224.632812 283.722656 1222.546875 280.554688 1223.105469 277.460938 C 1223.738281 273.960938 1226.5 272.03125 1229.730469 271.128906 C 1236.382812 269.265625 1241.890625 266.640625 1244.109375 265.511719 C 1244.824219 265.148438 1245.605469 264.960938 1246.40625 264.960938 C 1253.859375 264.960938 1292.355469 264.960938 1300.394531 264.953125 C 1302.039062 264.953125 1303.523438 265.929688 1304.183594 267.4375 L 1330.636719 328.164062 C 1330.949219 328.882812 1331.65625 329.347656 1332.441406 329.347656 C 1333.53125 329.347656 1334.414062 328.464844 1334.414062 327.378906 L 1334.414062 269.066406 C 1334.414062 266.78125 1336.261719 264.929688 1338.546875 264.929688 L 1375.683594 264.929688 C 1377.96875 264.929688 1379.820312 266.78125 1379.820312 269.066406 "/>
+        <path fill-rule="evenodd" d="M 889.949219 325.828125 L 906.234375 325.828125 C 917.492188 325.828125 923.199219 320.886719 923.199219 311.148438 C 923.199219 304.339844 920.257812 296.226562 906.234375 296.226562 L 889.949219 296.226562 Z M 923.777344 391.050781 L 907.40625 357.09375 L 889.949219 357.09375 L 889.949219 389.257812 C 889.949219 391.539062 888.097656 393.390625 885.816406 393.390625 L 849.804688 393.390625 C 847.523438 393.390625 845.671875 391.539062 845.671875 389.257812 L 845.671875 269.097656 C 845.671875 266.8125 847.523438 264.960938 849.804688 264.960938 L 911.257812 264.960938 C 948.683594 264.960938 966.113281 279.636719 966.113281 311.148438 C 966.113281 327.96875 961.097656 339.804688 950.78125 347.332031 L 948.105469 349.285156 L 968.507812 387.300781 C 969.984375 390.054688 967.988281 393.390625 964.863281 393.390625 L 927.503906 393.390625 C 925.914062 393.390625 924.46875 392.484375 923.777344 391.050781 "/>
+        <path fill-rule="evenodd" d="M 612.953125 397.105469 C 570 397.105469 540 369.183594 540 329.203125 C 540 289.222656 570 261.296875 612.953125 261.296875 C 646.472656 261.296875 673.175781 281.242188 679.953125 308.476562 C 680.605469 311.097656 678.640625 313.636719 675.941406 313.636719 L 637.667969 313.636719 C 636.433594 313.636719 635.238281 313.097656 634.472656 312.128906 C 630.21875 306.730469 623.058594 302.660156 614.511719 302.660156 C 599.695312 302.660156 588.941406 313.820312 588.941406 329.203125 C 588.941406 344.027344 596.816406 357.972656 614.414062 358.421875 L 615.382812 358.433594 C 625.171875 358.433594 630.722656 350.78125 631.746094 349.230469 C 631.859375 349.058594 631.917969 348.859375 631.917969 348.648438 C 631.917969 348.058594 631.441406 347.582031 630.851562 347.582031 L 621.253906 347.582031 C 618.972656 347.582031 617.121094 345.730469 617.121094 343.445312 L 617.121094 331.671875 C 617.121094 329.390625 618.972656 327.535156 621.253906 327.535156 L 677.304688 327.535156 C 679.589844 327.535156 681.441406 329.390625 681.441406 331.671875 L 681.441406 389.277344 C 681.441406 391.5625 679.589844 393.414062 677.304688 393.414062 L 654.28125 393.414062 C 651.996094 393.414062 650.144531 391.5625 650.144531 389.277344 L 650.144531 382.511719 C 650.144531 382.007812 649.535156 381.753906 649.1875 382.117188 C 645.75 385.6875 633.179688 397.105469 612.953125 397.105469 "/>
+        <path fill-rule="evenodd" d="M 749.234375 338.839844 L 777.066406 338.839844 L 768.914062 303.613281 L 757.386719 303.613281 Z M 788.9375 390.195312 L 784.65625 371.859375 L 741.640625 371.859375 L 737.363281 390.195312 C 736.925781 392.066406 735.257812 393.390625 733.335938 393.390625 L 694.695312 393.390625 C 691.925781 393.390625 689.9375 390.71875 690.734375 388.066406 L 726.824219 267.90625 C 727.351562 266.160156 728.960938 264.960938 730.785156 264.960938 L 795.515625 264.960938 C 797.339844 264.960938 798.949219 266.160156 799.476562 267.90625 L 835.5625 388.066406 C 836.359375 390.71875 834.375 393.390625 831.601562 393.390625 L 792.960938 393.390625 C 791.039062 393.390625 789.371094 392.066406 788.9375 390.195312 "/>
+        <path fill-rule="evenodd" d="M 1027.433594 354.359375 L 1045.996094 354.359375 C 1063.839844 354.359375 1074.070312 345.175781 1074.070312 329.171875 C 1074.070312 313.167969 1063.839844 303.992188 1045.996094 303.992188 L 1027.433594 303.992188 Z M 983.148438 389.257812 L 983.148438 269.097656 C 983.148438 266.8125 985 264.960938 987.285156 264.960938 L 1053.148438 264.960938 C 1095.9375 264.960938 1120.480469 288.367188 1120.480469 329.171875 C 1120.480469 370.589844 1096.566406 393.390625 1053.148438 393.390625 L 987.285156 393.390625 C 985 393.390625 983.148438 391.539062 983.148438 389.257812 "/>
+      </g>
+    </svg>
+    <div class="page-title">Выполнение плана</div>
+  </div>
+  <div class="header-right">
+    <div class="date-badge" id="date-badge">—</div>
+    <div class="clock" id="clock">--:--</div>
+  </div>
+</header>
+
+<!-- ИТОГО -->
+<div class="sec">Итого по всем кофейням</div>
+<div class="summary-bar" id="summary-bar">
+  <div class="sum-card">
+    <div class="lbl">% от плана месяца</div>
+    <div class="val" id="s-pct-plan">—</div>
+    <div class="sub" id="s-day">—</div>
+  </div>
+  <div class="sum-card">
+    <div class="lbl">% темпа</div>
+    <div class="val" id="s-pace">—</div>
+    <div class="sub">100% = идём по плану</div>
+  </div>
+  <div class="sum-card">
+    <div class="lbl">Средний чек МТД</div>
+    <div class="val" id="s-avg-check">—</div>
+    <div class="sub" id="s-avg-plan">—</div>
+  </div>
+  <div class="sum-card">
+    <div class="lbl">День месяца</div>
+    <div class="val" id="s-day-num">—</div>
+    <div class="sub" id="s-days-left">—</div>
+  </div>
+</div>
+
+<!-- КАРТОЧКИ ТОЧЕК -->
+<div class="sec">По кофейням</div>
+<div class="cards-grid" id="cards-grid">
+  <div style="color:var(--muted);font-size:13px">Загрузка данных…</div>
+</div>
+
+<footer id="footer">обновление каждые 5 мин · данные IIKO</footer>
+
+<script>
+  function updateClock(){
+    const now = new Date();
+    document.getElementById('clock').textContent =
+      now.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});
+  }
+  updateClock(); setInterval(updateClock,1000);
+
+  function cleanName(n){
+    return n.replace(/Гарден\s+Кофе\s+/gi,'').replace(/Гарден\s+/gi,'')
+            .replace(/\s*Кофе\b/gi,'').replace(/\s*кофейня\b/gi,'').trim();
+  }
+
+  function colorClass(pct){
+    if(pct === null || pct === undefined) return '';
+    if(pct >= 100) return 'c-good';
+    if(pct >= 90)  return 'c-warn';
+    return 'c-bad';
+  }
+  function barColor(pct){
+    if(pct >= 100) return 'var(--good)';
+    if(pct >= 90)  return 'var(--warn)';
+    return 'var(--bad)';
+  }
+
+  function renderData(data){
+    if(!data.plan) return;
+    const ps = data.plan.summary;
+    const today = data.date;
+    document.getElementById('date-badge').textContent = today;
+
+    // Сводка
+    const pctPlanEl = document.getElementById('s-pct-plan');
+    pctPlanEl.textContent = ps.pct_of_plan + '%';
+    pctPlanEl.className = 'val ' + colorClass(ps.pct_of_plan);
+
+    const paceEl = document.getElementById('s-pace');
+    paceEl.textContent = ps.pct_vs_expected + '%';
+    paceEl.className = 'val ' + colorClass(ps.pct_vs_expected);
+
+    document.getElementById('s-day').textContent = `День ${ps.day_of_month} из ${ps.days_in_month}`;
+    document.getElementById('s-day-num').textContent = ps.day_of_month;
+    document.getElementById('s-days-left').textContent = `Осталось ${ps.days_in_month - ps.day_of_month} дней`;
+
+    if(ps.mtd_avg_check){
+      document.getElementById('s-avg-check').textContent = ps.mtd_avg_check.toLocaleString('ru-RU') + ' ₽';
+      document.getElementById('s-avg-plan').textContent = 'план: —';
+    }
+
+    // Карточки точек
+    const grid = document.getElementById('cards-grid');
+    grid.innerHTML = '';
+
+    const pts = [...data.plan.points].sort((a,b) => b.pct_of_plan - a.pct_of_plan);
+
+    pts.forEach(p => {
+      const pct = p.pct_of_plan;
+      const pace = p.pct_vs_expected;
+      const barW = Math.min(pct, 100);
+      const hasCheck = p.avg_check_plan != null && p.mtd_avg_check > 0;
+      const checkPct = p.pct_avg_check;
+
+      const card = document.createElement('div');
+      card.className = 'point-card';
+      card.innerHTML = `
+        <div class="point-name">${cleanName(p.name)}</div>
+        <div>
+          <div class="pct-main ${colorClass(pct)}">${pct}%</div>
+          <div class="pct-label">от плана месяца</div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar" style="width:${barW}%;background:${barColor(pct)}"></div>
+        </div>
+        <div class="pace-row">
+          <span class="pace-lbl">% темпа</span>
+          <span class="pace-val ${colorClass(pace)}">${pace != null ? pace+'%' : '—'}</span>
+        </div>
+        <div class="check-row">
+          <div>
+            <div class="check-label">Ср. чек МТД</div>
+            ${hasCheck ? `<div class="check-plan">план: ${p.avg_check_plan} ₽</div>` : ''}
+          </div>
+          <div style="text-align:right">
+            <div class="check-val ${hasCheck ? colorClass(checkPct) : ''}">${p.mtd_avg_check > 0 ? p.mtd_avg_check.toLocaleString('ru-RU')+' ₽' : '—'}</div>
+            ${hasCheck && checkPct != null ? `<div class="check-plan">${checkPct}%</div>` : ''}
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    document.getElementById('footer').textContent =
+      `Данные на ${today} · обновление каждые 5 мин`;
+  }
+
+  function loadData(){
+    fetch('dashboard_data_view.json',{cache:'no-store'})
+      .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(renderData)
+      .catch(err=>console.error('Ошибка:',err));
+  }
+  loadData();
+  setInterval(loadData, 5*60*1000);
+</script>
+</body>
+</html>
