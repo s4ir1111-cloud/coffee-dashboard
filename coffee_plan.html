@@ -23,13 +23,15 @@
     background:var(--bg);
     color:var(--text);
     font-family:'Barlow', 'Segoe UI', Arial, sans-serif;
-    min-height:100vh;
+    height:100vh;
+    width:100vw;
+    overflow:hidden;
   }
   body{
-    padding:14px 20px 24px;
+    padding:6px 12px 6px;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:5px;
   }
 
   /* HEADER */
@@ -37,19 +39,20 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex:0 0 auto;
   }
-  .logo-wrap{display:flex;align-items:center;gap:16px;}
-  .logo-svg{display:block;height:40px;width:auto;}
+  .logo-wrap{display:flex;align-items:center;gap:12px;}
+  .logo-svg{display:block;height:28px;width:auto;}
   .page-title{
     color:var(--muted);
-    font-size:13px;
+    font-size:11px;
     font-family:'Barlow Condensed',sans-serif;
     text-transform:uppercase;
     letter-spacing:2px;
   }
-  .header-right{display:flex;align-items:center;gap:20px;}
+  .header-right{display:flex;align-items:center;gap:14px;}
   .clock{
-    font-size:28px;
+    font-size:22px;
     color:var(--accent);
     font-weight:700;
     font-family:'Barlow Condensed',sans-serif;
@@ -58,9 +61,9 @@
   .date-badge{
     background:var(--card2);
     border:1px solid var(--border);
-    border-radius:8px;
-    padding:4px 12px;
-    font-size:12px;
+    border-radius:6px;
+    padding:2px 8px;
+    font-size:11px;
     color:var(--muted);
     font-family:'Barlow Condensed',sans-serif;
   }
@@ -68,20 +71,21 @@
   /* ИТОГО */
   .summary-bar{
     display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr 1fr;
-    gap:10px;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+    flex:0 0 auto;
   }
   .sum-card{
     background:linear-gradient(145deg,var(--card2),var(--card));
     border:1px solid var(--border);
-    border-radius:10px;
-    padding:12px 16px;
+    border-radius:8px;
+    padding:6px 10px;
     display:flex;
     flex-direction:column;
-    gap:4px;
+    gap:2px;
   }
   .sum-card .lbl{
-    font-size:10px;
+    font-size:9px;
     color:var(--accent);
     text-transform:uppercase;
     letter-spacing:1px;
@@ -89,47 +93,48 @@
     font-weight:600;
   }
   .sum-card .val{
-    font-size:28px;
+    font-size:22px;
     font-weight:700;
     font-family:'Barlow Condensed',sans-serif;
     line-height:1;
   }
-  .sum-card .sub{font-size:11px;color:var(--muted);}
+  .sum-card .sub{font-size:9px;color:var(--muted);}
 
   /* СЕКЦИЯ */
   .sec{
-    font-size:10px;
+    font-size:9px;
     color:var(--accent);
     text-transform:uppercase;
     letter-spacing:2px;
     font-family:'Barlow Condensed',sans-serif;
     font-weight:600;
+    flex:0 0 auto;
   }
 
   /* СЕТКА КАРТОЧЕК */
   .cards-grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-    gap:10px;
+    grid-auto-rows:1fr;
+    gap:6px;
+    flex:1 1 0;
+    min-height:0;
   }
-  @media(max-width:1200px){.cards-grid{grid-template-columns:repeat(4,1fr);}}
-  @media(max-width:900px){.cards-grid{grid-template-columns:repeat(3,1fr);}}
-  @media(max-width:600px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
 
   .point-card{
     background:linear-gradient(160deg,var(--card2),var(--card));
     border:1px solid var(--border);
-    border-radius:12px;
-    padding:14px;
+    border-radius:8px;
+    padding:8px 10px;
     display:flex;
     flex-direction:column;
-    gap:8px;
-    transition:transform .15s;
+    gap:4px;
+    min-height:0;
+    overflow:hidden;
   }
-  .point-card:hover{transform:translateY(-2px);}
 
   .point-name{
-    font-size:13px;
+    font-size:10px;
     font-weight:600;
     color:var(--muted);
     font-family:'Barlow Condensed',sans-serif;
@@ -138,31 +143,33 @@
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    flex:0 0 auto;
   }
 
   /* БОЛ. ПРОЦЕНТ */
   .pct-main{
-    font-size:48px;
+    font-size:34px;
     font-weight:700;
     font-family:'Barlow Condensed',sans-serif;
     line-height:1;
+    flex:0 0 auto;
   }
   .pct-label{
-    font-size:10px;
+    font-size:9px;
     color:var(--muted);
-    margin-top:2px;
   }
 
   /* ПРОГРЕСС-БАР */
   .progress-wrap{
     background:var(--bg);
-    border-radius:4px;
-    height:6px;
+    border-radius:3px;
+    height:4px;
     overflow:hidden;
+    flex:0 0 auto;
   }
   .progress-bar{
     height:100%;
-    border-radius:4px;
+    border-radius:3px;
     transition:width .5s ease;
   }
 
@@ -171,25 +178,25 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding-top:4px;
+    padding-top:3px;
     border-top:1px solid var(--border);
+    flex:0 0 auto;
   }
   .check-label{
-    font-size:10px;
+    font-size:9px;
     color:var(--muted);
     text-transform:uppercase;
     letter-spacing:.5px;
     font-family:'Barlow Condensed',sans-serif;
   }
   .check-val{
-    font-size:16px;
+    font-size:13px;
     font-weight:700;
     font-family:'Barlow Condensed',sans-serif;
   }
   .check-plan{
-    font-size:10px;
+    font-size:9px;
     color:var(--muted);
-    margin-top:1px;
     text-align:right;
   }
 
@@ -198,10 +205,11 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex:0 0 auto;
   }
-  .pace-lbl{font-size:10px;color:var(--muted);}
+  .pace-lbl{font-size:9px;color:var(--muted);}
   .pace-val{
-    font-size:13px;
+    font-size:11px;
     font-weight:600;
     font-family:'Barlow Condensed',sans-serif;
   }
@@ -211,7 +219,7 @@
   .c-warn{color:var(--warn);}
   .c-bad{color:var(--bad);}
 
-  footer{color:var(--muted);font-size:10px;text-align:center;padding-top:8px;}
+  footer{color:var(--muted);font-size:9px;text-align:center;flex:0 0 auto;}
 </style>
 </head>
 <body>
