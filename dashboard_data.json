@@ -2,16 +2,25 @@
   "date": "2026-06-18",
   "month_start": "2026-06-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Арсиб",
+        "DishDiscountSumInt": 864,
+        "DishSumInt": 1474,
+        "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
     "data": [
       {
         "Department": "Арсиб",
-        "DishDiscountSumInt": 1744346,
-        "DishSumInt": 2661607,
-        "UniqOrderId.OrdersCount": 3116
+        "DishDiscountSumInt": 1745210,
+        "DishSumInt": 2663081,
+        "UniqOrderId.OrdersCount": 3117
       },
       {
         "Department": "Видный",
@@ -131,7 +140,50 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Капучино 250мл*",
+        "DishName": "- *Молоко Капучино М",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Капучино 250 мл",
+        "DishSumInt": 239
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Картошка ",
+        "DishSumInt": 269
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Кекс морковный 1 порц ",
+        "DishSumInt": 239
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Кольцо с кремом чиз и солёной карамелью ",
+        "DishSumInt": 369
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Макаруны ",
+        "DishSumInt": 149
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Шу со смородиной",
+        "DishSumInt": 209
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +217,11 @@
         "DishDiscountSumInt": 2492350,
         "DishSumInt": 2879038,
         "OpenDate.Typed": "2026-06-17"
+      },
+      {
+        "DishDiscountSumInt": 864,
+        "DishSumInt": 1474,
+        "OpenDate.Typed": "2026-06-18"
       }
     ],
     "summary": []

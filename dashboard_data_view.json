@@ -1,13 +1,25 @@
 {
   "date": "2026-06-18",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 864,
+    "orders": 1,
+    "avg_check": 864,
+    "discount_pct": 0.0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Арсиб",
+      "revenue": 864,
+      "orders": 1,
+      "avg_check": 864
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 864
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-12",
@@ -42,14 +54,51 @@
     {
       "date": "2026-06-18",
       "day_name": "Чт",
-      "revenue": 0
+      "revenue": 864
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Кольцо с кремом чиз и солёной карамелью",
+      "group": "Десерты Терминал",
+      "qty": 1,
+      "revenue": 369
+    },
+    {
+      "name": "Картошка",
+      "group": "Десерты Терминал",
+      "qty": 1,
+      "revenue": 269
+    },
+    {
+      "name": "Капучино 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 239
+    },
+    {
+      "name": "Кекс морковный 1 порц",
+      "group": "Десерты Терминал",
+      "qty": 1,
+      "revenue": 239
+    },
+    {
+      "name": "Шу со смородиной",
+      "group": "Десерты Терминал",
+      "qty": 1,
+      "revenue": 209
+    },
+    {
+      "name": "Макаруны",
+      "group": "Десерты Терминал",
+      "qty": 1,
+      "revenue": 149
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 44297784,
+      "mtd_revenue": 44298648,
       "plan_month": 81780000,
       "expected_to_date": 49068000,
       "pct_of_plan": 54.2,
@@ -164,11 +213,11 @@
       },
       {
         "name": "Арсиб",
-        "mtd_revenue": 1744346,
+        "mtd_revenue": 1745210,
         "plan_month": 3170000,
         "expected_to_date": 1902000,
-        "pct_of_plan": 55.0,
-        "pct_vs_expected": 91.7
+        "pct_of_plan": 55.1,
+        "pct_vs_expected": 91.8
       },
       {
         "name": "Мельникайте",
