@@ -303,11 +303,11 @@
     // Сводка
     const pctPlanEl = document.getElementById('s-pct-plan');
     pctPlanEl.textContent = ps.pct_of_plan + '%';
-    pctPlanEl.className = 'val ' + colorClass(ps.pct_of_plan);
+    pctPlanEl.className = 'val';  // всегда белый
 
     const paceEl = document.getElementById('s-pace');
     paceEl.textContent = ps.pct_vs_expected + '%';
-    paceEl.className = 'val ' + colorClass(ps.pct_vs_expected);
+    paceEl.className = 'val ' + colorClass(ps.pct_vs_expected);  // цвет только у темпа
 
     document.getElementById('s-day').textContent = `День ${ps.day_of_month} из ${ps.days_in_month}`;
     document.getElementById('s-day-num').textContent = ps.day_of_month;
@@ -315,7 +315,7 @@
 
     if(ps.mtd_avg_check){
       document.getElementById('s-avg-check').textContent = ps.mtd_avg_check.toLocaleString('ru-RU') + ' ₽';
-      document.getElementById('s-avg-plan').textContent = 'план: —';
+      document.getElementById('s-avg-plan').textContent = 'по всем точкам';
     }
 
     // Карточки точек
@@ -336,7 +336,7 @@
       card.innerHTML = `
         <div class="point-name">${cleanName(p.name)}</div>
         <div>
-          <div class="pct-main ${colorClass(pct)}">${pct}%</div>
+          <div class="pct-main">${pct}%</div>
           <div class="pct-label">от плана месяца</div>
         </div>
         <div class="progress-wrap">
@@ -352,7 +352,7 @@
             ${hasCheck ? `<div class="check-plan">план: ${p.avg_check_plan} ₽</div>` : ''}
           </div>
           <div style="text-align:right">
-            <div class="check-val ${hasCheck ? colorClass(checkPct) : ''}">${p.mtd_avg_check > 0 ? p.mtd_avg_check.toLocaleString('ru-RU')+' ₽' : '—'}</div>
+            <div class="check-val">${p.mtd_avg_check > 0 ? p.mtd_avg_check.toLocaleString('ru-RU')+' ₽' : '—'}</div>
             ${hasCheck && checkPct != null ? `<div class="check-plan">${checkPct}%</div>` : ''}
           </div>
         </div>`;
