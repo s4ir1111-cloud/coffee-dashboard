@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest CDP — Кофейня Garden</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+:root{--bg:#0d0f14;--card:#161a22;--card2:#1e2330;--border:#2a3045;--accent:#f5a623;--text:#e8eaf0;--sub:#7b8299;--green:#66bb6a;--red:#ef5350;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;min-height:100vh}
+
+/* ── Header ── */
+.header{padding:16px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.header h1{font-size:18px;font-weight:700;color:#fff}.header h1 span{color:var(--accent)}
+.hbadge{background:var(--card2);border:1px solid var(--border);padding:3px 12px;border-radius:20px;font-size:12px;color:var(--sub)}
+.btn{padding:7px 16px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:opacity .15s}
+.btn-accent{background:var(--accent);color:#000}.btn-accent:hover{opacity:.85}
+.btn-ghost{background:var(--card2);border:1px solid var(--border);color:var(--sub)}.btn-ghost:hover{color:var(--text)}
+
+/* ── Upload screen ── */
+#uploadScreen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 57px);padding:40px}
+.drop-zone{border:2px dashed var(--border);border-radius:20px;padding:60px 80px;text-align:center;cursor:pointer;transition:all .2s;max-width:600px;width:100%}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#f5a62308}
+.drop-zone .icon{font-size:56px;display:block;margin-bottom:16px}
+.drop-zone h2{font-size:20px;color:#fff;margin-bottom:8px}
+.drop-zone p{color:var(--sub);font-size:13px;line-height:1.6}
+.drop-zone .or{margin:20px 0;color:var(--sub);font-size:12px}
+.file-hint{margin-top:28px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 24px;max-width:600px;width:100%;text-align:left}
+.file-hint h3{font-size:13px;color:var(--sub);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.file-hint ol{padding-left:18px;color:var(--sub);font-size:13px;line-height:2}
+.file-hint li span{color:var(--text)}
+.demo-link{margin-top:16px;font-size:12px;color:var(--sub)}
+.demo-link a{color:var(--accent);cursor:pointer;text-decoration:none}
+
+/* ── Dashboard ── */
+#dashboard{display:none;padding:24px 28px;max-width:1800px;margin:0 auto}
+
+/* Metrics */
+.metrics{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;flex:1;min-width:140px}
+.metric .val{font-size:26px;font-weight:700;color:#fff;line-height:1.1}
+.metric .lbl{font-size:11px;color:var(--sub);margin-top:4px}
+.metric .sub{font-size:11px;color:var(--green);margin-top:4px}
+
+/* Segments */
+.segments{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:20px}
+.seg-card{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .2s;user-select:none}
+.seg-card:hover,.seg-card.active{border-color:var(--seg-color);box-shadow:0 0 0 1px var(--seg-color)33}
+.seg-card .sicon{font-size:20px;margin-bottom:4px}
+.seg-card .scnt{font-size:24px;font-weight:700;color:#fff}
+.seg-card .sname{font-size:11px;font-weight:600;color:var(--seg-color);margin:2px 0}
+.seg-card .sshare{font-size:11px;color:var(--sub)}
+.seg-card .savg{font-size:10px;color:var(--sub);margin-top:3px}
+
+/* Charts */
+.charts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
+.charts2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.cbox{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+.ctitle{font-size:11px;font-weight:600;color:var(--sub);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.cwrap{position:relative;height:220px}
+
+/* Table */
+.twrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px}
+.toolbar{display:flex;gap:8px;padding:12px 14px;background:var(--card2);border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center}
+.toolbar input,.toolbar select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 10px;font-size:12px;outline:none}
+.toolbar input{width:200px}.toolbar input:focus{border-color:var(--accent)}
+.cbadge{margin-left:auto;font-size:11px;color:var(--sub)}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--card2);color:var(--sub);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;padding:9px 12px;border-bottom:1px solid var(--border);cursor:pointer;white-space:nowrap;user-select:none}
+thead th:hover{color:var(--text)} thead th.sorted{color:var(--accent)}
+tbody tr{border-bottom:1px solid var(--border)} tbody tr:hover{background:var(--card2)}
+tbody td{padding:9px 12px;font-size:12px;white-space:nowrap}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;color:#000}
+.warn{color:var(--red)}
+.pagination{display:flex;gap:6px;align-items:center;padding:10px 14px;border-top:1px solid var(--border)}
+.pbtn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:11px}
+.pbtn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)} .pbtn:disabled{opacity:.4;cursor:default}
+.pinfo{font-size:11px;color:var(--sub);margin:0 8px}
+
+/* Error/warning */
+.col-warn{margin-bottom:16px;background:#ff980015;border:1px solid #ff980044;border-radius:8px;padding:12px 16px;font-size:12px;color:#ff9800}
+
+@media(max-width:1100px){.segments{grid-template-columns:repeat(3,1fr)}.charts{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.segments{grid-template-columns:repeat(2,1fr)}.charts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Guest <span>CDP</span> — Кофейня Garden</h1>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span class="hbadge" id="fileBadge">Загрузка данных…</span>
+    <button class="btn btn-ghost" id="btnNewFile" onclick="resetToUpload()" style="display:none">↩ Новый файл</button>
+    <button class="btn btn-accent" id="btnExport" onclick="exportCSV()" style="display:none">⬇ CSV</button>
+  </div>
+</div>
+
+<!-- ── Upload screen ── -->
+<div id="uploadScreen">
+  <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"
+       ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
+    <span class="icon">📂</span>
+    <h2>Перетащи файл выгрузки гостей</h2>
+    <p>Excel (.xlsx, .xls) или CSV из iiko BackOffice<br>Данные остаются только в браузере — никуда не передаются</p>
+    <div class="or">— или —</div>
+    <button class="btn btn-accent" onclick="event.stopPropagation();document.getElementById('fileInput').click()">Выбрать файл</button>
+  </div>
+  <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none" onchange="onFileSelect(event)">
+
+  <div class="file-hint">
+    <h3>Как выгрузить из iiko BackOffice</h3>
+    <ol>
+      <li><span>Открой iiko BackOffice</span></li>
+      <li><span>Маркетинг → Гости</span> (или Программа лояльности → Клиенты)</li>
+      <li><span>Сними все фильтры</span> чтобы выгрузить всю базу</li>
+      <li><span>Нажми «Экспорт»</span> или иконку Excel в правом верхнем углу</li>
+      <li><span>Перетащи сохранённый файл</span> сюда</li>
+    </ol>
+  </div>
+  <div class="demo-link">Нет файла сейчас? <a onclick="loadDemo()">Загрузить демо-данные</a></div>
+</div>
+
+<!-- ── Dashboard ── -->
+<div id="dashboard">
+  <div id="colWarn" class="col-warn" style="display:none"></div>
+
+  <div class="metrics">
+    <div class="metric"><div class="val" id="mTotal">—</div><div class="lbl">Гостей в базе</div></div>
+    <div class="metric"><div class="val" id="mActive30">—</div><div class="lbl">Активных 30 дней</div><div class="sub" id="mA30p"></div></div>
+    <div class="metric"><div class="val" id="mActive90">—</div><div class="lbl">Активных 90 дней</div><div class="sub" id="mA90p"></div></div>
+    <div class="metric"><div class="val" id="mAvgLtv">—</div><div class="lbl">Средний LTV</div></div>
+    <div class="metric"><div class="val" id="mAvgCheck">—</div><div class="lbl">Средний чек</div></div>
+    <div class="metric"><div class="val" id="mTotalRev">—</div><div class="lbl">Общая выручка по картам</div></div>
+  </div>
+
+  <div class="segments" id="segCards"></div>
+
+  <div class="charts">
+    <div class="cbox"><div class="ctitle">Сегменты</div><div class="cwrap"><canvas id="cPie"></canvas></div></div>
+    <div class="cbox"><div class="ctitle">Топ-20 гостей по LTV</div><div class="cwrap"><canvas id="cTop"></canvas></div></div>
+    <div class="cbox"><div class="ctitle">Распределение LTV</div><div class="cwrap"><canvas id="cLtv"></canvas></div></div>
+  </div>
+  <div class="charts2">
+    <div class="cbox"><div class="ctitle">Частота визитов</div><div class="cwrap"><canvas id="cFreq"></canvas></div></div>
+    <div class="cbox"><div class="ctitle">Средний LTV по сегментам</div><div class="cwrap"><canvas id="cSegLtv"></canvas></div></div>
+  </div>
+
+  <div class="twrap">
+    <div class="toolbar">
+      <input type="text" id="searchInput" placeholder="🔍 Поиск по имени, телефону, карте…" oninput="applyFilter()">
+      <select id="segFilter" onchange="onSegFilterChange()">
+        <option value="">Все сегменты</option>
+        <option value="champions">🏆 Чемпионы</option>
+        <option value="loyal">❤️ Лояльные</option>
+        <option value="at_risk">⚠️ Под угрозой</option>
+        <option value="sleeping">💤 Засыпающие</option>
+        <option value="newcomers">🌱 Новички</option>
+        <option value="lost">😴 Потерянные</option>
+      </select>
+      <select id="sortBy" onchange="applyFilter()">
+        <option value="ltv">LTV ↓</option>
+        <option value="orders">Визитов ↓</option>
+        <option value="avg_check">Ср. чек ↓</option>
+        <option value="days_since">Давность ↑</option>
+      </select>
+      <button class="btn btn-ghost" onclick="resetFilters()">Сброс</button>
+      <span class="cbadge" id="cntBadge"></span>
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr id="tableHead"></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <button class="pbtn" id="bPrev" onclick="prevPage()">← Назад</button>
+      <span class="pinfo" id="pInfo"></span>
+      <button class="pbtn" id="bNext" onclick="nextPage()">Вперёд →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── Constants ───────────────────────────────────────────────────────────────
+const SEGS = ["champions","loyal","at_risk","sleeping","newcomers","lost"];
+const SEG_META = {
+  champions:{label:"Чемпионы",   color:"#FFD700",icon:"🏆"},
+  loyal:    {label:"Лояльные",   color:"#4CAF50",icon:"❤️"},
+  at_risk:  {label:"Под угрозой",color:"#FF9800",icon:"⚠️"},
+  sleeping: {label:"Засыпающие", color:"#9C27B0",icon:"💤"},
+  newcomers:{label:"Новички",    color:"#2196F3",icon:"🌱"},
+  lost:     {label:"Потерянные", color:"#F44336",icon:"😴"},
+};
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let guests = [], filtered = [], activeSeg = "", page = 0;
+const PAGE = 100;
+let charts = {};
+let hasName=false, hasPhone=false, hasCard=false, hasFav=false, hasBonus=false, hasDiscount=false, hasRecent=false;
+
+// ─── Auto-load real data from iiko export ──────────────────────────────────────
+// Data is provided either as an embedded global (window.__GUEST_DATA__, injected
+// at build time so the file works when opened directly via file://, no server
+// needed) or, if absent, fetched from guest_cdp_data.json (works when served over
+// http/https where CORS allows it).
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.__GUEST_DATA__ && Array.isArray(window.__GUEST_DATA__.guests) && window.__GUEST_DATA__.guests.length) {
+    loadFromJSON(window.__GUEST_DATA__);
+    return;
+  }
+  fetch("guest_cdp_data.json", {cache:"no-store"})
+    .then(r => { if(!r.ok) throw new Error("not found"); return r.json(); })
+    .then(data => {
+      if(data && Array.isArray(data.guests) && data.guests.length) loadFromJSON(data);
+      else document.getElementById("fileBadge").textContent = "Файл не загружен";
+    })
+    .catch(() => {
+      document.getElementById("fileBadge").textContent = "Файл не загружен";
+    });
+});
+
+function loadFromJSON(data){
+  hasName=true; hasPhone=true; hasCard=true; hasFav=true; hasBonus=false;
+  hasDiscount=true; hasRecent=true;
+
+  guests = data.guests.map(g => ({
+    name:       g.name || "",
+    phone:      g.phone || "",
+    card:       g.card || "",
+    fav_loc:    g.fav_location || "",
+    bonus:      0,
+    last_visit: g.last_visit || "",
+    days_since: g.days_since,
+    orders:     g.orders,
+    ltv:        g.ltv,
+    avg_check:  g.avg_check,
+    segment:    g.segment,
+    discount_pct: g.discount_pct ?? 0,
+    recent_orders: g.recent_orders ?? 0,
+  }));
+  guests.sort((a,b)=>b.ltv-a.ltv);
+
+  const genAt = data.generated_at ? new Date(data.generated_at).toLocaleString("ru-RU") : "";
+  document.getElementById("fileBadge").textContent =
+    `iiko · ${guests.length.toLocaleString("ru")} гостей` + (genAt ? ` · обновлено ${genAt}` : "");
+  document.getElementById("btnNewFile").style.display="";
+  document.getElementById("btnExport").style.display="";
+  document.getElementById("uploadScreen").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+
+  renderDashboard();
+}
+
+// ─── Drag & drop ──────────────────────────────────────────────────────────────
+function onDragOver(e){e.preventDefault();document.getElementById("dropZone").classList.add("drag-over")}
+function onDragLeave(e){document.getElementById("dropZone").classList.remove("drag-over")}
+function onDrop(e){e.preventDefault();document.getElementById("dropZone").classList.remove("drag-over");const f=e.dataTransfer.files[0];if(f)processFile(f)}
+function onFileSelect(e){const f=e.target.files[0];if(f)processFile(f)}
+
+// ─── Column detection ─────────────────────────────────────────────────────────
+const COL_MAP = {
+  name:       [/^(имя|фио|ф\.?и\.?о|гость|клиент|фамилия|name|guest)/i],
+  phone:      [/^(телефон|тел|phone|моб|mobile)/i],
+  card:       [/^(карт|card|номер\s*карт)/i],
+  last_visit: [/^(посл.*визит|дата.*посл|last.?visit|дата.*пос|последн)/i],
+  orders:     [/^(визит|кол.*визит|visit|посещ|count|заказ|кол.*заказ)/i],
+  ltv:        [/^(сумм|выруч|ltv|total|потрач|amount|оборот)/i],
+  avg_check:  [/^(ср.*чек|avg.?check|средн.*чек)/i],
+  fav_loc:    [/^(заведен|точк|кофейн|restaurant|dept|подразд|любим)/i],
+  bonus:      [/^(бонус|балл|bonus|score)/i],
+  email:      [/^(email|e-mail|почт)/i],
+};
+
+function detectCol(headers, key) {
+  const pats = COL_MAP[key];
+  for(const h of headers){
+    for(const p of pats){ if(p.test(h.trim())) return h; }
+  }
+  return null;
+}
+
+// ─── Parse date ───────────────────────────────────────────────────────────────
+function parseDate(val) {
+  if(!val) return null;
+  if(typeof val === "number") {
+    // Excel serial date
+    const d = new Date(Math.round((val - 25569) * 86400 * 1000));
+    return isNaN(d) ? null : d;
+  }
+  const s = String(val).trim();
+  // DD.MM.YYYY or DD/MM/YYYY
+  const m1 = s.match(/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})/);
+  if(m1) return new Date(+m1[3], +m1[2]-1, +m1[1]);
+  // YYYY-MM-DD
+  const m2 = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if(m2) return new Date(+m2[1], +m2[2]-1, +m2[3]);
+  const d = new Date(s);
+  return isNaN(d) ? null : d;
+}
+
+function daysSince(d) {
+  if(!d) return 9999;
+  return Math.max(0, Math.floor((Date.now() - d.getTime()) / 86400000));
+}
+
+// ─── RFM ─────────────────────────────────────────────────────────────────────
+function rfm(days, freq, mon) {
+  const r = days<=14?4:days<=45?3:days<=90?2:1;
+  const f = freq>=20?4:freq>=8?3:freq>=3?2:1;
+  const m = mon>=15000?4:mon>=5000?3:mon>=1500?2:1;
+  if(r===1) return "lost";
+  if(f===1&&r>=3) return "newcomers";
+  if(r<=2&&f>=3) return "at_risk";
+  if(r===2) return "sleeping";
+  if(r+f+m>=10) return "champions";
+  return "loyal";
+}
+
+// ─── Process file ─────────────────────────────────────────────────────────────
+function processFile(file) {
+  const reader = new FileReader();
+  const isCsv = file.name.toLowerCase().endsWith(".csv");
+  reader.onload = (e) => {
+    try {
+      let wb;
+      if(isCsv) {
+        wb = XLSX.read(e.target.result, {type:"string", raw:false});
+      } else {
+        wb = XLSX.read(new Uint8Array(e.target.result), {type:"array", cellDates:false});
+      }
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, {defval:""});
+      if(!rows.length){ alert("Файл пустой или не удалось прочитать данные."); return; }
+      parseAndRender(rows, file.name);
+    } catch(err) {
+      alert("Ошибка чтения файла: " + err.message);
+    }
+  };
+  if(isCsv) reader.readAsText(file, "utf-8");
+  else reader.readAsArrayBuffer(file);
+}
+
+function parseAndRender(rows, fileName) {
+  const headers = Object.keys(rows[0]);
+
+  // Detect columns
+  const cols = {};
+  for(const k of Object.keys(COL_MAP)) cols[k] = detectCol(headers, k);
+
+  // Warn about missing important columns
+  const missing = [];
+  if(!cols.last_visit && !cols.orders && !cols.ltv)
+    missing.push("Не найдены ключевые колонки (дата визита, кол-во визитов, сумма). Проверь формат файла.");
+
+  // Flags
+  hasName  = !!cols.name;
+  hasPhone = !!cols.phone;
+  hasCard  = !!cols.card;
+  hasFav   = !!cols.fav_loc;
+  hasBonus = !!cols.bonus;
+
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  guests = [];
+  for(const row of rows) {
+    const lv  = parseDate(cols.last_visit ? row[cols.last_visit] : null);
+    const ds  = daysSince(lv);
+    const ord = parseFloat(String(cols.orders?row[cols.orders]:0).replace(/[^\d.]/g,""))||0;
+    const ltv = parseFloat(String(cols.ltv?row[cols.ltv]:0).replace(/[^\d.]/g,""))||0;
+    if(ord===0 && ltv===0) continue; // skip empty rows
+
+    let avg_check = parseFloat(String(cols.avg_check?row[cols.avg_check]:0).replace(/[^\d.]/g,""))||0;
+    if(!avg_check && ltv && ord) avg_check = ltv/ord;
+
+    guests.push({
+      name:       cols.name  ? String(row[cols.name]||"").trim()  : "",
+      phone:      cols.phone ? String(row[cols.phone]||"").trim() : "",
+      card:       cols.card  ? String(row[cols.card]||"").trim()  : "",
+      email:      cols.email ? String(row[cols.email]||"").trim() : "",
+      fav_loc:    cols.fav_loc ? String(row[cols.fav_loc]||"").trim() : "",
+      bonus:      cols.bonus  ? (parseFloat(String(row[cols.bonus]||0).replace(/[^\d.]/g,""))||0) : 0,
+      last_visit: lv ? lv.toISOString().slice(0,10) : "",
+      days_since: ds,
+      orders:     Math.round(ord),
+      ltv:        Math.round(ltv),
+      avg_check:  Math.round(avg_check),
+      segment:    rfm(ds, Math.round(ord), Math.round(ltv)),
+    });
+  }
+
+  if(!guests.length){ alert("Нет данных для обработки. Убедись что файл содержит строки с данными."); return; }
+
+  guests.sort((a,b)=>b.ltv-a.ltv);
+
+  document.getElementById("fileBadge").textContent = fileName + " (" + guests.length.toLocaleString("ru") + " гостей)";
+  document.getElementById("btnNewFile").style.display="";
+  document.getElementById("btnExport").style.display="";
+  document.getElementById("uploadScreen").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+
+  if(missing.length) {
+    const w=document.getElementById("colWarn");
+    w.textContent="⚠ "+missing.join(" ");
+    w.style.display="";
+  }
+
+  renderDashboard();
+}
+
+// ─── Render ───────────────────────────────────────────────────────────────────
+function renderDashboard() {
+  const total = guests.length;
+  const a30  = guests.filter(g=>g.days_since<=30).length;
+  const a90  = guests.filter(g=>g.days_since<=90).length;
+  const trev = guests.reduce((s,g)=>s+g.ltv,0);
+  const avgL = total?Math.round(trev/total):0;
+  const avgC = total?Math.round(guests.reduce((s,g)=>s+g.avg_check,0)/total):0;
+
+  setText("mTotal",    fmt(total));
+  setText("mActive30", fmt(a30));    setText("mA30p", pct(a30,total)+"% базы");
+  setText("mActive90", fmt(a90));    setText("mA90p", pct(a90,total)+"% базы");
+  setText("mAvgLtv",   fmtR(avgL));
+  setText("mAvgCheck", fmtR(avgC));
+  setText("mTotalRev", fmt(trev)+" ₽");
+
+  // Segment stats
+  const sc={}, sl={};
+  SEGS.forEach(s=>{sc[s]=0;sl[s]=0;});
+  guests.forEach(g=>{sc[g.segment]++;sl[g.segment]+=g.ltv;});
+  const sm={};
+  SEGS.forEach(s=>{sm[s]={...SEG_META[s],count:sc[s],ltv:sl[s],
+    share:parseFloat((sc[s]/total*100).toFixed(1)),
+    avg_ltv:sc[s]?Math.round(sl[s]/sc[s]):0};});
+
+  buildSegCards(sm);
+  buildCharts(sm, sc);
+  buildTableHead();
+  applyFilter();
+}
+
+// Segment cards
+function buildSegCards(sm){
+  const c=document.getElementById("segCards"); c.innerHTML="";
+  SEGS.forEach(s=>{
+    const m=sm[s]; const d=document.createElement("div");
+    d.className="seg-card"+(activeSeg===s?" active":"");
+    d.style.setProperty("--seg-color",m.color);
+    d.innerHTML=`<div class="sicon">${m.icon}</div><div class="scnt">${fmt(m.count)}</div>
+      <div class="sname" style="color:${m.color}">${m.label}</div>
+      <div class="sshare">${m.share}% гостей</div>
+      <div class="savg">Ср. LTV: ${fmtR(m.avg_ltv)}</div>`;
+    d.onclick=()=>toggleSeg(s);
+    c.appendChild(d);
+  });
+}
+
+function toggleSeg(s){
+  activeSeg=activeSeg===s?"":s;
+  document.getElementById("segFilter").value=activeSeg;
+  // Rebuild segment cards
+  const total=guests.length;const sc={},sl={};
+  SEGS.forEach(x=>{sc[x]=0;sl[x]=0;});
+  guests.forEach(g=>{sc[g.segment]++;sl[g.segment]+=g.ltv;});
+  const sm={};SEGS.forEach(x=>{sm[x]={...SEG_META[x],count:sc[x],ltv:sl[x],
+    share:parseFloat((sc[x]/total*100).toFixed(1)),avg_ltv:sc[x]?Math.round(sl[x]/sc[x]):0};});
+  buildSegCards(sm);
+  page=0; applyFilter();
+}
+
+// Charts
+const CD={responsive:true,maintainAspectRatio:false,
+  plugins:{legend:{display:false}},
+  scales:{x:{grid:{color:"#1e2330"},ticks:{color:"#7b8299",font:{size:10}}},
+          y:{grid:{color:"#1e2330"},ticks:{color:"#7b8299",font:{size:10}}}}};
+
+function dc(id){const k=Object.keys(charts).find(k=>charts[k]?.canvas?.id===id);if(k){charts[k].destroy();delete charts[k];}}
+
+function buildCharts(sm, sc){
+  // Pie
+  dc("cPie");
+  charts.pie=new Chart(document.getElementById("cPie"),{type:"doughnut",
+    data:{labels:SEGS.map(s=>sm[s].label),datasets:[{data:SEGS.map(s=>sc[s]),
+      backgroundColor:SEGS.map(s=>sm[s].color),borderWidth:2,borderColor:"#161a22"}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:"right",labels:{color:"#e8eaf0",font:{size:10},padding:6}},
+               tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${fmt(ctx.parsed)}`}}}}});
+
+  // Top 20
+  const top=guests.slice(0,20);
+  dc("cTop");
+  charts.top=new Chart(document.getElementById("cTop"),{type:"bar",
+    data:{labels:top.map(g=>g.name||g.phone||g.card||"#"+(guests.indexOf(g)+1)),
+      datasets:[{data:top.map(g=>g.ltv),backgroundColor:top.map(g=>SEG_META[g.segment].color+"bb"),
+        borderColor:top.map(g=>SEG_META[g.segment].color),borderWidth:1,borderRadius:3}]},
+    options:{...CD,indexAxis:"x",
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`LTV: ${fmtR(ctx.parsed.y)}`}}},
+      scales:{x:{...CD.scales.x,ticks:{color:"#7b8299",font:{size:9},maxRotation:45}},
+              y:{...CD.scales.y,ticks:{color:"#7b8299",font:{size:10},callback:v=>fmtR(v)}}}}});
+
+  // LTV dist
+  const buckets=[[0,500],[500,1500],[1500,3000],[3000,5000],[5000,10000],[10000,20000],[20000,50000],[50000,1e9]];
+  const lbls=["<500","0.5k–1.5k","1.5k–3k","3k–5k","5k–10k","10k–20k","20k–50k","50k+"];
+  const cnts=buckets.map(([lo,hi])=>guests.filter(g=>g.ltv>=lo&&g.ltv<hi).length);
+  dc("cLtv");
+  charts.ltv=new Chart(document.getElementById("cLtv"),{type:"bar",
+    data:{labels:lbls,datasets:[{data:cnts,backgroundColor:"#4fc3f7aa",borderColor:"#4fc3f7",borderWidth:1,borderRadius:3}]},
+    options:{...CD,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`Гостей: ${fmt(ctx.parsed.y)}`}}}}});
+
+  // Freq dist
+  const fbands=[[1,1,"1"],[2,3,"2–3"],[4,7,"4–7"],[8,14,"8–14"],[15,29,"15–29"],[30,999,"30+"]];
+  dc("cFreq");
+  charts.freq=new Chart(document.getElementById("cFreq"),{type:"bar",
+    data:{labels:fbands.map(x=>x[2]),
+      datasets:[{data:fbands.map(([lo,hi])=>guests.filter(g=>g.orders>=lo&&g.orders<=hi).length),
+        backgroundColor:"#ab47bcaa",borderColor:"#ab47bc",borderWidth:1,borderRadius:3}]},
+    options:{...CD,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`Гостей: ${fmt(ctx.parsed.y)}`}}}}});
+
+  // Seg LTV
+  dc("cSegLtv");
+  charts.sltv=new Chart(document.getElementById("cSegLtv"),{type:"bar",
+    data:{labels:SEGS.map(s=>sm[s].label),
+      datasets:[{data:SEGS.map(s=>sm[s].avg_ltv),
+        backgroundColor:SEGS.map(s=>sm[s].color+"bb"),borderColor:SEGS.map(s=>sm[s].color),
+        borderWidth:1,borderRadius:3}]},
+    options:{...CD,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`Ср. LTV: ${fmtR(ctx.parsed.y)}`}}},
+      scales:{...CD.scales,y:{...CD.scales.y,ticks:{color:"#7b8299",font:{size:10},callback:v=>fmtR(v)}}}}});
+}
+
+// Table
+function buildTableHead(){
+  const cols=getTableCols();
+  document.getElementById("tableHead").innerHTML=cols.map(c=>
+    `<th onclick="setSort('${c.key}')">${c.label} <span id="sarr-${c.key}"></span></th>`).join("");
+}
+
+function getTableCols(){
+  const base=[
+    {key:"_n",label:"№"},
+    ...(hasName  ?[{key:"name",   label:"Имя"}]:[]),
+    ...(hasPhone ?[{key:"phone",  label:"Телефон"}]:[]),
+    ...(hasCard  ?[{key:"card",   label:"Карта"}]:[]),
+    {key:"segment",  label:"Сегмент"},
+    {key:"orders",   label:"Визитов"},
+    {key:"ltv",      label:"LTV ₽"},
+    {key:"avg_check",label:"Ср. чек"},
+    {key:"last_visit",label:"Последний визит"},
+    {key:"days_since",label:"Дней назад"},
+    ...(hasFav   ?[{key:"fav_loc",label:"Точка"}]:[]),
+    ...(hasBonus ?[{key:"bonus",  label:"Бонусы"}]:[]),
+    ...(hasRecent  ?[{key:"recent_orders",label:"Визитов/100д"}]:[]),
+    ...(hasDiscount?[{key:"discount_pct", label:"Скидка %"}]:[]),
+  ];
+  return base;
+}
+
+function applyFilter(){
+  const q   = document.getElementById("searchInput").value.toLowerCase();
+  const seg = document.getElementById("segFilter").value;
+  const sk  = document.getElementById("sortBy").value;
+
+  filtered = guests.filter(g=>{
+    if(seg && g.segment!==seg) return false;
+    if(q && ![g.name,g.phone,g.card,g.fav_loc].some(v=>v.toLowerCase().includes(q))) return false;
+    return true;
+  });
+
+  const dir = sk==="days_since" ? 1 : -1;
+  filtered.sort((a,b)=>{
+    const av=a[sk]??0, bv=b[sk]??0;
+    return (typeof av==="number" ? av-bv : String(av).localeCompare(String(bv))) * dir;
+  });
+
+  // Update sort arrows
+  document.querySelectorAll("[id^='sarr-']").forEach(el=>el.textContent="");
+  const arr=document.getElementById("sarr-"+sk);
+  if(arr) arr.textContent=dir===-1?"▼":"▲";
+
+  setText("cntBadge", `${fmt(filtered.length)} из ${fmt(guests.length)}`);
+  page=0; renderPage();
+}
+
+function onSegFilterChange(){
+  activeSeg=document.getElementById("segFilter").value;
+  const total=guests.length;const sc={},sl={};
+  SEGS.forEach(x=>{sc[x]=0;sl[x]=0;});
+  guests.forEach(g=>{sc[g.segment]++;sl[g.segment]+=g.ltv;});
+  const sm={};SEGS.forEach(x=>{sm[x]={...SEG_META[x],count:sc[x],ltv:sl[x],
+    share:parseFloat((sc[x]/total*100).toFixed(1)),avg_ltv:sc[x]?Math.round(sl[x]/sc[x]):0};});
+  buildSegCards(sm);
+  page=0; applyFilter();
+}
+
+function setSort(k){document.getElementById("sortBy").value=k;applyFilter();}
+function resetFilters(){
+  document.getElementById("searchInput").value="";
+  document.getElementById("segFilter").value="";
+  document.getElementById("sortBy").value="ltv";
+  activeSeg=""; applyFilter();
+}
+
+function renderPage(){
+  const start=page*PAGE;
+  const rows=filtered.slice(start,start+PAGE);
+  const cols=getTableCols();
+  const tbody=document.getElementById("tableBody");
+  tbody.innerHTML=rows.map((g,i)=>{
+    const m=SEG_META[g.segment];
+    return `<tr>${cols.map(c=>{
+      if(c.key==="_n") return `<td style="color:var(--sub)">${start+i+1}</td>`;
+      if(c.key==="segment") return `<td><span class="pill" style="background:${m.color}">${m.icon} ${m.label}</span></td>`;
+      if(c.key==="ltv"||c.key==="avg_check"||c.key==="bonus") return `<td>${fmt(g[c.key])} ₽</td>`;
+      if(c.key==="discount_pct") return `<td>${(g.discount_pct||0).toFixed ? g.discount_pct.toFixed(1) : g.discount_pct}%</td>`;
+      if(c.key==="recent_orders") return `<td>${fmt(g.recent_orders||0)}</td>`;
+      if(c.key==="days_since") return `<td class="${g.days_since>90?"warn":""}">${g.days_since<9999?g.days_since+"д":"?"}</td>`;
+      if(c.key==="last_visit") return `<td class="${g.days_since>90?"warn":""}">${g.last_visit||"—"}</td>`;
+      return `<td style="max-width:160px;overflow:hidden;text-overflow:ellipsis">${g[c.key]||"—"}</td>`;
+    }).join("")}</tr>`;
+  }).join("") || `<tr><td colspan="${cols.length}" style="padding:40px;text-align:center;color:var(--sub)">Нет данных</td></tr>`;
+
+  const tp=Math.ceil(filtered.length/PAGE)||1;
+  setText("pInfo",`Стр. ${page+1} из ${tp}`);
+  document.getElementById("bPrev").disabled=page===0;
+  document.getElementById("bNext").disabled=page>=tp-1;
+}
+
+function prevPage(){if(page>0){page--;renderPage();}}
+function nextPage(){if((page+1)*PAGE<filtered.length){page++;renderPage();}}
+
+// CSV Export
+function exportCSV(){
+  const seg=document.getElementById("segFilter").value;
+  const cols=getTableCols().filter(c=>c.key!=="_n");
+  const hdr=cols.map(c=>c.label).join(";");
+  const body=filtered.map(g=>cols.map(c=>{
+    const v=c.key==="segment"?SEG_META[g.segment].label:(g[c.key]??"");
+    return String(v).includes(";")?`"${v}"`:v;
+  }).join(";")).join("\n");
+  const blob=new Blob(["﻿"+hdr+"\n"+body],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download=`guest_cdp${seg?"_"+seg:""}.csv`;a.click();
+}
+
+function resetToUpload(){
+  guests=[];filtered=[];activeSeg="";page=0;
+  Object.values(charts).forEach(c=>c.destroy());charts={};
+  hasName=hasPhone=hasCard=hasFav=hasBonus=hasDiscount=hasRecent=false;
+  document.getElementById("dashboard").style.display="none";
+  document.getElementById("uploadScreen").style.display="flex";
+  document.getElementById("colWarn").style.display="none";
+  document.getElementById("fileBadge").textContent="Файл не загружен";
+  document.getElementById("btnNewFile").style.display="none";
+  document.getElementById("btnExport").style.display="none";
+  document.getElementById("fileInput").value="";
+}
+
+// Demo data
+function loadDemo(){
+  const stores=["Новослободская","Арбат","Тверская","Таганка","Бауманская","Павелецкая","Курская","Сокол","Аэропорт","Беговая"];
+  const names=["Анна С.","Дмитрий К.","Мария В.","Сергей П.","Елена Р.","Алексей М.","Ольга Т.","Иван Н.","Наталья Б.","Юрий Ф.",
+    "Светлана Г.","Андрей Л.","Татьяна К.","Михаил В.","Ирина С.","Павел Д.","Юлия Р.","Артём К.","Кристина Н.","Владимир П."];
+  const segDist={champions:40,loyal:100,at_risk:60,sleeping:80,newcomers:50,lost:120};
+  const rawRows=[];
+  let idx=0;
+  for(const [seg,cnt] of Object.entries(segDist)){
+    for(let i=0;i<cnt;i++){
+      const orders=seg==="champions"?25+Math.floor(Math.random()*25):
+                   seg==="loyal"?8+Math.floor(Math.random()*12):
+                   seg==="at_risk"?8+Math.floor(Math.random()*10):
+                   seg==="sleeping"?3+Math.floor(Math.random()*5):
+                   seg==="newcomers"?1:2+Math.floor(Math.random()*8);
+      const avg=350+Math.floor(Math.random()*600);
+      const ltv=orders*avg;
+      const ds=seg==="champions"?Math.floor(Math.random()*14):
+               seg==="loyal"?5+Math.floor(Math.random()*40):
+               seg==="at_risk"?46+Math.floor(Math.random()*44):
+               seg==="sleeping"?50+Math.floor(Math.random()*40):
+               seg==="newcomers"?Math.floor(Math.random()*14):
+               91+Math.floor(Math.random()*200);
+      const lv=new Date();lv.setDate(lv.getDate()-ds);
+      rawRows.push({
+        "Имя": names[idx%names.length],
+        "Телефон": "+7 9"+(Math.floor(Math.random()*900000000)+100000000),
+        "Карта": String(1000000+Math.floor(Math.random()*8999999)),
+        "Последний визит": lv.toISOString().slice(0,10),
+        "Количество визитов": orders,
+        "Сумма покупок": ltv,
+        "Средний чек": avg,
+        "Любимая точка": stores[Math.floor(Math.random()*stores.length)],
+        "Бонусов на счету": Math.floor(ltv*0.05),
+      });
+      idx++;
+    }
+  }
+  parseAndRender(rawRows, "демо-данные.xlsx");
+}
+
+// Helpers
+function setText(id,v){const e=document.getElementById(id);if(e)e.textContent=v;}
+function fmt(n){return Number(n||0).toLocaleString("ru-RU");}
+function fmtR(n){const v=Number(n||0);if(v>=1000000)return (v/1000000).toFixed(1)+"M ₽";if(v>=1000)return Math.round(v/1000)+"k ₽";return v+" ₽";}
+function pct(a,b){return b?Math.round(a/b*100):0;}
+</script>
+</body>
+</html>
