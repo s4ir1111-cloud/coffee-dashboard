@@ -2,12 +2,24 @@
   "date": "2026-06-22",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "discount_pct": 0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-16",
@@ -50,7 +62,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 55132947,
-      "mtd_orders": 89509,
+      "mtd_orders": 89510,
       "mtd_avg_check": 616,
       "plan_month": 81780000,
       "expected_to_date": 59972000,
@@ -75,7 +87,7 @@
       {
         "name": "Прео",
         "mtd_revenue": 4456649,
-        "mtd_orders": 6563,
+        "mtd_orders": 6564,
         "mtd_avg_check": 679,
         "plan_month": 6400000,
         "expected_to_date": 4693333,
