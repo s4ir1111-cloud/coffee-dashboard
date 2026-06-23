@@ -10,6 +10,14 @@
         "HourOpen": "06",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
       }
     ],
     "summary": []
@@ -116,7 +124,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 3506791,
         "DishSumInt": 8135645,
-        "UniqOrderId.OrdersCount": 5486
+        "UniqOrderId.OrdersCount": 5487
       },
       {
         "Department": "Преображенский",
@@ -141,6 +149,12 @@
   },
   "top_items_raw": {
     "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      },
       {
         "DishAmountInt": 0,
         "DishGroup": "Кофе Терминал",
