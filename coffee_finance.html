@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden Coffee · Finance BI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:       #0d1117;
+  --sidebar:  #161b27;
+  --card:     #1c2133;
+  --card2:    #222840;
+  --text:     #e2e8f0;
+  --muted:    #64748b;
+  --muted2:   #94a3b8;
+  --accent:   #f97316;
+  --accent2:  #fb923c;
+  --good:     #22c55e;
+  --warn:     #facc15;
+  --bad:      #ef4444;
+  --border:   #2a3150;
+  --blue:     #3b82f6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;}
+
+/* ── LAYOUT ── */
+.app{display:flex;height:100vh;overflow:hidden;}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:220px;flex-shrink:0;
+  background:var(--sidebar);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow-y:auto;overflow-x:hidden;
+}
+.sb-logo{
+  padding:20px 16px 16px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+}
+.sb-logo-icon{
+  width:34px;height:34px;border-radius:8px;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:14px;color:#fff;flex-shrink:0;
+}
+.sb-logo-text{line-height:1.2;}
+.sb-logo-title{font-weight:700;font-size:13px;color:var(--text);}
+.sb-logo-sub{font-size:11px;color:var(--muted);}
+
+.sb-nav{padding:12px 8px 8px;}
+.sb-nav-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:4px 8px 8px;}
+.sb-nav a{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:8px;
+  color:var(--muted2);text-decoration:none;
+  font-size:13px;font-weight:500;
+  cursor:pointer;transition:all .15s;
+  margin-bottom:2px;
+}
+.sb-nav a:hover{background:var(--card);color:var(--text);}
+.sb-nav a.active{background:var(--accent);color:#fff;}
+.sb-nav a svg{width:16px;height:16px;flex-shrink:0;}
+
+.sb-points{padding:8px 8px 16px;border-top:1px solid var(--border);margin-top:8px;}
+.sb-city{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:10px 8px 4px;}
+.sb-point{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 8px;border-radius:6px;
+  font-size:12px;color:var(--muted2);cursor:pointer;
+  transition:all .12s;
+}
+.sb-point:hover{background:var(--card);color:var(--text);}
+.sb-point.active{color:var(--accent);}
+.sb-dot{width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;}
+.sb-point.active .sb-dot{background:var(--accent);}
+
+/* ── MAIN ── */
+.main{flex:1;overflow-y:auto;overflow-x:hidden;}
+.main-header{
+  padding:20px 28px 0;
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.main-title{font-size:22px;font-weight:700;}
+.main-sub{font-size:13px;color:var(--muted);margin-top:3px;}
+.main-sub span{color:var(--text);font-weight:500;}
+.logo-mark{
+  display:flex;flex-direction:column;align-items:flex-end;gap:2px;
+}
+.logo-mark svg{height:30px;width:auto;}
+
+/* ── SECTION ── */
+section{display:none;padding:20px 28px 32px;}
+section.active{display:block;}
+
+/* ── KPI CARDS ── */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+.kpi-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:18px 20px;position:relative;overflow:hidden;
+}
+.kpi-icon{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:8px;
+  background:var(--card2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);
+}
+.kpi-icon svg{width:16px;height:16px;}
+.kpi-label{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:8px;}
+.kpi-value{font-size:26px;font-weight:700;line-height:1;margin-bottom:8px;}
+.kpi-trend{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.trend-tag{
+  font-size:11px;font-weight:600;
+  padding:2px 7px;border-radius:20px;
+  display:inline-flex;align-items:center;gap:3px;
+}
+.trend-tag.up{background:rgba(34,197,94,.15);color:var(--good);}
+.trend-tag.down{background:rgba(239,68,68,.15);color:var(--bad);}
+.trend-tag.neutral{background:rgba(100,116,139,.15);color:var(--muted2);}
+.kpi-sub{font-size:11px;color:var(--muted);}
+
+/* ── CHARTS ROW ── */
+.charts-row{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-bottom:20px;}
+.chart-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:18px 20px;
+}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.chart-title{font-size:14px;font-weight:600;}
+.chart-toggles{display:flex;gap:4px;}
+.toggle-btn{
+  padding:4px 10px;border-radius:6px;border:1px solid var(--border);
+  background:transparent;color:var(--muted2);font-size:11px;font-weight:500;
+  cursor:pointer;transition:all .12s;font-family:inherit;
+}
+.toggle-btn.active{background:var(--card2);color:var(--text);border-color:var(--muted);}
+.chart-canvas-wrap{position:relative;height:200px;}
+
+/* ── PLAN/FACT TABLE ── */
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.section-title{font-size:16px;font-weight:600;}
+.filter-row{display:flex;gap:8px;}
+.filter-btn{
+  padding:5px 14px;border-radius:7px;border:1px solid var(--border);
+  background:transparent;color:var(--muted2);font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .12s;font-family:inherit;
+}
+.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.data-table th{
+  text-align:left;padding:10px 14px;
+  font-size:11px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.5px;
+  background:var(--card2);border-bottom:1px solid var(--border);
+}
+.data-table th:first-child{border-radius:10px 0 0 0;}
+.data-table th:last-child{border-radius:0 10px 0 0;}
+.data-table td{padding:10px 14px;border-bottom:1px solid var(--border);}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:var(--card2);}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px;}
+
+.bar-inline{display:flex;align-items:center;gap:8px;}
+.bar-bg{flex:1;background:var(--bg);border-radius:3px;height:5px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;transition:width .4s;}
+
+.rank-num{font-weight:700;color:var(--muted);width:24px;display:inline-block;text-align:center;}
+.rank-1{color:var(--warn);}
+.rank-2{color:var(--muted2);}
+.rank-3{color:var(--accent);}
+
+.pct-pill{
+  display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;
+}
+.pct-good{background:rgba(34,197,94,.15);color:var(--good);}
+.pct-warn{background:rgba(250,204,21,.15);color:var(--warn);}
+.pct-bad{background:rgba(239,68,68,.15);color:var(--bad);}
+
+/* ── FORECAST ── */
+.forecast-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.forecast-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;
+}
+.fc-label{font-size:11px;color:var(--muted);margin-bottom:6px;}
+.fc-value{font-size:22px;font-weight:700;margin-bottom:4px;}
+.fc-sub{font-size:11px;color:var(--muted);}
+
+/* ── ANOMALIES ── */
+.anomaly-row{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 16px;background:var(--card);border:1px solid var(--border);
+  border-radius:10px;margin-bottom:8px;
+}
+.anomaly-badge{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.anomaly-badge.high{background:rgba(239,68,68,.15);}
+.anomaly-badge.warn{background:rgba(250,204,21,.15);}
+.anomaly-badge.info{background:rgba(59,130,246,.15);}
+.anomaly-text{flex:1;}
+.anomaly-title{font-weight:600;font-size:13px;}
+.anomaly-desc{font-size:12px;color:var(--muted);margin-top:2px;}
+.anomaly-val{font-weight:700;font-size:14px;white-space:nowrap;}
+
+/* ── UPLOAD ── */
+.upload-zone{
+  border:2px dashed var(--border);border-radius:12px;
+  padding:40px;text-align:center;color:var(--muted);
+  cursor:pointer;transition:all .15s;margin-bottom:20px;
+  background:var(--card);
+}
+.upload-zone:hover{border-color:var(--accent);color:var(--text);}
+.upload-icon{font-size:40px;margin-bottom:12px;}
+.upload-title{font-size:15px;font-weight:600;margin-bottom:6px;}
+.upload-sub{font-size:12px;}
+
+.upload-history{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.upload-history-title{padding:14px 18px;font-weight:600;font-size:13px;border-bottom:1px solid var(--border);}
+
+/* ── EMPTY STATE ── */
+.empty{text-align:center;padding:60px 20px;color:var(--muted);}
+.empty-icon{font-size:48px;margin-bottom:12px;}
+.empty-title{font-size:16px;font-weight:600;color:var(--muted2);margin-bottom:6px;}
+.empty-sub{font-size:13px;}
+
+/* ── MONTH TABS ── */
+.month-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:16px;}
+.month-tab{
+  padding:5px 12px;border-radius:7px;border:1px solid var(--border);
+  background:transparent;color:var(--muted2);font-size:12px;
+  cursor:pointer;font-family:inherit;transition:all .12s;
+}
+.month-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* ── SUMMARY ROW ── */
+.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;}
+.sum-mini{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:12px 14px;
+}
+.sum-mini-lbl{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-weight:600;}
+.sum-mini-val{font-size:18px;font-weight:700;}
+.sum-mini-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+
+/* ── LOADING ── */
+.loading{
+  display:flex;align-items:center;justify-content:center;
+  height:200px;color:var(--muted);font-size:13px;gap:10px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-icon">GC</div>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Finance BI</div>
+      <div class="sb-logo-sub">Garden Coffee</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-nav-label">Меню</div>
+    <a class="active" data-section="dashboard" onclick="navigate('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <a data-section="planfact" onclick="navigate('planfact')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      План / Факт
+    </a>
+    <a data-section="rating" onclick="navigate('rating')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Рейтинг
+    </a>
+    <a data-section="forecast" onclick="navigate('forecast')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Прогноз
+    </a>
+    <a data-section="anomalies" onclick="navigate('anomalies')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Аномалии
+    </a>
+    <a data-section="upload" onclick="navigate('upload')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Загрузка
+    </a>
+  </nav>
+
+  <div class="sb-points" id="sb-points">
+    <div class="loading" style="height:60px;font-size:11px;">Загрузка…</div>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+  <div class="main-header">
+    <div>
+      <div class="main-title" id="section-title">Dashboard</div>
+      <div class="main-sub">Обзор финансовых показателей · <span id="period-label">—</span></div>
+    </div>
+    <div class="logo-mark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="535 258 850 142" aria-label="GARDEN">
+        <g fill="#f97316">
+          <path d="M 1243.589844 380.964844 C 1244.8125 389.808594 1231.257812 384.707031 1226.089844 384.15625 C 1192.828125 380.605469 1175.636719 390.074219 1171.566406 392.722656 C 1170.894531 393.160156 1170.113281 393.390625 1169.3125 393.390625 L 1132.347656 393.390625 C 1130.0625 393.390625 1128.210938 391.539062 1128.210938 389.257812 L 1128.210938 269.066406 C 1128.210938 266.78125 1130.0625 264.929688 1132.347656 264.929688 L 1169.898438 264.929688 C 1170.835938 264.929688 1171.742188 265.25 1172.476562 265.832031 C 1175.925781 268.570312 1187.214844 276.574219 1200.796875 276.070312 C 1209.550781 275.742188 1215.292969 276.925781 1215.730469 281.15625 C 1216.304688 286.675781 1210.632812 285.390625 1206.136719 284.644531 C 1190.101562 281.984375 1178.941406 285.503906 1169.980469 289.746094 C 1183.28125 305.761719 1205.976562 307.308594 1212.648438 307.214844 C 1221.113281 307.101562 1224.257812 308.980469 1224.703125 312.5 C 1225.164062 316.136719 1222.429688 317.707031 1217.246094 316.902344 C 1185.441406 311.964844 1172.058594 322.226562 1172.058594 322.226562 C 1172.058594 322.226562 1184.644531 340.828125 1221.472656 340.527344 C 1234.984375 340.417969 1235.234375 344.695312 1234.703125 347.304688 C 1233.59375 352.78125 1223.640625 349.917969 1220.316406 349.488281 C 1188.75 345.402344 1175.410156 355.589844 1171.6875 357.777344 C 1188.257812 374.1875 1203.347656 375.101562 1228.539062 375.269531 C 1238.496094 375.335938 1243.078125 377.269531 1243.589844 380.964844 "/>
+          <path d="M 1379.820312 269.066406 L 1379.820312 389.257812 C 1379.820312 391.539062 1377.96875 393.390625 1375.683594 393.390625 L 1290.226562 393.390625 C 1314.292969 384.488281 1319.136719 357.492188 1319.136719 357.492188 C 1301.898438 354.75 1284.125 359.839844 1271.582031 371.175781 C 1266.894531 375.414062 1260.703125 384.714844 1255.6875 379.207031 C 1250.273438 373.257812 1258.507812 367.222656 1264.660156 364.527344 C 1300.910156 348.648438 1300.496094 328.3125 1300.496094 324.804688 C 1294.625 322.398438 1271.367188 323.171875 1256.714844 339.707031 C 1255.203125 341.414062 1249.445312 348.929688 1244.625 345.648438 C 1242.707031 344.339844 1239.5625 336.894531 1250.523438 332.167969 C 1280.636719 319.179688 1284.941406 302.410156 1284.882812 295.890625 C 1277.433594 293.015625 1258.695312 295.117188 1245.769531 307.523438 C 1244.488281 308.75 1237.109375 315.820312 1233.457031 311.261719 C 1230.550781 307.636719 1232.042969 301.894531 1241.980469 298.5625 C 1271.585938 288.636719 1271.273438 269.117188 1271.273438 269.117188 C 1271.273438 269.117188 1257.871094 267.738281 1245.960938 271.46875 C 1239.597656 273.464844 1230.203125 281.246094 1228.457031 282.023438 C 1224.632812 283.722656 1222.546875 280.554688 1223.105469 277.460938 C 1223.738281 273.960938 1226.5 272.03125 1229.730469 271.128906 C 1236.382812 269.265625 1241.890625 266.640625 1244.109375 265.511719 C 1244.824219 265.148438 1245.605469 264.960938 1246.40625 264.960938 C 1253.859375 264.960938 1292.355469 264.960938 1300.394531 264.953125 C 1302.039062 264.953125 1303.523438 265.929688 1304.183594 267.4375 L 1330.636719 328.164062 C 1330.949219 328.882812 1331.65625 329.347656 1332.441406 329.347656 C 1333.53125 329.347656 1334.414062 328.464844 1334.414062 327.378906 L 1334.414062 269.066406 C 1334.414062 266.78125 1336.261719 264.929688 1338.546875 264.929688 L 1375.683594 264.929688 C 1377.96875 264.929688 1379.820312 266.78125 1379.820312 269.066406 "/>
+          <path fill-rule="evenodd" d="M 612.953125 397.105469 C 570 397.105469 540 369.183594 540 329.203125 C 540 289.222656 570 261.296875 612.953125 261.296875 C 646.472656 261.296875 673.175781 281.242188 679.953125 308.476562 C 680.605469 311.097656 678.640625 313.636719 675.941406 313.636719 L 637.667969 313.636719 C 636.433594 313.636719 635.238281 313.097656 634.472656 312.128906 C 630.21875 306.730469 623.058594 302.660156 614.511719 302.660156 C 599.695312 302.660156 588.941406 313.820312 588.941406 329.203125 C 588.941406 344.027344 596.816406 357.972656 614.414062 358.421875 L 615.382812 358.433594 C 625.171875 358.433594 630.722656 350.78125 631.746094 349.230469 C 631.859375 349.058594 631.917969 348.859375 631.917969 348.648438 C 631.917969 348.058594 631.441406 347.582031 630.851562 347.582031 L 621.253906 347.582031 C 618.972656 347.582031 617.121094 345.730469 617.121094 343.445312 L 617.121094 331.671875 C 617.121094 329.390625 618.972656 327.535156 621.253906 327.535156 L 677.304688 327.535156 C 679.589844 327.535156 681.441406 329.390625 681.441406 331.671875 L 681.441406 389.277344 C 681.441406 391.5625 679.589844 393.414062 677.304688 393.414062 L 654.28125 393.414062 C 651.996094 393.414062 650.144531 391.5625 650.144531 389.277344 L 650.144531 382.511719 C 650.144531 382.007812 649.535156 381.753906 649.1875 382.117188 C 645.75 385.6875 633.179688 397.105469 612.953125 397.105469 "/>
+          <path fill-rule="evenodd" d="M 749.234375 338.839844 L 777.066406 338.839844 L 768.914062 303.613281 L 757.386719 303.613281 Z M 788.9375 390.195312 L 784.65625 371.859375 L 741.640625 371.859375 L 737.363281 390.195312 C 736.925781 392.066406 735.257812 393.390625 733.335938 393.390625 L 694.695312 393.390625 C 691.925781 393.390625 689.9375 390.71875 690.734375 388.066406 L 726.824219 267.90625 C 727.351562 266.160156 728.960938 264.960938 730.785156 264.960938 L 795.515625 264.960938 C 797.339844 264.960938 798.949219 266.160156 799.476562 267.90625 L 835.5625 388.066406 C 836.359375 390.71875 834.375 393.390625 831.601562 393.390625 L 792.960938 393.390625 C 791.039062 393.390625 789.371094 392.066406 788.9375 390.195312 "/>
+          <path fill-rule="evenodd" d="M 889.949219 325.828125 L 906.234375 325.828125 C 917.492188 325.828125 923.199219 320.886719 923.199219 311.148438 C 923.199219 304.339844 920.257812 296.226562 906.234375 296.226562 L 889.949219 296.226562 Z M 923.777344 391.050781 L 907.40625 357.09375 L 889.949219 357.09375 L 889.949219 389.257812 C 889.949219 391.539062 888.097656 393.390625 885.816406 393.390625 L 849.804688 393.390625 C 847.523438 393.390625 845.671875 391.539062 845.671875 389.257812 L 845.671875 269.097656 C 845.671875 266.8125 847.523438 264.960938 849.804688 264.960938 L 911.257812 264.960938 C 948.683594 264.960938 966.113281 279.636719 966.113281 311.148438 C 966.113281 327.96875 961.097656 339.804688 950.78125 347.332031 L 948.105469 349.285156 L 968.507812 387.300781 C 969.984375 390.054688 967.988281 393.390625 964.863281 393.390625 L 927.503906 393.390625 C 925.914062 393.390625 924.46875 392.484375 923.777344 391.050781 "/>
+          <path fill-rule="evenodd" d="M 1027.433594 354.359375 L 1045.996094 354.359375 C 1063.839844 354.359375 1074.070312 345.175781 1074.070312 329.171875 C 1074.070312 313.167969 1063.839844 303.992188 1045.996094 303.992188 L 1027.433594 303.992188 Z M 983.148438 389.257812 L 983.148438 269.097656 C 983.148438 266.8125 985 264.960938 987.285156 264.960938 L 1053.148438 264.960938 C 1095.9375 264.960938 1120.480469 288.367188 1120.480469 329.171875 C 1120.480469 370.589844 1096.566406 393.390625 1053.148438 393.390625 L 987.285156 393.390625 C 985 393.390625 983.148438 391.539062 983.148438 389.257812 "/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ═══ DASHBOARD ═══ -->
+  <section id="dashboard" class="active">
+    <div class="kpi-row" id="kpi-row">
+      <div class="loading">Загрузка данных…</div>
+    </div>
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Выручка сети по месяцам</div>
+          <div class="chart-toggles">
+            <button class="toggle-btn active" id="btn-all" onclick="setChartMode('all')">Все точки</button>
+            <button class="toggle-btn" id="btn-lfl" onclick="setChartMode('lfl')">LFL</button>
+          </div>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="revenueChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Выручка по точкам (МТД)</div>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="pointsChart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ПЛАН / ФАКТ ═══ -->
+  <section id="planfact">
+    <div class="section-header">
+      <div class="section-title">Plan / Fact — выполнение плана по точкам</div>
+      <div class="filter-row" id="pf-months"></div>
+    </div>
+    <div class="summary-grid" id="pf-summary"></div>
+    <div class="table-wrap">
+      <table class="data-table" id="pf-table">
+        <thead><tr>
+          <th>#</th><th>Точка</th><th>Факт МТД</th><th>План месяца</th>
+          <th>% плана</th><th>% темпа</th><th>Ср. чек</th>
+        </tr></thead>
+        <tbody id="pf-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ РЕЙТИНГ ═══ -->
+  <section id="rating">
+    <div class="section-header">
+      <div class="section-title">Рейтинг точек по выручке</div>
+      <div class="filter-row" id="rating-months"></div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table" id="rating-table">
+        <thead><tr>
+          <th>#</th><th>Точка</th><th>Выручка</th><th>Доля сети</th>
+          <th>г/г</th><th>Заказов</th><th>Ср. чек</th>
+        </tr></thead>
+        <tbody id="rating-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ ПРОГНОЗ ═══ -->
+  <section id="forecast">
+    <div class="section-header">
+      <div class="section-title">Прогноз до конца месяца</div>
+    </div>
+    <div class="forecast-cards" id="forecast-cards"></div>
+    <div class="chart-card">
+      <div class="chart-header"><div class="chart-title">Прогнозируемая выручка vs план</div></div>
+      <div class="chart-canvas-wrap" style="height:220px"><canvas id="forecastChart"></canvas></div>
+    </div>
+  </section>
+
+  <!-- ═══ АНОМАЛИИ ═══ -->
+  <section id="anomalies">
+    <div class="section-header">
+      <div class="section-title">Аномалии и отклонения</div>
+    </div>
+    <div id="anomalies-list"></div>
+  </section>
+
+  <!-- ═══ ЗАГРУЗКА ═══ -->
+  <section id="upload">
+    <div class="section-header">
+      <div class="section-title">Загрузка данных</div>
+    </div>
+    <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+      <div class="upload-icon">📂</div>
+      <div class="upload-title">Перетащите файл или нажмите для выбора</div>
+      <div class="upload-sub">Поддерживаются: .json (finance_data.json из коннектора IIKO)</div>
+      <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleUpload(event)">
+    </div>
+    <div class="upload-history">
+      <div class="upload-history-title">Источник данных</div>
+      <table class="data-table">
+        <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+        <tbody id="data-source-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<script>
+// ════════════════════════════════
+// КОНФИГУРАЦИЯ ТОЧЕК (города)
+// ════════════════════════════════
+const POINTS_CONFIG = {
+  "Тюмень": ["Океан","Свердлова","Паруса","Видный","Панорама","Калинка","Новин",
+             "Драмтеатр","Газпром","Осипенко","Европа","Гагарина","Домашний",
+             "Ворлд Класс","Советская","Мельникайте","Арсиб","Прео"],
+  "Сургут": ["Гарден Кофе Сургут"],
+  "Тобольск": ["Гарден Кофе Тобольск"]
+};
+
+const MONTH_LABELS = ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"];
+const BAR_COLORS = [
+  "#f97316","#fb923c","#ef4444","#ec4899","#a855f7",
+  "#8b5cf6","#6366f1","#3b82f6","#06b6d4","#14b8a6",
+  "#22c55e","#84cc16","#eab308","#f59e0b","#64748b",
+  "#94a3b8","#c084fc","#f472b6","#34d399","#38bdf8"
+];
+
+let DATA = null;
+let revenueChart = null;
+let pointsChart = null;
+let forecastChart = null;
+let chartMode = 'all';
+let activeSection = 'dashboard';
+
+// ════════════════════════════════
+// ЗАГРУЗКА ДАННЫХ
+// ════════════════════════════════
+function loadData() {
+  fetch('finance_data.json', {cache:'no-store'})
+    .then(r => { if(!r.ok) throw new Error('no file'); return r.json(); })
+    .then(d => { DATA = d; initAll(); })
+    .catch(() => {
+      // Используем данные из dashboard_data_view.json как fallback
+      fetch('dashboard_data_view.json', {cache:'no-store'})
+        .then(r => r.json())
+        .then(d => { DATA = buildFallback(d); initAll(); })
+        .catch(() => showNoData());
+    });
+}
+
+function buildFallback(d) {
+  // Строим структуру из текущих MTD данных
+  const now = new Date();
+  const monthKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  const monthly = {};
+  monthly[monthKey] = { total: d.plan?.summary?.mtd_revenue || 0, orders: d.plan?.summary?.mtd_orders || 0 };
+  const byPoint = {};
+  (d.plan?.points || []).forEach(p => {
+    byPoint[p.name] = {
+      monthly: { [monthKey]: p.mtd_revenue || 0 },
+      monthly_orders: { [monthKey]: p.mtd_orders || 0 },
+      plan_month: p.plan_month,
+      city: getCityForPoint(p.name),
+      avg_check: p.mtd_avg_check,
+    };
+  });
+  return {
+    generated_at: d.date,
+    current_month: monthKey,
+    current_month_label: MONTH_LABELS[now.getMonth()] + ' ' + now.getFullYear(),
+    months_available: [monthKey],
+    monthly_totals: [{ month: monthKey, label: MONTH_LABELS[now.getMonth()], revenue: d.plan?.summary?.mtd_revenue || 0, orders: d.plan?.summary?.mtd_orders || 0 }],
+    monthly_totals_prev: [],
+    by_point: byPoint,
+    plan_summary: d.plan?.summary || {},
+    day_of_month: d.plan?.summary?.day_of_month || new Date().getDate(),
+    days_in_month: d.plan?.summary?.days_in_month || 30,
+    is_fallback: true,
+  };
+}
+
+function getCityForPoint(name) {
+  for (const [city, points] of Object.entries(POINTS_CONFIG)) {
+    if (points.includes(name)) return city;
+  }
+  return 'Другие';
+}
+
+function showNoData() {
+  document.getElementById('kpi-row').innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">📡</div><div class="empty-title">Данные не загружены</div><div class="empty-sub">Запустите finance_connector.py для получения исторических данных</div></div>`;
+}
+
+// ════════════════════════════════
+// НАВИГАЦИЯ
+// ════════════════════════════════
+const SECTION_TITLES = {
+  dashboard: 'Dashboard',
+  planfact: 'План / Факт',
+  rating: 'Рейтинг',
+  forecast: 'Прогноз',
+  anomalies: 'Аномалии',
+  upload: 'Загрузка',
+};
+
+function navigate(section) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sb-nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(section).classList.add('active');
+  document.querySelector(`[data-section="${section}"]`).classList.add('active');
+  document.getElementById('section-title').textContent = SECTION_TITLES[section];
+  activeSection = section;
+  if (section === 'dashboard') { renderCharts(); }
+  if (section === 'planfact')  { renderPlanFact(); }
+  if (section === 'rating')    { renderRating(); }
+  if (section === 'forecast')  { renderForecast(); }
+  if (section === 'anomalies') { renderAnomalies(); }
+}
+
+// ════════════════════════════════
+// ИНИЦИАЛИЗАЦИЯ
+// ════════════════════════════════
+function initAll() {
+  if (!DATA) return;
+  renderSidebar();
+  renderPeriodLabel();
+  renderKPIs();
+  renderCharts();
+  renderPlanFact();
+  renderRating();
+  renderForecast();
+  renderAnomalies();
+  renderUpload();
+}
+
+function renderPeriodLabel() {
+  const label = DATA.current_month_label || DATA.current_month || '—';
+  document.getElementById('period-label').textContent = label;
+}
+
+function renderSidebar() {
+  const el = document.getElementById('sb-points');
+  let html = '';
+  for (const [city, points] of Object.entries(POINTS_CONFIG)) {
+    const active = points.filter(p => DATA.by_point && DATA.by_point[p]);
+    if (!active.length) continue;
+    html += `<div class="sb-city">${city}</div>`;
+    active.forEach(p => {
+      html += `<div class="sb-point" onclick="filterByPoint('${p}')"><div class="sb-dot"></div>${shortName(p)}</div>`;
+    });
+  }
+  el.innerHTML = html;
+}
+
+function shortName(n) {
+  return n.replace(/Гарден\s+Кофе\s+/gi,'').replace(/Гарден\s+/gi,'').replace(/\s*Кофе\b/gi,'').replace(/\s*кофейня\b/gi,'').trim();
+}
+
+function filterByPoint(name) {
+  document.querySelectorAll('.sb-point').forEach(el => el.classList.remove('active'));
+  event.target.closest('.sb-point').classList.add('active');
+}
+
+// ════════════════════════════════
+// KPI CARDS
+// ════════════════════════════════
+function renderKPIs() {
+  const ps = DATA.plan_summary || {};
+  const cur = DATA.current_month;
+  const prev = DATA.months_available && DATA.months_available.length > 1
+    ? DATA.months_available[DATA.months_available.length - 2] : null;
+
+  let totalMTD = ps.mtd_revenue || 0;
+  let totalPlan = ps.plan_month || 0;
+  let pctPlan = ps.pct_of_plan || 0;
+  let pctPace = ps.pct_vs_expected || 0;
+  let avgCheck = ps.mtd_avg_check || 0;
+  let orders = ps.mtd_orders || 0;
+
+  // Г/Г рост из monthly_totals
+  let yoyHtml = '<span class="kpi-sub">нет данных пред. года</span>';
+  if (DATA.monthly_totals && DATA.monthly_totals_prev && DATA.monthly_totals_prev.length) {
+    const curRev = DATA.monthly_totals.reduce((a, m) => a + (m.revenue || 0), 0);
+    const prevRev = DATA.monthly_totals_prev.reduce((a, m) => a + (m.revenue || 0), 0);
+    if (prevRev) {
+      const yoy = ((curRev - prevRev) / prevRev * 100).toFixed(1);
+      const cls = yoy >= 0 ? 'up' : 'down';
+      const sign = yoy >= 0 ? '+' : '';
+      yoyHtml = `<span class="trend-tag ${cls}">${sign}${yoy}% г/г</span>`;
+    }
+  }
+
+  const paceClass = pctPace >= 100 ? 'up' : (pctPace >= 90 ? 'neutral' : 'down');
+  const planClass = pctPlan >= 100 ? 'up' : (pctPlan >= 90 ? 'neutral' : 'down');
+
+  document.getElementById('kpi-row').innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+      <div class="kpi-label">Выручка сети МТД</div>
+      <div class="kpi-value">${fmtM(totalMTD)}</div>
+      <div class="kpi-trend">${yoyHtml}<span class="kpi-sub">план: ${fmtM(totalPlan)}</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="kpi-label">Выполнение плана</div>
+      <div class="kpi-value">${pctPlan}%</div>
+      <div class="kpi-trend"><span class="trend-tag ${planClass}">${pctPlan >= 100 ? '✓ план выполнен' : 'день ' + (DATA.day_of_month||'—') + ' из ' + (DATA.days_in_month||30)}</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="kpi-label">% темпа</div>
+      <div class="kpi-value">${pctPace}%</div>
+      <div class="kpi-trend"><span class="trend-tag ${paceClass}">${pctPace >= 100 ? '▲ опережаем' : pctPace >= 90 ? '→ в норме' : '▼ отстаём'}</span><span class="kpi-sub">100% = по плану</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+      <div class="kpi-label">Средний чек МТД</div>
+      <div class="kpi-value">${avgCheck ? avgCheck.toLocaleString('ru-RU') + ' ₽' : '—'}</div>
+      <div class="kpi-trend"><span class="kpi-sub">${orders ? orders.toLocaleString('ru-RU') + ' заказов' : '—'}</span></div>
+    </div>
+  `;
+}
+
+// ════════════════════════════════
+// CHARTS
+// ════════════════════════════════
+function setChartMode(mode) {
+  chartMode = mode;
+  document.getElementById('btn-all').classList.toggle('active', mode === 'all');
+  document.getElementById('btn-lfl').classList.toggle('active', mode === 'lfl');
+  renderRevenueChart();
+}
+
+function renderCharts() {
+  renderRevenueChart();
+  renderPointsChart();
+}
+
+function renderRevenueChart() {
+  if (!DATA || !DATA.monthly_totals) return;
+  const labels = DATA.monthly_totals.map(m => m.label);
+  const values = DATA.monthly_totals.map(m => (m.revenue || 0) / 1e6);
+  const prevValues = DATA.monthly_totals_prev ? DATA.monthly_totals_prev.map(m => (m.revenue || 0) / 1e6) : [];
+
+  if (revenueChart) revenueChart.destroy();
+  const ctx = document.getElementById('revenueChart').getContext('2d');
+  const datasets = [{
+    label: '2026',
+    data: values,
+    borderColor: '#f97316',
+    backgroundColor: 'rgba(249,115,22,0.1)',
+    fill: true,
+    tension: 0.4,
+    pointBackgroundColor: '#f97316',
+    pointRadius: 4,
+  }];
+  if (prevValues.length) {
+    datasets.push({
+      label: '2025',
+      data: prevValues.slice(0, labels.length),
+      borderColor: '#64748b',
+      backgroundColor: 'transparent',
+      borderDash: [5, 5],
+      tension: 0.4,
+      pointRadius: 3,
+      pointBackgroundColor: '#64748b',
+    });
+  }
+  revenueChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#94a3b8', font: { size: 11 }, boxWidth: 20 } } },
+      scales: {
+        x: { grid: { color: 'rgba(42,49,80,.5)' }, ticks: { color: '#64748b', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(42,49,80,.5)' }, ticks: { color: '#64748b', font: { size: 11 }, callback: v => v + ' М' } },
+      },
+    }
+  });
+}
+
+function renderPointsChart() {
+  if (!DATA || !DATA.by_point) return;
+  const cur = DATA.current_month;
+  const pts = Object.entries(DATA.by_point)
+    .map(([name, d]) => ({ name: shortName(name), rev: (d.monthly && d.monthly[cur]) || 0 }))
+    .filter(p => p.rev > 0)
+    .sort((a, b) => b.rev - a.rev)
+    .slice(0, 15);
+
+  if (pointsChart) pointsChart.destroy();
+  const ctx = document.getElementById('pointsChart').getContext('2d');
+  pointsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: pts.map(p => p.name),
+      datasets: [{ data: pts.map(p => p.rev / 1e6), backgroundColor: BAR_COLORS.slice(0, pts.length), borderRadius: 4 }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: 'rgba(42,49,80,.5)' }, ticks: { color: '#64748b', font: { size: 10 }, callback: v => v + ' М' } },
+        y: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+      },
+    }
+  });
+}
+
+// ════════════════════════════════
+// ПЛАН / ФАКТ
+// ════════════════════════════════
+function renderPlanFact() {
+  if (!DATA) return;
+  const months = DATA.months_available || [DATA.current_month];
+
+  // month tabs
+  const tabsEl = document.getElementById('pf-months');
+  tabsEl.innerHTML = months.map((m, i) => {
+    const lbl = DATA.monthly_totals?.[i]?.label || m;
+    return `<button class="month-tab ${i===months.length-1?'active':''}" onclick="selectPFMonth('${m}',this)">${lbl}</button>`;
+  }).join('');
+
+  renderPFTable(months[months.length - 1]);
+
+  // summary
+  const ps = DATA.plan_summary || {};
+  document.getElementById('pf-summary').innerHTML = `
+    <div class="sum-mini"><div class="sum-mini-lbl">Факт МТД</div><div class="sum-mini-val">${fmtM(ps.mtd_revenue)}</div></div>
+    <div class="sum-mini"><div class="sum-mini-lbl">План месяца</div><div class="sum-mini-val">${fmtM(ps.plan_month)}</div></div>
+    <div class="sum-mini"><div class="sum-mini-lbl">% плана</div><div class="sum-mini-val">${ps.pct_of_plan||0}%</div></div>
+    <div class="sum-mini"><div class="sum-mini-lbl">% темпа</div><div class="sum-mini-val">${ps.pct_vs_expected||0}%</div></div>
+    <div class="sum-mini"><div class="sum-mini-lbl">День месяца</div><div class="sum-mini-val">${ps.day_of_month||'—'} / ${ps.days_in_month||30}</div></div>
+  `;
+}
+
+function selectPFMonth(month, btn) {
+  document.querySelectorAll('.month-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPFTable(month);
+}
+
+function renderPFTable(month) {
+  if (!DATA || !DATA.by_point) return;
+  const rows = Object.entries(DATA.by_point)
+    .map(([name, d]) => ({
+      name, rev: (d.monthly?.[month]) || 0,
+      orders: (d.monthly_orders?.[month]) || 0,
+      plan: d.plan_month || 0,
+      avg_check: d.avg_check || 0,
+    }))
+    .filter(r => r.rev > 0 || r.plan > 0)
+    .sort((a, b) => b.rev - a.rev);
+
+  const total_rev = rows.reduce((s, r) => s + r.rev, 0);
+  const total_plan = rows.reduce((s, r) => s + r.plan, 0);
+  const pace = DATA.day_of_month && DATA.days_in_month ? DATA.day_of_month / DATA.days_in_month : 0;
+
+  const tbody = document.getElementById('pf-tbody');
+  tbody.innerHTML = rows.map((r, i) => {
+    const pct = r.plan ? Math.round(r.rev / r.plan * 1000) / 10 : 0;
+    const expected = r.plan * pace;
+    const pctPace = expected ? Math.round(r.rev / expected * 1000) / 10 : 0;
+    const cls = pct >= 100 ? 'pct-good' : pct >= 90 ? 'pct-warn' : 'pct-bad';
+    const pcls = pctPace >= 100 ? 'pct-good' : pctPace >= 90 ? 'pct-warn' : 'pct-bad';
+    return `<tr>
+      <td><span class="rank-num ${i<3?'rank-'+(i+1):''}">${i+1}</span></td>
+      <td><b>${shortName(r.name)}</b></td>
+      <td>${fmtM(r.rev)}</td>
+      <td>${fmtM(r.plan)}</td>
+      <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:${Math.min(pct,100)}%;background:${pct>=100?'var(--good)':pct>=90?'var(--warn)':'var(--bad)'}"></div></div><span class="pct-pill ${cls}">${pct}%</span></div></td>
+      <td><span class="pct-pill ${pcls}">${pctPace}%</span></td>
+      <td>${r.avg_check ? r.avg_check.toLocaleString('ru-RU')+' ₽' : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ════════════════════════════════
+// РЕЙТИНГ
+// ════════════════════════════════
+function renderRating() {
+  if (!DATA || !DATA.by_point) return;
+  const months = DATA.months_available || [DATA.current_month];
+  const month = months[months.length - 1];
+
+  document.getElementById('rating-months').innerHTML = months.map((m, i) => {
+    const lbl = DATA.monthly_totals?.[i]?.label || m;
+    return `<button class="month-tab ${i===months.length-1?'active':''}" onclick="selectRatingMonth('${m}',this)">${lbl}</button>`;
+  }).join('');
+
+  renderRatingTable(month);
+}
+
+function selectRatingMonth(month, btn) {
+  document.querySelectorAll('#rating-months .month-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRatingTable(month);
+}
+
+function renderRatingTable(month) {
+  if (!DATA || !DATA.by_point) return;
+  const rows = Object.entries(DATA.by_point)
+    .map(([name, d]) => ({
+      name, rev: (d.monthly?.[month]) || 0,
+      orders: (d.monthly_orders?.[month]) || 0,
+      avg_check: d.avg_check || 0,
+    }))
+    .filter(r => r.rev > 0)
+    .sort((a, b) => b.rev - a.rev);
+
+  const total = rows.reduce((s, r) => s + r.rev, 0);
+
+  document.getElementById('rating-tbody').innerHTML = rows.map((r, i) => {
+    const share = total ? (r.rev / total * 100).toFixed(1) : 0;
+    return `<tr>
+      <td><span class="rank-num ${i<3?'rank-'+(i+1):''}">${i+1}</span></td>
+      <td><b>${shortName(r.name)}</b></td>
+      <td><b>${fmtM(r.rev)}</b></td>
+      <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:${share}%;background:${BAR_COLORS[i]}"></div></div>${share}%</div></td>
+      <td>—</td>
+      <td>${r.orders ? r.orders.toLocaleString('ru-RU') : '—'}</td>
+      <td>${r.avg_check ? r.avg_check.toLocaleString('ru-RU')+' ₽' : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ════════════════════════════════
+// ПРОГНОЗ
+// ════════════════════════════════
+function renderForecast() {
+  if (!DATA) return;
+  const ps = DATA.plan_summary || {};
+  const dom = DATA.day_of_month || 1;
+  const dim = DATA.days_in_month || 30;
+  const mtd = ps.mtd_revenue || 0;
+  const plan = ps.plan_month || 0;
+  const dailyRate = dom > 0 ? mtd / dom : 0;
+  const projected = Math.round(dailyRate * dim);
+  const gap = projected - plan;
+  const gapClass = gap >= 0 ? 'pct-good' : 'pct-bad';
+
+  document.getElementById('forecast-cards').innerHTML = `
+    <div class="forecast-card">
+      <div class="fc-label">Прогноз выручки на месяц</div>
+      <div class="fc-value">${fmtM(projected)}</div>
+      <div class="fc-sub">при текущем темпе ${fmtK(dailyRate)}/день</div>
+    </div>
+    <div class="forecast-card">
+      <div class="fc-label">Отклонение от плана</div>
+      <div class="fc-value"><span class="pct-pill ${gapClass}">${gap >= 0 ? '+' : ''}${fmtM(gap)}</span></div>
+      <div class="fc-sub">план: ${fmtM(plan)}</div>
+    </div>
+    <div class="forecast-card">
+      <div class="fc-label">Нужно в день (до конца)</div>
+      <div class="fc-value">${fmtK(dim > dom ? (plan - mtd) / (dim - dom) : 0)}</div>
+      <div class="fc-sub">осталось ${dim - dom} дней</div>
+    </div>
+  `;
+
+  // Chart
+  const labels = Array.from({length: dim}, (_, i) => i + 1);
+  const actual = labels.map(d => d <= dom ? Math.round(dailyRate * d) : null);
+  const projection = labels.map(d => d >= dom ? Math.round(mtd + dailyRate * (d - dom)) : null);
+  const planLine = labels.map(() => plan);
+
+  if (forecastChart) forecastChart.destroy();
+  const ctx = document.getElementById('forecastChart').getContext('2d');
+  forecastChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Факт', data: actual, borderColor: '#f97316', backgroundColor: 'rgba(249,115,22,.1)', fill: true, pointRadius: 0, tension: 0.2 },
+        { label: 'Прогноз', data: projection, borderColor: '#f97316', borderDash: [6, 3], fill: false, pointRadius: 0, tension: 0.2 },
+        { label: 'План', data: planLine, borderColor: '#64748b', borderDash: [4, 4], fill: false, pointRadius: 0 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#94a3b8', font: { size: 11 }, boxWidth: 16 } } },
+      scales: {
+        x: { grid: { color: 'rgba(42,49,80,.5)' }, ticks: { color: '#64748b', font: { size: 10 }, maxTicksLimit: 10 } },
+        y: { grid: { color: 'rgba(42,49,80,.5)' }, ticks: { color: '#64748b', font: { size: 10 }, callback: v => fmtM(v) } },
+      },
+    }
+  });
+}
+
+// ════════════════════════════════
+// АНОМАЛИИ
+// ════════════════════════════════
+function renderAnomalies() {
+  if (!DATA) return;
+  const ps = DATA.plan_summary || {};
+  const anomalies = [];
+
+  // Точки сильно отстающие
+  if (DATA.by_point) {
+    const month = DATA.current_month;
+    const pace = DATA.day_of_month && DATA.days_in_month ? DATA.day_of_month / DATA.days_in_month : 0;
+    Object.entries(DATA.by_point).forEach(([name, d]) => {
+      const rev = (d.monthly?.[month]) || 0;
+      const plan = d.plan_month || 0;
+      if (!plan) return;
+      const expected = plan * pace;
+      const pctPace = expected ? rev / expected * 100 : 0;
+      if (pctPace < 80 && rev > 0) {
+        anomalies.push({
+          type: 'high', icon: '⚠️',
+          title: `${shortName(name)} — сильное отставание`,
+          desc: `Темп выполнения плана ${pctPace.toFixed(1)}% (ожидалось ${fmtM(expected)}, факт ${fmtM(rev)})`,
+          val: pctPace.toFixed(1) + '%',
+        });
+      } else if (pctPace > 120) {
+        anomalies.push({
+          type: 'info', icon: '🚀',
+          title: `${shortName(name)} — опережение плана`,
+          desc: `Темп ${pctPace.toFixed(1)}%, факт ${fmtM(rev)} (план на дату ${fmtM(expected)})`,
+          val: '+' + (pctPace - 100).toFixed(1) + '%',
+        });
+      }
+    });
+  }
+
+  if (!anomalies.length) {
+    document.getElementById('anomalies-list').innerHTML = `<div class="empty"><div class="empty-icon">✅</div><div class="empty-title">Аномалий не обнаружено</div><div class="empty-sub">Все точки работают в ожидаемом диапазоне</div></div>`;
+    return;
+  }
+
+  anomalies.sort((a, b) => (a.type === 'high' ? -1 : 1));
+  document.getElementById('anomalies-list').innerHTML = anomalies.map(a => `
+    <div class="anomaly-row">
+      <div class="anomaly-badge ${a.type}">${a.icon}</div>
+      <div class="anomaly-text">
+        <div class="anomaly-title">${a.title}</div>
+        <div class="anomaly-desc">${a.desc}</div>
+      </div>
+      <div class="anomaly-val">${a.val}</div>
+    </div>
+  `).join('');
+}
+
+// ════════════════════════════════
+// ЗАГРУЗКА
+// ════════════════════════════════
+function renderUpload() {
+  const tbody = document.getElementById('data-source-tbody');
+  if (!DATA) { tbody.innerHTML = '<tr><td colspan="2" style="color:var(--muted)">Нет данных</td></tr>'; return; }
+  tbody.innerHTML = `
+    <tr><td>Источник</td><td>${DATA.is_fallback ? 'dashboard_data_view.json (fallback)' : 'finance_data.json'}</td></tr>
+    <tr><td>Дата генерации</td><td>${DATA.generated_at || '—'}</td></tr>
+    <tr><td>Текущий месяц</td><td>${DATA.current_month_label || DATA.current_month || '—'}</td></tr>
+    <tr><td>Месяцев данных</td><td>${(DATA.months_available || []).length}</td></tr>
+    <tr><td>Точек</td><td>${Object.keys(DATA.by_point || {}).length}</td></tr>
+  `;
+}
+
+function handleUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      DATA = JSON.parse(ev.target.result);
+      initAll();
+    } catch(err) {
+      alert('Ошибка чтения файла: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ════════════════════════════════
+// HELPERS
+// ════════════════════════════════
+function fmtM(n) {
+  if (!n) return '—';
+  n = Math.round(n);
+  if (Math.abs(n) >= 1e9) return (n/1e9).toFixed(1) + ' млрд ₽';
+  if (Math.abs(n) >= 1e6) return (n/1e6).toFixed(1) + ' млн ₽';
+  if (Math.abs(n) >= 1e3) return (n/1e3).toFixed(0) + ' тыс ₽';
+  return n + ' ₽';
+}
+function fmtK(n) {
+  if (!n) return '—';
+  if (Math.abs(n) >= 1e6) return (n/1e6).toFixed(1) + ' млн ₽';
+  if (Math.abs(n) >= 1e3) return (n/1e3).toFixed(0) + ' тыс ₽';
+  return Math.round(n) + ' ₽';
+}
+
+// ════════════════════════════════
+// СТАРТ
+// ════════════════════════════════
+loadData();
+</script>
+</body>
+</html>
