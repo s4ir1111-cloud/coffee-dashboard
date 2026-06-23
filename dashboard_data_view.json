@@ -1,10 +1,10 @@
 {
   "date": "2026-06-23",
   "summary": {
-    "revenue": 12468,
-    "orders": 34,
-    "avg_check": 367,
-    "discount_pct": 12.7
+    "revenue": 15189,
+    "orders": 40,
+    "avg_check": 380,
+    "discount_pct": 12.3
   },
   "points": [
     {
@@ -18,6 +18,12 @@
       "revenue": 2429,
       "orders": 5,
       "avg_check": 486
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 2402,
+      "orders": 5,
+      "avg_check": 480
     },
     {
       "name": "Калинка",
@@ -50,6 +56,12 @@
       "avg_check": 255
     },
     {
+      "name": "Гагарина",
+      "revenue": 319,
+      "orders": 1,
+      "avg_check": 319
+    },
+    {
       "name": "Панорама",
       "revenue": 278,
       "orders": 2,
@@ -75,7 +87,7 @@
     },
     {
       "hour": "07",
-      "revenue": 12468
+      "revenue": 15189
     }
   ],
   "weekly": [
@@ -112,15 +124,21 @@
     {
       "date": "2026-06-23",
       "day_name": "Вт",
-      "revenue": 12468
+      "revenue": 15189
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 7,
-      "revenue": 1743
+      "qty": 9,
+      "revenue": 2341
+    },
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 4,
+      "revenue": 1436
     },
     {
       "name": "Капучино 250 мл",
@@ -157,19 +175,26 @@
       "group": "Завтраки",
       "qty": 1,
       "revenue": 749
-    },
-    {
-      "name": "Флэт Уайт 350 мл",
-      "group": "Кофе Терминал",
-      "qty": 2,
-      "revenue": 718
     }
   ],
-  "summer_drinks": [],
+  "summer_drinks": [
+    {
+      "name": "Лимонад Манго-каламанси",
+      "group": "Лимонады 350",
+      "qty": 1,
+      "revenue": 319
+    },
+    {
+      "name": "Эспрессо Тоник классик",
+      "group": "Холодные напитки 350 мл",
+      "qty": 1,
+      "revenue": 289
+    }
+  ],
   "plan": {
     "summary": {
-      "mtd_revenue": 57705168,
-      "mtd_orders": 93801,
+      "mtd_revenue": 57707889,
+      "mtd_orders": 93807,
       "mtd_avg_check": 615,
       "plan_month": 82090000,
       "expected_to_date": 62935667,
@@ -301,13 +326,13 @@
       },
       {
         "name": "Гарден Кофе Тобольск",
-        "mtd_revenue": 3043407,
-        "mtd_orders": 4549,
+        "mtd_revenue": 3045809,
+        "mtd_orders": 4554,
         "mtd_avg_check": 669,
         "plan_month": 4300000,
         "expected_to_date": 3296667,
         "pct_of_plan": 70.8,
-        "pct_vs_expected": 92.3,
+        "pct_vs_expected": 92.4,
         "avg_check_plan": 675,
         "pct_avg_check": 99.1
       },
@@ -361,8 +386,8 @@
       },
       {
         "name": "Гагарина",
-        "mtd_revenue": 1959240,
-        "mtd_orders": 2627,
+        "mtd_revenue": 1959559,
+        "mtd_orders": 2628,
         "mtd_avg_check": 746,
         "plan_month": 3150000,
         "expected_to_date": 2415000,

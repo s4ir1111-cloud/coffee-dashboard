@@ -4,6 +4,22 @@
   "sales_raw": {
     "data": [
       {
+        "Department": "Гагарина",
+        "DishDiscountSumInt": 319,
+        "DishSumInt": 319,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Гарден Кофе Тобольск",
+        "DishDiscountSumInt": 2402,
+        "DishSumInt": 2722,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      },
+      {
         "Department": "Драмтеатр",
         "DishDiscountSumInt": 804,
         "DishSumInt": 924,
@@ -132,9 +148,9 @@
       },
       {
         "Department": "Гагарина",
-        "DishDiscountSumInt": 1959240,
-        "DishSumInt": 2232696,
-        "UniqOrderId.OrdersCount": 2627
+        "DishDiscountSumInt": 1959559,
+        "DishSumInt": 2233015,
+        "UniqOrderId.OrdersCount": 2628
       },
       {
         "Department": "Газпром",
@@ -150,9 +166,9 @@
       },
       {
         "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 3043407,
-        "DishSumInt": 3292065,
-        "UniqOrderId.OrdersCount": 4549
+        "DishDiscountSumInt": 3045809,
+        "DishSumInt": 3294787,
+        "UniqOrderId.OrdersCount": 4554
       },
       {
         "Department": "Домашний",
@@ -238,7 +254,7 @@
   "top_items_raw": {
     "data": [
       {
-        "DishAmountInt": 7,
+        "DishAmountInt": 9,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
@@ -292,7 +308,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2,
+        "DishAmountInt": 3,
         "DishGroup": "Молоко Флэт Уайт 350мл",
         "DishName": "- *Молоко Флэт Уайт_б",
         "DishSumInt": 0
@@ -328,7 +344,13 @@
         "DishSumInt": 80
       },
       {
-        "DishAmountInt": 3,
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Флэт Уайт 350мл",
+        "DishName": "- Кокосовое Флэт Уайт_б",
+        "DishSumInt": 80
+      },
+      {
+        "DishAmountInt": 5,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 10 мл",
         "DishSumInt": 0
@@ -401,6 +423,18 @@
       },
       {
         "DishAmountInt": 1,
+        "DishGroup": "Сироп сахар",
+        "DishName": "Без Сиропа",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Блины и сырники",
+        "DishName": "Блинчики со сметаной и клубнич.компоте",
+        "DishSumInt": 259
+      },
+      {
+        "DishAmountInt": 1,
         "DishGroup": "Напитки БАР",
         "DishName": "Вода Visit Tyumen шт._т",
         "DishSumInt": 79
@@ -412,16 +446,22 @@
         "DishSumInt": 138
       },
       {
+        "DishAmountInt": 1,
+        "DishGroup": "Завтраки",
+        "DishName": "Драник с рийетом из тунца",
+        "DishSumInt": 479
+      },
+      {
         "DishAmountInt": 6,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 250 мл",
         "DishSumInt": 1254
       },
       {
-        "DishAmountInt": 7,
+        "DishAmountInt": 9,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 1743
+        "DishSumInt": 2341
       },
       {
         "DishAmountInt": 3,
@@ -464,6 +504,12 @@
         "DishGroup": "Завтраки",
         "DishName": "Ливанский завтрак (с болгарским перцем)",
         "DishSumInt": 798
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Лимонады 350",
+        "DishName": "Лимонад Манго-каламанси",
+        "DishSumInt": 319
       },
       {
         "DishAmountInt": 1,
@@ -514,7 +560,7 @@
         "DishSumInt": 319
       },
       {
-        "DishAmountInt": 1,
+        "DishAmountInt": 2,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Сразу",
         "DishSumInt": 0
@@ -532,10 +578,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1,
+        "DishAmountInt": 2,
         "DishGroup": "Кофе Терминал",
         "DishName": "Фильтр Кофе Безлимит",
-        "DishSumInt": 289
+        "DishSumInt": 588
       },
       {
         "DishAmountInt": 2,
@@ -544,10 +590,10 @@
         "DishSumInt": 538
       },
       {
-        "DishAmountInt": 2,
+        "DishAmountInt": 4,
         "DishGroup": "Кофе Терминал",
         "DishName": "Флэт Уайт 350 мл ",
-        "DishSumInt": 718
+        "DishSumInt": 1436
       },
       {
         "DishAmountInt": 1,
@@ -560,6 +606,12 @@
         "DishGroup": "Чай Авторский 450",
         "DishName": "Чай Облепиха Маракуйя 450",
         "DishSumInt": 409
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Холодные напитки 350 мл",
+        "DishName": "Эспрессо Тоник классик ",
+        "DishSumInt": 289
       }
     ],
     "summary": []
@@ -597,8 +649,8 @@
         "OpenDate.Typed": "2026-06-22"
       },
       {
-        "DishDiscountSumInt": 12468,
-        "DishSumInt": 14275,
+        "DishDiscountSumInt": 15189,
+        "DishSumInt": 17316,
         "OpenDate.Typed": "2026-06-23"
       }
     ],
