@@ -2,12 +2,24 @@
   "date": "2026-06-23",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "discount_pct": 0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Панорама",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-17",
@@ -50,7 +62,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 57692700,
-      "mtd_orders": 93767,
+      "mtd_orders": 93768,
       "mtd_avg_check": 615,
       "plan_month": 82090000,
       "expected_to_date": 62935667,
@@ -159,7 +171,7 @@
       {
         "name": "Панорама",
         "mtd_revenue": 3207176,
-        "mtd_orders": 5274,
+        "mtd_orders": 5275,
         "mtd_avg_check": 608,
         "plan_month": 4550000,
         "expected_to_date": 3488333,
