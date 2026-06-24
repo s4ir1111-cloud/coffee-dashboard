@@ -256,6 +256,57 @@ section.active{display:block;}
   height:200px;color:var(--muted);font-size:13px;gap:10px;
 }
 
+/* ── P&L TABLE ── */
+.pnl-kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:20px;}
+.pnl-cascade{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px;}
+.pnl-cascade-title{padding:14px 20px;font-weight:600;font-size:14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.pnl-row{
+  display:grid;grid-template-columns:220px 1fr 100px 100px 100px 100px;
+  align-items:center;padding:10px 20px;border-bottom:1px solid var(--border);
+  transition:background .1s;
+}
+.pnl-row:last-child{border-bottom:none;}
+.pnl-row:hover{background:var(--card2);}
+.pnl-row.header{background:var(--card2);font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.pnl-row.total{background:rgba(249,115,22,.06);border-top:2px solid var(--accent);}
+.pnl-row.subtotal{background:rgba(34,197,94,.04);}
+.pnl-row.negative .pnl-val{color:var(--bad);}
+.pnl-row.positive .pnl-val{color:var(--good);}
+.pnl-row.group{font-weight:600;}
+.pnl-row.article{padding-left:36px;font-size:12px;}
+.pnl-row.article .pnl-label{color:var(--muted2);}
+.pnl-label{font-size:13px;}
+.pnl-val{font-weight:600;text-align:right;font-size:13px;}
+.pnl-pct{font-size:12px;color:var(--muted);text-align:right;}
+.pnl-delta{font-size:11px;font-weight:600;text-align:right;}
+.pnl-delta.up{color:var(--good);}
+.pnl-delta.down{color:var(--bad);}
+.pnl-delta.neutral{color:var(--muted);}
+
+/* P&L period tabs */
+.pnl-period-tabs{display:flex;gap:4px;margin-bottom:16px;}
+.pnl-period-tab{
+  padding:5px 14px;border-radius:7px;border:1px solid var(--border);
+  background:transparent;color:var(--muted2);font-size:12px;
+  cursor:pointer;font-family:inherit;transition:all .12s;
+}
+.pnl-period-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* Anomaly cards for expenses */
+.expense-anomaly{
+  display:flex;align-items:center;gap:14px;padding:12px 16px;
+  background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;
+}
+.exp-badge{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.exp-badge.high{background:rgba(239,68,68,.15);}
+.exp-badge.warn{background:rgba(250,204,21,.15);}
+.exp-info{flex:1;}
+.exp-title{font-weight:600;font-size:13px;}
+.exp-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.exp-val{font-weight:700;font-size:14px;white-space:nowrap;}
+.exp-val.up{color:var(--bad);}
+.exp-val.down{color:var(--good);}
+
 /* scrollbar */
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
@@ -296,6 +347,10 @@ section.active{display:block;}
     <a data-section="anomalies" onclick="navigate('anomalies')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       Аномалии
+    </a>
+    <a data-section="pnl" onclick="navigate('pnl')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      П&amp;У (P&amp;L)
     </a>
     <a data-section="upload" onclick="navigate('upload')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -409,6 +464,70 @@ section.active{display:block;}
     <div id="anomalies-list"></div>
   </section>
 
+  <!-- ═══ П&У (P&L) ═══ -->
+  <section id="pnl">
+    <div class="section-header">
+      <div class="section-title">Отчёт о прибылях и убытках</div>
+      <div class="filter-row">
+        <button class="pnl-period-tab active" id="pnl-tab-month" onclick="setPnlPeriod('month',this)">Месяц</button>
+        <button class="pnl-period-tab" id="pnl-tab-quarter" onclick="setPnlPeriod('quarter',this)">Квартал</button>
+        <button class="pnl-period-tab" id="pnl-tab-ytd" onclick="setPnlPeriod('ytd',this)">YTD</button>
+      </div>
+    </div>
+    <!-- KPI строка -->
+    <div class="pnl-kpi-row" id="pnl-kpi-row">
+      <div class="loading">Загрузка P&L…</div>
+    </div>
+    <!-- Период: месяцы -->
+    <div class="month-tabs" id="pnl-month-tabs" style="display:none"></div>
+    <!-- Каскад P&L -->
+    <div class="pnl-cascade">
+      <div class="pnl-cascade-title">
+        <span>Структура доходов и расходов</span>
+        <span id="pnl-cascade-period" style="font-size:12px;color:var(--muted)"></span>
+      </div>
+      <div id="pnl-cascade-body">
+        <div class="loading">Загрузка…</div>
+      </div>
+    </div>
+    <!-- Детализация по статьям -->
+    <div class="section-header" style="margin-top:4px">
+      <div class="section-title" style="font-size:14px">Расходы по статьям — сравнение периодов</div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table" id="pnl-articles-table">
+        <thead><tr>
+          <th>Статья расхода</th>
+          <th style="text-align:right">Текущий</th>
+          <th style="text-align:right">% выручки</th>
+          <th style="text-align:right">Прошлый мес.</th>
+          <th style="text-align:right">М/М Δ</th>
+          <th style="text-align:right">Пр. год</th>
+          <th style="text-align:right">Г/Г Δ</th>
+        </tr></thead>
+        <tbody id="pnl-articles-tbody"></tbody>
+      </table>
+    </div>
+    <!-- Аномалии расходов -->
+    <div class="section-header" style="margin-top:4px">
+      <div class="section-title" style="font-size:14px">Аномальные отклонения расходов</div>
+    </div>
+    <div id="pnl-anomalies-list">
+      <div class="empty"><div class="empty-icon">📊</div><div class="empty-title">Загружаются данные…</div></div>
+    </div>
+    <!-- График трендов -->
+    <div class="chart-card" style="margin-top:16px">
+      <div class="chart-header">
+        <div class="chart-title">Динамика P&L по месяцам</div>
+        <div class="chart-toggles">
+          <button class="toggle-btn active" id="pnl-chart-btn-rev" onclick="setPnlChart('rev')">Выручка</button>
+          <button class="toggle-btn" id="pnl-chart-btn-margin" onclick="setPnlChart('margin')">Маржинальность %</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:220px"><canvas id="pnlChart"></canvas></div>
+    </div>
+  </section>
+
   <!-- ═══ ЗАГРУЗКА ═══ -->
   <section id="upload">
     <div class="section-header">
@@ -453,10 +572,15 @@ const BAR_COLORS = [
 ];
 
 let DATA = null;
+let PNL_DATA = null;
 let revenueChart = null;
 let pointsChart = null;
 let forecastChart = null;
+let pnlChart = null;
 let chartMode = 'all';
+let pnlChartMode = 'rev';
+let pnlPeriod = 'month';      // 'month' | 'quarter' | 'ytd'
+let pnlSelectedMonth = null;
 let activeSection = 'dashboard';
 
 // ════════════════════════════════
@@ -472,6 +596,17 @@ function loadData() {
         .then(r => r.json())
         .then(d => { DATA = buildFallback(d); initAll(); })
         .catch(() => showNoData());
+    });
+
+  // Загружаем P&L данные независимо
+  fetch('pnl_data.json', {cache:'no-store'})
+    .then(r => { if(!r.ok) throw new Error('no pnl'); return r.json(); })
+    .then(d => {
+      PNL_DATA = d;
+      if (activeSection === 'pnl') renderPnl();
+    })
+    .catch(() => {
+      PNL_DATA = null;
     });
 }
 
@@ -522,11 +657,12 @@ function showNoData() {
 // ════════════════════════════════
 const SECTION_TITLES = {
   dashboard: 'Dashboard',
-  planfact: 'План / Факт',
-  rating: 'Рейтинг',
-  forecast: 'Прогноз',
+  planfact:  'План / Факт',
+  rating:    'Рейтинг',
+  forecast:  'Прогноз',
   anomalies: 'Аномалии',
-  upload: 'Загрузка',
+  pnl:       'Прибыли и убытки',
+  upload:    'Загрузка',
 };
 
 function navigate(section) {
@@ -541,6 +677,7 @@ function navigate(section) {
   if (section === 'rating')    { renderRating(); }
   if (section === 'forecast')  { renderForecast(); }
   if (section === 'anomalies') { renderAnomalies(); }
+  if (section === 'pnl')       { renderPnl(); }
 }
 
 // ════════════════════════════════
@@ -996,6 +1133,393 @@ function handleUpload(e) {
     }
   };
   reader.readAsText(file);
+}
+
+// ════════════════════════════════
+// P&L
+// ════════════════════════════════
+
+// Группы P&L (дублируем из Python для JS)
+const PNL_GROUPS_META = [
+  { key: "COGS",        label: "Себестоимость продаж",   color: "#ef4444" },
+  { key: "FOT",         label: "ФОТ (оплата труда)",     color: "#a855f7" },
+  { key: "Operations",  label: "Операционные расходы",    color: "#f97316" },
+  { key: "Personnel",   label: "Расходы на персонал",     color: "#3b82f6" },
+  { key: "Marketing",   label: "Маркетинг и гости",       color: "#ec4899" },
+  { key: "Depreciation",label: "Амортизация",             color: "#64748b" },
+];
+
+function setPnlPeriod(period, btn) {
+  pnlPeriod = period;
+  document.querySelectorAll('.pnl-period-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPnl();
+}
+
+function setPnlChart(mode) {
+  pnlChartMode = mode;
+  document.getElementById('pnl-chart-btn-rev').classList.toggle('active', mode === 'rev');
+  document.getElementById('pnl-chart-btn-margin').classList.toggle('active', mode === 'margin');
+  renderPnlChart();
+}
+
+function renderPnl() {
+  if (!PNL_DATA || !PNL_DATA.has_data) {
+    document.getElementById('pnl-kpi-row').innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <div class="empty-icon">📊</div>
+        <div class="empty-title">P&L данные не загружены</div>
+        <div class="empty-sub">Запустите: <code>source iiko_credentials.sh && python pnl_connector.py && python build_pnl_data.py</code></div>
+      </div>`;
+    return;
+  }
+
+  // Показываем/скрываем вкладки месяцев
+  const tabsEl = document.getElementById('pnl-month-tabs');
+  if (pnlPeriod === 'month') {
+    tabsEl.style.display = 'flex';
+    renderPnlMonthTabs();
+  } else {
+    tabsEl.style.display = 'none';
+  }
+
+  const pnlEntry = getPnlEntry();
+  if (!pnlEntry) return;
+
+  renderPnlKpis(pnlEntry);
+  renderPnlCascade(pnlEntry);
+  renderPnlArticlesTable();
+  renderPnlAnomalies();
+  renderPnlChart();
+}
+
+function getPnlEntry() {
+  if (!PNL_DATA) return null;
+  if (pnlPeriod === 'month') {
+    const months = PNL_DATA.months_available || [];
+    if (!pnlSelectedMonth || !months.includes(pnlSelectedMonth)) {
+      pnlSelectedMonth = months[months.length - 1];
+    }
+    return PNL_DATA.monthly?.[pnlSelectedMonth] || null;
+  }
+  if (pnlPeriod === 'quarter') {
+    // Текущий квартал
+    const m = parseInt((PNL_DATA.current_month || '').split('-')[1] || 1);
+    const q = 'Q' + Math.ceil(m / 3);
+    return PNL_DATA.quarterly?.[q] || null;
+  }
+  if (pnlPeriod === 'ytd') {
+    // Накопленное с начала года
+    return buildYtdEntry(PNL_DATA.monthly || {}, PNL_DATA.current_year);
+  }
+  return null;
+}
+
+function buildYtdEntry(monthly, year) {
+  const keys = Object.keys(monthly).filter(k => k.startsWith(String(year))).sort();
+  if (!keys.length) return null;
+  const sum = (field) => keys.reduce((acc, k) => acc + (monthly[k]?.[field] || 0), 0);
+  const rev = sum('revenue');
+  const cogs = sum('cogs');
+  const fot = sum('fot');
+  const ops = sum('operations');
+  const pers = sum('personnel');
+  const mkt = sum('marketing');
+  const dep = sum('depreciation');
+  const gross = rev - cogs;
+  const ebitda = gross - fot - ops - pers - mkt;
+  const net = ebitda - dep;
+  const pct = (v, b) => b ? Math.round(v / b * 1000) / 10 : 0;
+  const byGroup = {};
+  PNL_GROUPS_META.forEach(g => {
+    byGroup[g.key] = keys.reduce((acc, k) => acc + (monthly[k]?.by_group?.[g.key] || 0), 0);
+  });
+  const byArt = {};
+  keys.forEach(k => {
+    Object.entries(monthly[k]?.by_article || {}).forEach(([art, val]) => {
+      byArt[art] = (byArt[art] || 0) + val;
+    });
+  });
+  return { revenue: rev, cogs, gross_profit: gross, gross_margin: pct(gross, rev),
+    fot, fot_pct: pct(fot, rev), operations: ops, operations_pct: pct(ops, rev),
+    personnel: pers, personnel_pct: pct(pers, rev), marketing: mkt, marketing_pct: pct(mkt, rev),
+    ebitda, ebitda_margin: pct(ebitda, rev), depreciation: dep,
+    net_profit: net, net_margin: pct(net, rev), by_group: byGroup, by_article: byArt };
+}
+
+function renderPnlMonthTabs() {
+  const months = PNL_DATA.months_available || [];
+  const monthly = PNL_DATA.monthly || {};
+  const el = document.getElementById('pnl-month-tabs');
+  el.innerHTML = months.map(m => {
+    const lbl = monthly[m]?.month_label || m.slice(5);
+    const isActive = m === pnlSelectedMonth;
+    return `<button class="month-tab ${isActive ? 'active' : ''}" onclick="selectPnlMonth('${m}',this)">${lbl}</button>`;
+  }).join('');
+}
+
+function selectPnlMonth(month, btn) {
+  document.querySelectorAll('#pnl-month-tabs .month-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  pnlSelectedMonth = month;
+  const pnlEntry = getPnlEntry();
+  if (pnlEntry) {
+    renderPnlKpis(pnlEntry);
+    renderPnlCascade(pnlEntry);
+  }
+}
+
+function renderPnlKpis(e) {
+  if (!e) return;
+  const sign = (v) => v >= 0 ? '+' : '';
+  const marginCls = (v) => v >= 15 ? 'good' : v >= 5 ? 'warn' : 'bad';
+  document.getElementById('pnl-kpi-row').innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-label">Выручка</div>
+      <div class="kpi-value" style="font-size:20px">${fmtM(e.revenue)}</div>
+      <div class="kpi-trend"><span class="kpi-sub">${e.orders ? e.orders.toLocaleString('ru-RU') + ' заказов' : ''}</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Валовая прибыль</div>
+      <div class="kpi-value" style="font-size:20px;color:${e.gross_margin >= 40 ? 'var(--good)' : 'var(--warn)'}">${e.gross_margin}%</div>
+      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.gross_profit)}</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">ФОТ</div>
+      <div class="kpi-value" style="font-size:20px">${e.fot_pct}%</div>
+      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.fot)}</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">EBITDA</div>
+      <div class="kpi-value" style="font-size:20px;color:var(--${marginCls(e.ebitda_margin)})">${e.ebitda_margin}%</div>
+      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.ebitda)}</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Чистая прибыль</div>
+      <div class="kpi-value" style="font-size:20px;color:var(--${e.net_margin > 0 ? 'good' : 'bad'})">${e.net_margin}%</div>
+      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.net_profit)}</span></div>
+    </div>
+  `;
+}
+
+function renderPnlCascade(e) {
+  if (!e) return;
+  const periodLabel = {month: pnlSelectedMonth, quarter: 'Текущий квартал', ytd: 'YTD'}[pnlPeriod] || '';
+  document.getElementById('pnl-cascade-period').textContent = periodLabel;
+  const rev = e.revenue;
+  const pct = (v) => rev ? (v / rev * 100).toFixed(1) + '%' : '—';
+  const delta = (cur, prev, inverted) => {
+    if (!prev) return '';
+    const d = (cur - prev) / Math.abs(prev) * 100;
+    const cls = inverted ? (d < 0 ? 'up' : 'down') : (d >= 0 ? 'up' : 'down');
+    return `<span class="pnl-delta ${cls}">${d >= 0 ? '+' : ''}${d.toFixed(0)}%</span>`;
+  };
+
+  let html = `
+    <div class="pnl-row header">
+      <div>Статья</div><div></div><div class="pnl-val">Сумма</div><div class="pnl-pct">% выручки</div>
+      <div></div><div></div>
+    </div>`;
+
+  // Выручка
+  html += row('Выручка', rev, '100%', '', '', false, 'total', '💰');
+  html += row('Себестоимость (COGS)', e.cogs, pct(e.cogs), '', '', true, 'group negative', '🛒');
+
+  // Валовая прибыль
+  const gm = e.gross_profit;
+  html += row('= Валовая прибыль', gm, pct(gm), '', '', false, 'subtotal ' + (gm >= 0 ? 'positive' : 'negative'), '📊');
+
+  // Остальные группы
+  const opGroups = [
+    {key:'FOT',       icon:'👥', lbl:'ФОТ',                    v: e.fot},
+    {key:'Operations',icon:'🔧', lbl:'Операционные расходы',   v: e.operations},
+    {key:'Personnel', icon:'📋', lbl:'Расходы на персонал',    v: e.personnel},
+    {key:'Marketing', icon:'📣', lbl:'Маркетинг и гости',      v: e.marketing},
+  ];
+  opGroups.forEach(g => {
+    if (g.v > 0 || e.by_group?.[g.key] > 0) {
+      html += row(g.icon + ' ' + g.lbl, g.v, pct(g.v), '', '', true, 'group negative');
+    }
+  });
+
+  // EBITDA
+  html += row('= EBITDA', e.ebitda, pct(e.ebitda), '', '', false, 'subtotal ' + (e.ebitda >= 0 ? 'positive' : 'negative'), '⚡');
+  html += row('Амортизация', e.depreciation, pct(e.depreciation), '', '', true, 'group negative', '🏗');
+
+  // Чистая прибыль
+  html += `<div class="pnl-row total ${e.net_profit >= 0 ? 'positive' : 'negative'}">
+    <div class="pnl-label">🏆 Чистая прибыль</div>
+    <div></div>
+    <div class="pnl-val" style="font-size:15px;color:var(--${e.net_profit>=0?'good':'bad'})">${fmtM(e.net_profit)}</div>
+    <div class="pnl-pct" style="font-size:13px;font-weight:600;color:var(--${e.net_profit>=0?'good':'bad'})">${pct(e.net_profit)}</div>
+    <div></div><div></div>
+  </div>`;
+
+  document.getElementById('pnl-cascade-body').innerHTML = html;
+
+  function row(label, val, pctVal, mm, yy, isExpense, cls, icon='') {
+    return `<div class="pnl-row ${cls}">
+      <div class="pnl-label">${label}</div>
+      <div></div>
+      <div class="pnl-val">${val ? fmtM(val) : '—'}</div>
+      <div class="pnl-pct">${pctVal}</div>
+      <div>${mm}</div>
+      <div>${yy}</div>
+    </div>`;
+  }
+}
+
+function renderPnlArticlesTable() {
+  if (!PNL_DATA || !PNL_DATA.monthly) return;
+  const months = PNL_DATA.months_available || [];
+  if (months.length === 0) return;
+
+  const curKey  = months[months.length - 1];
+  const prevKey = months.length > 1 ? months[months.length - 2] : null;
+  const curYear = PNL_DATA.current_year;
+  const prevYear = PNL_DATA.previous_year;
+  // Прошлый год — тот же месяц
+  const curMonthNum = curKey.split('-')[1];
+  const prevYearKey = prevYear + '-' + curMonthNum;
+
+  const curM  = PNL_DATA.monthly?.[curKey]  || {};
+  const prevM = PNL_DATA.monthly?.[prevKey] || {};
+  const prevY = PNL_DATA.monthly_prev?.[prevYearKey] || {};
+  const rev = curM.revenue || 1;
+
+  // Собираем все статьи из текущего месяца
+  const articles = Object.entries(curM.by_article || {})
+    .filter(([, v]) => v > 0)
+    .sort((a, b) => b[1] - a[1]);
+
+  const groups = PNL_DATA.groups_meta || PNL_GROUPS_META;
+  const artToGroup = {};
+  groups.forEach(g => {
+    (g.items || []).forEach(art => artToGroup[art.toLowerCase()] = g);
+  });
+
+  const tbody = document.getElementById('pnl-articles-tbody');
+  let html = '';
+
+  // Группируем по P&L группам
+  groups.forEach(g => {
+    const gArticles = articles.filter(([art]) => artToGroup[art.toLowerCase()]?.key === g.key || artToGroup[art.toLowerCase()] === g);
+    if (!gArticles.length) return;
+
+    const gTotal = gArticles.reduce((s, [, v]) => s + v, 0);
+    html += `<tr style="background:var(--card2)">
+      <td style="font-weight:700;color:${g.color || 'var(--text)'}">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="width:8px;height:8px;border-radius:50%;background:${g.color || 'var(--muted)'}"></div>
+          ${g.label}
+        </div>
+      </td>
+      <td style="text-align:right;font-weight:700">${fmtM(gTotal)}</td>
+      <td style="text-align:right;color:var(--muted)">${(gTotal/rev*100).toFixed(1)}%</td>
+      <td colspan="4" style="color:var(--muted);font-size:12px;text-align:right">${gArticles.length} статей</td>
+    </tr>`;
+
+    gArticles.forEach(([art, val]) => {
+      const prevVal = prevM.by_article?.[art] || 0;
+      const prevYVal = prevY.by_article?.[art] || 0;
+      const mm = prevVal > 0 ? delta(val, prevVal) : '<span style="color:var(--muted)">—</span>';
+      const yy = prevYVal > 0 ? delta(val, prevYVal) : '<span style="color:var(--muted)">—</span>';
+      html += `<tr>
+        <td style="padding-left:24px;color:var(--muted2);font-size:12px">${art}</td>
+        <td style="text-align:right">${fmtM(val)}</td>
+        <td style="text-align:right;color:var(--muted)">${(val/rev*100).toFixed(1)}%</td>
+        <td style="text-align:right;color:var(--muted)">${prevVal ? fmtM(prevVal) : '—'}</td>
+        <td style="text-align:right">${mm}</td>
+        <td style="text-align:right;color:var(--muted)">${prevYVal ? fmtM(prevYVal) : '—'}</td>
+        <td style="text-align:right">${yy}</td>
+      </tr>`;
+    });
+  });
+
+  if (!html) {
+    html = `<tr><td colspan="7" class="empty" style="text-align:center;padding:30px;color:var(--muted)">
+      Статьи расходов не найдены в pnl_data.json</td></tr>`;
+  }
+  tbody.innerHTML = html;
+
+  function delta(cur, prev) {
+    const d = (cur - prev) / Math.abs(prev) * 100;
+    // Для расходов: рост — плохо (красный), снижение — хорошо (зелёный)
+    const cls = d > 0 ? 'color:var(--bad)' : 'color:var(--good)';
+    return `<span style="${cls};font-weight:600">${d >= 0 ? '+' : ''}${d.toFixed(0)}%</span>`;
+  }
+}
+
+function renderPnlAnomalies() {
+  if (!PNL_DATA) return;
+  const anomalies = PNL_DATA.anomalies || [];
+  const el = document.getElementById('pnl-anomalies-list');
+  if (!anomalies.length) {
+    el.innerHTML = `<div class="empty"><div class="empty-icon">✅</div><div class="empty-title">Аномалий не обнаружено</div><div class="empty-sub">Все показатели в допустимом диапазоне</div></div>`;
+    return;
+  }
+  el.innerHTML = anomalies.slice(0, 10).map(a => {
+    const icon = a.delta_pct > 0 ? '📈' : '📉';
+    const sev = a.severity || 'warn';
+    const cls = a.delta_pct > 0 ? 'up' : 'down';
+    return `<div class="expense-anomaly">
+      <div class="exp-badge ${sev}">${icon}</div>
+      <div class="exp-info">
+        <div class="exp-title">${a.label}</div>
+        <div class="exp-sub">${a.desc} · ${a.period}</div>
+      </div>
+      <div class="exp-val ${cls}">${a.delta_pct > 0 ? '+' : ''}${a.delta_pct}%</div>
+    </div>`;
+  }).join('');
+}
+
+function renderPnlChart() {
+  if (!PNL_DATA || !PNL_DATA.monthly) return;
+  const months = PNL_DATA.months_available || [];
+  const monthly = PNL_DATA.monthly;
+  const labels = months.map(m => monthly[m]?.month_label || m.slice(5));
+
+  let datasets = [];
+  if (pnlChartMode === 'rev') {
+    const rev  = months.map(m => (monthly[m]?.revenue || 0) / 1e6);
+    const cogs = months.map(m => (monthly[m]?.cogs || 0) / 1e6);
+    const gp   = months.map(m => (monthly[m]?.gross_profit || 0) / 1e6);
+    datasets = [
+      { label: 'Выручка',          data: rev,  borderColor: '#f97316', backgroundColor: 'rgba(249,115,22,.1)', fill: true, tension: 0.4, pointRadius: 4 },
+      { label: 'Себестоимость',    data: cogs, borderColor: '#ef4444', backgroundColor: 'transparent', tension: 0.4, pointRadius: 3 },
+      { label: 'Валовая прибыль',  data: gp,   borderColor: '#22c55e', backgroundColor: 'transparent', tension: 0.4, pointRadius: 3 },
+    ];
+  } else {
+    const gm  = months.map(m => monthly[m]?.gross_margin || 0);
+    const em  = months.map(m => monthly[m]?.ebitda_margin || 0);
+    const nm  = months.map(m => monthly[m]?.net_margin || 0);
+    datasets = [
+      { label: 'Валовая маржа %',  data: gm, borderColor: '#22c55e', tension: 0.4, pointRadius: 4 },
+      { label: 'EBITDA %',          data: em, borderColor: '#f97316', tension: 0.4, pointRadius: 4 },
+      { label: 'Чистая прибыль %', data: nm, borderColor: '#3b82f6', tension: 0.4, pointRadius: 4 },
+    ];
+  }
+
+  if (pnlChart) pnlChart.destroy();
+  const ctx = document.getElementById('pnlChart').getContext('2d');
+  pnlChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#94a3b8', font: { size: 11 }, boxWidth: 20 } } },
+      scales: {
+        x: { grid: { color: 'rgba(42,49,80,.5)' }, ticks: { color: '#64748b', font: { size: 11 } } },
+        y: {
+          grid: { color: 'rgba(42,49,80,.5)' },
+          ticks: {
+            color: '#64748b', font: { size: 11 },
+            callback: v => pnlChartMode === 'margin' ? v + '%' : v + ' М',
+          }
+        },
+      },
+    }
+  });
 }
 
 // ════════════════════════════════
