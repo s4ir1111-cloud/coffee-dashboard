@@ -29,17 +29,27 @@ YEARS_BACK     = 1
 # ─── iikoWeb Auth ───────────────────────────────────────────────────────────────
 def web_login(session, username, password):
     """POST /api/auth → устанавливает session cookie"""
-    resp = session.post(
-        f"{WEB_HOST}/api/auth",
-        json={"login": username, "password": password},
-        timeout=30
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    if not data.get("authorized"):
-        raise ValueError(f"Не авторизован: {data.get('errorMessage', 'Unknown')}")
-    print(f"  ✓ iikoWeb: {data.get('clientName')} / {data.get('user', {}).get('name')}")
-    return data
+    # Пробуем несколько вариантов: plaintext, SHA1, MD5
+    password_sha1 = hashlib.sha1(password.encode("utf-8")).hexdigest()
+    password_md5  = hashlib.md5(password.encode("utf-8")).hexdigest()
+
+    for pwd_variant in [password, password_sha1, password_md5]:
+        resp = session.post(
+            f"{WEB_HOST}/api/auth",
+            json={"login": username, "password": pwd_variant},
+            timeout=30
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("authorized"):
+                print(f"  ✓ iikoWeb: {data.get('clientName')} / {data.get('user', {}).get('name')}")
+                return data
+        elif resp.status_code == 401:
+            continue
+        else:
+            resp.raise_for_status()
+
+    raise ValueError("iikoWeb: не удалось авторизоваться (проверьте логин/пароль)")
 
 def web_logout(session):
     try:
