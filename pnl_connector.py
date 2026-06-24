@@ -132,82 +132,64 @@ def parse_sales(data):
 # ─── FINANCE OLAP: статьи расходов ─────────────────────────────────────────────
 def olap_finance(host, token, date_from, date_to):
     """
-    Финансовые операции (расходы) из журнала IIKO.
-    Пробует несколько вариантов фильтра дат — IIKO Cloud и on-premise
-    имеют разные имена полей.
+    Финансовые операции из журнала IIKO.
+
+    Правильные параметры (подтверждено диагностикой):
+      reportType       = "TRANSACTIONS"
+      groupByRowFields = ["Department", "CashFlowCategory"]
+      aggregateFields  = ["Amount"]
+      filter           = DateTime.DateTyped
     """
-    # Варианты фильтра по дате для Finance OLAP
-    date_filter_variants = [
-        ("OpenDate.Typed", {"filterType": "DateRange", "periodType": "CUSTOM",
-                            "from": date_from, "to": date_to}),
-        ("Date",           {"filterType": "DateRange", "periodType": "CUSTOM",
-                            "from": date_from, "to": date_to}),
-        ("CloseDate.Typed",{"filterType": "DateRange", "periodType": "CUSTOM",
-                            "from": date_from, "to": date_to}),
-    ]
-
-    for filter_field, filter_val in date_filter_variants:
-        body = {
-            "reportType": "FINANCE",
-            "groupByRowFields": ["Department", "CashFlowItem"],
-            "groupByColFields": [],
-            "aggregateFields": ["SumInt"],
-            "filters": {filter_field: filter_val}
+    body = {
+        "reportType": "TRANSACTIONS",
+        "groupByRowFields": ["Department", "CashFlowCategory"],
+        "groupByColFields": [],
+        "aggregateFields": ["Amount"],
+        "filters": {
+            "DateTime.DateTyped": {
+                "filterType": "DateRange",
+                "periodType": "CUSTOM",
+                "from": date_from,
+                "to": date_to
+            }
         }
-        try:
-            resp = requests.post(
-                f"{host}/resto/api/v2/reports/olap",
-                params={"key": token},
-                json=body,
-                timeout=120
-            )
-            if resp.status_code == 200:
-                data = resp.json()
-                rows = data.get("data", [])
-                if rows:
-                    print(f"    Finance OLAP OK (фильтр: {filter_field}): {len(rows)} строк")
-                    # Диагностика: показываем поля первой строки
-                    print(f"    Поля: {list(rows[0].keys())}")
-                    return data
-                else:
-                    # 200 но пустой ответ — пробуем следующий вариант
-                    print(f"    Finance OLAP ({filter_field}): 0 строк, пробуем другой фильтр...")
-                    continue
-            else:
-                print(f"    Finance OLAP ({filter_field}): HTTP {resp.status_code}")
-                continue
-        except Exception as e:
-            print(f"    Finance OLAP ({filter_field}): {e}")
-            continue
-
-    # Все варианты исчерпаны — возвращаем пустой результат
-    print("    ⚠ Finance OLAP: данные не получены ни с одним фильтром.")
-    print("      Проверьте reportType=FINANCE и наличие финансового модуля в IIKO.")
-    return {"data": []}
+    }
+    resp = requests.post(
+        f"{host}/resto/api/v2/reports/olap",
+        params={"key": token},
+        json=body,
+        timeout=120
+    )
+    resp.raise_for_status()
+    return resp.json()
 
 def parse_finance(data):
-    """→ {dept: {article: sum}}"""
+    """→ {dept: {article: sum}}  (поле: CashFlowCategory / Amount)"""
     result = {}
     for row in data.get("data", []):
         dept    = row.get("Department", "").strip()
-        article = row.get("CashFlowItem", "").strip()
-        amount  = float(row.get("SumInt", 0) or 0)
+        article = (row.get("CashFlowCategory") or "").strip()
+        amount  = float(row.get("Amount", 0) or 0)
         if not dept or not article:
             continue
+        # В TRANSACTIONS расходы могут быть отрицательными — берём abs для расходных статей,
+        # но сохраняем знак чтобы build_pnl_data.py мог отличить доходы от расходов
         if dept not in result:
             result[dept] = {}
         result[dept][article] = result[dept].get(article, 0) + amount
 
-    # Лог: покажем все найденные статьи для отладки
+    # Лог
     all_articles = set()
     for d in result.values():
         all_articles.update(d.keys())
     if all_articles:
-        print(f"    Найдено статей ДДС: {len(all_articles)}")
-        # Найдём статьи из нашего списка, которые НЕ встретились
-        missing = [a for a in EXPENSE_ARTICLES if a not in all_articles]
-        if missing:
-            print(f"    ⚠ Не найдены в данных: {missing[:5]}{'...' if len(missing)>5 else ''}")
+        print(f"    Найдено статей CashFlowCategory: {len(all_articles)}")
+        for a in sorted(all_articles)[:10]:
+            print(f"      - {a}")
+        if len(all_articles) > 10:
+            print(f"      ... и ещё {len(all_articles)-10}")
+    else:
+        print(f"    ⚠ Статей не найдено")
     return result
 
 # ─── Утилиты дат ────────────────────────────────────────────────────────────────
@@ -245,9 +227,12 @@ def fetch_all(host, token):
             except Exception as e:
                 print(f"    ⚠ Sales ОШИБКА: {e}")
 
-            # 2. Finance (статьи расходов)
-            fin_raw = olap_finance(host, token, date_from, date_to)
-            month_data["finance"] = parse_finance(fin_raw)
+            # 2. Finance (статьи расходов из TRANSACTIONS OLAP)
+            try:
+                fin_raw = olap_finance(host, token, date_from, date_to)
+                month_data["finance"] = parse_finance(fin_raw)
+            except Exception as e:
+                print(f"    ⚠ Finance ОШИБКА: {e}")
 
             raw["years"][str(year)][key] = month_data
 
