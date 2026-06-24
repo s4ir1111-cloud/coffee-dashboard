@@ -4,10 +4,26 @@
   "sales_raw": {
     "data": [
       {
+        "Department": "Панорама",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
         "Department": "Паруса",
         "DishDiscountSumInt": 0,
         "DishSumInt": 0,
         "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 1
       }
@@ -19,8 +35,8 @@
       {
         "Department": "Арсиб",
         "DishDiscountSumInt": 2391672,
-        "DishSumInt": 3413016,
-        "UniqOrderId.OrdersCount": 4212
+        "DishSumInt": 3413765,
+        "UniqOrderId.OrdersCount": 4214
       },
       {
         "Department": "Видный",
@@ -110,7 +126,7 @@
         "Department": "Панорама",
         "DishDiscountSumInt": 3351411,
         "DishSumInt": 3777366,
-        "UniqOrderId.OrdersCount": 5543
+        "UniqOrderId.OrdersCount": 5544
       },
       {
         "Department": "Паруса",
@@ -122,7 +138,7 @@
         "Department": "Преображенский",
         "DishDiscountSumInt": 4857159,
         "DishSumInt": 5545757,
-        "UniqOrderId.OrdersCount": 7163
+        "UniqOrderId.OrdersCount": 7164
       },
       {
         "Department": "Свердлова",
@@ -142,7 +158,13 @@
   "top_items_raw": {
     "data": [
       {
-        "DishAmountInt": 1,
+        "DishAmountInt": 0,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Американо 250 мл ",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 2,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 0
@@ -179,7 +201,7 @@
       },
       {
         "DishDiscountSumInt": 2463904,
-        "DishSumInt": 3157683,
+        "DishSumInt": 3158432,
         "OpenDate.Typed": "2026-06-23"
       },
       {

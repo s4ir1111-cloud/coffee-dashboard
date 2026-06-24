@@ -2,13 +2,25 @@
   "date": "2026-06-24",
   "summary": {
     "revenue": 0,
-    "orders": 1,
+    "orders": 3,
     "avg_check": 0,
     "discount_pct": 0
   },
   "points": [
     {
+      "name": "Панорама",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    },
+    {
       "name": "Паруса",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    },
+    {
+      "name": "Прео",
       "revenue": 0,
       "orders": 1,
       "avg_check": 0
@@ -17,6 +29,10 @@
   "hourly": [
     {
       "hour": "06",
+      "revenue": 0
+    },
+    {
+      "hour": "07",
       "revenue": 0
     }
   ],
@@ -62,7 +78,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 60156604,
-      "mtd_orders": 97842,
+      "mtd_orders": 97846,
       "mtd_avg_check": 615,
       "plan_month": 82090000,
       "expected_to_date": 65672000,
@@ -87,7 +103,7 @@
       {
         "name": "Прео",
         "mtd_revenue": 4857159,
-        "mtd_orders": 7163,
+        "mtd_orders": 7164,
         "mtd_avg_check": 678,
         "plan_month": 6400000,
         "expected_to_date": 5120000,
@@ -171,7 +187,7 @@
       {
         "name": "Панорама",
         "mtd_revenue": 3351411,
-        "mtd_orders": 5543,
+        "mtd_orders": 5544,
         "mtd_avg_check": 605,
         "plan_month": 4550000,
         "expected_to_date": 3640000,
@@ -231,7 +247,7 @@
       {
         "name": "Арсиб",
         "mtd_revenue": 2391672,
-        "mtd_orders": 4212,
+        "mtd_orders": 4214,
         "mtd_avg_check": 568,
         "plan_month": 3170000,
         "expected_to_date": 2536000,
