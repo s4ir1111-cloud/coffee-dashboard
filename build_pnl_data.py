@@ -26,11 +26,13 @@ import json, os, calendar
 from datetime import date, datetime
 
 # ─── P&L Группировка статей расходов ──────────────────────────────────────────
+# Названия счетов из iikoWeb (dictionary/accounts, type=EXPENSES)
 PNL_GROUPS = {
     "COGS": {
         "label": "Себестоимость продаж",
         "color": "#ef4444",
         "items": [
+            # Счета 5.xx (товары/продукты) и прямые расходы
             "Расход продуктов/Себестоимость",
             "Безлимитный фильтр",
             "Бракераж",
@@ -38,38 +40,78 @@ PNL_GROUPS = {
             "Недостача инвентаризации",
             "Потери/брак/порча",
             "Расходы на упаковку",
+            "Упаковка",
             "Расходы на хоз.товары",
-            # Излишки — отрицательный расход (уменьшают COGS)
             "Излишки инвентаризации",
+            # Поставки/себестоимость товара
+            "Оплата поставщикам за товар",
+            "Оплата накладных за сырье и материалы",
+            "Транспортные услуги по доставке сырья,товаров",
         ],
-        "cogs_system": True,  # включить DishCostSumInt из SALES OLAP
+        "cogs_system": True,
     },
     "FOT": {
         "label": "ФОТ (оплата труда)",
         "color": "#a855f7",
+        "code_prefixes": ["6.01"],   # коды счетов начинающиеся с 6.01
         "items": [
-            # Если в IIKO есть отдельная статья ДДС для зарплаты — добавьте здесь
-            "ФОТ",
-            "Зарплата",
-            "Выплата зарплаты",
-            "Оплата труда",
+            # iikoWeb account names (code 6.01.x)
+            "ЗАРПЛАТА",
+            "Заработная плата административный персонал",
+            "Премия",
+            # Соц. отчисления
+            "Социальные отчисления от ЗП и НДФЛ",
+            "Оплата труда сотрудников",
+            # Устаревшие названия
+            "ФОТ", "Зарплата", "Выплата зарплаты", "Оплата труда",
         ],
         "cogs_system": False,
     },
     "Operations": {
         "label": "Операционные расходы",
         "color": "#f97316",
+        "code_prefixes": ["6.03", "6.07", "6.08", "6.09", "6.10", "6.11", "6.12"],
         "items": [
-            "ГСМ",
+            # Аренда
+            "Арендная плата",
+            # Банк / налоги
+            "Банковские услуги/РКО",
+            "НАЛОГИ",
+            "Госпошлины/Штрафы",
+            "Налоги Земля/Имущество",
+            "Налоги",
+            # Помещения и коммуналка
             "Ремонт и обслуживание помещений",
             "Коммунальные услуги",
+            "Клининговые услуги и материалы",
+            "Дератизация и дезинфекция",
+            "Вывоз мусора",
+            "Вывоз мусор",
+            # Оборудование
             "ТО и ремонт оборудования, инвентаря",
+            "Ремонт и обслуживание оборудования",
+            "Орг.техника",
+            # Прочие операционные
+            "ГСМ",
             "Оформление торгового зала(дизайн и озеленение)",
             "Транспортные расходы",
+            "Транспортные расходы на доставку оборудования",
             "Прочие ТМЦ списанные",
             "Инвентарь списанный",
             "Бой посуды",
             "Канцтовары",
+            "Охрана объектов",
+            "Охрана труда, ТБ и ПБ",
+            "Лицензии/ПО/сертификация",
+            "Страхование, поручительство",
+            "Юридические, консультационные услуги",
+            "Услуги управляющей компании",
+            "РАО и ВОИС",
+            "Проценты овердрафт",
+            "Расходы Учредителей",
+            "Разменный фонд",
+            "Скидка бонусная система",
+            "Прочие выплаты",
         ],
         "cogs_system": False,
     },
@@ -78,6 +120,7 @@ PNL_GROUPS = {
         "color": "#3b82f6",
         "items": [
             "Поиск персонала",
+            "Подбор и обучение персонала",
             "Обучение персонала",
             "Медосмотр/ Медикаменты",
             "Развозка персонала",
@@ -94,8 +137,10 @@ PNL_GROUPS = {
             "Гостю",
             "Первый Гость и Подарок в День Рождения",
             "Расходы на рекламу, дизайн и маркетинг",
+            "Рекламные расходы",
             "Представительские расходы",
-            "Лицензии/ПО/сертификация",
+            "Строительно монтажные и отделочные работы",
+            "Проектирование и стройматериалы",
         ],
         "cogs_system": False,
     },
@@ -109,11 +154,17 @@ PNL_GROUPS = {
     },
 }
 
-# Построим обратный маппинг: article → group_key
+# Построим обратный маппинг: article_lower → group_key
 ARTICLE_TO_GROUP = {}
 for gkey, gdata in PNL_GROUPS.items():
-    for art in gdata["items"]:
+    for art in gdata.get("items", []):
         ARTICLE_TO_GROUP[art.strip().lower()] = gkey
+
+# Маппинг по префиксу кода счёта (fallback)
+CODE_PREFIX_TO_GROUP = {}
+for gkey, gdata in PNL_GROUPS.items():
+    for prefix in gdata.get("code_prefixes", []):
+        CODE_PREFIX_TO_GROUP[prefix] = gkey
 
 # ─── Нормализация имён ─────────────────────────────────────────────────────────
 DEPT_ALIASES = {
@@ -176,25 +227,56 @@ def aggregate_month(month_data):
         result["by_point"][dept]["cogs_system"] += cogs
         result["by_point"][dept]["orders"]      += ord_
 
-    # Обрабатываем Finance данные (статьи расходов)
-    for dept_raw, articles in month_data.get("finance", {}).items():
-        dept = normalize(dept_raw)
-        for article, amount in articles.items():
-            art_clean = article.strip()
+    # Обрабатываем Finance данные
+    # Новая структура (iikoWeb): {account_name: {store_name: sum}}
+    # Старая структура (TRANSACTIONS OLAP): {dept: {article: sum}} — тоже поддерживаем
+    finance = month_data.get("finance", {})
+    first_val = next(iter(finance.values()), None) if finance else None
+    new_structure = isinstance(first_val, dict) and not any(
+        isinstance(v, (int, float)) for v in (first_val.values() if first_val else [])
+    )
+    # Определяем формат: если значение вложенного словаря — число, это старый формат
+    # Если значение вложенного словаря — словарь, это новый формат
+    if first_val and isinstance(first_val, dict):
+        inner_val = next(iter(first_val.values()), None)
+        new_structure = isinstance(inner_val, (int, float))
+
+    if new_structure:
+        # Новый формат: {account_name: {store_name: sum}}
+        for account_name, store_amounts in finance.items():
+            art_clean = account_name.strip()
             art_lower = art_clean.lower()
             gkey = ARTICLE_TO_GROUP.get(art_lower)
 
-            # Обновляем by_article
-            result["by_article"][art_clean] = result["by_article"].get(art_clean, 0) + float(amount)
-
-            if gkey:
-                result["by_group"][gkey] = result["by_group"].get(gkey, 0) + float(amount)
-
-                # Обновляем by_point
-                if dept not in result["by_point"]:
-                    result["by_point"][dept] = {"revenue": 0, "cogs_system": 0, "orders": 0, "by_group": {gk: 0 for gk in PNL_GROUPS}}
-                result["by_point"][dept]["by_group"][gkey] = \
-                    result["by_point"][dept]["by_group"].get(gkey, 0) + float(amount)
+            if isinstance(store_amounts, dict):
+                for store_raw, amount in store_amounts.items():
+                    dept = normalize(store_raw)
+                    amount = float(amount or 0)
+                    result["by_article"][art_clean] = result["by_article"].get(art_clean, 0) + amount
+                    if gkey:
+                        result["by_group"][gkey] = result["by_group"].get(gkey, 0) + amount
+                        if dept not in result["by_point"]:
+                            result["by_point"][dept] = {"revenue": 0, "cogs_system": 0, "orders": 0, "by_group": {gk: 0 for gk in PNL_GROUPS}}
+                        result["by_point"][dept]["by_group"][gkey] = \
+                            result["by_point"][dept]["by_group"].get(gkey, 0) + amount
+    else:
+        # Старый формат: {dept: {article: sum}}
+        for dept_raw, articles in finance.items():
+            dept = normalize(dept_raw)
+            if not isinstance(articles, dict):
+                continue
+            for article, amount in articles.items():
+                art_clean = article.strip()
+                art_lower = art_clean.lower()
+                gkey = ARTICLE_TO_GROUP.get(art_lower)
+                amount = float(amount or 0)
+                result["by_article"][art_clean] = result["by_article"].get(art_clean, 0) + amount
+                if gkey:
+                    result["by_group"][gkey] = result["by_group"].get(gkey, 0) + amount
+                    if dept not in result["by_point"]:
+                        result["by_point"][dept] = {"revenue": 0, "cogs_system": 0, "orders": 0, "by_group": {gk: 0 for gk in PNL_GROUPS}}
+                    result["by_point"][dept]["by_group"][gkey] = \
+                        result["by_point"][dept]["by_group"].get(gkey, 0) + amount
 
     # Добавляем cogs_system в группу COGS (если нет данных из финансового журнала)
     # Логика: если в финансовом журнале есть статья "Расход продуктов" — используем её.
