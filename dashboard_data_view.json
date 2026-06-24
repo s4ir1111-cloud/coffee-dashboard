@@ -2,12 +2,24 @@
   "date": "2026-06-24",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "discount_pct": 0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Паруса",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-18",
@@ -50,7 +62,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 60156604,
-      "mtd_orders": 97841,
+      "mtd_orders": 97842,
       "mtd_avg_check": 615,
       "plan_month": 82090000,
       "expected_to_date": 65672000,
@@ -123,7 +135,7 @@
       {
         "name": "Паруса",
         "mtd_revenue": 3673469,
-        "mtd_orders": 5755,
+        "mtd_orders": 5756,
         "mtd_avg_check": 638,
         "plan_month": 4900000,
         "expected_to_date": 3920000,
