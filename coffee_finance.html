@@ -521,7 +521,7 @@ section.active{display:block;}
         <div class="chart-title">Динамика P&L по месяцам</div>
         <div class="chart-toggles">
           <button class="toggle-btn active" id="pnl-chart-btn-rev" onclick="setPnlChart('rev')">Выручка</button>
-          <button class="toggle-btn" id="pnl-chart-btn-margin" onclick="setPnlChart('margin')">Маржинальность %</button>
+          <button class="toggle-btn" id="pnl-chart-btn-margin" onclick="setPnlChart('margin')">Маржа %</button>
         </div>
       </div>
       <div class="chart-canvas-wrap" style="height:220px"><canvas id="pnlChart"></canvas></div>
@@ -1169,7 +1169,7 @@ function renderPnl() {
       <div class="empty" style="grid-column:1/-1">
         <div class="empty-icon">📊</div>
         <div class="empty-title">P&L данные не загружены</div>
-        <div class="empty-sub">Запустите: <code>source iiko_credentials.sh && python pnl_connector.py && python build_pnl_data.py</code></div>
+        <div class="empty-sub">Запустите JS-экстрактор <code>pnl_extract_new.js</code> в браузере IIKO, затем <code>merge_and_build.command</code></div>
       </div>`;
     return;
   }
@@ -1203,48 +1203,44 @@ function getPnlEntry() {
     return PNL_DATA.monthly?.[pnlSelectedMonth] || null;
   }
   if (pnlPeriod === 'quarter') {
-    // Текущий квартал
-    const m = parseInt((PNL_DATA.current_month || '').split('-')[1] || 1);
-    const q = 'Q' + Math.ceil(m / 3);
-    return PNL_DATA.quarterly?.[q] || null;
+    const months = PNL_DATA.months_available || [];
+    const lastKey = months[months.length - 1] || '';
+    const year = lastKey.split('-')[0];
+    const m = parseInt(lastKey.split('-')[1] || 1);
+    const q_key = `${year}-Q${Math.ceil(m / 3)}`;
+    return PNL_DATA.quarterly?.[q_key] || null;
   }
   if (pnlPeriod === 'ytd') {
-    // Накопленное с начала года
-    return buildYtdEntry(PNL_DATA.monthly || {}, PNL_DATA.current_year);
+    const months = PNL_DATA.months_available || [];
+    const lastKey = months[months.length - 1] || '';
+    const year = parseInt(lastKey.split('-')[0]);
+    return buildYtdEntry(PNL_DATA.monthly || {}, year);
   }
   return null;
 }
 
 function buildYtdEntry(monthly, year) {
-  const keys = Object.keys(monthly).filter(k => k.startsWith(String(year))).sort();
+  const currentYear = year || new Date().getFullYear();
+  const keys = Object.keys(monthly).filter(k => k.startsWith(String(currentYear))).sort();
   if (!keys.length) return null;
   const sum = (field) => keys.reduce((acc, k) => acc + (monthly[k]?.[field] || 0), 0);
-  const rev = sum('revenue');
+  const rev  = sum('revenue');
   const cogs = sum('cogs');
-  const fot = sum('fot');
-  const ops = sum('operations');
-  const pers = sum('personnel');
-  const mkt = sum('marketing');
-  const dep = sum('depreciation');
-  const gross = rev - cogs;
-  const ebitda = gross - fot - ops - pers - mkt;
-  const net = ebitda - dep;
-  const pct = (v, b) => b ? Math.round(v / b * 1000) / 10 : 0;
-  const byGroup = {};
-  PNL_GROUPS_META.forEach(g => {
-    byGroup[g.key] = keys.reduce((acc, k) => acc + (monthly[k]?.by_group?.[g.key] || 0), 0);
-  });
-  const byArt = {};
-  keys.forEach(k => {
-    Object.entries(monthly[k]?.by_article || {}).forEach(([art, val]) => {
-      byArt[art] = (byArt[art] || 0) + val;
-    });
-  });
-  return { revenue: rev, cogs, gross_profit: gross, gross_margin: pct(gross, rev),
-    fot, fot_pct: pct(fot, rev), operations: ops, operations_pct: pct(ops, rev),
-    personnel: pers, personnel_pct: pct(pers, rev), marketing: mkt, marketing_pct: pct(mkt, rev),
-    ebitda, ebitda_margin: pct(ebitda, rev), depreciation: dep,
-    net_profit: net, net_margin: pct(net, rev), by_group: byGroup, by_article: byArt };
+  const gp   = sum('gross_profit');
+  const exp  = sum('expenses');
+  const op   = sum('operating_profit');
+  const othi = sum('other_income');
+  const othe = sum('other_expenses');
+  const net  = sum('net_profit');
+  const safe = (b) => b || 1;
+  return {
+    revenue: rev, cogs,
+    gross_profit: gp,     gross_margin: gp / safe(rev),
+    expenses: exp,
+    operating_profit: op, operating_margin: op / safe(rev),
+    other_income: othi,   other_expenses: othe,
+    net_profit: net,      net_margin: net / safe(rev),
+  };
 }
 
 function renderPnlMonthTabs() {
@@ -1271,32 +1267,32 @@ function selectPnlMonth(month, btn) {
 
 function renderPnlKpis(e) {
   if (!e) return;
-  const sign = (v) => v >= 0 ? '+' : '';
-  const marginCls = (v) => v >= 15 ? 'good' : v >= 5 ? 'warn' : 'bad';
+  const pct = (v) => (v * 100).toFixed(1);
+  const marginCls = (v) => v >= 0.15 ? 'good' : v >= 0.05 ? 'warn' : 'bad';
   document.getElementById('pnl-kpi-row').innerHTML = `
     <div class="kpi-card">
       <div class="kpi-label">Выручка</div>
       <div class="kpi-value" style="font-size:20px">${fmtM(e.revenue)}</div>
-      <div class="kpi-trend"><span class="kpi-sub">${e.orders ? e.orders.toLocaleString('ru-RU') + ' заказов' : ''}</span></div>
+      <div class="kpi-trend"><span class="kpi-sub">Себестоимость ${fmtM(e.cogs)}</span></div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Валовая прибыль</div>
-      <div class="kpi-value" style="font-size:20px;color:${e.gross_margin >= 40 ? 'var(--good)' : 'var(--warn)'}">${e.gross_margin}%</div>
+      <div class="kpi-value" style="font-size:20px;color:${e.gross_margin >= 0.4 ? 'var(--good)' : 'var(--warn)'}">${pct(e.gross_margin)}%</div>
       <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.gross_profit)}</span></div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">ФОТ</div>
-      <div class="kpi-value" style="font-size:20px">${e.fot_pct}%</div>
-      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.fot)}</span></div>
+      <div class="kpi-label">Расходы</div>
+      <div class="kpi-value" style="font-size:20px">${fmtM(e.expenses)}</div>
+      <div class="kpi-trend"><span class="kpi-sub">${((e.expenses||0)/(e.revenue||1)*100).toFixed(1)}% от выручки</span></div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">EBITDA</div>
-      <div class="kpi-value" style="font-size:20px;color:var(--${marginCls(e.ebitda_margin)})">${e.ebitda_margin}%</div>
-      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.ebitda)}</span></div>
+      <div class="kpi-label">Операционная прибыль</div>
+      <div class="kpi-value" style="font-size:20px;color:var(--${marginCls(e.operating_margin)})">${pct(e.operating_margin)}%</div>
+      <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.operating_profit)}</span></div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Чистая прибыль</div>
-      <div class="kpi-value" style="font-size:20px;color:var(--${e.net_margin > 0 ? 'good' : 'bad'})">${e.net_margin}%</div>
+      <div class="kpi-value" style="font-size:20px;color:var(--${e.net_margin > 0 ? 'good' : 'bad'})">${pct(e.net_margin)}%</div>
       <div class="kpi-trend"><span class="kpi-sub">${fmtM(e.net_profit)}</span></div>
     </div>
   `;
@@ -1321,30 +1317,20 @@ function renderPnlCascade(e) {
       <div></div><div></div>
     </div>`;
 
-  // Выручка
-  html += row('Выручка', rev, '100%', '', '', false, 'total', '💰');
-  html += row('Себестоимость (COGS)', e.cogs, pct(e.cogs), '', '', true, 'group negative', '🛒');
+  // Структура P&L как в IIKO: Выручка → Себест. → Вал.прибыль → Расходы → Опер.прибыль → Прочие → Чистая
+  html += row('💰 Выручка, доходы', rev, '100%', '', '', false, 'total', '');
+  html += row('🛒 Себестоимость', e.cogs, pct(e.cogs), '', '', true, 'group negative', '');
 
-  // Валовая прибыль
   const gm = e.gross_profit;
   html += row('= Валовая прибыль', gm, pct(gm), '', '', false, 'subtotal ' + (gm >= 0 ? 'positive' : 'negative'), '📊');
 
-  // Остальные группы
-  const opGroups = [
-    {key:'FOT',       icon:'👥', lbl:'ФОТ',                    v: e.fot},
-    {key:'Operations',icon:'🔧', lbl:'Операционные расходы',   v: e.operations},
-    {key:'Personnel', icon:'📋', lbl:'Расходы на персонал',    v: e.personnel},
-    {key:'Marketing', icon:'📣', lbl:'Маркетинг и гости',      v: e.marketing},
-  ];
-  opGroups.forEach(g => {
-    if (g.v > 0 || e.by_group?.[g.key] > 0) {
-      html += row(g.icon + ' ' + g.lbl, g.v, pct(g.v), '', '', true, 'group negative');
-    }
-  });
+  if (e.expenses > 0) html += row('📋 Расходы', e.expenses, pct(e.expenses), '', '', true, 'group negative', '');
 
-  // EBITDA
-  html += row('= EBITDA', e.ebitda, pct(e.ebitda), '', '', false, 'subtotal ' + (e.ebitda >= 0 ? 'positive' : 'negative'), '⚡');
-  html += row('Амортизация', e.depreciation, pct(e.depreciation), '', '', true, 'group negative', '🏗');
+  const op = e.operating_profit;
+  html += row('= Операционная прибыль', op, pct(op), '', '', false, 'subtotal ' + (op >= 0 ? 'positive' : 'negative'), '⚡');
+
+  if (e.other_income > 0)   html += row('➕ Прочие доходы',  e.other_income,   pct(e.other_income),   '', '', false, 'group', '');
+  if (e.other_expenses > 0) html += row('➖ Прочие расходы', e.other_expenses, pct(e.other_expenses), '', '', true,  'group negative', '');
 
   // Чистая прибыль
   html += `<div class="pnl-row total ${e.net_profit >= 0 ? 'positive' : 'negative'}">
@@ -1370,6 +1356,11 @@ function renderPnlCascade(e) {
 }
 
 function renderPnlArticlesTable() {
+  // Детализация по статьям недоступна в P&L API (только сводные метрики)
+  const tbody = document.getElementById('pnl-articles-tbody');
+  if (tbody) tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">
+    Детализация по статьям: используйте IIKO Отчёт о прибылях и убытках</td></tr>`;
+  return;
   if (!PNL_DATA || !PNL_DATA.monthly) return;
   const months = PNL_DATA.months_available || [];
   if (months.length === 0) return;
@@ -1490,13 +1481,13 @@ function renderPnlChart() {
       { label: 'Валовая прибыль',  data: gp,   borderColor: '#22c55e', backgroundColor: 'transparent', tension: 0.4, pointRadius: 3 },
     ];
   } else {
-    const gm  = months.map(m => monthly[m]?.gross_margin || 0);
-    const em  = months.map(m => monthly[m]?.ebitda_margin || 0);
-    const nm  = months.map(m => monthly[m]?.net_margin || 0);
+    const gm  = months.map(m => ((monthly[m]?.gross_margin     || 0) * 100).toFixed(1));
+    const om  = months.map(m => ((monthly[m]?.operating_margin || 0) * 100).toFixed(1));
+    const nm  = months.map(m => ((monthly[m]?.net_margin       || 0) * 100).toFixed(1));
     datasets = [
-      { label: 'Валовая маржа %',  data: gm, borderColor: '#22c55e', tension: 0.4, pointRadius: 4 },
-      { label: 'EBITDA %',          data: em, borderColor: '#f97316', tension: 0.4, pointRadius: 4 },
-      { label: 'Чистая прибыль %', data: nm, borderColor: '#3b82f6', tension: 0.4, pointRadius: 4 },
+      { label: 'Валовая маржа %',      data: gm, borderColor: '#22c55e', tension: 0.4, pointRadius: 4 },
+      { label: 'Операционная маржа %', data: om, borderColor: '#f97316', tension: 0.4, pointRadius: 4 },
+      { label: 'Чистая прибыль %',     data: nm, borderColor: '#3b82f6', tension: 0.4, pointRadius: 4 },
     ];
   }
 
