@@ -376,14 +376,35 @@ def build():
             elif year_int == previous_year:
                 monthly_pnl_prev[month_key] = pnl
 
-    # ── Если revenue пустая — берём из finance_data.json ─────────────────────
+    # ── Если revenue пустая — берём из finance_data.json и пересчитываем P&L ──
     if fin_data and fin_data.get("monthly_totals"):
         for mt in fin_data["monthly_totals"]:
             mkey = mt["month"]
             if mkey in monthly_pnl and monthly_pnl[mkey]["revenue"] == 0:
-                monthly_pnl[mkey]["revenue"] = mt.get("revenue", 0)
-                monthly_pnl[mkey]["orders"]  = mt.get("orders", 0)
-                monthly_pnl[mkey]["avg_check"]= mt.get("avg_check", 0)
+                rev = mt.get("revenue", 0)
+                if not rev:
+                    continue
+                p = monthly_pnl[mkey]
+                p["revenue"]   = rev
+                p["orders"]    = mt.get("orders", 0)
+                p["avg_check"] = mt.get("avg_check", 0)
+                # Пересчитываем производные метрики
+                def pct(val, base): return round(val / base * 100, 1) if base else 0
+                cogs            = p["cogs"]
+                p["gross_profit"]  = round(rev - cogs)
+                p["gross_margin"]  = pct(rev - cogs, rev)
+                fot  = p["fot"];  ops = p["operations"]
+                pers = p["personnel"]; mkt = p["marketing"]; dep = p["depreciation"]
+                ebitda = rev - cogs - fot - ops - pers - mkt
+                p["ebitda"]        = round(ebitda)
+                p["ebitda_margin"] = pct(ebitda, rev)
+                p["fot_pct"]       = pct(fot, rev)
+                p["operations_pct"]= pct(ops, rev)
+                p["personnel_pct"] = pct(pers, rev)
+                p["marketing_pct"] = pct(mkt, rev)
+                net = ebitda - dep
+                p["net_profit"]    = round(net)
+                p["net_margin"]    = pct(net, rev)
 
     # ── Квартальные итоги ─────────────────────────────────────────────────────
     quarterly = build_quarterly(monthly_pnl, current_year)

@@ -86,14 +86,13 @@ def logout(host, token):
 
 # ─── SALES OLAP: выручка + себестоимость ────────────────────────────────────────
 def olap_sales(host, token, date_from, date_to):
-    """Выручка, себестоимость и заказы по точкам."""
+    """Выручка и заказы по точкам."""
     body = {
         "reportType": "SALES",
         "groupByRowFields": ["Department"],
         "groupByColFields": [],
         "aggregateFields": [
             "DishDiscountSumInt",    # Выручка (после скидок)
-            "DishCostSumInt",        # Себестоимость блюд
             "UniqOrderId.OrdersCount"
         ],
         "filters": {
@@ -115,57 +114,76 @@ def olap_sales(host, token, date_from, date_to):
     return resp.json()
 
 def parse_sales(data):
-    """→ {dept: {revenue, cogs, orders}}"""
+    """→ {dept: {revenue, orders}}"""
     result = {}
     for row in data.get("data", []):
         dept = row.get("Department", "").strip()
         if not dept:
             continue
         revenue = float(row.get("DishDiscountSumInt", 0) or 0)
-        cogs    = float(row.get("DishCostSumInt", 0) or 0)
         orders  = int(row.get("UniqOrderId.OrdersCount", 0) or 0)
         if dept in result:
             result[dept]["revenue"] += revenue
-            result[dept]["cogs"]    += cogs
             result[dept]["orders"]  += orders
         else:
-            result[dept] = {"revenue": revenue, "cogs": cogs, "orders": orders}
+            result[dept] = {"revenue": revenue, "orders": orders}
     return result
 
 # ─── FINANCE OLAP: статьи расходов ─────────────────────────────────────────────
 def olap_finance(host, token, date_from, date_to):
     """
     Финансовые операции (расходы) из журнала IIKO.
-
-    Поля IIKO Finance OLAP:
-      reportType     = "FINANCE"
-      groupByRowFields = ["Department", "CashFlowItem"]   ← статья ДДС
-      aggregateFields  = ["SumInt"]                        ← сумма операции
-
-    Если поля отличаются в вашей версии IIKO — скорректируйте здесь.
+    Пробует несколько вариантов фильтра дат — IIKO Cloud и on-premise
+    имеют разные имена полей.
     """
-    body = {
-        "reportType": "FINANCE",
-        "groupByRowFields": ["Department", "CashFlowItem"],
-        "groupByColFields": [],
-        "aggregateFields": ["SumInt"],
-        "filters": {
-            "OpenDate.Typed": {
-                "filterType": "DateRange",
-                "periodType": "CUSTOM",
-                "from": date_from,
-                "to": date_to
-            }
+    # Варианты фильтра по дате для Finance OLAP
+    date_filter_variants = [
+        ("OpenDate.Typed", {"filterType": "DateRange", "periodType": "CUSTOM",
+                            "from": date_from, "to": date_to}),
+        ("Date",           {"filterType": "DateRange", "periodType": "CUSTOM",
+                            "from": date_from, "to": date_to}),
+        ("CloseDate.Typed",{"filterType": "DateRange", "periodType": "CUSTOM",
+                            "from": date_from, "to": date_to}),
+    ]
+
+    for filter_field, filter_val in date_filter_variants:
+        body = {
+            "reportType": "FINANCE",
+            "groupByRowFields": ["Department", "CashFlowItem"],
+            "groupByColFields": [],
+            "aggregateFields": ["SumInt"],
+            "filters": {filter_field: filter_val}
         }
-    }
-    resp = requests.post(
-        f"{host}/resto/api/v2/reports/olap",
-        params={"key": token},
-        json=body,
-        timeout=120
-    )
-    resp.raise_for_status()
-    return resp.json()
+        try:
+            resp = requests.post(
+                f"{host}/resto/api/v2/reports/olap",
+                params={"key": token},
+                json=body,
+                timeout=120
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                rows = data.get("data", [])
+                if rows:
+                    print(f"    Finance OLAP OK (фильтр: {filter_field}): {len(rows)} строк")
+                    # Диагностика: показываем поля первой строки
+                    print(f"    Поля: {list(rows[0].keys())}")
+                    return data
+                else:
+                    # 200 но пустой ответ — пробуем следующий вариант
+                    print(f"    Finance OLAP ({filter_field}): 0 строк, пробуем другой фильтр...")
+                    continue
+            else:
+                print(f"    Finance OLAP ({filter_field}): HTTP {resp.status_code}")
+                continue
+        except Exception as e:
+            print(f"    Finance OLAP ({filter_field}): {e}")
+            continue
+
+    # Все варианты исчерпаны — возвращаем пустой результат
+    print("    ⚠ Finance OLAP: данные не получены ни с одним фильтром.")
+    print("      Проверьте reportType=FINANCE и наличие финансового модуля в IIKO.")
+    return {"data": []}
 
 def parse_finance(data):
     """→ {dept: {article: sum}}"""
@@ -228,12 +246,8 @@ def fetch_all(host, token):
                 print(f"    ⚠ Sales ОШИБКА: {e}")
 
             # 2. Finance (статьи расходов)
-            try:
-                fin_raw = olap_finance(host, token, date_from, date_to)
-                month_data["finance"] = parse_finance(fin_raw)
-            except Exception as e:
-                print(f"    ⚠ Finance ОШИБКА: {e}")
-                print(f"    Проверьте: reportType='FINANCE', поля Department+CashFlowItem+SumInt")
+            fin_raw = olap_finance(host, token, date_from, date_to)
+            month_data["finance"] = parse_finance(fin_raw)
 
             raw["years"][str(year)][key] = month_data
 
