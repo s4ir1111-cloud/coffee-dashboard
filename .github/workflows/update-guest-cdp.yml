@@ -61,6 +61,16 @@ jobs:
           print(f"Готово: {len(data['guests'])} гостей")
           PYEOF
 
+      - name: Собрать приватный дашборд (телефоны не скрыты)
+        run: python3 build_private_dashboard.py
+
+      - name: Загрузить приватный дашборд как артефакт
+        uses: actions/upload-artifact@v4
+        with:
+          name: guest-cdp-private
+          path: guest_cdp_dashboard_private.html
+          retention-days: 7
+
       - name: Закоммитить и запушить
         run: |
           git config user.name "github-actions[bot]"
