@@ -25,28 +25,14 @@ jobs:
           IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
         run: python3 build_guest_cdp_data.py
 
-      - name: Маскировать телефоны и собрать дашборд
+      - name: Собрать дашборд (полные номера без маскировки)
         run: |
           python3 - << 'PYEOF'
-          import json, re
+          import json
 
           with open('guest_cdp_data.json', encoding='utf-8') as f:
               data_raw = f.read()
               data = json.loads(data_raw)
-
-          def mask_phone(p):
-              if not p:
-                  return p
-              digits = re.sub(r'\D', '', p)
-              if len(digits) < 4:
-                  return '***'
-              return '+7 *** *** ' + digits[-4:]
-
-          masked = json.loads(data_raw)
-          for g in masked['guests']:
-              if g.get('phone'):
-                  g['phone'] = mask_phone(g['phone'])
-          masked_raw = json.dumps(masked, ensure_ascii=False)
 
           with open('guest_cdp_dashboard_template.html', encoding='utf-8') as f:
               html = f.read()
@@ -54,22 +40,12 @@ jobs:
           marker = '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>'
           assert marker in html, "marker not found in template"
 
-          public_html = html.replace(marker, '<script>window.__GUEST_DATA__=' + masked_raw + ';</script>\n' + marker, 1)
+          dashboard_html = html.replace(marker, '<script>window.__GUEST_DATA__=' + data_raw + ';</script>\n' + marker, 1)
           with open('guest_cdp_dashboard.html', 'w', encoding='utf-8') as f:
-              f.write(public_html)
+              f.write(dashboard_html)
 
           print(f"Готово: {len(data['guests'])} гостей")
           PYEOF
-
-      - name: Собрать приватный дашборд (телефоны не скрыты)
-        run: python3 build_private_dashboard.py
-
-      - name: Загрузить приватный дашборд как артефакт
-        uses: actions/upload-artifact@v4
-        with:
-          name: guest-cdp-private
-          path: guest_cdp_dashboard_private.html
-          retention-days: 7
 
       - name: Закоммитить и запушить
         run: |
