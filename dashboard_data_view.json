@@ -2,12 +2,30 @@
   "date": "2026-06-25",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 2,
     "avg_check": 0,
     "discount_pct": 0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Панорама",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    },
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-19",
@@ -50,7 +68,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 62669447,
-      "mtd_orders": 102044,
+      "mtd_orders": 102046,
       "mtd_avg_check": 614,
       "plan_month": 82090000,
       "expected_to_date": 68408333,
@@ -75,7 +93,7 @@
       {
         "name": "Прео",
         "mtd_revenue": 5065359,
-        "mtd_orders": 7467,
+        "mtd_orders": 7468,
         "mtd_avg_check": 678,
         "plan_month": 6400000,
         "expected_to_date": 5333333,
@@ -159,7 +177,7 @@
       {
         "name": "Панорама",
         "mtd_revenue": 3508393,
-        "mtd_orders": 5806,
+        "mtd_orders": 5807,
         "mtd_avg_check": 604,
         "plan_month": 4550000,
         "expected_to_date": 3791667,

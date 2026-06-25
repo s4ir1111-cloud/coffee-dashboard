@@ -2,7 +2,24 @@
   "date": "2026-06-25",
   "month_start": "2026-06-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Панорама",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -101,7 +118,7 @@
         "Department": "Панорама",
         "DishDiscountSumInt": 3508393,
         "DishSumInt": 3957846,
-        "UniqOrderId.OrdersCount": 5806
+        "UniqOrderId.OrdersCount": 5807
       },
       {
         "Department": "Паруса",
@@ -113,7 +130,7 @@
         "Department": "Преображенский",
         "DishDiscountSumInt": 5065359,
         "DishSumInt": 5790091,
-        "UniqOrderId.OrdersCount": 7467
+        "UniqOrderId.OrdersCount": 7468
       },
       {
         "Department": "Свердлова",
@@ -131,7 +148,20 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 0,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Фильтр Кофе Безлимит",
+        "DishSumInt": 0
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +195,11 @@
         "DishDiscountSumInt": 2512843,
         "DishSumInt": 2910106,
         "OpenDate.Typed": "2026-06-24"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-06-25"
       }
     ],
     "summary": []
