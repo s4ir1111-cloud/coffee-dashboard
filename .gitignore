@@ -1,0 +1,14 @@
+# Приватные дашборды с незамаскированными данными — не публиковать
+guest_cdp_dashboard_private.html
+*_private.html
+
+# Сырые данные с телефонами
+guest_cdp_data.json
+
+# Учётные данные
+iiko_credentials.sh
+
+# Python
+__pycache__/
+*.pyc
+.env
