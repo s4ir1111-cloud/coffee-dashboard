@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>P&L — Garden Coffee</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap');
+:root {
+  --bg:#2d3147; --card:#363b57; --card2:#3f4460;
+  --text:#e7edf5; --muted:#9da5c0; --border:#4a5070;
+  --accent:#bedf3d; --good:#bedf3d; --bad:#ff5d6c; --warn:#ffaa3d;
+  --rev:#bedf3d; --cogs:#ff6b7a; --gp:#4dc9a8;
+  --opex:#ffaa3d; --ebitda:#7eb3ff; --np:#c084fc;
+  --infra:#64b5f6; --tmc:#81c784; --staff:#ffb74d;
+  --mkt:#f06292; --amort:#b0bec5;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--bg);color:var(--text);font-family:'Barlow','Segoe UI',Arial,sans-serif;min-height:100vh;}
+body{padding:10px 16px 32px;}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+.logo-wrap{display:flex;flex-direction:column;gap:2px;}
+.logo-svg{height:36px;width:auto;display:block;}
+.logo-sub{color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',Arial,sans-serif;}
+.hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.badge{font-size:10px;padding:3px 8px;border-radius:20px;border:1px solid var(--border);background:var(--card2);font-family:'Barlow Condensed',Arial,sans-serif;letter-spacing:.5px;}
+.badge.ok{border-color:var(--good);color:var(--good);}
+.badge.warn{border-color:var(--warn);color:var(--warn);}
+.badge.err{border-color:var(--bad);color:var(--bad);}
+
+/* Period bar */
+.period-bar{display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:10px;flex-wrap:wrap;}
+.period-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-family:'Barlow Condensed',Arial,sans-serif;margin-right:2px;}
+.period-sep{width:1px;height:16px;background:var(--border);margin:0 4px;}
+.pbtn{padding:3px 10px;border-radius:14px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:11px;cursor:pointer;font-family:'Barlow Condensed',Arial,sans-serif;font-weight:600;letter-spacing:.3px;transition:all .12s;white-space:nowrap;}
+.pbtn:hover{border-color:var(--accent);color:var(--text);}
+.pbtn.active{border-color:var(--accent);color:var(--accent);background:rgba(190,223,61,.12);}
+.pbtn.month-btn{padding:3px 7px;font-size:10px;}
+
+/* KPI strip */
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px;}
+.kpi{background:linear-gradient(145deg,var(--card2),var(--card));border:1px solid var(--border);border-radius:8px;padding:9px 12px;border-left:3px solid var(--lc,var(--accent));}
+.kpi .kl{font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:3px;font-family:'Barlow Condensed',Arial,sans-serif;font-weight:600;}
+.kpi .kv{font-size:21px;font-weight:700;line-height:1;font-family:'Barlow Condensed',Arial,sans-serif;color:var(--lc,var(--text));}
+.kpi .ks{font-size:10px;color:var(--muted);margin-top:3px;}
+
+/* Section title */
+h2.sec{font-size:10px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;font-family:'Barlow Condensed',Arial,sans-serif;}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.tab{padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card2);color:var(--muted);font-size:11px;cursor:pointer;font-family:'Barlow Condensed',Arial,sans-serif;font-weight:600;letter-spacing:.5px;transition:all .15s;}
+.tab.active{border-color:var(--accent);color:var(--accent);background:rgba(190,223,61,.1);}
+
+/* Tables */
+.tbl-wrap{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:auto;margin-bottom:12px;}
+table{width:100%;border-collapse:collapse;font-size:11px;}
+thead th{background:var(--card2);color:var(--accent);text-transform:uppercase;font-size:9px;letter-spacing:.5px;padding:5px 9px;white-space:nowrap;font-family:'Barlow Condensed',Arial,sans-serif;text-align:right;min-width:100px;}
+thead th:first-child{text-align:left;min-width:200px;width:100%;}
+td{padding:3px 9px;white-space:nowrap;text-align:right;border-bottom:1px solid #3a3f5c;min-width:100px;}
+td:first-child{text-align:left;width:100%;}
+tr:hover td{background:#3b4060;}
+th.col-sel,td.col-sel{background:rgba(190,223,61,.06);border-left:2px solid rgba(190,223,61,.3);}
+
+/* P&L row types */
+tr.row-revenue td:first-child{color:var(--rev);font-weight:700;}
+tr.row-group-head td{background:#2a2f48;color:var(--accent);font-size:10px;letter-spacing:.5px;font-family:'Barlow Condensed',Arial,sans-serif;font-weight:600;text-transform:uppercase;}
+tr.row-item td:first-child{padding-left:18px;color:var(--muted);}
+tr.row-subtotal td{background:#2a2f48;font-weight:700;}
+tr.row-gp td:first-child{color:var(--gp);font-weight:700;}
+tr.row-ebitda td:first-child{color:var(--ebitda);font-weight:700;}
+tr.row-np td:first-child{color:var(--np);font-weight:700;}
+tr.row-divider td{height:3px;background:var(--border);padding:0;}
+.pct{color:var(--muted);font-size:10px;margin-left:2px;}
+.pct.good{color:var(--good);}
+.pct.bad{color:var(--bad);}
+.zero{color:#606880;}
+.neg{color:var(--bad);}
+
+/* Anomalies */
+.anom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;margin-bottom:12px;}
+.anom-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;border-left:3px solid var(--ac,var(--warn));}
+.anom-card.high{--ac:var(--bad);}
+.anom-card.warn{--ac:var(--warn);}
+.anom-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.anom-name{font-size:12px;font-weight:600;}
+.anom-type{font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(255,255,255,.06);color:var(--muted);}
+.anom-nums{display:flex;gap:10px;font-size:11px;color:var(--muted);}
+.anom-dev{font-size:16px;font-weight:700;font-family:'Barlow Condensed',Arial,sans-serif;color:var(--ac,var(--warn));}
+.anom-period{font-size:10px;color:var(--muted);margin-top:2px;}
+.anom-group{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.status-pill{display:inline-flex;align-items:center;gap:4px;border-radius:12px;padding:2px 7px;font-size:9px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;font-family:'Barlow Condensed',Arial,sans-serif;border:1px solid var(--border);}
+.status-pill.exact_match{color:var(--good);border-color:var(--good);background:rgba(190,223,61,.08);}
+.status-pill.rollup_match{color:var(--warn);border-color:var(--warn);background:rgba(255,170,61,.08);}
+.status-pill.not_in_raw{color:var(--bad);border-color:var(--bad);background:rgba(255,93,108,.08);}
+.coverage-row{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:8px;margin-bottom:10px;}
+.coverage-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 12px;}
+.coverage-card .cv{font-family:'Barlow Condensed',Arial,sans-serif;font-size:22px;font-weight:700;line-height:1;color:var(--accent);}
+.coverage-card .cl{font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-top:3px;font-family:'Barlow Condensed',Arial,sans-serif;}
+.monitor-note{font-size:11px;color:var(--muted);margin:-2px 0 10px;}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);font-family:'Barlow Condensed',Arial,sans-serif;}
+.leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+
+/* No-data */
+.no-data{background:var(--card);border:1px solid var(--warn);border-radius:8px;padding:14px 16px;color:var(--warn);font-size:12px;margin-bottom:12px;display:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="535 258 850 142" aria-label="GARDEN">
+      <g fill="#bedf3d">
+        <path d="M1243.6 381C1244.8 389.8 1231.3 384.7 1226.1 384.2C1192.8 380.6 1175.6 390.1 1171.6 392.7C1170.9 393.2 1170.1 393.4 1169.3 393.4H1132.3C1130.1 393.4 1128.2 391.5 1128.2 389.3V269.1C1128.2 266.8 1130.1 264.9 1132.3 264.9H1169.9C1170.8 264.9 1171.7 265.3 1172.5 265.8C1175.9 268.6 1187.2 276.6 1200.8 276.1C1209.6 275.7 1215.3 276.9 1215.7 281.2C1216.3 286.7 1210.6 285.4 1206.1 284.6C1190.1 282 1178.9 285.5 1170 289.7C1183.3 305.8 1206 307.3 1212.6 307.2C1221.1 307.1 1224.3 309 1224.7 312.5C1225.2 316.1 1222.4 317.7 1217.2 316.9C1185.4 312 1172.1 322.2 1172.1 322.2C1172.1 322.2 1184.6 340.8 1221.5 340.5C1235 340.4 1235.2 344.7 1234.7 347.3C1233.6 352.8 1223.6 349.9 1220.3 349.5C1188.8 345.4 1175.4 355.6 1171.7 357.8C1188.3 374.2 1203.3 375.1 1228.5 375.3C1238.5 375.3 1243.1 377.3 1243.6 381Z"/>
+        <path d="M1379.8 269.1V389.3C1379.8 391.5 1378 393.4 1375.7 393.4H1290.2C1314.3 384.5 1319.1 357.5 1319.1 357.5C1301.9 354.8 1284.1 359.8 1271.6 371.2C1266.9 375.4 1260.7 384.7 1255.7 379.2C1250.3 373.3 1258.5 367.2 1264.7 364.5C1300.9 348.6 1300.5 328.3 1300.5 324.8C1294.6 322.4 1271.4 323.2 1256.7 339.7C1255.2 341.4 1249.4 348.9 1244.6 345.6C1242.7 344.3 1239.6 336.9 1250.5 332.2C1280.6 319.2 1284.9 302.4 1284.9 295.9C1277.4 293 1258.7 295.1 1245.8 307.5C1244.5 308.8 1237.1 315.8 1233.5 311.3C1230.6 307.6 1232 301.9 1242 298.6C1271.6 288.6 1271.3 269.1 1271.3 269.1C1271.3 269.1 1257.9 267.7 1246 271.5C1239.6 273.5 1230.2 281.2 1228.5 282C1224.6 283.7 1222.5 280.6 1223.1 277.5C1223.7 274 1226.5 272 1229.7 271.1C1236.4 269.3 1241.9 266.6 1244.1 265.5C1244.8 265.1 1245.6 265 1246.4 265C1253.9 265 1292.4 265 1300.4 264.9C1302 264.9 1303.5 265.9 1304.2 267.4L1330.6 328.2C1330.9 328.9 1331.7 329.3 1332.4 329.3C1333.5 329.3 1334.4 328.5 1334.4 327.4V269.1C1334.4 266.8 1336.3 264.9 1338.5 264.9H1375.7C1378 264.9 1379.8 266.8 1379.8 269.1Z"/>
+        <path fill-rule="evenodd" d="M889.9 325.8H906.2C917.5 325.8 923.2 320.9 923.2 311.1C923.2 304.3 920.3 296.2 906.2 296.2H889.9V325.8ZM923.8 391.1L907.4 357.1H889.9V389.3C889.9 391.5 888.1 393.4 885.8 393.4H849.8C847.5 393.4 845.7 391.5 845.7 389.3V269.1C845.7 266.8 847.5 265 849.8 265H911.3C948.7 265 966.1 279.6 966.1 311.1C966.1 328 961.1 339.8 950.8 347.3L948.1 349.3L968.5 387.3C970 390.1 968 393.4 964.9 393.4H927.5C925.9 393.4 924.5 392.5 923.8 391.1Z"/>
+        <path fill-rule="evenodd" d="M613 397.1C570 397.1 540 369.2 540 329.2C540 289.2 570 261.3 613 261.3C646.5 261.3 673.2 281.2 680 308.5C680.6 311.1 678.6 313.6 675.9 313.6H637.7C636.4 313.6 635.2 313.1 634.5 312.1C630.2 306.7 623.1 302.7 614.5 302.7C599.7 302.7 588.9 313.8 588.9 329.2C588.9 344 596.8 358 614.4 358.4L615.4 358.4C625.2 358.4 630.7 350.8 631.7 349.2C631.9 349.1 631.9 348.9 631.9 348.6C631.9 348.1 631.4 347.6 630.9 347.6H621.3C619 347.6 617.1 345.7 617.1 343.4V331.7C617.1 329.4 619 327.5 621.3 327.5H677.3C679.6 327.5 681.4 329.4 681.4 331.7V389.3C681.4 391.6 679.6 393.4 677.3 393.4H654.3C652 393.4 650.1 391.6 650.1 389.3V382.5C650.1 382 649.5 381.8 649.2 382.1C645.8 385.7 633.2 397.1 613 397.1Z"/>
+        <path fill-rule="evenodd" d="M749.2 338.8H777.1L768.9 303.6H757.4L749.2 338.8ZM788.9 390.2L784.7 371.9H741.6L737.4 390.2C736.9 392.1 735.3 393.4 733.3 393.4H694.7C691.9 393.4 690 390.7 690.7 388.1L726.8 267.9C727.4 266.2 729 265 730.8 265H795.5C797.3 265 798.9 266.2 799.5 267.9L835.6 388.1C836.4 390.7 834.4 393.4 831.6 393.4H793C791 393.4 789.4 392.1 788.9 390.2Z"/>
+        <path fill-rule="evenodd" d="M1027.4 354.4H1046C1063.8 354.4 1074.1 345.2 1074.1 329.2C1074.1 313.2 1063.8 304 1046 304H1027.4V354.4ZM983.1 389.3V269.1C983.1 266.8 985 265 987.3 265H1053.1C1095.9 265 1120.5 288.4 1120.5 329.2C1120.5 370.6 1096.6 393.4 1053.1 393.4H987.3C985 393.4 983.1 391.5 983.1 389.3Z"/>
+      </g>
+    </svg>
+    <div class="logo-sub">P&L · Прибыли и убытки</div>
+  </div>
+  <div class="hdr-right">
+    <span style="font-size:11px;color:var(--muted)" id="gen-date">Загрузка…</span>
+    <span class="badge" id="exp-badge">расходы: —</span>
+  </div>
+</header>
+
+<!-- File picker fallback -->
+<div id="file-picker-wrap" style="display:none;align-items:center;gap:10px;background:var(--card);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:12px;">
+  <span style="color:var(--warn)">⚠ Файл pnl_data.json не найден.</span>
+  <label style="cursor:pointer;padding:4px 12px;border-radius:6px;background:var(--card2);border:1px solid var(--accent);color:var(--accent);font-size:11px;">
+    Выбрать файл <input type="file" accept=".json" style="display:none" onchange="loadFile(this)">
+  </label>
+  <span style="color:var(--muted)">Выбери pnl_data.json</span>
+</div>
+
+<!-- Period selector -->
+<div class="period-bar" id="period-bar">
+  <span class="period-label">Год</span>
+  <div id="year-btns" style="display:flex;gap:4px"></div>
+  <div class="period-sep"></div>
+  <span class="period-label">Период</span>
+  <div id="month-btns" style="display:flex;gap:4px;flex-wrap:wrap"></div>
+</div>
+
+<!-- KPI strip -->
+<div class="kpi-row">
+  <div class="kpi" style="--lc:var(--rev)">
+    <div class="kl" id="kl-rev">Выручка YTD</div>
+    <div class="kv" id="k-rev">—</div>
+    <div class="ks" id="k-rev-s">—</div>
+  </div>
+  <div class="kpi" style="--lc:var(--gp)">
+    <div class="kl">Валовая прибыль</div>
+    <div class="kv" id="k-gp">—</div>
+    <div class="ks" id="k-gp-s">—</div>
+  </div>
+  <div class="kpi" style="--lc:var(--opex)">
+    <div class="kl">Opex</div>
+    <div class="kv" id="k-opex">—</div>
+    <div class="ks" id="k-opex-s">—</div>
+  </div>
+  <div class="kpi" style="--lc:var(--ebitda)">
+    <div class="kl">EBITDA</div>
+    <div class="kv" id="k-ebitda">—</div>
+    <div class="ks" id="k-ebitda-s">—</div>
+  </div>
+  <div class="kpi" style="--lc:var(--np)">
+    <div class="kl">Чистая прибыль</div>
+    <div class="kv" id="k-np">—</div>
+    <div class="ks" id="k-np-s">—</div>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab active" onclick="showTab('pnl')">P&L таблица</button>
+  <button class="tab" onclick="showTab('anomalies')">Аномалии <span id="anom-count" style="color:var(--bad)"></span></button>
+  <button class="tab" onclick="showTab('monitoring')">Статьи расходов <span id="mon-count" style="color:var(--bad)"></span></button>
+  <button class="tab" onclick="showTab('chart')">График</button>
+  <button class="tab" onclick="showTab('points')">По точкам</button>
+</div>
+
+<div class="no-data" id="no-data-warn">⚠️ Данные расходов из iiko недоступны.</div>
+<div id="_dbg" style="font-size:10px;color:#ffaa3d;background:#1a1f35;padding:6px 10px;border-radius:6px;margin-bottom:6px;word-break:break-all;display:none"></div>
+
+<!-- Tab: P&L -->
+<div id="tab-pnl">
+  <h2 class="sec" id="pnl-title">P&L по месяцам</h2>
+  <div class="tbl-wrap" style="max-height:580px">
+    <table id="pnl-tbl">
+      <thead><tr><th>Статья</th></tr></thead>
+      <tbody><tr><td>Загрузка…</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tab: Anomalies -->
+<div id="tab-anomalies" style="display:none">
+  <h2 class="sec">Аномалии · отклонение &gt;30% MoM или YoY</h2>
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:var(--bad)"></div>≥60%</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--warn)"></div>30–60%</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#9da5c0"></div>MoM</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#7eb3ff"></div>YoY</div>
+  </div>
+  <div class="anom-grid" id="anom-grid"><div style="color:var(--muted);font-size:12px">Загрузка…</div></div>
+</div>
+
+<!-- Tab: Monitoring Items -->
+<div id="tab-monitoring" style="display:none">
+  <h2 class="sec">Статьи расходов из Excel · мониторинг и аномалии</h2>
+  <div class="coverage-row" id="mon-coverage"></div>
+  <div class="monitor-note">Статус exact — статья найдена в OLAP точно; rollup — используется ближайшая агрегированная статья; нет в raw — текущая выгрузка не содержит эту статью.</div>
+  <div class="anom-grid" id="mon-anom-grid"></div>
+  <div class="tbl-wrap" style="max-height:520px">
+    <table id="mon-tbl">
+      <thead>
+        <tr>
+          <th style="text-align:left">Статья</th>
+          <th>Статус</th>
+          <th>Источник OLAP</th>
+          <th>YTD</th>
+          <th id="mon-last-h">Последний месяц</th>
+          <th>Доля выручки</th>
+        </tr>
+      </thead>
+      <tbody id="mon-tbody"><tr><td colspan="6">Загрузка…</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Tab: Chart -->
+<div id="tab-chart" style="display:none">
+  <h2 class="sec" id="chart-title">Динамика P&L</h2>
+  <div class="legend" id="chart-legend"></div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;height:340px;">
+    <canvas id="pnlChart" style="width:100%;height:100%"></canvas>
+  </div>
+</div>
+
+<!-- Tab: Points -->
+<div id="tab-points" style="display:none">
+  <h2 class="sec">P&L по точкам · <span id="pt-period-label">—</span></h2>
+  <div class="tbl-wrap" style="max-height:480px">
+    <table id="pt-tbl">
+      <thead>
+        <tr>
+          <th style="text-align:left">Точка</th>
+          <th>Выручка</th>
+          <th>Себест.</th><th>FC%</th>
+          <th>Вал.пр.</th><th>GM%</th>
+          <th>Opex</th>
+          <th>EBITDA</th><th>EBITDA%</th>
+        </tr>
+      </thead>
+      <tbody id="pt-tbody"><tr><td colspan="9">Загрузка…</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════
+   STATE
+   year: number   — selected year
+   month: number|null — 1-12 or null = YTD
+   ════════════════════════════════════════════════════ */
+let _raw = null;          // full data from pnl_data.json
+let _state = { year: null, month: null };
+
+/* ── Formatters ────────────────────────────────────── */
+const fmtM = n => {
+  n = Math.round(n);
+  if(Math.abs(n)>=1e9) return (n/1e9).toFixed(1)+' млрд';
+  if(Math.abs(n)>=1e6) return (n/1e6).toFixed(1)+' млн';
+  if(Math.abs(n)>=1e3) return (n/1e3).toFixed(0)+' тыс';
+  return n.toLocaleString('ru-RU')+' ₽';
+};
+const pct = (a,b) => b ? +(a/b*100).toFixed(1) : 0;
+const pctHtml = (v, inverse=false) => {
+  const cls = (inverse ? v<=0 : v>=0) ? 'good' : 'bad';
+  return `<span class="pct ${cls}">${v}%</span>`;
+};
+const MONTH_SHORT = ['','Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+
+/* ── Tabs ──────────────────────────────────────────── */
+const TABS = ['pnl','anomalies','monitoring','chart','points'];
+function showTab(name) {
+  TABS.forEach(t => document.getElementById('tab-'+t).style.display = t===name?'':'none');
+  document.querySelectorAll('.tab').forEach((b,i) => b.classList.toggle('active', TABS[i]===name));
+  if(name==='chart') drawChart();
+}
+
+/* ── Group colors ──────────────────────────────────── */
+const GROUP_COLOR = {
+  cogs:'var(--cogs)', infra:'var(--infra)', tmc:'var(--tmc)',
+  staff:'var(--staff)', marketing:'var(--mkt)', amort:'var(--amort)',
+  rent:'#a78bfa', admin:'#67e8f9', taxes:'#fbbf24', other:'var(--muted)'
+};
+
+/* ════════════════════════════════════════════════════
+   PERIOD SELECTOR
+   ════════════════════════════════════════════════════ */
+function buildPeriodBar(data) {
+  // Collect unique years
+  const years = [...new Set(data.months.map(m => m.year))].sort();
+  const defaultYear = data.current_year || years[years.length - 1];
+
+  // Year buttons
+  const yb = document.getElementById('year-btns');
+  yb.innerHTML = years.map(y =>
+    `<button class="pbtn${y===defaultYear?' active':''}" onclick="selectYear(${y})">${y}</button>`
+  ).join('');
+
+  _state.year = defaultYear;
+  _state.month = null;
+  buildMonthButtons(data, defaultYear);
+}
+
+function buildMonthButtons(data, year) {
+  const available = data.months
+    .filter(m => m.year === year)
+    .map(m => parseInt(m.mkey.split('-')[1]));
+
+  const mb = document.getElementById('month-btns');
+  let html = `<button class="pbtn active" onclick="selectMonth(null)">YTD</button>`;
+  available.forEach(mn => {
+    html += `<button class="pbtn month-btn" onclick="selectMonth(${mn})">${MONTH_SHORT[mn]}</button>`;
+  });
+  mb.innerHTML = html;
+}
+
+function selectYear(year) {
+  _state.year = year;
+  _state.month = null;
+  document.querySelectorAll('#year-btns .pbtn').forEach(b =>
+    b.classList.toggle('active', b.textContent.trim() == year));
+  buildMonthButtons(_raw, year);
+  document.querySelectorAll('#month-btns .pbtn').forEach((b,i) => b.classList.toggle('active', i===0));
+  refresh();
+}
+
+function selectMonth(month) {
+  _state.month = month;
+  document.querySelectorAll('#month-btns .pbtn').forEach(b => {
+    const mName = b.textContent.trim();
+    const active = month === null ? mName==='YTD' : MONTH_SHORT[month]===mName;
+    b.classList.toggle('active', active);
+  });
+  refresh();
+}
+
+/* ════════════════════════════════════════════════════
+   DATA SLICING
+   ════════════════════════════════════════════════════ */
+function getFilteredMonths() {
+  if(!_raw) return [];
+  return _raw.months.filter(m => {
+    if(m.year !== _state.year) return false;
+    if(_state.month !== null) return parseInt(m.mkey.split('-')[1]) === _state.month;
+    return true; // YTD = all months of year
+  });
+}
+
+function sumMonths(months) {
+  // Aggregate multiple months into one summary object
+  if(!months.length) return null;
+  if(months.length === 1) return months[0].summary;
+  const sum = (key) => months.reduce((s,m) => s + (m.summary[key]||0), 0);
+  const sumItems = () => {
+    const all = {};
+    for(const m of months)
+      for(const [k,v] of Object.entries(m.summary.items||{}))
+        all[k] = (all[k]||0) + v;
+    return all;
+  };
+  const sumGroups = () => {
+    const all = {};
+    for(const m of months)
+      for(const [k,v] of Object.entries(m.summary.groups||{}))
+        all[k] = (all[k]||0) + v;
+    return all;
+  };
+  const rev = sum('revenue');
+  const gp  = sum('gross_profit');
+  const op  = sum('opex');
+  const eb  = sum('ebitda');
+  const np  = sum('net_profit');
+  const cogs= sum('cogs');
+  return {
+    revenue: rev, cogs: cogs, gross_profit: gp, opex: op, ebitda: eb, net_profit: np,
+    cogs_pct: pct(cogs,rev), gross_margin_pct: pct(gp,rev), opex_pct: pct(op,rev),
+    ebitda_pct: pct(eb,rev), net_margin_pct: pct(np,rev),
+    items: sumItems(), groups: sumGroups(),
+  };
+}
+
+function periodLabel() {
+  if(!_state.year) return '';
+  if(_state.month === null) return `YTD ${_state.year}`;
+  return `${MONTH_SHORT[_state.month]} ${_state.year}`;
+}
+
+/* ════════════════════════════════════════════════════
+   KPI STRIP
+   ════════════════════════════════════════════════════ */
+function renderKpi(summary, label, monthCount) {
+  document.getElementById('kl-rev').textContent =
+    _state.month === null ? 'Выручка ' + label : 'Выручка';
+  document.getElementById('k-rev').textContent    = fmtM(summary.revenue);
+  document.getElementById('k-rev-s').textContent  =
+    _state.month === null ? `${monthCount} мес · ${_state.year}` : label;
+  document.getElementById('k-gp').textContent     = fmtM(summary.gross_profit);
+  document.getElementById('k-gp-s').innerHTML     = `Маржа: ${pctHtml(summary.gross_margin_pct)}`;
+  document.getElementById('k-opex').textContent   = fmtM(summary.opex);
+  document.getElementById('k-opex-s').innerHTML   = pctHtml(summary.opex_pct, true) + ' от выручки';
+  document.getElementById('k-ebitda').textContent = fmtM(summary.ebitda);
+  document.getElementById('k-ebitda-s').innerHTML = `Маржа: ${pctHtml(summary.ebitda_pct)}`;
+  document.getElementById('k-np').textContent     = fmtM(summary.net_profit);
+  document.getElementById('k-np-s').innerHTML     = `Маржа: ${pctHtml(summary.net_margin_pct)}`;
+}
+
+/* ════════════════════════════════════════════════════
+   P&L TABLE
+   ════════════════════════════════════════════════════ */
+function renderPnlTable(months, periodSum) {
+  const meta  = _raw.items_meta;
+  const gMeta = _raw.groups_meta;
+  const tbl   = document.getElementById('pnl-tbl');
+  const label = periodLabel();
+  const isMulti = months.length > 1;
+
+  // Check if OLAP items sum matches KPI opex — warn if gap
+  const olapOpex = months.reduce((s,m) => {
+    const gs = m.summary.groups||{};
+    return s + ['staff','rent','infra','marketing','admin','tmc'].reduce((a,g)=>a+(gs[g]||0),0);
+  }, 0);
+  const kpiOpex = months.reduce((s,m) => s + (m.summary.opex||0), 0);
+  const hasOlapData = olapOpex > 0;
+  const olapCoverage = kpiOpex > 0 ? Math.round(olapOpex/kpiOpex*100) : 0;
+
+  let titleSuffix = isMulti ? ` (${months.length} мес)` : '';
+  if(!hasOlapData) titleSuffix += ' · ⚠ статьи OLAP не загружены';
+  else if(olapCoverage < 60) titleSuffix += ` · ⚠ OLAP покрытие ${olapCoverage}%`;
+
+  document.getElementById('pnl-title').textContent = `P&L · ${label}${titleSuffix}`;
+
+  // Highlight the selected single month column
+  const selIdx = _state.month !== null ? 0 : -1; // for single month always col 0
+
+  let hdr = '<tr><th>Статья</th>';
+  months.forEach(m => hdr += `<th>${m.label}</th>`);
+  if(isMulti) hdr += `<th style="background:#1a1f35;border-left:2px solid rgba(190,223,61,.4)">${label}</th>`;
+  hdr += '</tr>';
+  tbl.querySelector('thead').innerHTML = hdr;
+
+  const cell = (v, pv=null, highlight=false) => {
+    const hl = highlight ? ' class="col-sel"' : '';
+    if(v===0) return `<td${hl} class="zero${highlight?' col-sel':''}">—${pv!=null?' '+pctHtml(pv):''}</td>`;
+    const cls = (v<0?'neg':'') + (highlight?' col-sel':'');
+    return `<td class="${cls.trim()}">${fmtM(v)}${pv!=null?' '+pctHtml(pv):''}</td>`;
+  };
+
+  let html = '';
+
+  // Revenue
+  html += `<tr class="row-revenue"><td>Выручка</td>`;
+  months.forEach(m => html += cell(m.summary.revenue));
+  if(isMulti) html += cell(periodSum.revenue, null, true);
+  html += '</tr>';
+
+  // Groups
+  gMeta.forEach(g => {
+    const gItems = Object.entries(meta).filter(([,v]) => v.group === g.key);
+    if(!gItems.length) return;
+
+    // Skip entire group if all months have zero group total
+    const gTotal = months.reduce((s,m) => s + (m.summary.groups[g.key]||0), 0)
+                   + (isMulti ? (periodSum.groups[g.key]||0) : 0);
+    if(gTotal === 0) return;
+
+    const gColor = GROUP_COLOR[g.key] || 'var(--muted)';
+    const isCogs = g.key === 'cogs';
+
+    html += `<tr class="row-divider"><td colspan="100"></td></tr>`;
+    html += `<tr class="row-group-head"><td style="border-left:3px solid ${gColor};padding-left:10px">${g.label.toUpperCase()}</td>`;
+    months.forEach(() => html += '<td></td>');
+    if(isMulti) html += '<td></td>';
+    html += '</tr>';
+
+    gItems.forEach(([name, cfg]) => {
+      // Skip rows where all selected months have zero value
+      const rowTotal = months.reduce((s,m) => s + (m.summary.items[name]||0), 0)
+                       + (isMulti ? (periodSum.items[name]||0) : 0);
+      if(rowTotal === 0) return;
+      html += `<tr class="row-item"><td>${cfg.alias}</td>`;
+      months.forEach(m => html += cell(m.summary.items[name]||0));
+      if(isMulti) html += cell(periodSum.items[name]||0, null, true);
+      html += '</tr>';
+    });
+
+    // Subtotal
+    html += `<tr class="row-subtotal"><td style="color:${gColor}">— ${isCogs?'Себестоимость':g.label} итого</td>`;
+    months.forEach(m => {
+      const v = m.summary.groups[g.key]||0;
+      html += cell(v, m.summary.revenue ? pct(v, m.summary.revenue) : 0);
+    });
+    if(isMulti) {
+      const pv = periodSum.groups[g.key]||0;
+      html += cell(pv, periodSum.revenue ? pct(pv, periodSum.revenue) : 0, true);
+    }
+    html += '</tr>';
+
+    if(isCogs) {
+      html += `<tr class="row-gp"><td>= Валовая прибыль</td>`;
+      months.forEach(m => html += cell(m.summary.gross_profit, m.summary.gross_margin_pct));
+      if(isMulti) html += cell(periodSum.gross_profit, periodSum.gross_margin_pct, true);
+      html += '</tr>';
+    }
+  });
+
+  html += `<tr class="row-divider"><td colspan="100"></td></tr>`;
+  html += `<tr class="row-ebitda"><td>= EBITDA</td>`;
+  months.forEach(m => html += cell(m.summary.ebitda, m.summary.ebitda_pct));
+  if(isMulti) html += cell(periodSum.ebitda, periodSum.ebitda_pct, true);
+  html += '</tr>';
+
+  html += `<tr class="row-np"><td>= Чистая прибыль</td>`;
+  months.forEach(m => html += cell(m.summary.net_profit, m.summary.net_margin_pct));
+  if(isMulti) html += cell(periodSum.net_profit, periodSum.net_margin_pct, true);
+  html += '</tr>';
+
+  tbl.querySelector('tbody').innerHTML = html;
+}
+
+/* ════════════════════════════════════════════════════
+   ANOMALIES
+   ════════════════════════════════════════════════════ */
+function renderAnomalies() {
+  const anoms = (_raw.anomalies||[]).filter(a => {
+    const ay = parseInt(a.mkey.split('-')[0]);
+    const am = parseInt(a.mkey.split('-')[1]);
+    if(ay !== _state.year) return false;
+    if(_state.month !== null && am !== _state.month) return false;
+    return true;
+  });
+  document.getElementById('anom-count').textContent = anoms.length ? `(${anoms.length})` : '';
+  const grid = document.getElementById('anom-grid');
+  if(!anoms.length) {
+    grid.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:8px">Аномалий нет</div>';
+    return;
+  }
+  const gColor = g => GROUP_COLOR[g] || 'var(--muted)';
+  grid.innerHTML = anoms.slice(0,60).map(a => {
+    const arrow = a.dev_pct > 0 ? '↑' : '↓';
+    const devCls = Math.abs(a.dev_pct) >= 60 ? 'high' : 'warn';
+    const devColor = devCls==='high' ? 'var(--bad)' : 'var(--warn)';
+    return `<div class="anom-card ${devCls}">
+      <div class="anom-top">
+        <div>
+          <div class="anom-group" style="color:${gColor(a.group)}">${a.group}</div>
+          <div class="anom-name">${a.alias}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="anom-dev" style="color:${devColor}">${arrow} ${Math.abs(a.dev_pct)}%</div>
+          <div class="anom-type">${a.type}</div>
+        </div>
+      </div>
+      <div class="anom-nums">
+        <span>${a.label}: ${fmtM(a.value)} (${a.value_pct}%)</span>
+        <span>←</span>
+        <span>${a.prev_label}: ${fmtM(a.prev_value)} (${a.prev_pct}%)</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════
+   EXPENSE MONITORING ITEMS
+   ════════════════════════════════════════════════════ */
+function statusLabel(status) {
+  const labels = {
+    exact_match: 'exact',
+    rollup_match: 'rollup',
+    not_in_raw: 'нет в raw',
+  };
+  return `<span class="status-pill ${status}">${labels[status] || status}</span>`;
+}
+
+function renderMonitoring() {
+  const mon = _raw.expense_monitoring || {items:[], anomalies:[], coverage:{}};
+  const items = mon.items || [];
+  const coverage = mon.coverage || {};
+  const year = _state.year;
+  const month = _state.month;
+
+  const anoms = (mon.anomalies || []).filter(a => {
+    const ay = parseInt(a.mkey.split('-')[0]);
+    const am = parseInt(a.mkey.split('-')[1]);
+    if(ay !== year) return false;
+    if(month !== null && am !== month) return false;
+    return true;
+  });
+  document.getElementById('mon-count').textContent = anoms.length ? `(${anoms.length})` : '';
+
+  document.getElementById('mon-coverage').innerHTML = [
+    ['Всего', coverage.total || items.length || 0, 'var(--accent)'],
+    ['Exact match', coverage.exact_match || 0, 'var(--good)'],
+    ['Rollup proxy', coverage.rollup_match || 0, 'var(--warn)'],
+    ['Нет в raw', coverage.not_in_raw || 0, 'var(--bad)'],
+  ].map(([label,value,color]) => `<div class="coverage-card"><div class="cv" style="color:${color}">${value}</div><div class="cl">${label}</div></div>`).join('');
+
+  const grid = document.getElementById('mon-anom-grid');
+  if(!anoms.length) {
+    grid.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:8px">Аномалий по выбранному периоду нет</div>';
+  } else {
+    grid.innerHTML = anoms.slice(0,12).map(a => {
+      const arrow = a.dev_pct > 0 ? '↑' : '↓';
+      const devCls = Math.abs(a.dev_pct) >= 60 ? 'high' : 'warn';
+      const devColor = devCls==='high' ? 'var(--bad)' : 'var(--warn)';
+      return `<div class="anom-card ${devCls}">
+        <div class="anom-top">
+          <div>
+            <div class="anom-group">${statusLabel(a.status)}</div>
+            <div class="anom-name">${a.item}</div>
+          </div>
+          <div style="text-align:right">
+            <div class="anom-dev" style="color:${devColor}">${arrow} ${Math.abs(a.dev_pct)}%</div>
+            <div class="anom-type">${a.type}</div>
+          </div>
+        </div>
+        <div class="anom-nums">
+          <span>${a.label}: ${fmtM(a.value)} (${a.value_pct}%)</span>
+          <span>←</span>
+          <span>${a.prev_label}: ${fmtM(a.prev_value)} (${a.prev_pct}%)</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  const selectedMonths = getFilteredMonths();
+  const lastMkey = selectedMonths.length ? selectedMonths[selectedMonths.length - 1].mkey : null;
+  const lastLabel = selectedMonths.length ? selectedMonths[selectedMonths.length - 1].label : 'Последний месяц';
+  document.getElementById('mon-last-h').textContent = lastLabel;
+
+  const tbody = document.getElementById('mon-tbody');
+  if(!items.length) {
+    tbody.innerHTML = '<tr><td colspan="6" style="color:var(--muted)">Нет справочника статей</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = items.map(item => {
+    const months = (item.monthly || []).filter(m => {
+      if(m.year !== year) return false;
+      if(month !== null) return parseInt(m.mkey.split('-')[1]) === month;
+      return true;
+    });
+    const ytdValue = months.reduce((s,m) => s + (m.value || 0), 0);
+    const last = lastMkey ? (item.monthly || []).find(m => m.mkey === lastMkey) : null;
+    const source = (item.source_names || []).join(', ') || '—';
+    const revPct = last ? last.revenue_pct : 0;
+    return `<tr>
+      <td>${String(item.order || '').padStart(2,'0')}. ${item.name}</td>
+      <td>${statusLabel(item.status)}</td>
+      <td style="max-width:260px;overflow:hidden;text-overflow:ellipsis">${source}</td>
+      <td>${ytdValue ? fmtM(ytdValue) : '—'}</td>
+      <td>${last && last.value ? fmtM(last.value) : '—'}</td>
+      <td>${last && last.value ? pctHtml(revPct, true) : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════
+   CHART
+   ════════════════════════════════════════════════════ */
+function drawChart() {
+  if(!_raw) return;
+  const months = getFilteredMonths();
+  if(!months.length) return;
+
+  const canvas = document.getElementById('pnlChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio||1;
+  const w = canvas.clientWidth, h = canvas.clientHeight||300;
+  canvas.width = w*dpr; canvas.height = h*dpr;
+  ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,w,h);
+
+  document.getElementById('chart-title').textContent = `Динамика P&L · ${periodLabel()}`;
+
+  const series = [
+    {key:'revenue',      color:'#bedf3d', label:'Выручка'},
+    {key:'gross_profit', color:'#4dc9a8', label:'Вал.прибыль'},
+    {key:'ebitda',       color:'#7eb3ff', label:'EBITDA'},
+    {key:'net_profit',   color:'#c084fc', label:'Чист.прибыль'},
+    {key:'cogs',         color:'#ff6b7a', label:'Себест.'},
+  ];
+
+  const leg = document.getElementById('chart-legend');
+  if(!leg.childElementCount)
+    series.forEach(s => {
+      leg.innerHTML += `<div class="leg-item"><div class="leg-dot" style="background:${s.color}"></div><span>${s.label}</span></div>`;
+    });
+
+  const n = months.length;
+  const pL=54,pR=16,pT=18,pB=28;
+  const cw=w-pL-pR, ch=h-pT-pB;
+  const vals = series.flatMap(s => months.map(m => m.summary[s.key]||0));
+  const maxV = Math.max(...vals,1), minV = Math.min(...vals,0);
+  const range = maxV-minV||1;
+  const yp = v => pT+ch-(v-minV)/range*ch;
+  const xp = i => pL+(n>1 ? i*(cw/(n-1)) : cw/2);
+
+  ctx.strokeStyle='#3a3f5c'; ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pT+ch/4*i;
+    ctx.beginPath(); ctx.moveTo(pL,y); ctx.lineTo(w-pR,y); ctx.stroke();
+    ctx.fillStyle='#9da5c0'; ctx.font='9px Barlow Condensed,sans-serif'; ctx.textAlign='right';
+    ctx.fillText(fmtM(maxV-(maxV-minV)/4*i),pL-4,y+3);
+  }
+  if(minV<0){
+    ctx.setLineDash([4,3]); ctx.strokeStyle='#6a7090'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(pL,yp(0)); ctx.lineTo(w-pR,yp(0)); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  series.forEach(s => {
+    if(n===1){
+      // Bar for single month
+      const bw=32, bx=xp(0)-bw/2;
+      ctx.fillStyle=s.color+'44';
+      ctx.fillRect(bx, yp(months[0].summary[s.key]||0), bw, yp(0)-yp(months[0].summary[s.key]||0));
+    } else {
+      ctx.beginPath(); ctx.strokeStyle=s.color; ctx.lineWidth=2;
+      months.forEach((m,i)=>{ const x=xp(i),y=yp(m.summary[s.key]||0); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+      ctx.stroke();
+      months.forEach((m,i)=>{ ctx.beginPath(); ctx.arc(xp(i),yp(m.summary[s.key]||0),3,0,Math.PI*2); ctx.fillStyle=s.color; ctx.fill(); });
+    }
+  });
+
+  ctx.fillStyle='#9da5c0'; ctx.font='10px Barlow Condensed,sans-serif'; ctx.textAlign='center';
+  months.forEach((m,i) => ctx.fillText(m.label.split(' ')[0], xp(i), h-6));
+}
+window.addEventListener('resize', ()=>{ if(_raw) drawChart(); });
+
+/* ════════════════════════════════════════════════════
+   BY-POINT TABLE
+   ════════════════════════════════════════════════════ */
+function renderPoints(months) {
+  // Aggregate by_store across selected months
+  const storeData = {};
+  for(const m of months) {
+    for(const [name, s] of Object.entries(m.by_store||{})) {
+      if(!storeData[name]) storeData[name] = {name, revenue:0, cogs:0, gross_profit:0, opex:0, ebitda:0};
+      storeData[name].revenue      += s.revenue||0;
+      storeData[name].cogs         += (s.groups&&s.groups.cogs)||s.cogs||0;
+      storeData[name].gross_profit += s.gross_profit||0;
+      storeData[name].opex         += s.opex||0;
+      storeData[name].ebitda       += s.ebitda||0;
+    }
+  }
+
+  const lbl = periodLabel();
+  document.getElementById('pt-period-label').textContent = lbl;
+
+  const pts = Object.values(storeData).sort((a,b)=>b.revenue-a.revenue);
+  const tbody = document.getElementById('pt-tbody');
+  if(!pts.length){ tbody.innerHTML='<tr><td colspan="9" style="color:var(--muted)">Нет данных</td></tr>'; return; }
+
+  const totals = pts.reduce((acc,p)=>({
+    revenue:acc.revenue+p.revenue, cogs:acc.cogs+p.cogs,
+    gross_profit:acc.gross_profit+p.gross_profit, opex:acc.opex+p.opex, ebitda:acc.ebitda+p.ebitda,
+  }),{revenue:0,cogs:0,gross_profit:0,opex:0,ebitda:0});
+
+  const row = (p, cls='') => `<tr class="${cls}">
+    <td>${p.name}</td>
+    <td>${fmtM(p.revenue)}</td>
+    <td>${p.cogs?fmtM(p.cogs):'—'}</td>
+    <td>${p.cogs&&p.revenue?pctHtml(pct(p.cogs,p.revenue),true):'—'}</td>
+    <td>${p.gross_profit?fmtM(p.gross_profit):'—'}</td>
+    <td>${p.gross_profit&&p.revenue?pctHtml(pct(p.gross_profit,p.revenue)):'—'}</td>
+    <td>${p.opex?fmtM(p.opex):'—'}</td>
+    <td>${fmtM(p.ebitda)}</td>
+    <td>${p.revenue?pctHtml(pct(p.ebitda,p.revenue)):'—'}</td>
+  </tr>`;
+
+  tbody.innerHTML = pts.map(p=>row(p)).join('') + row({name:'ИТОГО',...totals},'row-subtotal');
+}
+
+/* ════════════════════════════════════════════════════
+   REFRESH — called after any state change
+   ════════════════════════════════════════════════════ */
+function refresh() {
+  if(!_raw) return;
+  const months = getFilteredMonths();
+  if(!months.length) return;
+
+  const periodSum = sumMonths(months);
+  const lbl = periodLabel();
+
+  renderKpi(periodSum, lbl, months.length);
+  renderPnlTable(months, periodSum);
+  renderAnomalies();
+  renderMonitoring();
+  renderPoints(months);
+  drawChart();
+}
+
+/* ════════════════════════════════════════════════════
+   INIT
+   ════════════════════════════════════════════════════ */
+function renderAll(data) {
+  _raw = data;
+  document.getElementById('gen-date').textContent = 'Обновлено: ' + (data.generated_at||'—');
+
+  const eb = document.getElementById('exp-badge');
+  const nd = document.getElementById('no-data-warn');
+  // has_expense_data may be missing in older JSON — treat as true if months have group data
+  const hasExpense = data.has_expense_data ||
+    (data.months||[]).some(m => Object.values(m.summary&&m.summary.groups||{}).some(v=>v>0));
+  if(hasExpense){ eb.textContent='расходы: iiko ✓'; eb.className='badge ok'; nd.style.display='none'; }
+  else { eb.textContent='расходы: нет данных'; eb.className='badge err'; nd.style.display='block'; }
+
+  buildPeriodBar(data);
+  refresh();
+}
+
+function load() {
+  fetch('pnl_data.json',{cache:'no-store'})
+    .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(data=>{ document.getElementById('file-picker-wrap').style.display='none'; renderAll(data); })
+    .catch(()=>{ document.getElementById('file-picker-wrap').style.display='flex'; });
+}
+
+function loadFile(input) {
+  const f=input.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=e=>{ try{ renderAll(JSON.parse(e.target.result)); document.getElementById('file-picker-wrap').style.display='none'; }catch(err){alert('Ошибка: '+err.message);} };
+  rd.readAsText(f);
+}
+
+load();
+</script>
+</body>
+</html>
