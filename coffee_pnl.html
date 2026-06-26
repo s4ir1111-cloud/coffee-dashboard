@@ -203,12 +203,11 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
 
 <!-- Tab: Anomalies -->
 <div id="tab-anomalies" style="display:none">
-  <h2 class="sec">Аномалии · отклонение &gt;30% MoM или YoY</h2>
+  <h2 class="sec" id="anom-title">Аномалии · текущий период vs прошлый месяц</h2>
   <div class="legend">
     <div class="leg-item"><div class="leg-dot" style="background:var(--bad)"></div>≥60%</div>
     <div class="leg-item"><div class="leg-dot" style="background:var(--warn)"></div>30–60%</div>
-    <div class="leg-item"><div class="leg-dot" style="background:#9da5c0"></div>MoM</div>
-    <div class="leg-item"><div class="leg-dot" style="background:#7eb3ff"></div>YoY</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#9da5c0"></div>Прошлый месяц приведён к периоду</div>
   </div>
   <div class="anom-grid" id="anom-grid"><div style="color:var(--muted);font-size:12px">Загрузка…</div></div>
 </div>
@@ -543,14 +542,21 @@ function renderPnlTable(months, periodSum) {
    ANOMALIES
    ════════════════════════════════════════════════════ */
 function renderAnomalies() {
+  const monthsInYear = (_raw.months || []).filter(m => m.year === _state.year);
+  const targetMonth = _state.month !== null
+    ? _state.month
+    : Math.max(...monthsInYear.map(m => parseInt(m.mkey.split('-')[1])));
   const anoms = (_raw.anomalies||[]).filter(a => {
     const ay = parseInt(a.mkey.split('-')[0]);
     const am = parseInt(a.mkey.split('-')[1]);
     if(ay !== _state.year) return false;
-    if(_state.month !== null && am !== _state.month) return false;
+    if(am !== targetMonth) return false;
     return true;
   });
   document.getElementById('anom-count').textContent = anoms.length ? `(${anoms.length})` : '';
+  const targetMonthData = monthsInYear.find(m => parseInt(m.mkey.split('-')[1]) === targetMonth);
+  document.getElementById('anom-title').textContent =
+    `Аномалии · ${targetMonthData ? targetMonthData.label : periodLabel()} vs прошлый месяц`;
   const grid = document.getElementById('anom-grid');
   if(!anoms.length) {
     grid.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:8px">Аномалий нет</div>';
@@ -561,6 +567,7 @@ function renderAnomalies() {
     const arrow = a.dev_pct > 0 ? '↑' : '↓';
     const devCls = Math.abs(a.dev_pct) >= 60 ? 'high' : 'warn';
     const devColor = devCls==='high' ? 'var(--bad)' : 'var(--warn)';
+    const typeLabel = a.type === 'PrevPeriod' ? 'Пред. месяц' : a.type;
     return `<div class="anom-card ${devCls}">
       <div class="anom-top">
         <div>
@@ -569,7 +576,7 @@ function renderAnomalies() {
         </div>
         <div style="text-align:right">
           <div class="anom-dev" style="color:${devColor}">${arrow} ${Math.abs(a.dev_pct)}%</div>
-          <div class="anom-type">${a.type}</div>
+          <div class="anom-type">${typeLabel}</div>
         </div>
       </div>
       <div class="anom-nums">
@@ -577,6 +584,7 @@ function renderAnomalies() {
         <span>←</span>
         <span>${a.prev_label}: ${fmtM(a.prev_value)} (${a.prev_pct}%)</span>
       </div>
+      <div class="anom-period">${a.period_note || 'Сравнение с прошлым месяцем'}</div>
     </div>`;
   }).join('');
 }
@@ -599,12 +607,16 @@ function renderMonitoring() {
   const coverage = mon.coverage || {};
   const year = _state.year;
   const month = _state.month;
+  const monthsInYear = (_raw.months || []).filter(m => m.year === year);
+  const targetMonth = month !== null
+    ? month
+    : Math.max(...monthsInYear.map(m => parseInt(m.mkey.split('-')[1])));
 
   const anoms = (mon.anomalies || []).filter(a => {
     const ay = parseInt(a.mkey.split('-')[0]);
     const am = parseInt(a.mkey.split('-')[1]);
     if(ay !== year) return false;
-    if(month !== null && am !== month) return false;
+    if(am !== targetMonth) return false;
     return true;
   });
   document.getElementById('mon-count').textContent = anoms.length ? `(${anoms.length})` : '';
@@ -624,6 +636,7 @@ function renderMonitoring() {
       const arrow = a.dev_pct > 0 ? '↑' : '↓';
       const devCls = Math.abs(a.dev_pct) >= 60 ? 'high' : 'warn';
       const devColor = devCls==='high' ? 'var(--bad)' : 'var(--warn)';
+      const typeLabel = a.type === 'PrevPeriod' ? 'Пред. месяц' : a.type;
       return `<div class="anom-card ${devCls}">
         <div class="anom-top">
           <div>
@@ -632,15 +645,16 @@ function renderMonitoring() {
           </div>
           <div style="text-align:right">
             <div class="anom-dev" style="color:${devColor}">${arrow} ${Math.abs(a.dev_pct)}%</div>
-            <div class="anom-type">${a.type}</div>
+            <div class="anom-type">${typeLabel}</div>
           </div>
         </div>
         <div class="anom-nums">
-          <span>${a.label}: ${fmtM(a.value)} (${a.value_pct}%)</span>
-          <span>←</span>
-          <span>${a.prev_label}: ${fmtM(a.prev_value)} (${a.prev_pct}%)</span>
-        </div>
-      </div>`;
+        <span>${a.label}: ${fmtM(a.value)} (${a.value_pct}%)</span>
+        <span>←</span>
+        <span>${a.prev_label}: ${fmtM(a.prev_value)} (${a.prev_pct}%)</span>
+      </div>
+      <div class="anom-period">${a.period_note || 'Сравнение с прошлым месяцем'}</div>
+    </div>`;
     }).join('');
   }
 

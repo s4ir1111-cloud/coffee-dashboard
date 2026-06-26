@@ -23,6 +23,7 @@ import json
 import os
 import re
 import csv
+from collections import Counter
 from datetime import date
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -210,6 +211,32 @@ def month_label(mkey):
     return mkey
 
 
+def period_days_from_olap(olap_by_store):
+    days = []
+    for rows in (olap_by_store or {}).values():
+        for row in rows:
+            value = row.get("_BusinessDays")
+            if isinstance(value, (int, float)) and value > 0:
+                days.append(int(value))
+    if not days:
+        return None
+    return Counter(days).most_common(1)[0][0]
+
+
+def comparable_previous_value(cur_value, prev_value, cur_period_days=None, prev_period_days=None):
+    if cur_period_days and prev_period_days and prev_period_days > 0:
+        return prev_value * cur_period_days / prev_period_days
+    return prev_value
+
+
+def comparable_period_note(cur_period_days=None, prev_period_days=None):
+    if cur_period_days and prev_period_days and cur_period_days != prev_period_days:
+        return f"{cur_period_days} дн. против {prev_period_days} дн.; прошлый месяц приведён к текущему периоду"
+    if cur_period_days:
+        return f"{cur_period_days} дн. против прошлого месяца"
+    return "текущий период против прошлого месяца"
+
+
 # ─── Агрегация OLAP строк по месяцу ──────────────────────────────────────────
 def aggregate_olap(olap_by_store):
     """
@@ -370,7 +397,6 @@ def calc_by_store(by_store_olap, by_store_kpi):
 # ─── Аномалии ─────────────────────────────────────────────────────────────────
 def detect_anomalies(months_summary, threshold=ANOMALY_THRESHOLD):
     anomalies = []
-    by_mkey = {m["mkey"]: m for m in months_summary}
 
     for i, cur in enumerate(months_summary):
         rev = cur["summary"]["revenue"]
@@ -378,44 +404,54 @@ def detect_anomalies(months_summary, threshold=ANOMALY_THRESHOLD):
             continue
 
         prev_mom = months_summary[i - 1] if i > 0 else None
-        mkey_parts = cur["mkey"].split("-")
-        prev_yoy_key = f"{int(mkey_parts[0])-1}-{mkey_parts[1]}"
-        prev_yoy = by_mkey.get(prev_yoy_key)
+        if not prev_mom:
+            continue
+
+        cur_days = cur.get("period_days")
+        prev_days = prev_mom.get("period_days")
+        period_note = comparable_period_note(cur_days, prev_days)
 
         for iiko_name, cfg in EXPENSE_ITEMS.items():
             val = cur["summary"]["items"].get(iiko_name, 0)
             val_pct = pct(val, rev)
 
-            for comp_label, prev in [("MoM", prev_mom), ("YoY", prev_yoy)]:
-                if not prev:
-                    continue
-                prev_rev = prev["summary"]["revenue"]
-                prev_val = prev["summary"]["items"].get(iiko_name, 0)
-                prev_pct = pct(prev_val, prev_rev)
+            prev_rev = comparable_previous_value(
+                cur["summary"].get("revenue", 0),
+                prev_mom["summary"].get("revenue", 0),
+                cur_days,
+                prev_days,
+            )
+            prev_val_raw = prev_mom["summary"]["items"].get(iiko_name, 0)
+            prev_val = comparable_previous_value(val, prev_val_raw, cur_days, prev_days)
+            prev_pct = pct(prev_val, prev_rev)
 
-                if prev_val > 0:
-                    dev_pct = (val - prev_val) / prev_val * 100
-                elif val > 0:
-                    dev_pct = 100.0
-                else:
-                    continue
+            if prev_val > 0:
+                dev_pct = (val - prev_val) / prev_val * 100
+            elif val > 0:
+                dev_pct = 100.0
+            else:
+                continue
 
-                if abs(dev_pct) >= threshold and (val > 50000 or prev_val > 50000):
-                    anomalies.append({
-                        "type":       comp_label,
-                        "mkey":       cur["mkey"],
-                        "label":      cur["label"],
-                        "item":       iiko_name,
-                        "alias":      cfg["alias"],
-                        "group":      cfg["group"],
-                        "value":      round(val),
-                        "value_pct":  val_pct,
-                        "prev_value": round(prev_val),
-                        "prev_pct":   prev_pct,
-                        "prev_label": prev["label"],
-                        "dev_pct":    round(dev_pct, 1),
-                        "severity":   "high" if abs(dev_pct) >= 60 else "warn",
-                    })
+            if abs(dev_pct) >= threshold and (val > 50000 or prev_val > 50000):
+                anomalies.append({
+                    "type":       "PrevPeriod",
+                    "mkey":       cur["mkey"],
+                    "label":      cur["label"],
+                    "item":       iiko_name,
+                    "alias":      cfg["alias"],
+                    "group":      cfg["group"],
+                    "value":      round(val),
+                    "value_pct":  val_pct,
+                    "prev_value": round(prev_val),
+                    "prev_value_raw": round(prev_val_raw),
+                    "prev_pct":   prev_pct,
+                    "prev_label": prev_mom["label"],
+                    "dev_pct":    round(dev_pct, 1),
+                    "severity":   "high" if abs(dev_pct) >= 60 else "warn",
+                    "period_days": cur_days,
+                    "prev_period_days": prev_days,
+                    "period_note": period_note,
+                })
 
     anomalies.sort(key=lambda a: -abs(a["dev_pct"]))
     return anomalies
@@ -485,38 +521,52 @@ def build_expense_monitoring(raw, months_summary):
             if status == "not_in_raw":
                 continue
             prev_mom = monthly[i - 1] if i > 0 else None
-            year, mon = cur["mkey"].split("-")
-            prev_yoy = next((m for m in monthly if m["mkey"] == f"{int(year)-1}-{mon}"), None)
+            if not prev_mom:
+                continue
 
-            for comp_label, prev in [("MoM", prev_mom), ("YoY", prev_yoy)]:
-                if not prev:
-                    continue
-                val = cur["value"]
-                prev_val = prev["value"]
-                if prev_val > 0:
-                    dev_pct = (val - prev_val) / prev_val * 100
-                elif val > 0:
-                    dev_pct = 100.0
-                else:
-                    continue
+            val = cur["value"]
+            cur_source_month = by_mkey.get(cur["mkey"], {})
+            prev_source_month = by_mkey.get(prev_mom["mkey"], {})
+            cur_days = cur_source_month.get("period_days")
+            prev_days = prev_source_month.get("period_days")
+            prev_val_raw = prev_mom["value"]
+            prev_val = comparable_previous_value(val, prev_val_raw, cur_days, prev_days)
+            prev_rev = comparable_previous_value(
+                cur_source_month.get("summary", {}).get("revenue", 0),
+                prev_source_month.get("summary", {}).get("revenue", 0),
+                cur_days,
+                prev_days,
+            )
+            prev_pct = pct(prev_val, prev_rev)
 
-                if abs(dev_pct) >= MONITOR_ANOMALY_THRESHOLD and max(abs(val), abs(prev_val)) >= MONITOR_MIN_AMOUNT:
-                    anomalies.append({
-                        "type": comp_label,
-                        "mkey": cur["mkey"],
-                        "label": cur["label"],
-                        "item": name,
-                        "order": order,
-                        "status": status,
-                        "source_names": sources,
-                        "value": round(val),
-                        "value_pct": cur["revenue_pct"],
-                        "prev_value": round(prev_val),
-                        "prev_pct": prev["revenue_pct"],
-                        "prev_label": prev["label"],
-                        "dev_pct": round(dev_pct, 1),
-                        "severity": "high" if abs(dev_pct) >= 60 else "warn",
-                    })
+            if prev_val > 0:
+                dev_pct = (val - prev_val) / prev_val * 100
+            elif val > 0:
+                dev_pct = 100.0
+            else:
+                continue
+
+            if abs(dev_pct) >= MONITOR_ANOMALY_THRESHOLD and max(abs(val), abs(prev_val)) >= MONITOR_MIN_AMOUNT:
+                anomalies.append({
+                    "type": "PrevPeriod",
+                    "mkey": cur["mkey"],
+                    "label": cur["label"],
+                    "item": name,
+                    "order": order,
+                    "status": status,
+                    "source_names": sources,
+                    "value": round(val),
+                    "value_pct": cur["revenue_pct"],
+                    "prev_value": round(prev_val),
+                    "prev_value_raw": round(prev_val_raw),
+                    "prev_pct": prev_pct,
+                    "prev_label": prev_mom["label"],
+                    "dev_pct": round(dev_pct, 1),
+                    "severity": "high" if abs(dev_pct) >= 60 else "warn",
+                    "period_days": cur_days,
+                    "prev_period_days": prev_days,
+                    "period_note": comparable_period_note(cur_days, prev_days),
+                })
 
         result_items.append({
             "order": order,
@@ -566,8 +616,9 @@ def export_expense_monitoring_csv(output, base_dir):
 
     with open(anomalies_path, "w", encoding="utf-8-sig", newline="") as f:
         columns = ["mkey", "label", "type", "item", "status", "source_names",
-                   "value", "value_pct", "prev_label", "prev_value",
-                   "prev_pct", "dev_pct", "severity"]
+                   "value", "value_pct", "prev_label", "prev_value", "prev_value_raw",
+                   "prev_pct", "dev_pct", "severity", "period_days", "prev_period_days",
+                   "period_note"]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
         for anomaly in monitoring.get("anomalies", []):
@@ -590,6 +641,7 @@ def build():
 
     for mkey in sorted(raw.get("months", {}).keys()):
         mdata      = raw["months"][mkey]
+        period_days = None
         if any(k.startswith("PL_") for k in mdata.keys()):
             # Старый raw-формат: в месяце лежит сразу dict KPI без summary/by_store/olap.
             summary = calc_pnl_from_flat_kpi(mdata)
@@ -598,6 +650,7 @@ def build():
             summary_kpi = mdata.get("summary") or {}
             by_store_kpi = mdata.get("by_store") or {}
             olap_raw   = mdata.get("olap") or {}
+            period_days = period_days_from_olap(olap_raw)
 
             # Агрегируем OLAP
             items, by_store_olap = aggregate_olap(olap_raw)
@@ -612,6 +665,7 @@ def build():
             "mkey":     mkey,
             "label":    month_label(mkey),
             "year":     int(mkey.split("-")[0]),
+            "period_days": period_days,
             "summary":  summary,
             "by_store": by_store,
         })
