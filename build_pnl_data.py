@@ -172,10 +172,14 @@ ID_TO_GUID = {
     "170714": "75df7ed6-62bb-4bd3-8262-d200941145a3",
     "172412": "be65c662-82d8-4541-b143-da6ea73c2485",
     "176065": "d0b9b947-38f0-4a9a-86f9-cf81c1396a87",
-    "178149": "eac753be-4c5c-4a95-a8ac-7ba0647ab7ee",
+    "178149": "eac753be-4c5c-4a95-a8ac-7ba0647abf68",
 }
 
 STORE_IDS = list(STORE_NAMES.keys())
+EXCLUDED_STORE_IDS = {"120401", "170714"}
+EXCLUDED_STORE_GUIDS = {ID_TO_GUID[sid] for sid in EXCLUDED_STORE_IDS}
+ACTIVE_STORE_IDS = [sid for sid in STORE_IDS if sid not in EXCLUDED_STORE_IDS]
+ACTIVE_STORE_NAMES = {sid: name for sid, name in STORE_NAMES.items() if sid not in EXCLUDED_STORE_IDS}
 
 
 def store_kpi(by_store_metric_keyed, sid, metric):
@@ -184,6 +188,31 @@ def store_kpi(by_store_metric_keyed, sid, metric):
     if not guid:
         return 0
     return (by_store_metric_keyed.get(metric) or {}).get(guid, 0) or 0
+
+
+def filter_olap_stores(olap_by_store):
+    return {
+        str(store_id): rows
+        for store_id, rows in (olap_by_store or {}).items()
+        if str(store_id) not in EXCLUDED_STORE_IDS
+    }
+
+
+def scoped_summary_kpi(summary_kpi, by_store_kpi):
+    scoped = dict(summary_kpi or {})
+    for metric, values_by_guid in (by_store_kpi or {}).items():
+        if not isinstance(values_by_guid, dict):
+            continue
+        excluded_total = sum(values_by_guid.get(guid) or 0 for guid in EXCLUDED_STORE_GUIDS)
+        if metric in scoped:
+            scoped[metric] = (scoped.get(metric) or 0) - excluded_total
+        else:
+            scoped[metric] = sum(
+                value or 0
+                for guid, value in values_by_guid.items()
+                if guid not in EXCLUDED_STORE_GUIDS
+            )
+    return scoped
 
 MONTH_LABELS_RU = ["Янв","Фев","Мар","Апр","Май","Июн",
                    "Июл","Авг","Сен","Окт","Ноя","Дек"]
@@ -365,7 +394,7 @@ def calc_by_store(by_store_olap, by_store_kpi):
     # by_store_kpi структура: {metricCode: {GUID: value}} — используем store_kpi()
     # by_store_olap структура: {intId: {item_name: sum}}
 
-    for sid in STORE_IDS:
+    for sid in ACTIVE_STORE_IDS:
         olap_items = by_store_olap.get(str(sid), {})
 
         # Читаем KPI через GUID-маппинг
@@ -471,6 +500,7 @@ def build_expense_monitoring(raw, months_summary):
         olap_raw = mdata.get("olap") if isinstance(mdata, dict) else None
         totals = {}
         if olap_raw:
+            olap_raw = filter_olap_stores(olap_raw)
             items, _ = aggregate_olap(olap_raw)
             for raw_name, value in items.items():
                 n = norm_name(raw_name)
@@ -648,9 +678,9 @@ def build():
             summary = calc_pnl_from_flat_kpi(mdata)
             by_store = {}
         else:
-            summary_kpi = mdata.get("summary") or {}
             by_store_kpi = mdata.get("by_store") or {}
-            olap_raw   = mdata.get("olap") or {}
+            summary_kpi = scoped_summary_kpi(mdata.get("summary") or {}, by_store_kpi)
+            olap_raw   = filter_olap_stores(mdata.get("olap") or {})
             period_days = period_days_from_olap(olap_raw)
 
             # Агрегируем OLAP
@@ -713,7 +743,7 @@ def build():
         "current_month":        last["mkey"],
         "current_month_label":  last["label"],
         "has_expense_data":     True,
-        "store_names":          STORE_NAMES,
+        "store_names":          ACTIVE_STORE_NAMES,
         "items_meta":           items_meta,
         "groups_meta":          groups_meta,
         "summary_ytd":          ytd,
