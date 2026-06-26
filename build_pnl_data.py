@@ -1,8 +1,9 @@
 """
 build_pnl_data.py  —  Агрегатор P&L для Garden Coffee (v3 — OLAP формат)
 
-Читает:   pnl_data_raw.json  (из pnl_extract.js / iikoWeb OLAP)
-Пишет:    pnl_data.json      (для coffee_pnl.html)
+Читает:   pnl_data_raw.json   (из pnl_extract.js / iikoWeb OLAP)
+Пишет:    pnl_data.json       (для coffee_pnl.html)
+          pnl_data_embed.js   (для открытия coffee_pnl.html через file://)
 
 Структура входных данных (pnl_data_raw.json):
     months[YYYY-MM]:
@@ -725,6 +726,13 @@ def build():
     out_path = os.path.join(BASE_DIR, "pnl_data.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
+
+    embed_path = os.path.join(BASE_DIR, "pnl_data_embed.js")
+    with open(embed_path, "w", encoding="utf-8") as f:
+        f.write("window.PNL_DATA = ")
+        json.dump(output, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+
     export_expense_monitoring_csv(output, BASE_DIR)
 
     rev_m   = ytd_rev / 1e6

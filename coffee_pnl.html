@@ -264,6 +264,7 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
   </div>
 </div>
 
+<script src="pnl_data_embed.js"></script>
 <script>
 /* ════════════════════════════════════════════════════
    STATE
@@ -846,6 +847,11 @@ function renderAll(data) {
 }
 
 function load() {
+  if(window.PNL_DATA) {
+    document.getElementById('file-picker-wrap').style.display='none';
+    renderAll(window.PNL_DATA);
+    return;
+  }
   fetch('pnl_data.json',{cache:'no-store'})
     .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
     .then(data=>{ document.getElementById('file-picker-wrap').style.display='none'; renderAll(data); })
