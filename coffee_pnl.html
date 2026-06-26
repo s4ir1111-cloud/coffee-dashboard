@@ -83,6 +83,8 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
 .anom-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;border-left:3px solid var(--ac,var(--warn));}
 .anom-card.high{--ac:var(--bad);}
 .anom-card.warn{--ac:var(--warn);}
+.anom-card.up{--ac:var(--bad);}
+.anom-card.down{--ac:var(--good);}
 .anom-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
 .anom-name{font-size:12px;font-weight:600;}
 .anom-type{font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(255,255,255,.06);color:var(--muted);}
@@ -205,8 +207,8 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
 <div id="tab-anomalies" style="display:none">
   <h2 class="sec" id="anom-title">Аномалии · текущий период vs прошлый месяц</h2>
   <div class="legend">
-    <div class="leg-item"><div class="leg-dot" style="background:var(--bad)"></div>≥60%</div>
-    <div class="leg-item"><div class="leg-dot" style="background:var(--warn)"></div>30–60%</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--bad)"></div>↑ рост расходов</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--good)"></div>↓ снижение расходов</div>
     <div class="leg-item"><div class="leg-dot" style="background:#9da5c0"></div>Прошлый месяц приведён к периоду</div>
   </div>
   <div class="anom-grid" id="anom-grid"><div style="color:var(--muted);font-size:12px">Загрузка…</div></div>
@@ -567,9 +569,10 @@ function renderAnomalies() {
   grid.innerHTML = anoms.slice(0,60).map(a => {
     const arrow = a.dev_pct > 0 ? '↑' : '↓';
     const devCls = Math.abs(a.dev_pct) >= 60 ? 'high' : 'warn';
-    const devColor = devCls==='high' ? 'var(--bad)' : 'var(--warn)';
+    const dirCls = a.dev_pct > 0 ? 'up' : 'down';
+    const devColor = a.dev_pct > 0 ? 'var(--bad)' : 'var(--good)';
     const typeLabel = a.type === 'PrevPeriod' ? 'Пред. месяц' : a.type;
-    return `<div class="anom-card ${devCls}">
+    return `<div class="anom-card ${devCls} ${dirCls}">
       <div class="anom-top">
         <div>
           <div class="anom-group" style="color:${gColor(a.group)}">${a.group}</div>
@@ -636,9 +639,10 @@ function renderMonitoring() {
     grid.innerHTML = anoms.slice(0,12).map(a => {
       const arrow = a.dev_pct > 0 ? '↑' : '↓';
       const devCls = Math.abs(a.dev_pct) >= 60 ? 'high' : 'warn';
-      const devColor = devCls==='high' ? 'var(--bad)' : 'var(--warn)';
+      const dirCls = a.dev_pct > 0 ? 'up' : 'down';
+      const devColor = a.dev_pct > 0 ? 'var(--bad)' : 'var(--good)';
       const typeLabel = a.type === 'PrevPeriod' ? 'Пред. месяц' : a.type;
-      return `<div class="anom-card ${devCls}">
+      return `<div class="anom-card ${devCls} ${dirCls}">
         <div class="anom-top">
           <div>
             <div class="anom-group">${statusLabel(a.status)}</div>
