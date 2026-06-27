@@ -1,16 +1,16 @@
 {
   "date": "2026-06-27",
   "summary": {
-    "revenue": 3136974,
-    "orders": 4614,
+    "revenue": 3139397,
+    "orders": 4618,
     "avg_check": 680,
-    "discount_pct": 12.3
+    "discount_pct": 12.5
   },
   "points": [
     {
       "name": "Океан",
-      "revenue": 399648,
-      "orders": 669,
+      "revenue": 402071,
+      "orders": 673,
       "avg_check": 597
     },
     {
@@ -124,6 +124,10 @@
   ],
   "hourly": [
     {
+      "hour": "00",
+      "revenue": 0
+    },
+    {
       "hour": "07",
       "revenue": 62231
     },
@@ -181,11 +185,11 @@
     },
     {
       "hour": "21",
-      "revenue": 130856
+      "revenue": 132042
     },
     {
       "hour": "22",
-      "revenue": 99958
+      "revenue": 101195
     },
     {
       "hour": "23",
@@ -226,15 +230,15 @@
     {
       "date": "2026-06-27",
       "day_name": "Сб",
-      "revenue": 3136974
+      "revenue": 3139397
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 776,
-      "revenue": 223594
+      "qty": 796,
+      "revenue": 229374
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -307,8 +311,8 @@
     {
       "name": "Лимонад Ежевика-мята 590 мл",
       "group": "Лимонады 590",
-      "qty": 90,
-      "revenue": 44910
+      "qty": 91,
+      "revenue": 45409
     },
     {
       "name": "Лимонад Манго-каламанси",
@@ -331,8 +335,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 71603521,
-      "mtd_orders": 116127,
+      "mtd_revenue": 71605944,
+      "mtd_orders": 116131,
       "mtd_avg_check": 617,
       "plan_month": 82090000,
       "expected_to_date": 73881000,
@@ -344,13 +348,13 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 7486434,
-        "mtd_orders": 12754,
+        "mtd_revenue": 7488857,
+        "mtd_orders": 12758,
         "mtd_avg_check": 587,
         "plan_month": 8340000,
         "expected_to_date": 7506000,
         "pct_of_plan": 89.8,
-        "pct_vs_expected": 99.7,
+        "pct_vs_expected": 99.8,
         "avg_check_plan": 580,
         "pct_avg_check": 101.2
       },
