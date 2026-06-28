@@ -1,13 +1,43 @@
 {
   "date": "2026-06-28",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 2952,
+    "orders": 5,
+    "avg_check": 590,
+    "discount_pct": 6.0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Европа",
+      "revenue": 2135,
+      "orders": 2,
+      "avg_check": 1068
+    },
+    {
+      "name": "Океан",
+      "revenue": 319,
+      "orders": 1,
+      "avg_check": 319
+    },
+    {
+      "name": "Прео",
+      "revenue": 259,
+      "orders": 1,
+      "avg_check": 259
+    },
+    {
+      "name": "Калинка",
+      "revenue": 239,
+      "orders": 1,
+      "avg_check": 239
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 2952
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-22",
@@ -42,15 +72,64 @@
     {
       "date": "2026-06-28",
       "day_name": "Вс",
-      "revenue": 0
+      "revenue": 2952
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Скрембл с форелью",
+      "group": "Завтраки",
+      "qty": 1,
+      "revenue": 579
+    },
+    {
+      "name": "Комбо завтрак Бариста",
+      "group": "Завтраки",
+      "qty": 1,
+      "revenue": 509
+    },
+    {
+      "name": "Раф Цитрусовый 450",
+      "group": "Рафы 450",
+      "qty": 1,
+      "revenue": 449
+    },
+    {
+      "name": "Сэндвич на тосте с курицей",
+      "group": "Сэндвичи и круассаны",
+      "qty": 1,
+      "revenue": 399
+    },
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 359
+    },
+    {
+      "name": "Хумус",
+      "group": "Салаты и горячее",
+      "qty": 1,
+      "revenue": 319
+    },
+    {
+      "name": "Флэт Уайт 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 269
+    },
+    {
+      "name": "Каша овсяная с карамельным бананом",
+      "group": "Каши",
+      "qty": 1,
+      "revenue": 259
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 71605944,
-      "mtd_orders": 116131,
+      "mtd_revenue": 71608896,
+      "mtd_orders": 116136,
       "mtd_avg_check": 617,
       "plan_month": 82090000,
       "expected_to_date": 76617333,
@@ -62,8 +141,8 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 7488857,
-        "mtd_orders": 12758,
+        "mtd_revenue": 7489176,
+        "mtd_orders": 12759,
         "mtd_avg_check": 587,
         "plan_month": 8340000,
         "expected_to_date": 7784000,
@@ -74,8 +153,8 @@
       },
       {
         "name": "Прео",
-        "mtd_revenue": 5790781,
-        "mtd_orders": 8488,
+        "mtd_revenue": 5791040,
+        "mtd_orders": 8489,
         "mtd_avg_check": 682,
         "plan_month": 6400000,
         "expected_to_date": 5973333,
@@ -98,8 +177,8 @@
       },
       {
         "name": "Калинка",
-        "mtd_revenue": 4875579,
-        "mtd_orders": 8195,
+        "mtd_revenue": 4875818,
+        "mtd_orders": 8196,
         "mtd_avg_check": 595,
         "plan_month": 5450000,
         "expected_to_date": 5086667,
@@ -194,15 +273,15 @@
       },
       {
         "name": "Европа",
-        "mtd_revenue": 2977130,
-        "mtd_orders": 4934,
-        "mtd_avg_check": 603,
+        "mtd_revenue": 2979265,
+        "mtd_orders": 4936,
+        "mtd_avg_check": 604,
         "plan_month": 3400000,
         "expected_to_date": 3173333,
         "pct_of_plan": 87.6,
-        "pct_vs_expected": 93.8,
+        "pct_vs_expected": 93.9,
         "avg_check_plan": 595,
-        "pct_avg_check": 101.3
+        "pct_avg_check": 101.5
       },
       {
         "name": "Арсиб",
