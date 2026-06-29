@@ -1,0 +1,7 @@
+{
+  "updated_at": "2026-06-29T07:28:05Z",
+  "ok": false,
+  "exit_code": 1,
+  "step": "Fetch P&L data from IIKO",
+  "log_tail": "Connecting to https://kofeinya-garden-co-co.iikoweb.ru\\nTraceback (most recent call last):\\n  File \"/home/runner/work/coffee-dashboard/coffee-dashboard/pnl_connector.py\", line 268, in <module>\\n    main()\\n  File \"/home/runner/work/coffee-dashboard/coffee-dashboard/pnl_connector.py\", line 259, in main\\n    web_login(session, USERNAME, PASSWORD)\\n  File \"/home/runner/work/coffee-dashboard/coffee-dashboard/pnl_connector.py\", line 108, in web_login\\n    raise RuntimeError(\\nRuntimeError: iikoWeb auth failed. Check IIKO_WEB_LOGIN/IIKO_WEB_PASSWORD (fallback IIKO_LOGIN/IIKO_PASSWORD), last HTTP status=401."
+}
