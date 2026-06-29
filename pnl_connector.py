@@ -39,7 +39,6 @@ BASE_OLAP_GROUP_FIELDS = [
 ]
 DETAILED_OLAP_GROUP_FIELDS = BASE_OLAP_GROUP_FIELDS + [
     "Account.AccountHierarchyThird",
-    "Account.AccountHierarchyFourth",
     "Account.Name",
 ]
 DETAILED_OLAP_SUPPORTED = None
