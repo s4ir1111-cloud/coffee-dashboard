@@ -85,6 +85,13 @@ jobs:
               expense_monitor_items.json expense_monitoring_summary.csv \
               expense_monitoring_anomalies.csv
           fi
+          git pull --rebase --autostash origin main
+          git add pnl_update_status.json
+          if [ "${{ steps.fetch_pnl.outcome }}" = "success" ]; then
+            git add build_pnl_data.py coffee_pnl.html pnl_data.json pnl_data_embed.js pnl_data_raw.json \
+              expense_monitor_items.json expense_monitoring_summary.csv \
+              expense_monitoring_anomalies.csv
+          fi
           git diff --staged --quiet || git commit -m "pnl: update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
           test "${{ steps.fetch_pnl.outcome }}" = "success"
