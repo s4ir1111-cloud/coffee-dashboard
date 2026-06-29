@@ -11,6 +11,10 @@ on:
       - 'build_pnl_data.py'
   workflow_dispatch:  # ручной запуск
 
+concurrency:
+  group: update-pnl
+  cancel-in-progress: false
+
 jobs:
   update-pnl:
     runs-on: ubuntu-latest
