@@ -1,8 +1,16 @@
 {
-  "generated_at": "2026-06-29T11:47:06Z",
+  "generated_at": "2026-06-29T11:52:29Z",
   "date_from": "2026-06-01",
   "date_to": "2026-07-01",
-  "probe_store_id": 56203,
+  "probe_store_ids": [
+    172412,
+    145308,
+    56178,
+    94945,
+    56188,
+    108119,
+    56458
+  ],
   "missing_items": [
     "Безлимитный фильтр",
     "Бракераж",
@@ -21,399 +29,368 @@
   "fields": [
     {
       "field": "Account.Name",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.Id",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.Code",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.Number",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.Path",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.FullName",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.Hierarchy",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchy",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyFirst",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyThird",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyFourth",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyFifth",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyLevel1",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyLevel2",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyLevel3",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Account.AccountHierarchyLevel4",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Transaction.Type",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Transaction.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Transaction.Comment",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Transaction.Description",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Operation.Type",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Operation.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Document.Type",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Document.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Document.Number",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Document.Comment",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Document.Description",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Comment",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Description",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Product.Name",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Product.FullName",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Product.Group",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Product.Category",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Product.Type",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Product.Num",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Dish.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Dish.Group",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Dish.Category",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Item.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Item.Group",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Goods.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Goods.Group",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Nomenclature.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Nomenclature.Group",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Writeoff.Type",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Writeoff.Reason",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "WriteoffReason.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Reason.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Inventory.Type",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Inventory.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Contragent.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Counteragent.Name",
-      "ok": true,
-      "row_count": 0,
-      "distinct_values": 0,
-      "top_values": [],
-      "matches": []
+      "ok": false,
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Supplier.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Employee.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "User.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Department.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "CostCenter.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "CostCenter",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     },
     {
       "field": "Store.Name",
       "ok": false,
-      "stage": "status",
-      "error": "ERROR"
+      "stage": "exception",
+      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
     }
   ],
   "summary": {
-    "valid_field_count": 10,
-    "valid_fields": [
-      "Account.Name",
-      "Account.Id",
-      "Account.Code",
-      "Account.AccountHierarchyThird",
-      "Comment",
-      "Product.Name",
-      "Product.Category",
-      "Product.Type",
-      "Product.Num",
-      "Counteragent.Name"
-    ],
+    "valid_field_count": 0,
+    "valid_fields": [],
     "fields_with_matches": []
   }
 }
