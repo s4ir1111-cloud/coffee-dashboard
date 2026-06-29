@@ -1,79 +1,115 @@
 """
-pnl_connector.py  —  P&L данные через iikoWeb KPI Dashboard API
+pnl_connector.py — iikoWeb P&L extractor for Garden Coffee.
 
-API: https://kofeinya-garden-co-co.iikoweb.ru/api/
-Auth: POST /api/auth (cookie-based session)
+Writes pnl_data_raw.json in the shape expected by build_pnl_data.py:
+  months[YYYY-MM] = {
+    from, to,
+    summary:  PL_* KPI totals,
+    by_store: PL_* KPI totals by store GUID,
+    olap:     {storeId: [{Account.Type, Account.AccountHierarchyTop,
+                          Account.AccountHierarchySecond, sum_signed, ...}]}
+  }
 
-Использует предрассчитанные P&L метрики IIKO:
-  POST /api/kpi/dashboard/get-data  (dataType=DATA_TOTAL)
-
-Метрики:
-  PL_SALES_TOTAL       Выручка
-  PL_COS_TOTAL         Себестоимость
-  PL_EXP_TOTAL         Расходы
-  PL_OTH_EXP_TOTAL     Прочие расходы
-  PL_OTH_INCOME_TOTAL  Прочие доходы
-  PL_PROFIT_GROSS      Валовая прибыль
-  PL_PROFIT_GROSS_PROC Маржа валовой прибыли
-  PL_PROFIT_MAIN       Операционная прибыль
-  PL_PROFIT_MAIN_PROC  Маржа операционной прибыли
-  PL_PROFIT_NET        Чистая прибыль
-  PL_PROFIT_NET_PROC   Маржа чистой прибыли
-
-Сохраняет в pnl_data_raw.json
-
-БЕЗОПАСНОСТЬ: НИКОГДА не отправляйте содержимое iiko_credentials.sh в чат!
+This is a Python port of pnl_extract.js. It uses the same iikoWeb endpoints:
+  POST /api/kpi/dashboard/get-data
+  POST /api/olap/init
+  GET  /api/olap/fetch-status/{token}
+  GET  /api/olap/fetch/{token}/table
 """
 
-import os, json, hashlib, getpass
+import getpass
+import hashlib
+import json
+import os
+import time
 from datetime import date, datetime
+
 import requests
 
-# ─── Конфиг ─────────────────────────────────────────────────────────────────
-WEB_HOST = "https://kofeinya-garden-co-co.iikoweb.ru"
-USERNAME = os.environ.get("IIKO_LOGIN", "")
-PASSWORD = os.environ.get("IIKO_PASSWORD", "")
-OUT_FILE = "pnl_data_raw.json"
-START_YEAR = 2025
 
-# Все 23 точки Garden Coffee
+WEB_HOST = os.environ.get("IIKO_WEB_HOST") or "https://kofeinya-garden-co-co.iikoweb.ru"
+USERNAME = os.environ.get("IIKO_WEB_LOGIN") or os.environ.get("IIKO_LOGIN", "")
+PASSWORD = os.environ.get("IIKO_WEB_PASSWORD") or os.environ.get("IIKO_PASSWORD", "")
+OUT_FILE = "pnl_data_raw.json"
+START_YEAR = int(os.environ.get("PNL_START_YEAR", "2025"))
+TIMEOUT = 90
+
 STORE_IDS = [
-    56203, 100421, 145308, 176065, 172412, 86753,  120401, 170714,
-    178149, 115697, 56197,  56190,  80486,  87392,  56193,  80477,
-    56188,  156443, 59619,  56178,  94945,  108119, 56458
+    56203, 100421, 145308, 176065, 172412, 86753, 120401, 170714,
+    178149, 115697, 56197, 56190, 80486, 87392, 56193, 80477,
+    56188, 156443, 59619, 56178, 94945, 108119, 56458,
 ]
 
 SUMMARY_METRICS = [
     "PL_SALES_TOTAL", "PL_COS_TOTAL", "PL_EXP_TOTAL",
     "PL_OTH_EXP_TOTAL", "PL_OTH_INCOME_TOTAL",
     "PL_PROFIT_GROSS", "PL_PROFIT_GROSS_PROC",
-    "PL_PROFIT_MAIN",  "PL_PROFIT_MAIN_PROC",
-    "PL_PROFIT_NET",   "PL_PROFIT_NET_PROC"
+    "PL_PROFIT_MAIN", "PL_PROFIT_MAIN_PROC",
+    "PL_PROFIT_NET", "PL_PROFIT_NET_PROC",
 ]
 
-# ─── Auth ─────────────────────────────────────────────────────────────────────
+
+def month_range(year, month):
+    date_from = f"{year}-{month:02d}-01"
+    if month == 12:
+        date_to = f"{year + 1}-01-01"
+    else:
+        date_to = f"{year}-{month + 1:02d}-01"
+    return date_from, date_to
+
+
+def months_to_collect():
+    today = date.today()
+    result = []
+    for year in range(START_YEAR, today.year + 1):
+        max_month = today.month if year == today.year else 12
+        for month in range(1, max_month + 1):
+            result.append((year, month, f"{year}-{month:02d}"))
+    return result
+
+
+def request_json(session, method, path, **kwargs):
+    resp = session.request(method, f"{WEB_HOST}{path}", timeout=TIMEOUT, **kwargs)
+    if not resp.ok:
+        raise requests.HTTPError(f"{method} {path}: HTTP {resp.status_code}: {resp.text[:500]}")
+    try:
+        return resp.json()
+    except ValueError as exc:
+        raise RuntimeError(f"{method} {path}: JSON parse error: {resp.text[:200]}") from exc
+
+
 def web_login(session, username, password):
-    """POST /api/auth — пробуем SHA256, SHA1, MD5, plaintext"""
-    variants = {
-        "SHA256": hashlib.sha256(password.encode()).hexdigest(),
-        "SHA1":   hashlib.sha1(password.encode()).hexdigest(),
-        "MD5":    hashlib.md5(password.encode()).hexdigest(),
-        "plain":  password,
-    }
-    for name, pwd in variants.items():
-        resp = session.post(f"{WEB_HOST}/api/auth",
-                            json={"login": username, "password": pwd}, timeout=30)
-        if resp.status_code == 200:
-            data = resp.json()
-            if data.get("authorized"):
-                print(f"  ✓ iikoWeb авторизован ({name}): {data.get('clientName')}")
-                return data
-        elif resp.status_code == 401:
+    variants = [
+        ("SHA256", hashlib.sha256(password.encode("utf-8")).hexdigest()),
+        ("SHA1", hashlib.sha1(password.encode("utf-8")).hexdigest()),
+        ("MD5", hashlib.md5(password.encode("utf-8")).hexdigest()),
+        ("plain", password),
+    ]
+
+    last_status = None
+    for name, pwd in variants:
+        resp = session.post(
+            f"{WEB_HOST}/api/auth",
+            json={"login": username, "password": pwd},
+            timeout=30,
+        )
+        last_status = resp.status_code
+        if resp.status_code == 401:
             continue
-        else:
-            resp.raise_for_status()
-    raise ValueError("iikoWeb: не удалось авторизоваться. "
-                     "Если проблема сохраняется — используйте JS-экстрактор pnl_extract_new.js")
+        if not resp.ok:
+            raise requests.HTTPError(f"POST /api/auth: HTTP {resp.status_code}: {resp.text[:500]}")
+        data = resp.json()
+        if data.get("authorized"):
+            client = data.get("clientName") or "iikoWeb"
+            user = (data.get("user") or {}).get("name") or username
+            print(f"  OK iikoWeb auth ({name}): {client} / {user}")
+            return data
+
+    raise RuntimeError(
+        "iikoWeb auth failed. Check IIKO_WEB_LOGIN/IIKO_WEB_PASSWORD "
+        f"(fallback IIKO_LOGIN/IIKO_PASSWORD), last HTTP status={last_status}."
+    )
+
 
 def web_logout(session):
     try:
@@ -81,96 +117,152 @@ def web_logout(session):
     except Exception:
         pass
 
-# ─── P&L данные за месяц ──────────────────────────────────────────────────────
-def fetch_month_pnl(session, year, month):
-    """DATA_TOTAL для одного месяца → dict с PL_* метриками"""
-    date_from = f"{year}-{month:02d}-01"
-    if month == 12:
-        date_to = f"{year + 1}-01-01"
-    else:
-        date_to = f"{year}-{month + 1:02d}-01"
 
-    resp = session.post(
-        f"{WEB_HOST}/api/kpi/dashboard/get-data",
-        json={
-            "dataType":    "DATA_TOTAL",
-            "dateFrom":    date_from,
-            "dateTo":      date_to,
-            "metricCodes": SUMMARY_METRICS,
-            "storeIds":    STORE_IDS
-        },
-        timeout=30
-    )
-    resp.raise_for_status()
-    data = resp.json()
-
+def query_summary(session, date_from, date_to, data_type):
+    data = request_json(session, "POST", "/api/kpi/dashboard/get-data", json={
+        "dataType": data_type,
+        "dateFrom": date_from,
+        "dateTo": date_to,
+        "metricCodes": SUMMARY_METRICS,
+        "storeIds": STORE_IDS,
+    })
     if data.get("error"):
-        raise ValueError(data.get("errorMessage", "unknown error"))
+        raise RuntimeError(data.get("errorMessage") or f"{data_type}: unknown KPI error")
+    return data.get("data") or {}
 
-    return data.get("data", {})
 
-# ─── Месяцы для сбора ─────────────────────────────────────────────────────────
-def months_to_collect():
-    today = date.today()
-    result = []
-    for year in range(START_YEAR, today.year + 1):
-        last_month = today.month if year == today.year else 12
-        for month in range(1, last_month + 1):
-            result.append((year, month))
-    return result
+def query_olap(session, store_id, date_from, date_to):
+    body = {
+        "storeIds": [store_id],
+        "olapType": "TRANSACTIONS",
+        "groupFields": [
+            "Account.Type",
+            "Account.AccountHierarchyTop",
+            "Account.AccountHierarchySecond",
+        ],
+        "dataFields": ["sum_signed"],
+        "calculatedFields": [{
+            "name": "sum_signed",
+            "title": "Сумма",
+            "description": "Сумма",
+            "formula": "[Sum.Outgoing]-[Sum.Incoming]",
+            "type": "MONEY",
+            "canSum": True,
+        }],
+        "filters": [
+            {
+                "filterType": "date_range",
+                "field": "DateTime.OperDayFilter",
+                "dateFrom": date_from,
+                "dateTo": date_to,
+                "includeLeft": True,
+                "includeRight": True,
+            },
+            {
+                "field": "Account.Group",
+                "filterType": "value_list",
+                "dateFrom": None,
+                "dateTo": None,
+                "valueMin": None,
+                "valueMax": None,
+                "valueList": ["INCOME_EXPENSES"],
+                "includeLeft": True,
+                "includeRight": False,
+                "inclusiveList": True,
+            },
+        ],
+        "includeVoidTransactions": False,
+        "includeNonBusinessPaymentTypes": False,
+    }
 
-# ─── Основной сбор ────────────────────────────────────────────────────────────
+    init = request_json(session, "POST", "/api/olap/init", json=body)
+    if init.get("error"):
+        raise RuntimeError(init.get("errorMessage") or f"OLAP init error for store={store_id}")
+    token = init.get("data")
+    if not token:
+        raise RuntimeError(f"OLAP init did not return token for store={store_id}")
+
+    status = "PENDING"
+    for _ in range(80):
+        time.sleep(0.75)
+        status_resp = request_json(session, "GET", f"/api/olap/fetch-status/{token}")
+        status = status_resp.get("data")
+        if status != "PENDING":
+            break
+    if status != "SUCCESS":
+        raise RuntimeError(f"OLAP status={status} for store={store_id}")
+
+    table = request_json(session, "GET", f"/api/olap/fetch/{token}/table")
+    return ((table.get("result") or {}).get("rawData")) or []
+
+
+def fetch_month(session, year, month, key):
+    date_from, date_to = month_range(year, month)
+    entry = {"from": date_from, "to": date_to, "summary": None, "by_store": None, "olap": {}}
+
+    entry["summary"] = query_summary(session, date_from, date_to, "DATA_TOTAL")
+    sales = (entry["summary"].get("PL_SALES_TOTAL") or 0) / 1e6
+    net_profit = (entry["summary"].get("PL_PROFIT_NET") or 0) / 1e6
+    print(f"  {key}: revenue {sales:.1f}M, net profit {net_profit:.1f}M")
+
+    entry["by_store"] = query_summary(session, date_from, date_to, "DATA_SUMMARY_BY_STORE")
+
+    rows_total = 0
+    errors = 0
+    for store_id in STORE_IDS:
+        try:
+            rows = query_olap(session, store_id, date_from, date_to)
+            if rows:
+                entry["olap"][str(store_id)] = rows
+                rows_total += len(rows)
+        except Exception as exc:
+            errors += 1
+            if errors <= 8:
+                print(f"    WARN OLAP {key} store={store_id}: {exc}")
+        time.sleep(0.2)
+
+    print(f"    OLAP: {rows_total} rows, {len(entry['olap'])} stores, {errors} errors")
+    return entry
+
+
 def fetch_all(session):
     raw = {
         "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "store_ids":    STORE_IDS,
-        "months":       {}
+        "source": "iikoWeb-olap-python",
+        "store_ids": STORE_IDS,
+        "months": {},
     }
 
     months = months_to_collect()
-    print(f"\n  Месяцев для сбора: {len(months)}")
-
-    for year, month in months:
-        key = f"{year}-{month:02d}"
-        try:
-            data = fetch_month_pnl(session, year, month)
-            raw["months"][key] = data
-            sales = data.get("PL_SALES_TOTAL", 0) / 1e6
-            gp    = data.get("PL_PROFIT_GROSS_PROC", 0) * 100
-            op    = data.get("PL_PROFIT_MAIN_PROC", 0) * 100
-            print(f"  ✓ {key}: {sales:.1f}M₽  вал.прибыль {gp:.1f}%  опер. {op:.1f}%")
-        except Exception as e:
-            print(f"  ⚠ {key}: {e}")
-            raw["months"][key] = None
-
+    print(f"Collecting {len(months)} months from {START_YEAR} to {date.today().year}")
+    for year, month, key in months:
+        raw["months"][key] = fetch_month(session, year, month, key)
     return raw
 
-# ─── Сохранение ───────────────────────────────────────────────────────────────
+
 def save(raw):
     with open(OUT_FILE, "w", encoding="utf-8") as f:
         json.dump(raw, f, ensure_ascii=False, indent=2)
-    months_ok = sum(1 for v in raw["months"].values() if v)
-    print(f"\n✓ Сохранено: {OUT_FILE}  ({months_ok} месяцев с данными)")
+    olap_months = sum(1 for month in raw["months"].values() if month.get("olap"))
+    print(f"Saved {OUT_FILE}: {len(raw['months'])} months, {olap_months} months with OLAP")
 
-# ─── Точка входа ──────────────────────────────────────────────────────────────
+
 def main():
     global USERNAME, PASSWORD
     if not USERNAME:
-        USERNAME = input("IIKO логин: ")
+        USERNAME = input("IIKO Web login: ").strip()
     if not PASSWORD:
-        PASSWORD = getpass.getpass("IIKO пароль: ")
+        PASSWORD = getpass.getpass("IIKO Web password: ")
 
     session = requests.Session()
-    print(f"\n=== iikoWeb ({WEB_HOST}) ===")
+    print(f"Connecting to {WEB_HOST}")
     web_login(session, USERNAME, PASSWORD)
-
     try:
-        raw = fetch_all(session)
+        save(fetch_all(session))
     finally:
         web_logout(session)
-        print("Сессия закрыта.")
+        print("Session closed.")
 
-    save(raw)
 
 if __name__ == "__main__":
     main()
