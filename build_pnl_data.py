@@ -134,6 +134,13 @@ MONITOR_SOURCE_OVERRIDES = {
     "Расходы из Амортизационного фонда": ["Амортизация"],
 }
 
+ACCOUNT_DETAIL_FIELDS = [
+    "Account.AccountHierarchySecond",
+    "Account.AccountHierarchyThird",
+    "Account.AccountHierarchyFourth",
+    "Account.Name",
+]
+
 # Имена точек (из decoration.restaurant iikoWeb KPI API, актуально на 2026-06)
 STORE_NAMES = {
     "56178": "Паруса",       "56188": "Океан",         "56190": "Калинка",
@@ -267,6 +274,21 @@ def comparable_period_note(cur_period_days=None, prev_period_days=None):
     return "текущий период против прошлого месяца"
 
 
+def account_labels(row):
+    labels = []
+    for field in ACCOUNT_DETAIL_FIELDS:
+        value = (row.get(field) or "").strip()
+        if value and value != "null" and value not in labels:
+            labels.append(value)
+
+    if not labels:
+        top = (row.get("Account.AccountHierarchyTop") or "").strip()
+        if top and top != "null":
+            labels.append(top)
+
+    return labels
+
+
 # ─── Агрегация OLAP строк по месяцу ──────────────────────────────────────────
 def aggregate_olap(olap_by_store):
     """
@@ -283,15 +305,15 @@ def aggregate_olap(olap_by_store):
     for store_id, rows in olap_by_store.items():
         store_items = {}
         for row in rows:
-            item  = (row.get("Account.AccountHierarchySecond") or "").strip()
-            atype = row.get("Account.Type", "")
-            val   = row.get("sum_signed", 0) or 0
+            val = row.get("sum_signed", 0) or 0
 
-            if not item or item == "null":
+            labels = account_labels(row)
+            if not labels:
                 continue
 
-            store_items[item] = store_items.get(item, 0) + val
-            items[item]       = items.get(item, 0) + val
+            for item in labels:
+                store_items[item] = store_items.get(item, 0) + val
+                items[item] = items.get(item, 0) + val
 
         by_store[str(store_id)] = store_items
 

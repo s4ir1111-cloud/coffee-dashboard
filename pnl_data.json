@@ -35096,140 +35096,140 @@
       {
         "order": 32,
         "name": "Расходы из Амортизационного фонда",
-        "status": "rollup_match",
+        "status": "exact_match",
         "source_names": [
-          "Амортизация"
+          "Расходы из Амортизационного фонда"
         ],
         "monthly": [
           {
             "mkey": "2025-01",
             "label": "Янв 2025",
             "year": 2025,
-            "value": 189282,
-            "revenue_pct": 0.4
+            "value": 20745,
+            "revenue_pct": 0.0
           },
           {
             "mkey": "2025-02",
             "label": "Фев 2025",
             "year": 2025,
-            "value": 189282,
-            "revenue_pct": 0.4
+            "value": 65740,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2025-03",
             "label": "Мар 2025",
             "year": 2025,
-            "value": 189282,
-            "revenue_pct": 0.3
+            "value": 38628,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2025-04",
             "label": "Апр 2025",
             "year": 2025,
-            "value": 189282,
-            "revenue_pct": 0.3
+            "value": 136592,
+            "revenue_pct": 0.2
           },
           {
             "mkey": "2025-05",
             "label": "Май 2025",
             "year": 2025,
-            "value": 227614,
-            "revenue_pct": 0.3
+            "value": 35734,
+            "revenue_pct": 0.0
           },
           {
             "mkey": "2025-06",
             "label": "Июн 2025",
             "year": 2025,
-            "value": 249857,
-            "revenue_pct": 0.3
+            "value": 8800,
+            "revenue_pct": 0.0
           },
           {
             "mkey": "2025-07",
             "label": "Июл 2025",
             "year": 2025,
-            "value": 251415,
-            "revenue_pct": 0.4
+            "value": 112551,
+            "revenue_pct": 0.2
           },
           {
             "mkey": "2025-08",
             "label": "Авг 2025",
             "year": 2025,
-            "value": 252646,
-            "revenue_pct": 0.4
+            "value": 17022,
+            "revenue_pct": 0.0
           },
           {
             "mkey": "2025-09",
             "label": "Сен 2025",
             "year": 2025,
-            "value": 252739,
-            "revenue_pct": 0.4
+            "value": 150980,
+            "revenue_pct": 0.2
           },
           {
             "mkey": "2025-10",
             "label": "Окт 2025",
             "year": 2025,
-            "value": 252739,
-            "revenue_pct": 0.4
+            "value": 84673,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2025-11",
             "label": "Ноя 2025",
             "year": 2025,
-            "value": 255590,
-            "revenue_pct": 0.5
+            "value": 51818,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2025-12",
             "label": "Дек 2025",
             "year": 2025,
-            "value": 255780,
-            "revenue_pct": 0.5
+            "value": 39893,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2026-01",
             "label": "Янв 2026",
             "year": 2026,
-            "value": 255780,
-            "revenue_pct": 0.5
+            "value": 31915,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2026-02",
             "label": "Фев 2026",
             "year": 2026,
-            "value": 256510,
-            "revenue_pct": 0.5
+            "value": 32446,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2026-03",
             "label": "Мар 2026",
             "year": 2026,
-            "value": 261721,
-            "revenue_pct": 0.4
+            "value": 132984,
+            "revenue_pct": 0.2
           },
           {
             "mkey": "2026-04",
             "label": "Апр 2026",
             "year": 2026,
-            "value": 261721,
-            "revenue_pct": 0.4
+            "value": 78544,
+            "revenue_pct": 0.1
           },
           {
             "mkey": "2026-05",
             "label": "Май 2026",
             "year": 2026,
-            "value": 262221,
-            "revenue_pct": 0.3
+            "value": 124489,
+            "revenue_pct": 0.2
           },
           {
             "mkey": "2026-06",
             "label": "Июн 2026",
             "year": 2026,
-            "value": 0,
-            "revenue_pct": 0.0
+            "value": 38085,
+            "revenue_pct": 0.1
           }
         ],
-        "ytd_value": 1297953,
-        "last_value": 0,
+        "ytd_value": 438463,
+        "last_value": 38085,
         "last_label": "Июн 2026"
       }
     ],
@@ -35348,28 +35348,6 @@
         "type": "PrevPeriod",
         "mkey": "2026-06",
         "label": "Июн 2026",
-        "item": "Расходы из Амортизационного фонда",
-        "order": 32,
-        "status": "rollup_match",
-        "source_names": [
-          "Амортизация"
-        ],
-        "value": 0,
-        "value_pct": 0.0,
-        "prev_value": 237638,
-        "prev_value_raw": 262221,
-        "prev_pct": 0.3,
-        "prev_label": "Май 2026",
-        "dev_pct": -100.0,
-        "severity": "high",
-        "period_days": 29,
-        "prev_period_days": 32,
-        "period_note": "29 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
-      },
-      {
-        "type": "PrevPeriod",
-        "mkey": "2026-06",
-        "label": "Июн 2026",
         "item": "Прочие ТМЦ списанные",
         "order": 16,
         "status": "rollup_match",
@@ -35471,6 +35449,28 @@
         "prev_pct": 2.3,
         "prev_label": "Май 2026",
         "dev_pct": -66.5,
+        "severity": "high",
+        "period_days": 29,
+        "prev_period_days": 32,
+        "period_note": "29 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2026-06",
+        "label": "Июн 2026",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 38085,
+        "value_pct": 0.1,
+        "prev_value": 112818,
+        "prev_value_raw": 124489,
+        "prev_pct": 0.2,
+        "prev_label": "Май 2026",
+        "dev_pct": -66.2,
         "severity": "high",
         "period_days": 29,
         "prev_period_days": 32,
@@ -35656,6 +35656,28 @@
         "type": "PrevPeriod",
         "mkey": "2026-05",
         "label": "Май 2026",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 124489,
+        "value_pct": 0.2,
+        "prev_value": 81078,
+        "prev_value_raw": 78544,
+        "prev_pct": 0.1,
+        "prev_label": "Апр 2026",
+        "dev_pct": 53.5,
+        "severity": "warn",
+        "period_days": 32,
+        "prev_period_days": 31,
+        "period_note": "32 дн. против 31 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2026-05",
+        "label": "Май 2026",
         "item": "Ремонт и обслуживание помещений",
         "order": 11,
         "status": "exact_match",
@@ -35788,6 +35810,28 @@
         "type": "PrevPeriod",
         "mkey": "2026-04",
         "label": "Апр 2026",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 78544,
+        "value_pct": 0.1,
+        "prev_value": 128828,
+        "prev_value_raw": 132984,
+        "prev_pct": 0.2,
+        "prev_label": "Мар 2026",
+        "dev_pct": -39.0,
+        "severity": "warn",
+        "period_days": 31,
+        "prev_period_days": 32,
+        "period_note": "31 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2026-04",
+        "label": "Апр 2026",
         "item": "Бесплатная еда для сотрудников",
         "order": 25,
         "status": "rollup_match",
@@ -35867,6 +35911,28 @@
         "prev_pct": 0.0,
         "prev_label": "Фев 2026",
         "dev_pct": 3298.4,
+        "severity": "high",
+        "period_days": 32,
+        "prev_period_days": 29,
+        "period_note": "32 дн. против 29 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2026-03",
+        "label": "Мар 2026",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 132984,
+        "value_pct": 0.2,
+        "prev_value": 35802,
+        "prev_value_raw": 32446,
+        "prev_pct": 0.1,
+        "prev_label": "Фев 2026",
+        "dev_pct": 271.4,
         "severity": "high",
         "period_days": 32,
         "prev_period_days": 29,
@@ -36688,6 +36754,28 @@
       },
       {
         "type": "PrevPeriod",
+        "mkey": "2025-11",
+        "label": "Ноя 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 51818,
+        "value_pct": 0.1,
+        "prev_value": 82027,
+        "prev_value_raw": 84673,
+        "prev_pct": 0.1,
+        "prev_label": "Окт 2025",
+        "dev_pct": -36.8,
+        "severity": "warn",
+        "period_days": 31,
+        "prev_period_days": 32,
+        "period_note": "31 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
         "mkey": "2025-10",
         "label": "Окт 2025",
         "item": "Канцтовары",
@@ -36800,6 +36888,28 @@
         "type": "PrevPeriod",
         "mkey": "2025-10",
         "label": "Окт 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 84673,
+        "value_pct": 0.1,
+        "prev_value": 155850,
+        "prev_value_raw": 150980,
+        "prev_pct": 0.2,
+        "prev_label": "Сен 2025",
+        "dev_pct": -45.7,
+        "severity": "warn",
+        "period_days": 32,
+        "prev_period_days": 31,
+        "period_note": "32 дн. против 31 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-10",
+        "label": "Окт 2025",
         "item": "Расходы на рекламу, дизайн и маркетинг",
         "order": 30,
         "status": "exact_match",
@@ -36839,6 +36949,28 @@
         "period_days": 32,
         "prev_period_days": 31,
         "period_note": "32 дн. против 31 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-09",
+        "label": "Сен 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 150980,
+        "value_pct": 0.2,
+        "prev_value": 16490,
+        "prev_value_raw": 17022,
+        "prev_pct": 0.0,
+        "prev_label": "Авг 2025",
+        "dev_pct": 815.6,
+        "severity": "high",
+        "period_days": 31,
+        "prev_period_days": 32,
+        "period_note": "31 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
       },
       {
         "type": "PrevPeriod",
@@ -37130,6 +37262,28 @@
         "type": "PrevPeriod",
         "mkey": "2025-08",
         "label": "Авг 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 17022,
+        "value_pct": 0.0,
+        "prev_value": 112551,
+        "prev_value_raw": 112551,
+        "prev_pct": 0.2,
+        "prev_label": "Июл 2025",
+        "dev_pct": -84.9,
+        "severity": "high",
+        "period_days": 32,
+        "prev_period_days": 32,
+        "period_note": "32 дн. против прошлого месяца"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-08",
+        "label": "Авг 2025",
         "item": "Транспортные расходы",
         "order": 15,
         "status": "exact_match",
@@ -37191,6 +37345,28 @@
         "period_days": 32,
         "prev_period_days": 32,
         "period_note": "32 дн. против прошлого месяца"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-07",
+        "label": "Июл 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 112551,
+        "value_pct": 0.2,
+        "prev_value": 9084,
+        "prev_value_raw": 8800,
+        "prev_pct": 0.0,
+        "prev_label": "Июн 2025",
+        "dev_pct": 1139.0,
+        "severity": "high",
+        "period_days": 32,
+        "prev_period_days": 31,
+        "period_note": "32 дн. против 31 дн.; прошлый месяц приведён к текущему периоду"
       },
       {
         "type": "PrevPeriod",
@@ -37416,6 +37592,28 @@
         "type": "PrevPeriod",
         "mkey": "2025-06",
         "label": "Июн 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 8800,
+        "value_pct": 0.0,
+        "prev_value": 34617,
+        "prev_value_raw": 35734,
+        "prev_pct": 0.0,
+        "prev_label": "Май 2025",
+        "dev_pct": -74.6,
+        "severity": "high",
+        "period_days": 31,
+        "prev_period_days": 32,
+        "period_note": "31 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-06",
+        "label": "Июн 2025",
         "item": "Оформление торгового зала(дизайн и озеленение)",
         "order": 14,
         "status": "exact_match",
@@ -37504,6 +37702,28 @@
         "type": "PrevPeriod",
         "mkey": "2025-05",
         "label": "Май 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 35734,
+        "value_pct": 0.0,
+        "prev_value": 140998,
+        "prev_value_raw": 136592,
+        "prev_pct": 0.2,
+        "prev_label": "Апр 2025",
+        "dev_pct": -74.7,
+        "severity": "high",
+        "period_days": 32,
+        "prev_period_days": 31,
+        "period_note": "32 дн. против 31 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-05",
+        "label": "Май 2025",
         "item": "Гостю",
         "order": 28,
         "status": "exact_match",
@@ -37561,6 +37781,28 @@
         "prev_pct": 0.0,
         "prev_label": "Мар 2025",
         "dev_pct": 269.3,
+        "severity": "high",
+        "period_days": 31,
+        "prev_period_days": 32,
+        "period_note": "31 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-04",
+        "label": "Апр 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 136592,
+        "value_pct": 0.2,
+        "prev_value": 37421,
+        "prev_value_raw": 38628,
+        "prev_pct": 0.1,
+        "prev_label": "Мар 2025",
+        "dev_pct": 265.0,
         "severity": "high",
         "period_days": 31,
         "prev_period_days": 32,
@@ -37898,6 +38140,50 @@
       },
       {
         "type": "PrevPeriod",
+        "mkey": "2025-03",
+        "label": "Мар 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 38628,
+        "value_pct": 0.1,
+        "prev_value": 72541,
+        "prev_value_raw": 65740,
+        "prev_pct": 0.1,
+        "prev_label": "Фев 2025",
+        "dev_pct": -46.7,
+        "severity": "warn",
+        "period_days": 32,
+        "prev_period_days": 29,
+        "period_note": "32 дн. против 29 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
+        "mkey": "2025-02",
+        "label": "Фев 2025",
+        "item": "Расходы из Амортизационного фонда",
+        "order": 32,
+        "status": "exact_match",
+        "source_names": [
+          "Расходы из Амортизационного фонда"
+        ],
+        "value": 65740,
+        "value_pct": 0.1,
+        "prev_value": 18800,
+        "prev_value_raw": 20745,
+        "prev_pct": 0.0,
+        "prev_label": "Янв 2025",
+        "dev_pct": 249.7,
+        "severity": "high",
+        "period_days": 29,
+        "prev_period_days": 32,
+        "period_note": "29 дн. против 32 дн.; прошлый месяц приведён к текущему периоду"
+      },
+      {
+        "type": "PrevPeriod",
         "mkey": "2025-02",
         "label": "Фев 2025",
         "item": "ТО и ремонт оборудования, инвентаря",
@@ -38075,8 +38361,8 @@
     ],
     "coverage": {
       "total": 32,
-      "exact_match": 12,
-      "rollup_match": 7,
+      "exact_match": 13,
+      "rollup_match": 6,
       "not_in_raw": 13
     }
   },

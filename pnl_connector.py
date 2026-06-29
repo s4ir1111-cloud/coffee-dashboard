@@ -32,6 +32,17 @@ PASSWORD = os.environ.get("IIKO_WEB_PASSWORD") or os.environ.get("IIKO_PASSWORD"
 OUT_FILE = "pnl_data_raw.json"
 START_YEAR = int(os.environ.get("PNL_START_YEAR", "2025"))
 TIMEOUT = 90
+BASE_OLAP_GROUP_FIELDS = [
+    "Account.Type",
+    "Account.AccountHierarchyTop",
+    "Account.AccountHierarchySecond",
+]
+DETAILED_OLAP_GROUP_FIELDS = BASE_OLAP_GROUP_FIELDS + [
+    "Account.AccountHierarchyThird",
+    "Account.AccountHierarchyFourth",
+    "Account.Name",
+]
+DETAILED_OLAP_SUPPORTED = None
 
 STORE_IDS = [
     56203, 100421, 145308, 176065, 172412, 86753, 120401, 170714,
@@ -118,15 +129,11 @@ def query_summary(session, date_from, date_to, data_type):
     return data.get("data") or {}
 
 
-def query_olap(session, store_id, date_from, date_to):
+def query_olap_with_fields(session, store_id, date_from, date_to, group_fields):
     body = {
         "storeIds": [store_id],
         "olapType": "TRANSACTIONS",
-        "groupFields": [
-            "Account.Type",
-            "Account.AccountHierarchyTop",
-            "Account.AccountHierarchySecond",
-        ],
+        "groupFields": group_fields,
         "dataFields": ["sum_signed"],
         "calculatedFields": [{
             "name": "sum_signed",
@@ -181,6 +188,27 @@ def query_olap(session, store_id, date_from, date_to):
 
     table = request_json(session, "GET", f"/api/olap/fetch/{token}/table")
     return ((table.get("result") or {}).get("rawData")) or []
+
+
+def query_olap(session, store_id, date_from, date_to):
+    global DETAILED_OLAP_SUPPORTED
+
+    if DETAILED_OLAP_SUPPORTED is not False:
+        try:
+            rows = query_olap_with_fields(
+                session,
+                store_id,
+                date_from,
+                date_to,
+                DETAILED_OLAP_GROUP_FIELDS,
+            )
+            DETAILED_OLAP_SUPPORTED = True
+            return rows
+        except Exception as exc:
+            DETAILED_OLAP_SUPPORTED = False
+            print(f"    INFO detailed OLAP account fields unavailable, using basic fields: {exc}")
+
+    return query_olap_with_fields(session, store_id, date_from, date_to, BASE_OLAP_GROUP_FIELDS)
 
 
 def fetch_month(session, year, month, key):
