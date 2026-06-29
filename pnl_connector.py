@@ -18,7 +18,6 @@ This is a Python port of pnl_extract.js. It uses the same iikoWeb endpoints:
 """
 
 import getpass
-import hashlib
 import json
 import os
 import time
@@ -79,36 +78,24 @@ def request_json(session, method, path, **kwargs):
 
 
 def web_login(session, username, password):
-    variants = [
-        ("SHA256", hashlib.sha256(password.encode("utf-8")).hexdigest()),
-        ("SHA1", hashlib.sha1(password.encode("utf-8")).hexdigest()),
-        ("MD5", hashlib.md5(password.encode("utf-8")).hexdigest()),
-        ("plain", password),
-    ]
-
-    last_status = None
-    for name, pwd in variants:
-        resp = session.post(
-            f"{WEB_HOST}/api/auth",
-            json={"login": username, "password": pwd},
-            timeout=30,
-        )
-        last_status = resp.status_code
-        if resp.status_code == 401:
-            continue
-        if not resp.ok:
-            raise requests.HTTPError(f"POST /api/auth: HTTP {resp.status_code}: {resp.text[:500]}")
-        data = resp.json()
-        if data.get("authorized"):
-            client = data.get("clientName") or "iikoWeb"
-            user = (data.get("user") or {}).get("name") or username
-            print(f"  OK iikoWeb auth ({name}): {client} / {user}")
-            return data
-
-    raise RuntimeError(
-        "iikoWeb auth failed. Check IIKO_WEB_LOGIN/IIKO_WEB_PASSWORD "
-        f"(fallback IIKO_LOGIN/IIKO_PASSWORD), last HTTP status={last_status}."
+    resp = session.post(
+        f"{WEB_HOST}/api/auth/login",
+        json={"login": username.strip(), "password": password.strip()},
+        headers={"disableCache": "true"},
+        timeout=30,
     )
+    if not resp.ok:
+        raise requests.HTTPError(f"POST /api/auth/login: HTTP {resp.status_code}: {resp.text[:500]}")
+
+    data = resp.json()
+    if data.get("error"):
+        message = data.get("message") or data.get("errorMessage") or "unknown auth error"
+        raise RuntimeError(f"iikoWeb auth failed: {message}")
+
+    client = data.get("clientName") or data.get("serverName") or "iikoWeb"
+    user = (data.get("user") or {}).get("name") or data.get("login") or username.strip()
+    print(f"  OK iikoWeb auth: {client} / {user}")
+    return data
 
 
 def web_logout(session):
