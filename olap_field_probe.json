@@ -1,0 +1,419 @@
+{
+  "generated_at": "2026-06-29T11:47:06Z",
+  "date_from": "2026-06-01",
+  "date_to": "2026-07-01",
+  "probe_store_id": 56203,
+  "missing_items": [
+    "Безлимитный фильтр",
+    "Бракераж",
+    "Настройка помола зерна",
+    "Расходы на упаковку",
+    "Недостача инвентаризации",
+    "Излишки инвентаризации",
+    "Потери/брак/порча",
+    "Расходы на хоз.товары",
+    "Поиск персонала",
+    "Обучение персонала",
+    "Медосмотр/ Медикаменты",
+    "Развозка персонала",
+    "Командировочные расходы"
+  ],
+  "fields": [
+    {
+      "field": "Account.Name",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Account",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.Id",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Account.Code",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Account.Number",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.Path",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.FullName",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.Hierarchy",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchy",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyFirst",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyThird",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Account.AccountHierarchyFourth",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyFifth",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyLevel1",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyLevel2",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyLevel3",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Account.AccountHierarchyLevel4",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Transaction.Type",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Transaction.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Transaction.Comment",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Transaction.Description",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Operation.Type",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Operation.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Document.Type",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Document.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Document.Number",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Document.Comment",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Document.Description",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Comment",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Description",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Product.Name",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Product.FullName",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Product.Group",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Product.Category",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Product.Type",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Product.Num",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Dish.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Dish.Group",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Dish.Category",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Item.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Item.Group",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Goods.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Goods.Group",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Nomenclature.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Nomenclature.Group",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Writeoff.Type",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Writeoff.Reason",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "WriteoffReason.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Reason.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Inventory.Type",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Inventory.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Contragent.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Counteragent.Name",
+      "ok": true,
+      "row_count": 0,
+      "distinct_values": 0,
+      "top_values": [],
+      "matches": []
+    },
+    {
+      "field": "Supplier.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Employee.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "User.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Department.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "CostCenter.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "CostCenter",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    },
+    {
+      "field": "Store.Name",
+      "ok": false,
+      "stage": "status",
+      "error": "ERROR"
+    }
+  ],
+  "summary": {
+    "valid_field_count": 10,
+    "valid_fields": [
+      "Account.Name",
+      "Account.Id",
+      "Account.Code",
+      "Account.AccountHierarchyThird",
+      "Comment",
+      "Product.Name",
+      "Product.Category",
+      "Product.Type",
+      "Product.Num",
+      "Counteragent.Name"
+    ],
+    "fields_with_matches": []
+  }
+}
