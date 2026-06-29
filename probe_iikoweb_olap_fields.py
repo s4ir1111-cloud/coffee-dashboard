@@ -20,7 +20,12 @@ from pnl_connector import STORE_IDS, WEB_HOST, web_login, web_logout
 OUT_JSON = "olap_field_probe.json"
 DATE_FROM = os.environ.get("PROBE_DATE_FROM", "2026-06-01")
 DATE_TO = os.environ.get("PROBE_DATE_TO", "2026-07-01")
-STORE_ID = int(os.environ.get("PROBE_STORE_ID", str(STORE_IDS[0])))
+DEFAULT_PROBE_STORE_IDS = ["172412", "145308", "56178", "94945", "56188", "108119", "56458"]
+PROBE_STORE_IDS = [
+    int(part.strip())
+    for part in os.environ.get("PROBE_STORE_IDS", ",".join(DEFAULT_PROBE_STORE_IDS)).split(",")
+    if part.strip()
+]
 TIMEOUT = 90
 
 BASE_FIELDS = [
@@ -233,7 +238,7 @@ def main():
         "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "date_from": DATE_FROM,
         "date_to": DATE_TO,
-        "probe_store_id": STORE_ID,
+        "probe_store_ids": PROBE_STORE_IDS,
         "missing_items": MISSING_ITEMS,
         "fields": [],
     }
@@ -245,7 +250,7 @@ def main():
             group_fields = BASE_FIELDS + [field]
             print(f"probe {field}")
             try:
-                result = query_olap(session, group_fields, [STORE_ID])
+                result = query_olap(session, group_fields, PROBE_STORE_IDS)
             except Exception as exc:
                 result = {"ok": False, "stage": "exception", "error": str(exc)[:300]}
 
