@@ -30,6 +30,8 @@ jobs:
         run: pip install requests
 
       - name: Fetch P&L data from IIKO
+        id: fetch_pnl
+        continue-on-error: true
         env:
           IIKO_HOST:         ${{ secrets.IIKO_HOST }}
           IIKO_LOGIN:        ${{ secrets.IIKO_LOGIN }}
@@ -37,17 +39,52 @@ jobs:
           IIKO_WEB_HOST:     ${{ secrets.IIKO_WEB_HOST }}
           IIKO_WEB_LOGIN:    ${{ secrets.IIKO_WEB_LOGIN }}
           IIKO_WEB_PASSWORD: ${{ secrets.IIKO_WEB_PASSWORD }}
-        run: python pnl_connector.py
+        run: |
+          set +e
+          python pnl_connector.py > pnl_fetch.log 2>&1
+          code=$?
+          export FETCH_CODE="$code"
+          python - <<'PY'
+          import datetime
+          import json
+          import os
+          import re
+
+          code = int(os.environ.get("FETCH_CODE", "0"))
+          log = ""
+          if os.path.exists("pnl_fetch.log"):
+              with open("pnl_fetch.log", encoding="utf-8", errors="replace") as f:
+                  log = f.read()
+          log = re.sub(r"(?i)(password|pass|token|authorization|key)=([^\\s&]+)", r"\\1=<redacted>", log)
+          log = re.sub(r"(?i)(password|pass|token|authorization|key)['\"]?\\s*[:=]\\s*['\"][^'\"]+['\"]", r"\\1=<redacted>", log)
+          tail = "\\n".join(log.splitlines()[-80:])
+          status = {
+              "updated_at": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "ok": code == 0,
+              "exit_code": code,
+              "step": "Fetch P&L data from IIKO",
+              "log_tail": tail,
+          }
+          with open("pnl_update_status.json", "w", encoding="utf-8") as f:
+              json.dump(status, f, ensure_ascii=False, indent=2)
+          PY
+          exit $code
 
       - name: Build P&L dashboard data
+        if: steps.fetch_pnl.outcome == 'success'
         run: python build_pnl_data.py
 
       - name: Commit and push
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add build_pnl_data.py coffee_pnl.html pnl_data.json pnl_data_embed.js pnl_data_raw.json \
-            expense_monitor_items.json expense_monitoring_summary.csv \
-            expense_monitoring_anomalies.csv
+          git add pnl_update_status.json
+          if [ "${{ steps.fetch_pnl.outcome }}" = "success" ]; then
+            git add build_pnl_data.py coffee_pnl.html pnl_data.json pnl_data_embed.js pnl_data_raw.json \
+              expense_monitor_items.json expense_monitoring_summary.csv \
+              expense_monitoring_anomalies.csv
+          fi
           git diff --staged --quiet || git commit -m "pnl: update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
+          test "${{ steps.fetch_pnl.outcome }}" = "success"
