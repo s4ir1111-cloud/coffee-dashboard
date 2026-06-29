@@ -96,6 +96,14 @@ jobs:
               expense_monitor_items.json expense_monitoring_summary.csv \
               expense_monitoring_anomalies.csv
           fi
+          python -m json.tool pnl_update_status.json >/dev/null
+          if [ "${{ steps.fetch_pnl.outcome }}" = "success" ]; then
+            python -m json.tool pnl_data.json >/dev/null
+            python -m json.tool pnl_data_raw.json >/dev/null
+            ! grep -R -n -e '<<<<<<< ' -e '=======' -e '>>>>>>> ' \
+              pnl_update_status.json pnl_data.json pnl_data_embed.js pnl_data_raw.json \
+              expense_monitoring_summary.csv expense_monitoring_anomalies.csv
+          fi
           git diff --staged --quiet || git commit -m "pnl: update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
           test "${{ steps.fetch_pnl.outcome }}" = "success"
