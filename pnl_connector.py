@@ -41,7 +41,6 @@ DETAILED_OLAP_GROUP_FIELDS = BASE_OLAP_GROUP_FIELDS + [
     "Account.AccountHierarchyThird",
     "Account.Name",
 ]
-DETAILED_OLAP_SUPPORTED = None
 
 STORE_IDS = [
     56203, 100421, 145308, 176065, 172412, 86753, 120401, 170714,
@@ -190,22 +189,16 @@ def query_olap_with_fields(session, store_id, date_from, date_to, group_fields):
 
 
 def query_olap(session, store_id, date_from, date_to):
-    global DETAILED_OLAP_SUPPORTED
-
-    if DETAILED_OLAP_SUPPORTED is not False:
-        try:
-            rows = query_olap_with_fields(
-                session,
-                store_id,
-                date_from,
-                date_to,
-                DETAILED_OLAP_GROUP_FIELDS,
-            )
-            DETAILED_OLAP_SUPPORTED = True
-            return rows
-        except Exception as exc:
-            DETAILED_OLAP_SUPPORTED = False
-            print(f"    INFO detailed OLAP account fields unavailable, using basic fields: {exc}")
+    try:
+        return query_olap_with_fields(
+            session,
+            store_id,
+            date_from,
+            date_to,
+            DETAILED_OLAP_GROUP_FIELDS,
+        )
+    except Exception as exc:
+        print(f"    INFO detailed OLAP account fields unavailable for store={store_id}, using basic fields: {exc}")
 
     return query_olap_with_fields(session, store_id, date_from, date_to, BASE_OLAP_GROUP_FIELDS)
 
