@@ -1,15 +1,9 @@
 {
-  "generated_at": "2026-06-29T11:52:29Z",
+  "generated_at": "2026-06-29T12:04:44Z",
   "date_from": "2026-06-01",
   "date_to": "2026-07-01",
   "probe_store_ids": [
-    172412,
-    145308,
-    56178,
-    94945,
-    56188,
-    108119,
-    56458
+    172412
   ],
   "missing_items": [
     "Безлимитный фильтр",
@@ -29,368 +23,1511 @@
   "fields": [
     {
       "field": "Account.Name",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 34,
+      "distinct_values": 34,
+      "top_values": [
+        {
+          "value": "Торговая выручка без учета скидок",
+          "amount": 2596495
+        },
+        {
+          "value": "Инвестиционные расходы",
+          "amount": 948880.88
+        },
+        {
+          "value": "Расход продуктов/Себестоимость",
+          "amount": 650253.61
+        },
+        {
+          "value": "Коммунальные услуги",
+          "amount": 169450.04
+        },
+        {
+          "value": "Клининговые услуги и материалы",
+          "amount": 120167.5
+        },
+        {
+          "value": "Командировочные расходы",
+          "amount": 109723
+        },
+        {
+          "value": "Предоставленные скидки",
+          "amount": 83790
+        },
+        {
+          "value": "Прочие расходы*",
+          "amount": 59182.32
+        },
+        {
+          "value": "Недостача инвентаризации",
+          "amount": 45896.18
+        },
+        {
+          "value": "Расходы на хоз.товары",
+          "amount": 34148.28
+        },
+        {
+          "value": "Развозка персонала",
+          "amount": 30828
+        },
+        {
+          "value": "Бесплатная еда для сотрудников",
+          "amount": 29046.87
+        },
+        {
+          "value": "Безлимитный фильтр",
+          "amount": 26694.1
+        },
+        {
+          "value": "Лицензии/ПО/сертификация",
+          "amount": 24770.88
+        },
+        {
+          "value": "Излишки инвентаризации",
+          "amount": 23257.04
+        },
+        {
+          "value": "Транспортные расходы",
+          "amount": 21420
+        },
+        {
+          "value": "Потери/брак/порча",
+          "amount": 18610.06
+        },
+        {
+          "value": "Расходы на рекламу, дизайн и маркетинг",
+          "amount": 16659.13
+        },
+        {
+          "value": "Банковские услуги/РКО",
+          "amount": 15963.73
+        },
+        {
+          "value": "ОС приобретенные в текущем периоде",
+          "amount": 13499
+        },
+        {
+          "value": "Бесплатные напитки для сотрудников",
+          "amount": 11719.61
+        },
+        {
+          "value": "Прочие доходы*",
+          "amount": 9515
+        },
+        {
+          "value": "Обучение персонала",
+          "amount": 7396.55
+        },
+        {
+          "value": "Расходы на упаковку",
+          "amount": 5938.8
+        },
+        {
+          "value": "Мебель списанная",
+          "amount": 4560
+        }
+      ],
+      "matches": [
+        {
+          "target": "Безлимитный фильтр",
+          "field_value": "Безлимитный фильтр",
+          "sum_signed": -26694.1,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Безлимитный фильтр",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Бракераж",
+          "field_value": "Бракераж",
+          "sum_signed": -1812.92,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Бракераж",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Излишки инвентаризации",
+          "field_value": "Излишки инвентаризации",
+          "sum_signed": 23257.04,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Излишки инвентаризации",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Настройка помола зерна",
+          "field_value": "Настройка помола зерна",
+          "sum_signed": -1506.96,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Настройка помола зерна",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Недостача инвентаризации",
+          "field_value": "Недостача инвентаризации",
+          "sum_signed": -45896.18,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Недостача инвентаризации",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Потери/брак/порча",
+          "field_value": "Потери/брак/порча",
+          "sum_signed": -18610.06,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Потери/брак/порча",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Расходы на упаковку",
+          "field_value": "Расходы на упаковку",
+          "sum_signed": -5938.8,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Расходы на упаковку",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Расходы на хоз.товары",
+          "field_value": "Расходы на хоз.товары",
+          "sum_signed": -34148.28,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Name": "Расходы на хоз.товары",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Командировочные расходы",
+          "field_value": "Командировочные расходы",
+          "sum_signed": -109723,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Name": "Командировочные расходы",
+            "Account.Type": "EXPENSES"
+          }
+        },
+        {
+          "target": "Обучение персонала",
+          "field_value": "Обучение персонала",
+          "sum_signed": -7396.55,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Name": "Обучение персонала",
+            "Account.Type": "EXPENSES"
+          }
+        },
+        {
+          "target": "Развозка персонала",
+          "field_value": "Развозка персонала",
+          "sum_signed": -30828,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Name": "Развозка персонала",
+            "Account.Type": "EXPENSES"
+          }
+        }
+      ]
     },
     {
       "field": "Account",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.Id",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 34,
+      "distinct_values": 34,
+      "top_values": [
+        {
+          "value": "15fb045f-db6a-269d-6473-023f3c936fcf",
+          "amount": 2596495
+        },
+        {
+          "value": "2c5e3046-a87c-418f-af78-f6ba8df520df",
+          "amount": 948880.88
+        },
+        {
+          "value": "97036ddb-b2e1-cd47-1669-c145daa9f9c5",
+          "amount": 650253.61
+        },
+        {
+          "value": "d2dc8656-29fc-4690-9800-94cb48a7d0dc",
+          "amount": 169450.04
+        },
+        {
+          "value": "022fb8ae-19f4-4b75-a154-c8ae51cc4015",
+          "amount": 120167.5
+        },
+        {
+          "value": "28a43a95-59cf-4720-a4c8-89aeff69c7d6",
+          "amount": 109723
+        },
+        {
+          "value": "f1944d16-bd85-268a-53d1-b76b60e2731c",
+          "amount": 83790
+        },
+        {
+          "value": "315df48c-33a5-4fbf-8442-5142033bbe95",
+          "amount": 59182.32
+        },
+        {
+          "value": "07926ff3-9319-b93e-80ff-1897825fdead",
+          "amount": 45896.18
+        },
+        {
+          "value": "62dc2a71-2a5e-4dcb-8a0c-f3682d7854d3",
+          "amount": 34148.28
+        },
+        {
+          "value": "1d7b2e15-8715-45f4-a570-5bf6268ebe99",
+          "amount": 30828
+        },
+        {
+          "value": "ecbb4fea-2baf-07bc-549a-49f5815e9e14",
+          "amount": 29046.87
+        },
+        {
+          "value": "9832d84c-2b18-41f3-a24b-016e9b070f62",
+          "amount": 26694.1
+        },
+        {
+          "value": "58e4c4f1-50ee-4a1a-8376-fb62a2f28e8b",
+          "amount": 24770.88
+        },
+        {
+          "value": "67af8bc9-628f-2124-2345-3750bb7db6fa",
+          "amount": 23257.04
+        },
+        {
+          "value": "d62df9d5-9140-44ad-9da8-49e0976f8440",
+          "amount": 21420
+        },
+        {
+          "value": "6899035b-19be-42b8-9084-02002c785f3d",
+          "amount": 18610.06
+        },
+        {
+          "value": "d15b5234-9c7d-418d-921b-29e4f4a30112",
+          "amount": 16659.13
+        },
+        {
+          "value": "da215d1d-0ec5-48ec-bb50-9c391760ae9e",
+          "amount": 15963.73
+        },
+        {
+          "value": "6ee7b8a2-7921-447c-9930-0d2c2e6d1215",
+          "amount": 13499
+        },
+        {
+          "value": "b6dbda82-0df3-4bd1-86a0-340edbcd7cd4",
+          "amount": 11719.61
+        },
+        {
+          "value": "cbcac59a-c048-4afc-a7c7-32ff5cc011ff",
+          "amount": 9515
+        },
+        {
+          "value": "be412bbf-30e1-48c1-ad1e-ad583987fe6a",
+          "amount": 7396.55
+        },
+        {
+          "value": "023ced62-4736-4bf7-abcd-cffe7c67957c",
+          "amount": 5938.8
+        },
+        {
+          "value": "661888e4-9efb-4be8-9e31-c81d61d64eed",
+          "amount": 4560
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Account.Code",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 31,
+      "distinct_values": 24,
+      "top_values": [
+        {
+          "value": "4.03",
+          "amount": 2596495
+        },
+        {
+          "value": "7.02.1",
+          "amount": 948880.88
+        },
+        {
+          "value": "5.01",
+          "amount": 650253.61
+        },
+        {
+          "value": "6.09.2",
+          "amount": 169450.04
+        },
+        {
+          "value": "6.09.3",
+          "amount": 120167.5
+        },
+        {
+          "value": "6.10.7.5",
+          "amount": 109723
+        },
+        {
+          "value": "4.02",
+          "amount": 83790
+        },
+        {
+          "value": "5.09",
+          "amount": 45896.18
+        },
+        {
+          "value": "999",
+          "amount": 34148.28
+        },
+        {
+          "value": "6.10.7.4",
+          "amount": 30828
+        },
+        {
+          "value": "6.10.7.7",
+          "amount": 29046.87
+        },
+        {
+          "value": "6.10.8",
+          "amount": 24770.88
+        },
+        {
+          "value": "5.10",
+          "amount": 23257.04
+        },
+        {
+          "value": "6.11.3.2",
+          "amount": 21420
+        },
+        {
+          "value": "5.11",
+          "amount": 18610.06
+        },
+        {
+          "value": "6.10.3.3",
+          "amount": 16659.13
+        },
+        {
+          "value": "6.03",
+          "amount": 15963.73
+        },
+        {
+          "value": "6.10.7.8",
+          "amount": 11719.61
+        },
+        {
+          "value": "6.10.7.1",
+          "amount": 7396.55
+        },
+        {
+          "value": "6.12.3",
+          "amount": 4560
+        },
+        {
+          "value": "6.09.4",
+          "amount": 3477
+        },
+        {
+          "value": "6.09.1",
+          "amount": 1845
+        },
+        {
+          "value": "5.06",
+          "amount": 158.8
+        },
+        {
+          "value": "5.07",
+          "amount": 61.25
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Account.Number",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.Path",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.FullName",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.Hierarchy",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchy",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyFirst",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyThird",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 34,
+      "distinct_values": 17,
+      "top_values": [
+        {
+          "value": "Расход продуктов/Себестоимость",
+          "amount": 650253.61
+        },
+        {
+          "value": "Командировочные расходы",
+          "amount": 109723
+        },
+        {
+          "value": "Недостача инвентаризации",
+          "amount": 45896.18
+        },
+        {
+          "value": "Расходы на хоз.товары",
+          "amount": 34148.28
+        },
+        {
+          "value": "Развозка персонала",
+          "amount": 30828
+        },
+        {
+          "value": "Бесплатная еда для сотрудников",
+          "amount": 29046.87
+        },
+        {
+          "value": "Безлимитный фильтр",
+          "amount": 26694.1
+        },
+        {
+          "value": "Излишки инвентаризации",
+          "amount": 23257.04
+        },
+        {
+          "value": "Потери/брак/порча",
+          "amount": 18610.06
+        },
+        {
+          "value": "Бесплатные напитки для сотрудников",
+          "amount": 11719.61
+        },
+        {
+          "value": "Обучение персонала",
+          "amount": 7396.55
+        },
+        {
+          "value": "Расходы на упаковку",
+          "amount": 5938.8
+        },
+        {
+          "value": "Мебель списанная",
+          "amount": 4560
+        },
+        {
+          "value": "Бракераж",
+          "amount": 1812.92
+        },
+        {
+          "value": "Настройка помола зерна",
+          "amount": 1506.96
+        },
+        {
+          "value": "Коррекция отрицательных остатков на складе",
+          "amount": 158.8
+        },
+        {
+          "value": "Удаление блюд со списанием",
+          "amount": 61.25
+        }
+      ],
+      "matches": [
+        {
+          "target": "Безлимитный фильтр",
+          "field_value": "Безлимитный фильтр",
+          "sum_signed": -26694.1,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Безлимитный фильтр",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Бракераж",
+          "field_value": "Бракераж",
+          "sum_signed": -1812.92,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Бракераж",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Излишки инвентаризации",
+          "field_value": "Излишки инвентаризации",
+          "sum_signed": 23257.04,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Излишки инвентаризации",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Настройка помола зерна",
+          "field_value": "Настройка помола зерна",
+          "sum_signed": -1506.96,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Настройка помола зерна",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Недостача инвентаризации",
+          "field_value": "Недостача инвентаризации",
+          "sum_signed": -45896.18,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Недостача инвентаризации",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Потери/брак/порча",
+          "field_value": "Потери/брак/порча",
+          "sum_signed": -18610.06,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Потери/брак/порча",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Расходы на упаковку",
+          "field_value": "Расходы на упаковку",
+          "sum_signed": -5938.8,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Расходы на упаковку",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Расходы на хоз.товары",
+          "field_value": "Расходы на хоз.товары",
+          "sum_signed": -34148.28,
+          "row": {
+            "Account.AccountHierarchySecond": "СЕБЕСТОИМОСТЬ",
+            "Account.AccountHierarchyThird": "Расходы на хоз.товары",
+            "Account.AccountHierarchyTop": "ПЕРЕМЕННЫЕ РАСХОДЫ",
+            "Account.Type": "COST_OF_GOODS_SOLD"
+          }
+        },
+        {
+          "target": "Командировочные расходы",
+          "field_value": "Командировочные расходы",
+          "sum_signed": -109723,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyThird": "Командировочные расходы",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Type": "EXPENSES"
+          }
+        },
+        {
+          "target": "Обучение персонала",
+          "field_value": "Обучение персонала",
+          "sum_signed": -7396.55,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyThird": "Обучение персонала",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Type": "EXPENSES"
+          }
+        },
+        {
+          "target": "Развозка персонала",
+          "field_value": "Развозка персонала",
+          "sum_signed": -30828,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyThird": "Развозка персонала",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Type": "EXPENSES"
+          }
+        }
+      ]
     },
     {
       "field": "Account.AccountHierarchyFourth",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyFifth",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyLevel1",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyLevel2",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyLevel3",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Account.AccountHierarchyLevel4",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Transaction.Type",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Transaction.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Transaction.Comment",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Transaction.Description",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Operation.Type",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Operation.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Document.Type",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Document.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Document.Number",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Document.Comment",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Document.Description",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Comment",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 34,
+      "distinct_values": 16,
+      "top_values": [
+        {
+          "value": "ЗП май",
+          "amount": 61907.68
+        },
+        {
+          "value": "Комиссия в другие банки (кредитные организации, Банк России) за ПП/ПТ через ДБО. Без НДС. Договор РКО №40702810967770002356 от 15.10.2025",
+          "amount": 9600
+        },
+        {
+          "value": "Плата за СберБизнес Прайм за период 25.06.2026-24.07.2026 дог. от 15.10.2025 №40702810967770002356 в размере 2380.00 руб., в т.ч. НДС",
+          "amount": 2380
+        },
+        {
+          "value": "Выплата за операцию с бонусами программы лояльности \"СберБизнес Спасибо\" по заявке на возмещение № 3 от 01.06.2026",
+          "amount": 2380
+        },
+        {
+          "value": "Выплата за операцию с бонусами программы лояльности \"СберБизнес Спасибо\" по заявке на возмещение № 5 от 01.06.2026",
+          "amount": 2380
+        },
+        {
+          "value": "Комиссия за Пакет переводов \"Альфа-платежи\" за период с 01.06.26 по 30.06.26 согласно Тарифам, НДС не облаг. ООО \"ГАРДЕН УРАЛ\"",
+          "amount": 1690
+        },
+        {
+          "value": "Выплата за операцию с бонусами программы лояльности \"СберБизнес Спасибо\" по заявке на возмещение № 1 от 01.06.2026",
+          "amount": 1420
+        },
+        {
+          "value": "Выплата за операцию с бонусами программы лояльности \"СберБизнес Спасибо\" по заявке на возмещение № 4 от 01.06.2026",
+          "amount": 1420
+        },
+        {
+          "value": "Комиссия за осуществление перевода денежных средств на Счет Предприятия за 05.2026 по Договору эквайринга от 7203599760 09.04.2026, 94554821",
+          "amount": 1290
+        },
+        {
+          "value": "Выплата за операцию с бонусами программы лояльности \"СберБизнес Спасибо\" по заявке на возмещение № 6 от 01.06.2026",
+          "amount": 1136
+        },
+        {
+          "value": "Комиссия за обсл.счета за период с 01.06.26 по 30.06.26 по ПУ \"Быстрое развитие\" Осн.тарифы Банка,НДС не облаг. ООО \"ГАРДЕН УРАЛ\"",
+          "amount": 995
+        },
+        {
+          "value": "Выплата за операцию с бонусами программы лояльности \"СберБизнес Спасибо\" по заявке на возмещение № 2 от 01.06.2026",
+          "amount": 779
+        },
+        {
+          "value": "C300506261425691 Комиссия к возм. по дог.№ 7203599760 от Оплата заказа № 129559 (gardencoffee.ru)",
+          "amount": 3.81
+        },
+        {
+          "value": "C300406260678034 Комиссия к возм. по дог.№ 7203599760 от Оплата заказа № 129477 (gardencoffee.ru)",
+          "amount": 2.51
+        },
+        {
+          "value": "C300206261513323 Комиссия к возм. по дог.№ 7203599760 от Оплата заказа № 129330 (gardencoffee.ru)",
+          "amount": 1.63
+        },
+        {
+          "value": "C300206260200285 Комиссия к возм. по дог.№ 7203599760 от Оплата заказа № 129295 (gardencoffee.ru)",
+          "amount": 0.78
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Description",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Product.Name",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 1976,
+      "distinct_values": 985,
+      "top_values": [
+        {
+          "value": "Охрана труда",
+          "amount": 426045
+        },
+        {
+          "value": "Жалюзи горизонтальные ПВХ_тмц",
+          "amount": 393600
+        },
+        {
+          "value": "Коммунальные расходы",
+          "amount": 169450.04
+        },
+        {
+          "value": "Капучино 350 мл",
+          "amount": 162574.61
+        },
+        {
+          "value": "Драник с форелью",
+          "amount": 125717.77
+        },
+        {
+          "value": "Консультационные услуги",
+          "amount": 121090
+        },
+        {
+          "value": "Клининг",
+          "amount": 120167.5
+        },
+        {
+          "value": "Комбо завтрак Бариста",
+          "amount": 111047.25
+        },
+        {
+          "value": "Командировочные расходы",
+          "amount": 109723
+        },
+        {
+          "value": "Электроматериалы_тмц",
+          "amount": 81307.3
+        },
+        {
+          "value": "Комбо Завтрак Баварский",
+          "amount": 79100.8
+        },
+        {
+          "value": "Капучино 250 мл",
+          "amount": 73858.47
+        },
+        {
+          "value": "Норвежский завтрак",
+          "amount": 73150.49
+        },
+        {
+          "value": "Фильтр Кофе Безлимит",
+          "amount": 68668.27
+        },
+        {
+          "value": "Скрембл с форелью",
+          "amount": 66276.28
+        },
+        {
+          "value": "Салат \"Цезарь\"",
+          "amount": 66200.79000000001
+        },
+        {
+          "value": "Паста с песто и курицей",
+          "amount": 64482.76
+        },
+        {
+          "value": "Драник с рийетом из тунца",
+          "amount": 64369.01
+        },
+        {
+          "value": "Деревенский завтрак",
+          "amount": 60891.14
+        },
+        {
+          "value": "Паста с ветчиной",
+          "amount": 59128.85
+        },
+        {
+          "value": "Кекс Морковный (ЕКБ)",
+          "amount": 53993.380000000005
+        },
+        {
+          "value": "Комбо завтрак Шерлока",
+          "amount": 51405.43
+        },
+        {
+          "value": "Скрембл с салатом из овощей",
+          "amount": 49960.58
+        },
+        {
+          "value": "Сырники классика",
+          "amount": 48305.7
+        },
+        {
+          "value": "Кекс Шоколадный (ЕКБ)",
+          "amount": 47921.62
+        }
+      ],
+      "matches": [
+        {
+          "target": "Командировочные расходы",
+          "field_value": "Командировочные расходы",
+          "sum_signed": -109723,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Type": "EXPENSES",
+            "Product.Name": "Командировочные расходы"
+          }
+        },
+        {
+          "target": "Обучение персонала",
+          "field_value": "Обучение персонала",
+          "sum_signed": -4600,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Type": "EXPENSES",
+            "Product.Name": "Обучение персонала"
+          }
+        },
+        {
+          "target": "Развозка персонала",
+          "field_value": "Развозка персонала",
+          "sum_signed": -30828,
+          "row": {
+            "Account.AccountHierarchySecond": "РАСХОДЫ НА ПЕРСОНАЛ",
+            "Account.AccountHierarchyTop": "АДМИНИСТРАТИВНЫЕ РАСХОДЫ",
+            "Account.Type": "EXPENSES",
+            "Product.Name": "Развозка персонала"
+          }
+        }
+      ]
     },
     {
       "field": "Product.FullName",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Product.Group",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Product.Category",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 169,
+      "distinct_values": 47,
+      "top_values": [
+        {
+          "value": "Кухня",
+          "amount": 807434.84
+        },
+        {
+          "value": "Завтраки",
+          "amount": 551649.87
+        },
+        {
+          "value": "Товары Прочие ТМЦ/ОС",
+          "amount": 511260.88
+        },
+        {
+          "value": "Десерты",
+          "amount": 394574.21
+        },
+        {
+          "value": "Капучино",
+          "amount": 293181.13
+        },
+        {
+          "value": "Латте",
+          "amount": 186453.78999999998
+        },
+        {
+          "value": "Раф",
+          "amount": 140659.01
+        },
+        {
+          "value": "Чай",
+          "amount": 91638.04999999999
+        },
+        {
+          "value": "Флэт уайт",
+          "amount": 87627.5
+        },
+        {
+          "value": "Лимонад",
+          "amount": 82940.45
+        },
+        {
+          "value": "Матча",
+          "amount": 70790.70999999999
+        },
+        {
+          "value": "Фильтр кофе",
+          "amount": 70271.68
+        },
+        {
+          "value": "Добавки кухня",
+          "amount": 59402.020000000004
+        },
+        {
+          "value": "Зерновой кофе",
+          "amount": 56362.270000000004
+        },
+        {
+          "value": "Американо",
+          "amount": 48667.32
+        },
+        {
+          "value": "Какао",
+          "amount": 48296.79
+        },
+        {
+          "value": "Товары Кухня",
+          "amount": 42060.64
+        },
+        {
+          "value": "Холодный кофе",
+          "amount": 41382.79
+        },
+        {
+          "value": "Летние напитки",
+          "amount": 40508.07
+        },
+        {
+          "value": "Смузи",
+          "amount": 38597.07
+        },
+        {
+          "value": "Товары Бар",
+          "amount": 38531.65
+        },
+        {
+          "value": "Товары Хозы",
+          "amount": 33930.3
+        },
+        {
+          "value": "Бамбл кофе",
+          "amount": 31923.01
+        },
+        {
+          "value": "Добавки бар",
+          "amount": 30700.62
+        },
+        {
+          "value": "Дрипы",
+          "amount": 28013
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Product.Type",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 39,
+      "distinct_values": 5,
+      "top_values": [
+        {
+          "value": "DISH",
+          "amount": 3175262.6799999997
+        },
+        {
+          "value": "SERVICE",
+          "amount": 1079456.4300000002
+        },
+        {
+          "value": "GOODS",
+          "amount": 634139.84
+        },
+        {
+          "value": "MODIFIER",
+          "amount": 183514.51
+        },
+        {
+          "value": "PREPARED",
+          "amount": 8146.04
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Product.Num",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 2008,
+      "distinct_values": 1003,
+      "top_values": [
+        {
+          "value": "10682",
+          "amount": 426045
+        },
+        {
+          "value": "119128",
+          "amount": 393600
+        },
+        {
+          "value": "0722",
+          "amount": 169450.04
+        },
+        {
+          "value": "119558",
+          "amount": 162574.61
+        },
+        {
+          "value": "122712",
+          "amount": 125717.77
+        },
+        {
+          "value": "08224",
+          "amount": 121090
+        },
+        {
+          "value": "10004",
+          "amount": 120167.5
+        },
+        {
+          "value": "119397",
+          "amount": 111047.25
+        },
+        {
+          "value": "0746",
+          "amount": 109723
+        },
+        {
+          "value": "10137",
+          "amount": 81307.3
+        },
+        {
+          "value": "120827",
+          "amount": 79100.8
+        },
+        {
+          "value": "119330",
+          "amount": 73858.47
+        },
+        {
+          "value": "119400",
+          "amount": 73150.49
+        },
+        {
+          "value": "119321",
+          "amount": 68668.27
+        },
+        {
+          "value": "119784",
+          "amount": 66276.28
+        },
+        {
+          "value": "119794",
+          "amount": 66200.79000000001
+        },
+        {
+          "value": "119789",
+          "amount": 64482.76
+        },
+        {
+          "value": "122713",
+          "amount": 64369.01
+        },
+        {
+          "value": "119396",
+          "amount": 60891.14
+        },
+        {
+          "value": "119788",
+          "amount": 59128.85
+        },
+        {
+          "value": "124679",
+          "amount": 53993.380000000005
+        },
+        {
+          "value": "119398",
+          "amount": 51405.43
+        },
+        {
+          "value": "119758",
+          "amount": 49960.58
+        },
+        {
+          "value": "119405",
+          "amount": 48305.7
+        },
+        {
+          "value": "124680",
+          "amount": 47921.62
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Dish.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Dish.Group",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Dish.Category",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Item.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Item.Group",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Goods.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Goods.Group",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Nomenclature.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Nomenclature.Group",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Writeoff.Type",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Writeoff.Reason",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "WriteoffReason.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Reason.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Inventory.Type",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Inventory.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Contragent.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Counteragent.Name",
-      "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "ok": true,
+      "row_count": 32,
+      "distinct_values": 18,
+      "top_values": [
+        {
+          "value": "Тюменьтехспецсервис ООО",
+          "amount": 426045
+        },
+        {
+          "value": "АМК-Финанс ООО",
+          "amount": 169450.04
+        },
+        {
+          "value": "ИП Соколов О.В.",
+          "amount": 121090
+        },
+        {
+          "value": "ИП Сыч Д.Д",
+          "amount": 120167.5
+        },
+        {
+          "value": "Агентика Тревэл",
+          "amount": 109723
+        },
+        {
+          "value": "Оплата за наличные",
+          "amount": 30828
+        },
+        {
+          "value": "ФБУЗ \"ЦЕНТР ГИГИЕНЫ И ЭПИДЕМИОЛОГИИ В СВЕРДЛОВСКОЙ ОБЛАСТИ\"",
+          "amount": 28247.88
+        },
+        {
+          "value": "ПАО Сбербанк",
+          "amount": 21495
+        },
+        {
+          "value": "Шмелев К.В. (смз)",
+          "amount": 18000
+        },
+        {
+          "value": "*Поставщик ОС\\Прочие ОС*",
+          "amount": 13499
+        },
+        {
+          "value": "Жалюзион ООО",
+          "amount": 11780
+        },
+        {
+          "value": "ИП Татосян Г.Г.",
+          "amount": 6777
+        },
+        {
+          "value": "ООО ЦМП",
+          "amount": 6200
+        },
+        {
+          "value": "Казакова А.В. ИП",
+          "amount": 5036.01
+        },
+        {
+          "value": "ЧПОУ ЦИО НЕФТЕГАЗ",
+          "amount": 4600
+        },
+        {
+          "value": "Типография Гуд Принт ООО",
+          "amount": 4593
+        },
+        {
+          "value": "Деловые линии ООО",
+          "amount": 3420
+        },
+        {
+          "value": "ТЦ ЕКБ: ТЦ ЕКБ (товар)",
+          "amount": 0
+        }
+      ],
+      "matches": []
     },
     {
       "field": "Supplier.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Employee.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "User.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Department.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "CostCenter.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "CostCenter",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     },
     {
       "field": "Store.Name",
       "ok": false,
-      "stage": "exception",
-      "error": "POST /api/olap/init: HTTP 400: {\"error\":true,\"warning\":false,\"errorMessage\":\"\\u0414\\u043b\\u044f \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430 \\u043e\\u0442\\u0447\\u0435\\u0442\\u0430 \\u043f\\u043e \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u043c \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u"
+      "stage": "status",
+      "error": "ERROR"
     }
   ],
   "summary": {
-    "valid_field_count": 0,
-    "valid_fields": [],
-    "fields_with_matches": []
+    "valid_field_count": 10,
+    "valid_fields": [
+      "Account.Name",
+      "Account.Id",
+      "Account.Code",
+      "Account.AccountHierarchyThird",
+      "Comment",
+      "Product.Name",
+      "Product.Category",
+      "Product.Type",
+      "Product.Num",
+      "Counteragent.Name"
+    ],
+    "fields_with_matches": [
+      "Account.Name",
+      "Account.AccountHierarchyThird",
+      "Product.Name"
+    ]
   }
 }
