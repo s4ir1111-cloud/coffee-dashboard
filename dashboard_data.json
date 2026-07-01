@@ -2,15 +2,44 @@
   "date": "2026-07-01",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Панорама",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 359,
+        "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Панорама",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 359,
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Флэт Уайт 350мл",
+        "DishName": "- *Молоко Флэт Уайт_б",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Флэт Уайт 350 мл ",
+        "DishSumInt": 359
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -44,6 +73,11 @@
         "DishDiscountSumInt": 2933768,
         "DishSumInt": 3450626,
         "OpenDate.Typed": "2026-06-30"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 359,
+        "OpenDate.Typed": "2026-07-01"
       }
     ],
     "summary": []

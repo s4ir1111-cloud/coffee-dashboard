@@ -2,12 +2,24 @@
   "date": "2026-07-01",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
-    "discount_pct": 0
+    "discount_pct": 100.0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Панорама",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-25",
@@ -45,12 +57,19 @@
       "revenue": 0
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 359
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
       "mtd_revenue": 0,
-      "mtd_orders": 0,
+      "mtd_orders": 1,
       "mtd_avg_check": 0,
       "plan_month": 82090000,
       "expected_to_date": 2648065,
@@ -135,7 +154,7 @@
       {
         "name": "Панорама",
         "mtd_revenue": 0,
-        "mtd_orders": 0,
+        "mtd_orders": 1,
         "mtd_avg_check": 0,
         "plan_month": 4550000,
         "expected_to_date": 146774,
