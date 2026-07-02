@@ -2,7 +2,24 @@
   "date": "2026-07-02",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Калинка",
+        "DishDiscountSumInt": 544,
+        "DishSumInt": 777,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -69,9 +86,9 @@
       },
       {
         "Department": "Калинка",
-        "DishDiscountSumInt": 175541,
-        "DishSumInt": 198726,
-        "UniqOrderId.OrdersCount": 320
+        "DishDiscountSumInt": 176085,
+        "DishSumInt": 199503,
+        "UniqOrderId.OrdersCount": 321
       },
       {
         "Department": "Мельникайте",
@@ -113,7 +130,7 @@
         "Department": "Преображенский",
         "DishDiscountSumInt": 237272,
         "DishSumInt": 269690,
-        "UniqOrderId.OrdersCount": 343
+        "UniqOrderId.OrdersCount": 344
       },
       {
         "Department": "Свердлова",
@@ -131,7 +148,32 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "*Допы Кухня",
+        "DishName": "- Творожный сыр 30 гр",
+        "DishSumInt": 59
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Завтраки",
+        "DishName": "Ливанский завтрак (с болгарским перцем)",
+        "DishSumInt": 399
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Холодные чаи 350",
+        "DishName": "Хол. Иван чай с ежевикой",
+        "DishSumInt": 319
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +207,11 @@
         "DishDiscountSumInt": 2642770,
         "DishSumInt": 3028321,
         "OpenDate.Typed": "2026-07-01"
+      },
+      {
+        "DishDiscountSumInt": 544,
+        "DishSumInt": 777,
+        "OpenDate.Typed": "2026-07-02"
       }
     ],
     "summary": []

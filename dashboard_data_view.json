@@ -1,13 +1,31 @@
 {
   "date": "2026-07-02",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 544,
+    "orders": 2,
+    "avg_check": 272,
+    "discount_pct": 30.0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Калинка",
+      "revenue": 544,
+      "orders": 1,
+      "avg_check": 544
+    },
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 544
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-26",
@@ -42,16 +60,42 @@
     {
       "date": "2026-07-02",
       "day_name": "Чт",
-      "revenue": 0
+      "revenue": 544
     }
   ],
-  "top_items": [],
-  "summer_drinks": [],
+  "top_items": [
+    {
+      "name": "Ливанский завтрак (с болгарским перцем)",
+      "group": "Завтраки",
+      "qty": 1,
+      "revenue": 399
+    },
+    {
+      "name": "Хол. Иван чай с ежевикой",
+      "group": "Холодные чаи 350",
+      "qty": 1,
+      "revenue": 319
+    },
+    {
+      "name": "- Творожный сыр 30 гр",
+      "group": "*Допы Кухня",
+      "qty": 1,
+      "revenue": 59
+    }
+  ],
+  "summer_drinks": [
+    {
+      "name": "Хол. Иван чай с ежевикой",
+      "group": "Холодные чаи 350",
+      "qty": 1,
+      "revenue": 319
+    }
+  ],
   "plan": {
     "summary": {
-      "mtd_revenue": 2642770,
-      "mtd_orders": 4475,
-      "mtd_avg_check": 591,
+      "mtd_revenue": 2643314,
+      "mtd_orders": 4477,
+      "mtd_avg_check": 590,
       "plan_month": 82090000,
       "expected_to_date": 5296129,
       "pct_of_plan": 3.2,
@@ -75,14 +119,14 @@
       {
         "name": "Прео",
         "mtd_revenue": 237272,
-        "mtd_orders": 343,
-        "mtd_avg_check": 692,
+        "mtd_orders": 344,
+        "mtd_avg_check": 690,
         "plan_month": 6400000,
         "expected_to_date": 412903,
         "pct_of_plan": 3.7,
         "pct_vs_expected": 57.5,
         "avg_check_plan": 565,
-        "pct_avg_check": 122.5
+        "pct_avg_check": 122.1
       },
       {
         "name": "Новин",
@@ -98,13 +142,13 @@
       },
       {
         "name": "Калинка",
-        "mtd_revenue": 175541,
-        "mtd_orders": 320,
+        "mtd_revenue": 176085,
+        "mtd_orders": 321,
         "mtd_avg_check": 549,
         "plan_month": 5450000,
         "expected_to_date": 351613,
         "pct_of_plan": 3.2,
-        "pct_vs_expected": 49.9,
+        "pct_vs_expected": 50.1,
         "avg_check_plan": 597,
         "pct_avg_check": 92.0
       },
