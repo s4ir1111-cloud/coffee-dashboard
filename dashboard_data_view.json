@@ -1,10 +1,10 @@
 {
   "date": "2026-07-02",
   "summary": {
-    "revenue": 13623,
-    "orders": 38,
-    "avg_check": 358,
-    "discount_pct": 18.7
+    "revenue": 16680,
+    "orders": 48,
+    "avg_check": 348,
+    "discount_pct": 20.9
   },
   "points": [
     {
@@ -14,16 +14,22 @@
       "avg_check": 544
     },
     {
+      "name": "Газпром",
+      "revenue": 2679,
+      "orders": 9,
+      "avg_check": 298
+    },
+    {
+      "name": "Советская",
+      "revenue": 2113,
+      "orders": 8,
+      "avg_check": 264
+    },
+    {
       "name": "Новин",
       "revenue": 2092,
       "orders": 5,
       "avg_check": 418
-    },
-    {
-      "name": "Советская",
-      "revenue": 1944,
-      "orders": 6,
-      "avg_check": 324
     },
     {
       "name": "Океан",
@@ -44,6 +50,12 @@
       "avg_check": 408
     },
     {
+      "name": "Европа",
+      "revenue": 667,
+      "orders": 1,
+      "avg_check": 667
+    },
+    {
       "name": "Паруса",
       "revenue": 498,
       "orders": 2,
@@ -62,12 +74,6 @@
       "avg_check": 478
     },
     {
-      "name": "Газпром",
-      "revenue": 458,
-      "orders": 2,
-      "avg_check": 229
-    },
-    {
       "name": "Панорама",
       "revenue": 439,
       "orders": 2,
@@ -83,7 +89,7 @@
   "hourly": [
     {
       "hour": "07",
-      "revenue": 13623
+      "revenue": 16680
     }
   ],
   "weekly": [
@@ -120,15 +126,21 @@
     {
       "date": "2026-07-02",
       "day_name": "Чт",
-      "revenue": 13623
+      "revenue": 16680
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 10,
-      "revenue": 2750
+      "qty": 12,
+      "revenue": 3328
+    },
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 6,
+      "revenue": 2154
     },
     {
       "name": "Ливанский завтрак (с болгарским перцем)",
@@ -137,10 +149,10 @@
       "revenue": 1197
     },
     {
-      "name": "Флэт Уайт 350 мл",
+      "name": "Флэт Уайт 250 мл",
       "group": "Кофе Терминал",
-      "qty": 3,
-      "revenue": 1077
+      "qty": 4,
+      "revenue": 1076
     },
     {
       "name": "Раф Арахисовый",
@@ -165,12 +177,6 @@
       "group": "Кофе Терминал",
       "qty": 3,
       "revenue": 717
-    },
-    {
-      "name": "Раф Солёная карамель",
-      "group": "Рафы 350",
-      "qty": 2,
-      "revenue": 638
     }
   ],
   "summer_drinks": [
@@ -189,9 +195,9 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 2656393,
-      "mtd_orders": 4513,
-      "mtd_avg_check": 589,
+      "mtd_revenue": 2659450,
+      "mtd_orders": 4523,
+      "mtd_avg_check": 588,
       "plan_month": 82090000,
       "expected_to_date": 5296129,
       "pct_of_plan": 3.2,
@@ -274,15 +280,15 @@
       },
       {
         "name": "Советская",
-        "mtd_revenue": 161384,
-        "mtd_orders": 299,
-        "mtd_avg_check": 540,
+        "mtd_revenue": 161553,
+        "mtd_orders": 301,
+        "mtd_avg_check": 537,
         "plan_month": 4200000,
         "expected_to_date": 270968,
         "pct_of_plan": 3.8,
         "pct_vs_expected": 59.6,
         "avg_check_plan": 573,
-        "pct_avg_check": 94.2
+        "pct_avg_check": 93.7
       },
       {
         "name": "Паруса",
@@ -346,13 +352,13 @@
       },
       {
         "name": "Европа",
-        "mtd_revenue": 96654,
-        "mtd_orders": 170,
+        "mtd_revenue": 97321,
+        "mtd_orders": 171,
         "mtd_avg_check": 569,
         "plan_month": 3400000,
         "expected_to_date": 219355,
-        "pct_of_plan": 2.8,
-        "pct_vs_expected": 44.1,
+        "pct_of_plan": 2.9,
+        "pct_vs_expected": 44.4,
         "avg_check_plan": 595,
         "pct_avg_check": 95.6
       },
@@ -418,15 +424,15 @@
       },
       {
         "name": "Газпром",
-        "mtd_revenue": 33370,
-        "mtd_orders": 119,
-        "mtd_avg_check": 280,
+        "mtd_revenue": 35591,
+        "mtd_orders": 126,
+        "mtd_avg_check": 282,
         "plan_month": 1050000,
         "expected_to_date": 67742,
-        "pct_of_plan": 3.2,
-        "pct_vs_expected": 49.3,
+        "pct_of_plan": 3.4,
+        "pct_vs_expected": 52.5,
         "avg_check_plan": 301,
-        "pct_avg_check": 93.0
+        "pct_avg_check": 93.7
       },
       {
         "name": "Осипенко",
