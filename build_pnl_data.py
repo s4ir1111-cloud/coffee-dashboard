@@ -527,7 +527,7 @@ def build_expense_monitoring(raw, months_summary):
             for raw_name, value in items.items():
                 n = norm_name(raw_name)
                 raw_names_by_norm[n] = raw_name
-                totals[raw_name] = abs(value or 0)
+                totals[raw_name] = -(value or 0)
         item_totals_by_month[mkey] = totals
 
     by_mkey = {m["mkey"]: m for m in months_summary}
