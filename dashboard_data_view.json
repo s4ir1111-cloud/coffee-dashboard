@@ -2,12 +2,24 @@
   "date": "2026-07-04",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
-    "discount_pct": 0
+    "discount_pct": 100.0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Ворлд Класс",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-28",
@@ -45,12 +57,31 @@
       "revenue": 0
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Капучино 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 289
+    },
+    {
+      "name": "Латте 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 289
+    },
+    {
+      "name": "Латте 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 239
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
       "mtd_revenue": 7819819,
-      "mtd_orders": 13020,
+      "mtd_orders": 13021,
       "mtd_avg_check": 601,
       "plan_month": 82090000,
       "expected_to_date": 10592258,
@@ -267,14 +298,14 @@
       {
         "name": "Ворлд Класс",
         "mtd_revenue": 197248,
-        "mtd_orders": 369,
-        "mtd_avg_check": 535,
+        "mtd_orders": 370,
+        "mtd_avg_check": 533,
         "plan_month": 2150000,
         "expected_to_date": 277419,
         "pct_of_plan": 9.2,
         "pct_vs_expected": 71.1,
         "avg_check_plan": 522,
-        "pct_avg_check": 102.5
+        "pct_avg_check": 102.1
       },
       {
         "name": "Газпром",

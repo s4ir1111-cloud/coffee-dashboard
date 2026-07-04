@@ -2,7 +2,16 @@
   "date": "2026-07-04",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Ворлд Класс",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 817,
+        "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -22,8 +31,8 @@
       {
         "Department": "Ворлд Класс",
         "DishDiscountSumInt": 197248,
-        "DishSumInt": 244518,
-        "UniqOrderId.OrdersCount": 369
+        "DishSumInt": 245335,
+        "UniqOrderId.OrdersCount": 370
       },
       {
         "Department": "Гагарина",
@@ -131,7 +140,44 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Капучино 350мл*",
+        "DishName": "- *Молоко Капучино Б",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Латте 250мл*",
+        "DishName": "- *Молоко Латте 250 мл",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Латте 350мл*",
+        "DishName": "- *Молоко Латте 350 мл",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Капучино 350 мл ",
+        "DishSumInt": 289
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Латте 250 мл ",
+        "DishSumInt": 239
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Латте 350 мл ",
+        "DishSumInt": 289
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +211,11 @@
         "DishDiscountSumInt": 2524046,
         "DishSumInt": 2869067,
         "OpenDate.Typed": "2026-07-03"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 817,
+        "OpenDate.Typed": "2026-07-04"
       }
     ],
     "summary": []
