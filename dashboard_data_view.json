@@ -1,12 +1,18 @@
 {
   "date": "2026-07-05",
   "summary": {
-    "revenue": 87241,
-    "orders": 133,
-    "avg_check": 656,
-    "discount_pct": 17.5
+    "revenue": 95860,
+    "orders": 145,
+    "avg_check": 661,
+    "discount_pct": 18.4
   },
   "points": [
+    {
+      "name": "Свердлова",
+      "revenue": 16507,
+      "orders": 24,
+      "avg_check": 688
+    },
     {
       "name": "Прео",
       "revenue": 12664,
@@ -20,22 +26,16 @@
       "avg_check": 822
     },
     {
-      "name": "Свердлова",
-      "revenue": 9265,
-      "orders": 14,
-      "avg_check": 662
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 7533,
+      "orders": 9,
+      "avg_check": 837
     },
     {
       "name": "Советская",
       "revenue": 6487,
       "orders": 6,
       "avg_check": 1081
-    },
-    {
-      "name": "Гарден Кофе Тобольск",
-      "revenue": 6156,
-      "orders": 7,
-      "avg_check": 879
     },
     {
       "name": "Океан",
@@ -133,7 +133,7 @@
     },
     {
       "hour": "08",
-      "revenue": 59084
+      "revenue": 67703
     }
   ],
   "weekly": [
@@ -170,57 +170,57 @@
     {
       "date": "2026-07-05",
       "day_name": "Вс",
-      "revenue": 87241
+      "revenue": 95860
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 45,
-      "revenue": 12885
-    },
-    {
-      "name": "Комбо завтрак Бариста",
-      "group": "Завтраки",
-      "qty": 12,
-      "revenue": 6168
+      "qty": 46,
+      "revenue": 13174
     },
     {
       "name": "Норвежский завтрак",
       "group": "Завтраки",
-      "qty": 8,
-      "revenue": 5992
+      "qty": 9,
+      "revenue": 6741
+    },
+    {
+      "name": "Комбо завтрак Бариста",
+      "group": "Завтраки",
+      "qty": 13,
+      "revenue": 6677
     },
     {
       "name": "Деревенский завтрак",
       "group": "Завтраки",
-      "qty": 11,
-      "revenue": 5989
-    },
-    {
-      "name": "Американо 250 мл",
-      "group": "Кофе Терминал",
-      "qty": 19,
-      "revenue": 4361
+      "qty": 12,
+      "revenue": 6528
     },
     {
       "name": "Комбо завтрак Шерлока",
       "group": "Завтраки",
-      "qty": 8,
-      "revenue": 3752
+      "qty": 10,
+      "revenue": 4690
+    },
+    {
+      "name": "Американо 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 20,
+      "revenue": 4600
+    },
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 10,
+      "revenue": 3590
     },
     {
       "name": "Комбо Завтрак Баварский",
       "group": "Завтраки",
       "qty": 6,
       "revenue": 3114
-    },
-    {
-      "name": "Флэт Уайт 350 мл",
-      "group": "Кофе Терминал",
-      "qty": 8,
-      "revenue": 2872
     }
   ],
   "summer_drinks": [
@@ -233,14 +233,32 @@
     {
       "name": "Хол. Ходзича с солен. карм.",
       "group": "Холодные напитки 350 мл",
+      "qty": 4,
+      "revenue": 1396
+    },
+    {
+      "name": "Фреш Апельсиновый 250 мл",
+      "group": "Фреши",
+      "qty": 2.5,
+      "revenue": 1198
+    },
+    {
+      "name": "Бамбл кофе",
+      "group": "Холодные напитки 350 мл",
       "qty": 2,
-      "revenue": 698
+      "revenue": 638
     },
     {
       "name": "Фреш Апельсиновый 350 мл",
       "group": "Фреши",
       "qty": 1,
       "revenue": 549
+    },
+    {
+      "name": "Хол. Ходзича с солен. кармелью(ЯНДЕКС)",
+      "group": "Холодный кофе и матча_350",
+      "qty": 1,
+      "revenue": 469
     },
     {
       "name": "Матча Латте 450",
@@ -253,34 +271,16 @@
       "group": "Холодные рафы 350",
       "qty": 1,
       "revenue": 349
-    },
-    {
-      "name": "Бамбл кофе",
-      "group": "Холодные напитки 350 мл",
-      "qty": 1,
-      "revenue": 319
-    },
-    {
-      "name": "Лимонад Ежевика-мята",
-      "group": "Лимонады 350",
-      "qty": 1,
-      "revenue": 319
-    },
-    {
-      "name": "Лимонад Манго-каламанси",
-      "group": "Лимонады 350",
-      "qty": 1,
-      "revenue": 319
     }
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 10708788,
-      "mtd_orders": 17155,
+      "mtd_revenue": 10717407,
+      "mtd_orders": 17167,
       "mtd_avg_check": 624,
       "plan_month": 82090000,
       "expected_to_date": 13240323,
-      "pct_of_plan": 13.0,
+      "pct_of_plan": 13.1,
       "pct_vs_expected": 80.9,
       "day_of_month": 5,
       "days_in_month": 31
@@ -312,13 +312,13 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 811926,
-        "mtd_orders": 1271,
+        "mtd_revenue": 819168,
+        "mtd_orders": 1281,
         "mtd_avg_check": 639,
         "plan_month": 6100000,
         "expected_to_date": 983871,
-        "pct_of_plan": 13.3,
-        "pct_vs_expected": 82.5,
+        "pct_of_plan": 13.4,
+        "pct_vs_expected": 83.3,
         "avg_check_plan": 635,
         "pct_avg_check": 100.6
       },
@@ -396,13 +396,13 @@
       },
       {
         "name": "Гарден Кофе Тобольск",
-        "mtd_revenue": 596521,
-        "mtd_orders": 845,
+        "mtd_revenue": 597898,
+        "mtd_orders": 847,
         "mtd_avg_check": 706,
         "plan_month": 4300000,
         "expected_to_date": 693548,
         "pct_of_plan": 13.9,
-        "pct_vs_expected": 86.0,
+        "pct_vs_expected": 86.2,
         "avg_check_plan": 675,
         "pct_avg_check": 104.6
       },
