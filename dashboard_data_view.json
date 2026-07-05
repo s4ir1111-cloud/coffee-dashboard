@@ -2,12 +2,24 @@
   "date": "2026-07-05",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "discount_pct": 0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-06-29",
@@ -50,7 +62,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 10621547,
-      "mtd_orders": 17022,
+      "mtd_orders": 17023,
       "mtd_avg_check": 624,
       "plan_month": 82090000,
       "expected_to_date": 13240323,
@@ -75,14 +87,14 @@
       {
         "name": "Прео",
         "mtd_revenue": 942792,
-        "mtd_orders": 1393,
-        "mtd_avg_check": 677,
+        "mtd_orders": 1394,
+        "mtd_avg_check": 676,
         "plan_month": 6400000,
         "expected_to_date": 1032258,
         "pct_of_plan": 14.7,
         "pct_vs_expected": 91.3,
         "avg_check_plan": 565,
-        "pct_avg_check": 119.8
+        "pct_avg_check": 119.6
       },
       {
         "name": "Свердлова",
