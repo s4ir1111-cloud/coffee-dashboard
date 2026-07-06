@@ -289,6 +289,18 @@ def account_labels(row):
     return labels
 
 
+def preferred_account_label(row):
+    for field in reversed(ACCOUNT_DETAIL_FIELDS):
+        value = (row.get(field) or "").strip()
+        if value and value != "null":
+            return value
+
+    top = (row.get("Account.AccountHierarchyTop") or "").strip()
+    if top and top != "null":
+        return top
+    return None
+
+
 # ─── Агрегация OLAP строк по месяцу ──────────────────────────────────────────
 def aggregate_olap(olap_by_store):
     """
@@ -318,6 +330,25 @@ def aggregate_olap(olap_by_store):
         by_store[str(store_id)] = store_items
 
     return items, by_store
+
+
+def aggregate_olap_articles(olap_by_store):
+    by_store = {}
+    expense_types = {"COST_OF_GOODS_SOLD", "EXPENSES", "OTHER_EXPENSES"}
+
+    for store_id, rows in olap_by_store.items():
+        store_items = {}
+        for row in rows:
+            if row.get("Account.Type") not in expense_types:
+                continue
+            label = preferred_account_label(row)
+            if not label:
+                continue
+            val = row.get("sum_signed", 0) or 0
+            store_items[label] = store_items.get(label, 0) + val
+        by_store[str(store_id)] = store_items
+
+    return by_store
 
 
 def calc_pnl_from_olap(items, summary_kpi):
@@ -407,7 +438,7 @@ def calc_pnl_from_flat_kpi(summary_kpi):
 
 
 # ─── By-store KPI ─────────────────────────────────────────────────────────────
-def calc_by_store(by_store_olap, by_store_kpi):
+def calc_by_store(by_store_olap, by_store_kpi, by_store_articles=None):
     """
     Возвращает {store_name: {store_id, revenue, net_profit, gross_profit, opex, ebitda, items, groups}}
     """
@@ -416,8 +447,13 @@ def calc_by_store(by_store_olap, by_store_kpi):
     # by_store_kpi структура: {metricCode: {GUID: value}} — используем store_kpi()
     # by_store_olap структура: {intId: {item_name: sum}}
 
-    for sid in ACTIVE_STORE_IDS:
+    store_ids = list(dict.fromkeys(ACTIVE_STORE_IDS + list((by_store_olap or {}).keys())))
+
+    for sid in store_ids:
+        if str(sid) in EXCLUDED_STORE_IDS:
+            continue
         olap_items = by_store_olap.get(str(sid), {})
+        article_source = (by_store_articles or {}).get(str(sid), {})
 
         # Читаем KPI через GUID-маппинг
         revenue = abs(store_kpi(by_store_kpi, sid, "PL_SALES_TOTAL"))
@@ -425,6 +461,11 @@ def calc_by_store(by_store_olap, by_store_kpi):
         gp      = store_kpi(by_store_kpi, sid, "PL_PROFIT_GROSS")
 
         item_totals = {k: abs(olap_items.get(k, 0)) for k in EXPENSE_ITEMS}
+        article_items = {
+            name: round(-(value or 0))
+            for name, value in sorted(article_source.items())
+            if round(-(value or 0)) != 0
+        }
         groups = {gkey: sum(item_totals[k] for k, v in EXPENSE_ITEMS.items() if v["group"] == gkey)
                   for gkey in GROUPS}
 
@@ -440,6 +481,7 @@ def calc_by_store(by_store_olap, by_store_kpi):
             "opex":          round(opex),
             "ebitda":        round(ebitda),
             "items":         {k: round(v) for k, v in item_totals.items()},
+            "article_items": article_items,
             "groups":        {k: round(v) for k, v in groups.items()},
         }
 
@@ -707,12 +749,13 @@ def build():
 
             # Агрегируем OLAP
             items, by_store_olap = aggregate_olap(olap_raw)
+            by_store_articles = aggregate_olap_articles(olap_raw)
 
             # Считаем P&L
             summary = calc_pnl_from_olap(items, summary_kpi)
 
             # По точкам
-            by_store = calc_by_store(by_store_olap, by_store_kpi)
+            by_store = calc_by_store(by_store_olap, by_store_kpi, by_store_articles)
 
         months_summary.append({
             "mkey":     mkey,

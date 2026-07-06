@@ -72,11 +72,16 @@ tr.row-gp td:first-child{color:var(--gp);font-weight:700;}
 tr.row-ebitda td:first-child{color:var(--ebitda);font-weight:700;}
 tr.row-np td:first-child{color:var(--np);font-weight:700;}
 tr.row-divider td{height:3px;background:var(--border);padding:0;}
+tr.point-row{cursor:pointer;}
+tr.point-row.active td{background:rgba(190,223,61,.08);border-top:1px solid rgba(190,223,61,.25);border-bottom:1px solid rgba(190,223,61,.25);}
 .pct{color:var(--muted);font-size:10px;margin-left:2px;}
 .pct.good{color:var(--good);}
 .pct.bad{color:var(--bad);}
 .zero{color:#606880;}
 .neg{color:var(--bad);}
+.point-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 10px;}
+.point-select{min-width:240px;border:1px solid var(--border);border-radius:8px;background:var(--card2);color:var(--text);padding:6px 9px;font-size:12px;font-family:'Barlow',Arial,sans-serif;}
+.point-subtitle{font-size:11px;color:var(--muted);margin:-2px 0 8px;}
 
 /* Anomalies */
 .anom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;margin-bottom:12px;}
@@ -249,6 +254,12 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
 <!-- Tab: Points -->
 <div id="tab-points" style="display:none">
   <h2 class="sec">P&L по точкам · <span id="pt-period-label">—</span></h2>
+  <div class="point-controls">
+    <span class="period-label">Точка</span>
+    <select class="point-select" id="point-select" onchange="selectPoint(this.value)">
+      <option value="">Выбери точку</option>
+    </select>
+  </div>
   <div class="tbl-wrap" style="max-height:480px">
     <table id="pt-tbl">
       <thead>
@@ -264,6 +275,21 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
       <tbody id="pt-tbody"><tr><td colspan="9">Загрузка…</td></tr></tbody>
     </table>
   </div>
+  <h2 class="sec">Расходы по статьям · <span id="point-article-title">—</span></h2>
+  <div class="point-subtitle" id="point-article-subtitle">Выбери точку в таблице или списке выше</div>
+  <div class="tbl-wrap" style="max-height:520px">
+    <table id="point-article-tbl">
+      <thead>
+        <tr>
+          <th style="text-align:left">Статья</th>
+          <th>Группа</th>
+          <th>Сумма</th>
+          <th>Доля выручки</th>
+        </tr>
+      </thead>
+      <tbody id="point-article-tbody"><tr><td colspan="4">Выбери точку</td></tr></tbody>
+    </table>
+  </div>
 </div>
 
 <script src="pnl_data_embed.js"></script>
@@ -274,7 +300,7 @@ tr.row-divider td{height:3px;background:var(--border);padding:0;}
    month: number|null — 1-12 or null = YTD
    ════════════════════════════════════════════════════ */
 let _raw = null;          // full data from pnl_data.json
-let _state = { year: null, month: null };
+let _state = { year: null, month: null, point: null };
 
 /* ── Formatters ────────────────────────────────────── */
 const fmtM = n => {
@@ -290,6 +316,7 @@ const pctHtml = (v, inverse=false) => {
   return `<span class="pct ${cls}">${v}%</span>`;
 };
 const MONTH_SHORT = ['','Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 
 /* ── Tabs ──────────────────────────────────────────── */
 const TABS = ['pnl','anomalies','monitoring','chart','points'];
@@ -773,24 +800,25 @@ window.addEventListener('resize', ()=>{ if(_raw) drawChart(); });
    ════════════════════════════════════════════════════ */
 function renderPoints(months) {
   // Aggregate by_store across selected months
-  const storeData = {};
-  for(const m of months) {
-    for(const [name, s] of Object.entries(m.by_store||{})) {
-      if(!storeData[name]) storeData[name] = {name, revenue:0, cogs:0, gross_profit:0, opex:0, ebitda:0};
-      storeData[name].revenue      += s.revenue||0;
-      storeData[name].cogs         += (s.groups&&s.groups.cogs)||s.cogs||0;
-      storeData[name].gross_profit += s.gross_profit||0;
-      storeData[name].opex         += s.opex||0;
-      storeData[name].ebitda       += s.ebitda||0;
-    }
-  }
+  const storeData = aggregatePointData(months);
 
   const lbl = periodLabel();
   document.getElementById('pt-period-label').textContent = lbl;
 
   const pts = Object.values(storeData).sort((a,b)=>b.revenue-a.revenue);
   const tbody = document.getElementById('pt-tbody');
-  if(!pts.length){ tbody.innerHTML='<tr><td colspan="9" style="color:var(--muted)">Нет данных</td></tr>'; return; }
+  const select = document.getElementById('point-select');
+  if(!pts.length){
+    select.innerHTML = '<option value="">Нет точек</option>';
+    tbody.innerHTML='<tr><td colspan="9" style="color:var(--muted)">Нет данных</td></tr>';
+    renderPointArticles(null, months);
+    return;
+  }
+
+  if(!_state.point || !storeData[_state.point]) _state.point = pts[0].name;
+  select.innerHTML = pts.map(p =>
+    `<option value="${esc(p.name)}"${p.name===_state.point?' selected':''}>${esc(p.name)}</option>`
+  ).join('');
 
   const totals = pts.reduce((acc,p)=>({
     revenue:acc.revenue+p.revenue, cogs:acc.cogs+p.cogs,
@@ -798,7 +826,7 @@ function renderPoints(months) {
   }),{revenue:0,cogs:0,gross_profit:0,opex:0,ebitda:0});
 
   const row = (p, cls='') => `<tr class="${cls}">
-    <td>${p.name}</td>
+    <td>${esc(p.name)}</td>
     <td>${fmtM(p.revenue)}</td>
     <td>${p.cogs?fmtM(p.cogs):'—'}</td>
     <td>${p.cogs&&p.revenue?pctHtml(pct(p.cogs,p.revenue),true):'—'}</td>
@@ -809,7 +837,71 @@ function renderPoints(months) {
     <td>${p.revenue?pctHtml(pct(p.ebitda,p.revenue)):'—'}</td>
   </tr>`;
 
-  tbody.innerHTML = pts.map(p=>row(p)).join('') + row({name:'ИТОГО',...totals},'row-subtotal');
+  tbody.innerHTML = pts.map(p=>row(p, `point-row${p.name===_state.point?' active':''}`)).join('') + row({name:'ИТОГО',...totals},'row-subtotal');
+  tbody.querySelectorAll('tr.point-row').forEach((tr, idx) => {
+    tr.addEventListener('click', () => selectPoint(pts[idx].name));
+  });
+  renderPointArticles(storeData[_state.point], months);
+}
+
+function aggregatePointData(months) {
+  const storeData = {};
+  for(const m of months) {
+    for(const [name, s] of Object.entries(m.by_store||{})) {
+      if(!storeData[name]) {
+        storeData[name] = {name, revenue:0, cogs:0, gross_profit:0, opex:0, ebitda:0, article_items:{}};
+      }
+      storeData[name].revenue      += s.revenue||0;
+      storeData[name].cogs         += (s.groups&&s.groups.cogs)||s.cogs||0;
+      storeData[name].gross_profit += s.gross_profit||0;
+      storeData[name].opex         += s.opex||0;
+      storeData[name].ebitda       += s.ebitda||0;
+      for(const [item, value] of Object.entries(s.article_items||{})) {
+        storeData[name].article_items[item] = (storeData[name].article_items[item]||0) + (value||0);
+      }
+    }
+  }
+  return storeData;
+}
+
+function selectPoint(name) {
+  _state.point = name || null;
+  renderPoints(getFilteredMonths());
+}
+
+function renderPointArticles(pointData, months) {
+  const title = document.getElementById('point-article-title');
+  const subtitle = document.getElementById('point-article-subtitle');
+  const tbody = document.getElementById('point-article-tbody');
+  if(!pointData) {
+    title.textContent = '—';
+    subtitle.textContent = 'Выбери точку в таблице или списке выше';
+    tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted)">Выбери точку</td></tr>';
+    return;
+  }
+
+  title.textContent = `${pointData.name} · ${periodLabel()}`;
+  subtitle.textContent = `Выручка ${fmtM(pointData.revenue)} · Opex ${fmtM(pointData.opex)} · EBITDA ${fmtM(pointData.ebitda)}`;
+  const groupNames = Object.fromEntries((_raw.groups_meta||[]).map(g => [g.key, g.label]));
+  const rows = Object.entries(pointData.article_items||{})
+    .map(([name, value]) => {
+      const meta = (_raw.items_meta||{})[name] || {};
+      return {name, value, group: groupNames[meta.group] || meta.group || '—'};
+    })
+    .filter(r => r.value !== 0)
+    .sort((a,b) => Math.abs(b.value) - Math.abs(a.value));
+
+  if(!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted)">Нет расходов по статьям</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = rows.map(r => `<tr>
+    <td>${esc(r.name)}</td>
+    <td>${esc(r.group)}</td>
+    <td class="${r.value<0?'neg':''}">${fmtM(r.value)}</td>
+    <td>${pointData.revenue ? pctHtml(pct(r.value, pointData.revenue), true) : '—'}</td>
+  </tr>`).join('');
 }
 
 /* ════════════════════════════════════════════════════

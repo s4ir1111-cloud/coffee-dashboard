@@ -20,6 +20,7 @@ This is a Python port of pnl_extract.js. It uses the same iikoWeb endpoints:
 import getpass
 import json
 import os
+import re
 import time
 from datetime import date, datetime
 
@@ -42,11 +43,17 @@ DETAILED_OLAP_GROUP_FIELDS = BASE_OLAP_GROUP_FIELDS + [
     "Account.Name",
 ]
 
-STORE_IDS = [
+DEFAULT_STORE_IDS = [
     56203, 100421, 145308, 176065, 172412, 86753, 120401, 170714,
     178149, 115697, 56197, 56190, 80486, 87392, 56193, 80477,
     56188, 156443, 59619, 56178, 94945, 108119, 56458,
 ]
+EXTRA_STORE_IDS = [
+    int(value)
+    for value in re.split(r"[,\s]+", os.environ.get("PNL_EXTRA_STORE_IDS", "").strip())
+    if value
+]
+STORE_IDS = list(dict.fromkeys(DEFAULT_STORE_IDS + EXTRA_STORE_IDS))
 
 SUMMARY_METRICS = [
     "PL_SALES_TOTAL", "PL_COS_TOTAL", "PL_EXP_TOTAL",

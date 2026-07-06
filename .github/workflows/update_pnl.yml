@@ -43,6 +43,7 @@ jobs:
           IIKO_WEB_HOST:     ${{ secrets.IIKO_WEB_HOST }}
           IIKO_WEB_LOGIN:    ${{ secrets.IIKO_WEB_LOGIN }}
           IIKO_WEB_PASSWORD: ${{ secrets.IIKO_WEB_PASSWORD }}
+          PNL_EXTRA_STORE_IDS: ${{ secrets.PNL_EXTRA_STORE_IDS }}
         run: |
           set +e
           python pnl_connector.py > pnl_fetch.log 2>&1
