@@ -2,7 +2,24 @@
   "date": "2026-07-06",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Свердлова",
+        "DishDiscountSumInt": 489,
+        "DishSumInt": 698,
+        "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -107,7 +124,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 779467,
         "DishSumInt": 917124,
-        "UniqOrderId.OrdersCount": 1207
+        "UniqOrderId.OrdersCount": 1208
       },
       {
         "Department": "Преображенский",
@@ -117,9 +134,9 @@
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 1024083,
-        "DishSumInt": 1156380,
-        "UniqOrderId.OrdersCount": 1566
+        "DishDiscountSumInt": 1024572,
+        "DishSumInt": 1157078,
+        "UniqOrderId.OrdersCount": 1567
       },
       {
         "Department": "Советская",
@@ -131,7 +148,26 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Медовик классический ",
+        "DishSumInt": 309
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Чизкейк Гарден Классика",
+        "DishSumInt": 389
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +201,11 @@
         "DishDiscountSumInt": 2565039,
         "DishSumInt": 2928873,
         "OpenDate.Typed": "2026-07-05"
+      },
+      {
+        "DishDiscountSumInt": 489,
+        "DishSumInt": 698,
+        "OpenDate.Typed": "2026-07-06"
       }
     ],
     "summary": []
