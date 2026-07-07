@@ -2,12 +2,24 @@
   "date": "2026-07-07",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "discount_pct": 0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Паруса",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-01",
@@ -50,7 +62,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 15680671,
-      "mtd_orders": 24912,
+      "mtd_orders": 24913,
       "mtd_avg_check": 629,
       "plan_month": 82090000,
       "expected_to_date": 18536452,
@@ -159,14 +171,14 @@
       {
         "name": "Паруса",
         "mtd_revenue": 909295,
-        "mtd_orders": 1421,
-        "mtd_avg_check": 640,
+        "mtd_orders": 1422,
+        "mtd_avg_check": 639,
         "plan_month": 4900000,
         "expected_to_date": 1106452,
         "pct_of_plan": 18.6,
         "pct_vs_expected": 82.2,
         "avg_check_plan": 627,
-        "pct_avg_check": 102.1
+        "pct_avg_check": 101.9
       },
       {
         "name": "Гарден Кофе Тобольск",
