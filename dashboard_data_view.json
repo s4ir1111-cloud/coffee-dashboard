@@ -1,12 +1,18 @@
 {
   "date": "2026-07-08",
   "summary": {
-    "revenue": 1123677,
-    "orders": 1792,
-    "avg_check": 627,
+    "revenue": 1131913,
+    "orders": 1802,
+    "avg_check": 628,
     "discount_pct": 12.4
   },
   "points": [
+    {
+      "name": "Паруса",
+      "revenue": 86484,
+      "orders": 137,
+      "avg_check": 631
+    },
     {
       "name": "Советская",
       "revenue": 85984,
@@ -30,12 +36,6 @@
       "revenue": 82859,
       "orders": 142,
       "avg_check": 584
-    },
-    {
-      "name": "Паруса",
-      "revenue": 82434,
-      "orders": 133,
-      "avg_check": 620
     },
     {
       "name": "Новин",
@@ -92,16 +92,16 @@
       "avg_check": 614
     },
     {
+      "name": "Драмтеатр",
+      "revenue": 38757,
+      "orders": 68,
+      "avg_check": 570
+    },
+    {
       "name": "Гагарина",
       "revenue": 34847,
       "orders": 49,
       "avg_check": 711
-    },
-    {
-      "name": "Драмтеатр",
-      "revenue": 34571,
-      "orders": 62,
-      "avg_check": 558
     },
     {
       "name": "Домашний",
@@ -151,7 +151,7 @@
     },
     {
       "hour": "12",
-      "revenue": 208440
+      "revenue": 216676
     }
   ],
   "weekly": [
@@ -188,15 +188,15 @@
     {
       "date": "2026-07-08",
       "day_name": "Ср",
-      "revenue": 1123677
+      "revenue": 1131913
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 383,
-      "revenue": 109497
+      "qty": 384,
+      "revenue": 109786
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -243,16 +243,16 @@
   ],
   "summer_drinks": [
     {
+      "name": "Холодный Латте",
+      "group": "Холодные напитки 350 мл",
+      "qty": 47,
+      "revenue": 14523
+    },
+    {
       "name": "Холодный Латте 590 мл",
       "group": "Холодные напитки 590 мл",
       "qty": 37,
       "revenue": 14393
-    },
-    {
-      "name": "Холодный Латте",
-      "group": "Холодные напитки 350 мл",
-      "qty": 45,
-      "revenue": 13905
     },
     {
       "name": "Лимонад Клубника-Маракуйя 590 мл",
@@ -285,21 +285,21 @@
       "revenue": 9270
     },
     {
-      "name": "Лимонад Клубника-Маракуйя",
-      "group": "Лимонады 350",
+      "name": "Эспрессо Тоник классик",
+      "group": "Холодные напитки 350 мл",
       "qty": 30,
-      "revenue": 8370
+      "revenue": 8690
     }
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 19349675,
-      "mtd_orders": 30924,
+      "mtd_revenue": 19357911,
+      "mtd_orders": 30934,
       "mtd_avg_check": 626,
       "plan_month": 82090000,
       "expected_to_date": 21184516,
       "pct_of_plan": 23.6,
-      "pct_vs_expected": 91.3,
+      "pct_vs_expected": 91.4,
       "day_of_month": 8,
       "days_in_month": 31
     },
@@ -378,13 +378,13 @@
       },
       {
         "name": "Паруса",
-        "mtd_revenue": 1147990,
-        "mtd_orders": 1815,
+        "mtd_revenue": 1152040,
+        "mtd_orders": 1819,
         "mtd_avg_check": 633,
         "plan_month": 4900000,
         "expected_to_date": 1264516,
-        "pct_of_plan": 23.4,
-        "pct_vs_expected": 90.8,
+        "pct_of_plan": 23.5,
+        "pct_vs_expected": 91.1,
         "avg_check_plan": 627,
         "pct_avg_check": 101.0
       },
@@ -486,15 +486,15 @@
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 653596,
-        "mtd_orders": 1208,
-        "mtd_avg_check": 541,
+        "mtd_revenue": 657782,
+        "mtd_orders": 1214,
+        "mtd_avg_check": 542,
         "plan_month": 3350000,
         "expected_to_date": 864516,
-        "pct_of_plan": 19.5,
-        "pct_vs_expected": 75.6,
+        "pct_of_plan": 19.6,
+        "pct_vs_expected": 76.1,
         "avg_check_plan": 530,
-        "pct_avg_check": 102.1
+        "pct_avg_check": 102.3
       },
       {
         "name": "Домашний",
