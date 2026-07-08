@@ -1,13 +1,31 @@
 {
   "date": "2026-07-08",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 578,
+    "orders": 2,
+    "avg_check": 289,
+    "discount_pct": 50.9
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Арсиб",
+      "revenue": 339,
+      "orders": 1,
+      "avg_check": 339
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 239,
+      "orders": 1,
+      "avg_check": 239
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 578
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-02",
@@ -42,15 +60,46 @@
     {
       "date": "2026-07-08",
       "day_name": "Ср",
-      "revenue": 0
+      "revenue": 578
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 359
+    },
+    {
+      "name": "Блинчики с ветчиной",
+      "group": "Блины и сырники",
+      "qty": 1,
+      "revenue": 339
+    },
+    {
+      "name": "Флэт Уайт 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 269
+    },
+    {
+      "name": "- блин с ветчиной и сыром 1 шт",
+      "group": "*Блины",
+      "qty": 1,
+      "revenue": 129
+    },
+    {
+      "name": "- Миндальное Флэт Уайт_б",
+      "group": "Молоко Флэт Уайт 350мл",
+      "qty": 1,
+      "revenue": 80
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 18203124,
-      "mtd_orders": 29078,
+      "mtd_revenue": 18203702,
+      "mtd_orders": 29080,
       "mtd_avg_check": 626,
       "plan_month": 82090000,
       "expected_to_date": 21184516,
@@ -170,13 +219,13 @@
       },
       {
         "name": "Гарден Кофе Тобольск",
-        "mtd_revenue": 1001356,
-        "mtd_orders": 1470,
+        "mtd_revenue": 1001595,
+        "mtd_orders": 1471,
         "mtd_avg_check": 681,
         "plan_month": 4300000,
         "expected_to_date": 1109677,
         "pct_of_plan": 23.3,
-        "pct_vs_expected": 90.2,
+        "pct_vs_expected": 90.3,
         "avg_check_plan": 675,
         "pct_avg_check": 100.9
       },
@@ -194,8 +243,8 @@
       },
       {
         "name": "Арсиб",
-        "mtd_revenue": 815640,
-        "mtd_orders": 1373,
+        "mtd_revenue": 815979,
+        "mtd_orders": 1374,
         "mtd_avg_check": 594,
         "plan_month": 3170000,
         "expected_to_date": 818065,

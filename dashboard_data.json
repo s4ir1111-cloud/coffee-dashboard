@@ -2,16 +2,33 @@
   "date": "2026-07-08",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Арсиб",
+        "DishDiscountSumInt": 339,
+        "DishSumInt": 907,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Гарден Кофе Тобольск",
+        "DishDiscountSumInt": 239,
+        "DishSumInt": 269,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
     "data": [
       {
         "Department": "Арсиб",
-        "DishDiscountSumInt": 815640,
-        "DishSumInt": 950529,
-        "UniqOrderId.OrdersCount": 1373
+        "DishDiscountSumInt": 815979,
+        "DishSumInt": 951436,
+        "UniqOrderId.OrdersCount": 1374
       },
       {
         "Department": "Видный",
@@ -45,9 +62,9 @@
       },
       {
         "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 1001356,
-        "DishSumInt": 1089411,
-        "UniqOrderId.OrdersCount": 1470
+        "DishDiscountSumInt": 1001595,
+        "DishSumInt": 1089680,
+        "UniqOrderId.OrdersCount": 1471
       },
       {
         "Department": "Домашний",
@@ -131,7 +148,44 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Флэт Уайт 250мл",
+        "DishName": "- *Молоко Флэт Уайт_м",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Флэт Уайт 350мл",
+        "DishName": "- Миндальное Флэт Уайт_б",
+        "DishSumInt": 80
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "*Блины",
+        "DishName": "- блин с ветчиной и сыром 1 шт ",
+        "DishSumInt": 129
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Блины и сырники",
+        "DishName": "Блинчики с ветчиной ",
+        "DishSumInt": 339
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Флэт Уайт 250 мл ",
+        "DishSumInt": 269
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Флэт Уайт 350 мл ",
+        "DishSumInt": 359
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +219,11 @@
         "DishDiscountSumInt": 2522453,
         "DishSumInt": 2881323,
         "OpenDate.Typed": "2026-07-07"
+      },
+      {
+        "DishDiscountSumInt": 578,
+        "DishSumInt": 1176,
+        "OpenDate.Typed": "2026-07-08"
       }
     ],
     "summary": []
