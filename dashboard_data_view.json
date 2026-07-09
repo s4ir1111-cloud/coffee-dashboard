@@ -2,12 +2,30 @@
   "date": "2026-07-09",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 2,
     "avg_check": 0,
-    "discount_pct": 0
+    "discount_pct": 100.0
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Новин",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    },
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-03",
@@ -45,12 +63,19 @@
       "revenue": 0
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Капучино 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 289
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
       "mtd_revenue": 20838546,
-      "mtd_orders": 33464,
+      "mtd_orders": 33466,
       "mtd_avg_check": 623,
       "plan_month": 82090000,
       "expected_to_date": 23832581,
@@ -75,14 +100,14 @@
       {
         "name": "Прео",
         "mtd_revenue": 1784908,
-        "mtd_orders": 2615,
-        "mtd_avg_check": 683,
+        "mtd_orders": 2616,
+        "mtd_avg_check": 682,
         "plan_month": 6400000,
         "expected_to_date": 1858065,
         "pct_of_plan": 27.9,
         "pct_vs_expected": 96.1,
         "avg_check_plan": 565,
-        "pct_avg_check": 120.9
+        "pct_avg_check": 120.7
       },
       {
         "name": "Свердлова",
@@ -147,14 +172,14 @@
       {
         "name": "Новин",
         "mtd_revenue": 1217552,
-        "mtd_orders": 1815,
-        "mtd_avg_check": 671,
+        "mtd_orders": 1816,
+        "mtd_avg_check": 670,
         "plan_month": 4750000,
         "expected_to_date": 1379032,
         "pct_of_plan": 25.6,
         "pct_vs_expected": 88.3,
         "avg_check_plan": 618,
-        "pct_avg_check": 108.6
+        "pct_avg_check": 108.4
       },
       {
         "name": "Панорама",

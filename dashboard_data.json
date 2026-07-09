@@ -2,7 +2,24 @@
   "date": "2026-07-09",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Новин",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 289,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -82,8 +99,8 @@
       {
         "Department": "Новин",
         "DishDiscountSumInt": 1217552,
-        "DishSumInt": 1476839,
-        "UniqOrderId.OrdersCount": 1815
+        "DishSumInt": 1477128,
+        "UniqOrderId.OrdersCount": 1816
       },
       {
         "Department": "Океан",
@@ -113,7 +130,7 @@
         "Department": "Преображенский",
         "DishDiscountSumInt": 1784908,
         "DishSumInt": 1997685,
-        "UniqOrderId.OrdersCount": 2615
+        "UniqOrderId.OrdersCount": 2616
       },
       {
         "Department": "Свердлова",
@@ -131,7 +148,26 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Молоко Капучино 350мл*",
+        "DishName": "- *Молоко Капучино Б",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Капучино 350 мл ",
+        "DishSumInt": 289
+      },
+      {
+        "DishAmountInt": 4,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +201,11 @@
         "DishDiscountSumInt": 2612548,
         "DishSumInt": 3004314,
         "OpenDate.Typed": "2026-07-08"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 289,
+        "OpenDate.Typed": "2026-07-09"
       }
     ],
     "summary": []
