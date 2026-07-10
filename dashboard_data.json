@@ -2,7 +2,24 @@
   "date": "2026-07-10",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Драмтеатр",
+        "DishDiscountSumInt": 251,
+        "DishSumInt": 358,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -57,9 +74,9 @@
       },
       {
         "Department": "Драмтеатр",
-        "DishDiscountSumInt": 793177,
-        "DishSumInt": 901092,
-        "UniqOrderId.OrdersCount": 1465
+        "DishDiscountSumInt": 793428,
+        "DishSumInt": 901450,
+        "UniqOrderId.OrdersCount": 1466
       },
       {
         "Department": "Европа",
@@ -107,7 +124,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 1401382,
         "DishSumInt": 1656782,
-        "UniqOrderId.OrdersCount": 2201
+        "UniqOrderId.OrdersCount": 2202
       },
       {
         "Department": "Преображенский",
@@ -131,7 +148,20 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 2,
+        "DishGroup": "Несладкие",
+        "DishName": "Форель 20 г",
+        "DishSumInt": 358
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +195,11 @@
         "DishDiscountSumInt": 2678264,
         "DishSumInt": 3076977,
         "OpenDate.Typed": "2026-07-09"
+      },
+      {
+        "DishDiscountSumInt": 251,
+        "DishSumInt": 358,
+        "OpenDate.Typed": "2026-07-10"
       }
     ],
     "summary": []
