@@ -1,13 +1,25 @@
 {
   "date": "2026-07-11",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 278,
+    "orders": 1,
+    "avg_check": 278,
+    "discount_pct": 36.2
   },
-  "points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Драмтеатр",
+      "revenue": 278,
+      "orders": 1,
+      "avg_check": 278
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 278
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-05",
@@ -42,15 +54,34 @@
     {
       "date": "2026-07-11",
       "day_name": "Сб",
-      "revenue": 0
+      "revenue": 278
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Форель 20 г",
+      "group": "Несладкие",
+      "qty": 2,
+      "revenue": 358
+    },
+    {
+      "name": "Хлеб ржано-пшеничный 50 г(ЯНДЕКС)",
+      "group": "Не сладкие",
+      "qty": 1,
+      "revenue": 39
+    },
+    {
+      "name": "доп.Хлеб ржано-пшеничный 50 г",
+      "group": "Несладкие",
+      "qty": 1,
+      "revenue": 39
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 26218563,
-      "mtd_orders": 42266,
+      "mtd_revenue": 26218841,
+      "mtd_orders": 42267,
       "mtd_avg_check": 620,
       "plan_month": 82090000,
       "expected_to_date": 29128710,
@@ -254,8 +285,8 @@
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 880500,
-        "mtd_orders": 1618,
+        "mtd_revenue": 880778,
+        "mtd_orders": 1619,
         "mtd_avg_check": 544,
         "plan_month": 3350000,
         "expected_to_date": 1188710,

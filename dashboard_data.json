@@ -2,7 +2,16 @@
   "date": "2026-07-11",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Драмтеатр",
+        "DishDiscountSumInt": 278,
+        "DishSumInt": 436,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_mtd_raw": {
@@ -57,9 +66,9 @@
       },
       {
         "Department": "Драмтеатр",
-        "DishDiscountSumInt": 880500,
-        "DishSumInt": 1001431,
-        "UniqOrderId.OrdersCount": 1618
+        "DishDiscountSumInt": 880778,
+        "DishSumInt": 1001867,
+        "UniqOrderId.OrdersCount": 1619
       },
       {
         "Department": "Европа",
@@ -131,7 +140,26 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 2,
+        "DishGroup": "Несладкие",
+        "DishName": "Форель 20 г",
+        "DishSumInt": 358
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Не сладкие",
+        "DishName": "Хлеб ржано-пшеничный 50 г(ЯНДЕКС)",
+        "DishSumInt": 39
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Несладкие",
+        "DishName": "доп.Хлеб ржано-пшеничный 50 г",
+        "DishSumInt": 39
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -165,6 +193,11 @@
         "DishDiscountSumInt": 2701753,
         "DishSumInt": 3134497,
         "OpenDate.Typed": "2026-07-10"
+      },
+      {
+        "DishDiscountSumInt": 278,
+        "DishSumInt": 436,
+        "OpenDate.Typed": "2026-07-11"
       }
     ],
     "summary": []
