@@ -1,12 +1,30 @@
 {
   "date": "2026-07-12",
   "summary": {
-    "revenue": 0,
-    "orders": 1,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 3597,
+    "orders": 7,
+    "avg_check": 514,
+    "discount_pct": 24.7
   },
   "points": [
+    {
+      "name": "Видный",
+      "revenue": 1614,
+      "orders": 1,
+      "avg_check": 1614
+    },
+    {
+      "name": "Советская",
+      "revenue": 1383,
+      "orders": 4,
+      "avg_check": 346
+    },
+    {
+      "name": "Европа",
+      "revenue": 600,
+      "orders": 1,
+      "avg_check": 600
+    },
     {
       "name": "Панорама",
       "revenue": 0,
@@ -17,7 +35,7 @@
   "hourly": [
     {
       "hour": "07",
-      "revenue": 0
+      "revenue": 3597
     }
   ],
   "weekly": [
@@ -54,15 +72,64 @@
     {
       "date": "2026-07-12",
       "day_name": "Вс",
-      "revenue": 0
+      "revenue": 3597
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Комбо завтрак Бариста",
+      "group": "Завтраки",
+      "qty": 2,
+      "revenue": 1018
+    },
+    {
+      "name": "Капучино 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 3,
+      "revenue": 867
+    },
+    {
+      "name": "Омлет с трюфельным соусом",
+      "group": "Завтраки",
+      "qty": 1,
+      "revenue": 389
+    },
+    {
+      "name": "Блины Жюльен",
+      "group": "Блины и сырники",
+      "qty": 1,
+      "revenue": 379
+    },
+    {
+      "name": "Скрембл с салатом из овощей",
+      "group": "Завтраки",
+      "qty": 1,
+      "revenue": 379
+    },
+    {
+      "name": "Американо 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 289
+    },
+    {
+      "name": "Латте 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 289
+    },
+    {
+      "name": "Каша пшенная",
+      "group": "Каши",
+      "qty": 1,
+      "revenue": 259
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 28956622,
-      "mtd_orders": 46055,
+      "mtd_revenue": 28960219,
+      "mtd_orders": 46061,
       "mtd_avg_check": 629,
       "plan_month": 82090000,
       "expected_to_date": 31776774,
@@ -122,13 +189,13 @@
       },
       {
         "name": "Видный",
-        "mtd_revenue": 1922014,
-        "mtd_orders": 2728,
+        "mtd_revenue": 1923628,
+        "mtd_orders": 2729,
         "mtd_avg_check": 705,
         "plan_month": 5250000,
         "expected_to_date": 2032258,
         "pct_of_plan": 36.6,
-        "pct_vs_expected": 94.6,
+        "pct_vs_expected": 94.7,
         "avg_check_plan": 695,
         "pct_avg_check": 101.4
       },
@@ -146,13 +213,13 @@
       },
       {
         "name": "Советская",
-        "mtd_revenue": 1732874,
-        "mtd_orders": 2888,
+        "mtd_revenue": 1734257,
+        "mtd_orders": 2892,
         "mtd_avg_check": 600,
         "plan_month": 4200000,
         "expected_to_date": 1625806,
         "pct_of_plan": 41.3,
-        "pct_vs_expected": 106.6,
+        "pct_vs_expected": 106.7,
         "avg_check_plan": 573,
         "pct_avg_check": 104.7
       },
@@ -218,8 +285,8 @@
       },
       {
         "name": "Европа",
-        "mtd_revenue": 1134475,
-        "mtd_orders": 1826,
+        "mtd_revenue": 1135075,
+        "mtd_orders": 1827,
         "mtd_avg_check": 621,
         "plan_month": 3400000,
         "expected_to_date": 1316129,
