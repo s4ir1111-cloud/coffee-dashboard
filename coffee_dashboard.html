@@ -192,6 +192,19 @@
     </svg>
     <div class="logo-sub">Продажи кофеен · онлайн-дашборд</div>
   </div>
+  <div id="filter-wrap" style="position:relative;display:flex;align-items:center;">
+    <button id="filter-btn" onclick="toggleFilterPanel()" style="
+      padding:7px 16px;border-radius:8px;border:1px solid var(--border);
+      background:var(--card2);color:var(--accent);
+      font-size:13px;font-weight:700;cursor:pointer;font-family:'Barlow Condensed',Arial,sans-serif;
+      letter-spacing:1px;text-transform:uppercase;transition:.15s;white-space:nowrap;">
+      Все точки ▾
+    </button>
+    <div id="filter-panel" style="display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+      background:var(--card);border:1px solid var(--border);border-radius:10px;
+      padding:14px;width:360px;z-index:200;box-shadow:0 8px 40px rgba(0,0,0,.6);">
+    </div>
+  </div>
   <div class="clock" id="clock">--:--:--</div>
 </header>
 
@@ -288,121 +301,241 @@
 </footer>
 
 <script>
+  // ── ЧАСЫ ──
   function updateClock(){
-    const now = new Date();
-    document.getElementById('clock').textContent = now.toLocaleTimeString('ru-RU');
+    document.getElementById('clock').textContent = new Date().toLocaleTimeString('ru-RU');
   }
   updateClock();
   setInterval(updateClock, 1000);
 
-  // Убираем "Гарден", "Кофе", "кофейня" из названий — оставляем только уникальную часть
-  function cleanName(name) {
-    return name
-      .replace(/Гарден\s+Кофе\s+/gi, '')
-      .replace(/Гарден\s+/gi, '')
-      .replace(/\s*Кофе\b/gi, '')
-      .replace(/\s*кофейня\b/gi, '')
-      .replace(/\s*Кофейня\b/gi, '')
-      .trim();
+  // ── ХЕЛПЕРЫ ──
+  function cleanName(name){
+    return name.replace(/Гарден\s+Кофе\s+/gi,'').replace(/Гарден\s+/gi,'')
+               .replace(/\s*Кофе\b/gi,'').replace(/\s*[Кк]офейня\b/gi,'').trim();
   }
-
-  function fmtMoney(n){
-    return Math.round(n).toLocaleString('ru-RU') + ' ₽';
-  }
+  function fmtMoney(n){ return Math.round(n).toLocaleString('ru-RU') + ' ₽'; }
   function fmtMoneyShort(n){
     n = Math.round(n);
-    if(Math.abs(n) >= 1000){
-      return (n/1000).toLocaleString('ru-RU', {maximumFractionDigits:0}) + ' тыс ₽';
-    }
+    if(Math.abs(n) >= 1e6) return (n/1e6).toFixed(1) + ' млн ₽';
+    if(Math.abs(n) >= 1e3) return (n/1e3).toLocaleString('ru-RU',{maximumFractionDigits:0}) + ' тыс ₽';
     return n.toLocaleString('ru-RU') + ' ₽';
   }
 
+  // ── ДАННЫЕ И ФИЛЬТР ──
+  let rawData = null;
   let weeklyData = [];
   let todayStr = '';
+  let selectedStores = new Set(); // пусто = все
 
-  function renderData(data){
-    document.getElementById('sum-revenue').textContent = fmtMoney(data.summary.revenue);
-    document.getElementById('sum-date').textContent = data.date;
-    document.getElementById('sum-orders').textContent = data.summary.orders.toLocaleString('ru-RU');
-    document.getElementById('sum-avg').textContent = 'Средний чек: ' + fmtMoney(data.summary.avg_check);
-    document.getElementById('sum-discount').textContent = (data.summary.discount_pct ?? '—') + (data.summary.discount_pct != null ? ' %' : '');
+  const CITY_GROUPS = {
+    'Тюмень': ['Океан','Свердлова','Паруса','Видный','Панорама','Калинка','Новин',
+                'Драмтеатр','Газпром','Осипенко','Европа','Гагарина','Домашний',
+                'Ворлд Класс','Советская','Мельникайте','Арсиб','Прео'],
+    'Сургут': ['Гарден Кофе Сургут'],
+    'Тобольск': ['Гарден Кофе Тобольск'],
+  };
 
-    // карта планов по имени точки
-    const planMap = {};
-    if(data.plan){
-      data.plan.points.forEach(p => { planMap[p.name] = p; });
+  function getAvailNames(){ return (rawData?.points || []).map(p => p.name); }
+
+  function toggleFilterPanel(){
+    const panel = document.getElementById('filter-panel');
+    const isOpen = panel.style.display !== 'none';
+    panel.style.display = isOpen ? 'none' : 'block';
+    if(!isOpen) buildFilterPanel();
+  }
+
+  // Закрыть при клике вне панели
+  document.addEventListener('click', e => {
+    const wrap = document.getElementById('filter-wrap');
+    if(wrap && !wrap.contains(e.target)){
+      document.getElementById('filter-panel').style.display = 'none';
     }
+  });
+
+  function toggleStore(name){
+    if(selectedStores.has(name)) selectedStores.delete(name);
+    else selectedStores.add(name);
+    buildFilterPanel();
+    updateFilterBtn();
+    if(rawData) renderFiltered(rawData);
+  }
+
+  function toggleCityFilter(city){
+    const avail = (CITY_GROUPS[city]||[]).filter(p => getAvailNames().includes(p));
+    const allSel = avail.every(p => selectedStores.has(p));
+    avail.forEach(p => allSel ? selectedStores.delete(p) : selectedStores.add(p));
+    buildFilterPanel();
+    updateFilterBtn();
+    if(rawData) renderFiltered(rawData);
+  }
+
+  function resetFilter(){
+    selectedStores.clear();
+    buildFilterPanel();
+    updateFilterBtn();
+    if(rawData) renderFiltered(rawData);
+  }
+
+  function updateFilterBtn(){
+    const btn = document.getElementById('filter-btn');
+    const n = selectedStores.size;
+    btn.textContent = n > 0 ? `${n} точек ✕` : 'Все точки ▾';
+    btn.style.background = n > 0 ? 'var(--accent)' : 'var(--card2)';
+    btn.style.color = n > 0 ? '#2d3147' : 'var(--accent)';
+    btn.style.borderColor = n > 0 ? 'var(--accent)' : 'var(--border)';
+  }
+
+  function buildFilterPanel(){
+    const allNames = getAvailNames();
+    const panel = document.getElementById('filter-panel');
+
+    let html = `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+      <span style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:600;">Выберите точки</span>
+      <button onclick="resetFilter()" style="font-size:11px;background:none;border:none;color:var(--accent);cursor:pointer;font-family:inherit;">Сбросить все</button>
+    </div>`;
+
+    // Чипы городов
+    html += `<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;">`;
+    for(const [city, pts] of Object.entries(CITY_GROUPS)){
+      const avail = pts.filter(p => allNames.includes(p));
+      if(!avail.length) continue;
+      const allSel  = avail.every(p => selectedStores.has(p));
+      const someSel = avail.some(p  => selectedStores.has(p));
+      const bg  = allSel ? 'var(--accent)' : someSel ? 'rgba(190,223,61,.25)' : 'var(--card2)';
+      const col = allSel ? '#2d3147' : 'var(--text)';
+      html += `<button onclick="toggleCityFilter('${city}')" style="padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:${bg};color:${col};font-size:11px;font-weight:700;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;">${city}</button>`;
+    }
+    html += `</div>`;
+
+    // Сетка точек
+    html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;max-height:280px;overflow-y:auto;">`;
+    allNames.forEach(name => {
+      const isSel = selectedStores.has(name);
+      const bg  = isSel ? 'rgba(190,223,61,.15)' : 'transparent';
+      const col = isSel ? 'var(--accent)' : 'var(--muted)';
+      const brd = isSel ? '1px solid rgba(190,223,61,.4)' : '1px solid transparent';
+      const pfx = isSel ? '✓ ' : '';
+      html += `<button onclick="toggleStore('${name.replace(/'/g,"\\'")}')" style="text-align:left;padding:5px 8px;border-radius:5px;border:${brd};background:${bg};color:${col};font-size:11px;cursor:pointer;font-family:'Barlow',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${pfx}${cleanName(name)}</button>`;
+    });
+    html += `</div>`;
+
+    panel.innerHTML = html;
+  }
+
+  // ── РЕНДЕР ──
+  function renderData(data){
+    rawData = data;
+    buildFilterPanel();
+    updateFilterBtn();
+    renderFiltered(data);
+  }
+
+  function renderFiltered(data){
+    const points = selectedStores.size === 0
+      ? data.points
+      : data.points.filter(p => selectedStores.has(p.name));
+
+    const planPts = data.plan
+      ? (selectedStores.size === 0 ? data.plan.points : data.plan.points.filter(p => selectedStores.has(p.name)))
+      : [];
+
+    // — Сводка сегодня —
+    const totalRev    = points.reduce((s,p) => s + (p.revenue||0), 0);
+    const totalOrders = points.reduce((s,p) => s + (p.orders||0), 0);
+    const totalAvgChk = totalOrders ? Math.round(totalRev/totalOrders) : 0;
+
+    document.getElementById('sum-revenue').textContent = fmtMoney(totalRev);
+    document.getElementById('sum-date').textContent    = data.date;
+    document.getElementById('sum-orders').textContent  = totalOrders.toLocaleString('ru-RU');
+    document.getElementById('sum-avg').textContent     = 'Средний чек: ' + fmtMoney(totalAvgChk);
+    // скидки — агрегат по сети, не фильтруем
+    document.getElementById('sum-discount').textContent =
+      (data.summary.discount_pct ?? '—') + (data.summary.discount_pct != null ? ' %' : '');
+
+    // — План/факт сводка —
+    if(data.plan){
+      const ps  = data.plan.summary;
+      const dom = ps.day_of_month || 1;
+      const dim = ps.days_in_month || 30;
+
+      let mtd, plan, pctPlan, pctPace, exp;
+      if(selectedStores.size === 0){
+        mtd = ps.mtd_revenue; plan = ps.plan_month;
+        pctPlan = ps.pct_of_plan; pctPace = ps.pct_vs_expected;
+        exp = ps.expected_to_date;
+      } else {
+        mtd  = planPts.reduce((s,p) => s + (p.mtd_revenue||0), 0);
+        plan = planPts.reduce((s,p) => s + (p.plan_month||0), 0);
+        exp  = Math.round(plan * (dom/dim));
+        pctPlan = plan ? Math.round(mtd/plan*1000)/10 : 0;
+        pctPace = exp  ? Math.round(mtd/exp *1000)/10 : 0;
+      }
+
+      document.getElementById('plan-mtd').textContent      = fmtMoneyShort(mtd);
+      document.getElementById('plan-day').textContent      = `День ${dom} из ${dim}`;
+      document.getElementById('plan-month').textContent    = fmtMoneyShort(plan);
+      document.getElementById('plan-pct').textContent      = pctPlan + '%';
+      document.getElementById('plan-expected').textContent = 'Ожидалось: ' + fmtMoneyShort(exp);
+      const paceEl = document.getElementById('plan-pace');
+      paceEl.textContent = pctPace + '%';
+      paceEl.className = 'value ' + (pctPace >= 100 ? 'good' : pctPace >= 90 ? '' : 'bad');
+    }
+
+    // — Таблицы —
+    const planMap = {};
+    planPts.forEach(p => { planMap[p.name] = p; });
 
     const tbody1 = document.getElementById('points-tbody-1');
     const tbody2 = document.getElementById('points-tbody-2');
     tbody1.innerHTML = '';
     tbody2.innerHTML = '';
-    const half = Math.ceil(data.points.length / 2);
+    const half = Math.ceil(points.length / 2);
 
-    data.points.forEach((p, idx) => {
-      const plan = planMap[p.name];
-      const paceClass = plan ? (plan.pct_vs_expected >= 100 ? 'good' : (plan.pct_vs_expected >= 90 ? '' : 'bad')) : '';
+    points.forEach((p, idx) => {
+      const pl = planMap[p.name];
+      const paceClass = pl ? (pl.pct_vs_expected >= 100 ? 'good' : pl.pct_vs_expected >= 90 ? '' : 'bad') : '';
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td class="name-cell">${cleanName(p.name)}</td>
         <td>${fmtMoneyShort(p.revenue)}</td>
         <td>${p.orders}</td>
         <td>${fmtMoneyShort(p.avg_check)}</td>
-        <td>${plan ? fmtMoneyShort(plan.mtd_revenue) : '—'}</td>
-        <td>${plan ? fmtMoneyShort(plan.plan_month) : '—'}</td>
-        <td>${plan ? plan.pct_of_plan + '%' : '—'}</td>
-        <td class="${paceClass}">${plan ? plan.pct_vs_expected + '%' : '—'}</td>`;
+        <td>${pl ? fmtMoneyShort(pl.mtd_revenue) : '—'}</td>
+        <td>${pl ? fmtMoneyShort(pl.plan_month)  : '—'}</td>
+        <td>${pl ? pl.pct_of_plan  + '%' : '—'}</td>
+        <td class="${paceClass}">${pl ? pl.pct_vs_expected + '%' : '—'}</td>`;
       (idx < half ? tbody1 : tbody2).appendChild(tr);
     });
 
+    // — Летние напитки (по всей сети) —
     const summerList = document.getElementById('summer-list');
     summerList.innerHTML = '';
-    const summerItems = data.summer_drinks || [];
-    if(summerItems.length === 0){
-      summerList.innerHTML = '<li style="color:var(--muted)">Нет данных — обновится при следующем запуске</li>';
-    } else {
-      summerItems.slice(0, 8).forEach(it => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span>${it.name}</span><span class="qty">${it.qty} шт · ${fmtMoneyShort(it.revenue)}</span>`;
-        summerList.appendChild(li);
-      });
+    (data.summer_drinks || []).slice(0,8).forEach(it => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${it.name}</span><span class="qty">${it.qty} шт · ${fmtMoneyShort(it.revenue)}</span>`;
+      summerList.appendChild(li);
+    });
+    if(!(data.summer_drinks||[]).length){
+      summerList.innerHTML = '<li style="color:var(--muted)">Нет данных</li>';
     }
 
     weeklyData = data.weekly || [];
     todayStr = data.date;
     drawChart();
-
-    // --- План/факт с начала месяца (сводка) ---
-    if(data.plan){
-      const ps = data.plan.summary;
-      document.getElementById('plan-mtd').textContent = fmtMoneyShort(ps.mtd_revenue);
-      document.getElementById('plan-day').textContent = `День ${ps.day_of_month} из ${ps.days_in_month}`;
-      document.getElementById('plan-month').textContent = fmtMoneyShort(ps.plan_month);
-      document.getElementById('plan-pct').textContent = ps.pct_of_plan + '%';
-      document.getElementById('plan-expected').textContent = 'Ожидалось: ' + fmtMoneyShort(ps.expected_to_date);
-      const paceEl = document.getElementById('plan-pace');
-      paceEl.textContent = ps.pct_vs_expected + '%';
-      paceEl.className = 'value ' + (ps.pct_vs_expected >= 100 ? 'good' : (ps.pct_vs_expected >= 90 ? '' : 'bad'));
-    }
   }
 
+  // ── ЗАГРУЗКА ──
   function loadData(){
-    fetch('dashboard_data_view.json', {cache: 'no-store'})
-      .then(r => {
-        if(!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
+    fetch('dashboard_data_view.json', {cache:'no-store'})
+      .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(renderData)
-      .catch(err => {
-        document.getElementById('status-badge').textContent = 'ошибка загрузки: ' + err.message;
-        document.getElementById('status-badge').style.color = '#ff5d6c';
-      });
+      .catch(err => console.error('Ошибка загрузки:', err));
   }
 
   loadData();
-  // Автообновление каждые 5 минут — подходит для мониторов
   setInterval(loadData, 5 * 60 * 1000);
 
+  // ── ГРАФИК ──
   const canvas = document.getElementById('revenueChart');
   const ctx = canvas.getContext('2d');
 
@@ -411,66 +544,50 @@
     const dpr = window.devicePixelRatio || 1;
     const w = canvas.clientWidth;
     const h = canvas.clientHeight || 140;
-    canvas.width = w * dpr;
+    canvas.width  = w * dpr;
     canvas.height = h * dpr;
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, w, h);
 
-    const padL = 8, padR = 8, padT = 10, padB = 28;
-    const chartW = w - padL - padR;
-    const chartH = h - padT - padB;
-    const n = weeklyData.length;
-    const values = weeklyData.map(d => d.revenue);
-    const max = Math.max(...values, 1);
-    const barGap = 6;
-    const barW = (chartW - barGap * (n - 1)) / n;
+    const padL=8,padR=8,padT=10,padB=28;
+    const chartW=w-padL-padR, chartH=h-padT-padB;
+    const n=weeklyData.length;
+    const values=weeklyData.map(d=>d.revenue);
+    const max=Math.max(...values,1);
+    const barGap=6, barW=(chartW-barGap*(n-1))/n;
 
-    // Горизонтальные линии сетки
-    ctx.strokeStyle = '#26324a';
-    ctx.lineWidth = 1;
-    for(let i = 0; i <= 4; i++){
-      const y = padT + (chartH / 4) * i;
-      ctx.beginPath();
-      ctx.moveTo(padL, y);
-      ctx.lineTo(w - padR, y);
-      ctx.stroke();
+    ctx.strokeStyle='#26324a'; ctx.lineWidth=1;
+    for(let i=0;i<=4;i++){
+      const y=padT+(chartH/4)*i;
+      ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke();
     }
 
-    weeklyData.forEach((d, i) => {
-      const x = padL + i * (barW + barGap);
-      const barH = (d.revenue / max) * chartH;
-      const y = padT + chartH - barH;
-      const isToday = d.date === todayStr;
+    weeklyData.forEach((d,i)=>{
+      const x=padL+i*(barW+barGap);
+      const barH=(d.revenue/max)*chartH;
+      const y=padT+chartH-barH;
+      const isToday=d.date===todayStr;
 
-      // Столбик
-      ctx.fillStyle = isToday ? '#bedf3d' : '#4a5b7a';
-      const r = 4;
+      ctx.fillStyle=isToday?'#bedf3d':'#4a5b7a';
+      const r=4;
       ctx.beginPath();
-      ctx.moveTo(x + r, y);
-      ctx.lineTo(x + barW - r, y);
-      ctx.quadraticCurveTo(x + barW, y, x + barW, y + r);
-      ctx.lineTo(x + barW, y + barH);
-      ctx.lineTo(x, y + barH);
-      ctx.lineTo(x, y + r);
-      ctx.quadraticCurveTo(x, y, x + r, y);
-      ctx.fill();
+      ctx.moveTo(x+r,y); ctx.lineTo(x+barW-r,y);
+      ctx.quadraticCurveTo(x+barW,y,x+barW,y+r);
+      ctx.lineTo(x+barW,y+barH); ctx.lineTo(x,y+barH); ctx.lineTo(x,y+r);
+      ctx.quadraticCurveTo(x,y,x+r,y); ctx.fill();
 
-      // Значение над столбиком
-      if(d.revenue > 0){
-        ctx.fillStyle = isToday ? '#bedf3d' : '#9da5c0';
-        ctx.font = `bold ${Math.max(9, Math.min(11, Math.floor(barW * 0.4)))}px 'Barlow Condensed', sans-serif`;
-        ctx.textAlign = 'center';
-        const label = d.revenue >= 1000000
-          ? (d.revenue / 1000000).toFixed(1) + 'М'
-          : Math.round(d.revenue / 1000) + 'к';
-        ctx.fillText(label, x + barW / 2, Math.max(padT + 10, y - 3));
+      if(d.revenue>0){
+        ctx.fillStyle=isToday?'#bedf3d':'#9da5c0';
+        ctx.font=`bold ${Math.max(9,Math.min(11,Math.floor(barW*.4)))}px 'Barlow Condensed',sans-serif`;
+        ctx.textAlign='center';
+        const label=d.revenue>=1e6?(d.revenue/1e6).toFixed(1)+'М':Math.round(d.revenue/1000)+'к';
+        ctx.fillText(label,x+barW/2,Math.max(padT+10,y-3));
       }
 
-      // День недели внизу
-      ctx.fillStyle = isToday ? '#bedf3d' : '#9da5c0';
-      ctx.font = `${isToday ? 'bold' : 'normal'} 12px 'Barlow Condensed', sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.fillText(d.day_name, x + barW / 2, h - 6);
+      ctx.fillStyle=isToday?'#bedf3d':'#9da5c0';
+      ctx.font=`${isToday?'bold':'normal'} 12px 'Barlow Condensed',sans-serif`;
+      ctx.textAlign='center';
+      ctx.fillText(d.day_name,x+barW/2,h-6);
     });
   }
   window.addEventListener('resize', drawChart);
