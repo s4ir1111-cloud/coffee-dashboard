@@ -1,23 +1,101 @@
 {
   "date": "2026-07-14",
   "summary": {
-    "revenue": 0,
-    "orders": 1,
-    "avg_check": 0,
-    "discount_pct": 0
+    "revenue": 24553,
+    "orders": 50,
+    "avg_check": 491,
+    "discount_pct": 18.3
   },
   "points": [
     {
+      "name": "Океан",
+      "revenue": 4981,
+      "orders": 9,
+      "avg_check": 553
+    },
+    {
+      "name": "Паруса",
+      "revenue": 4755,
+      "orders": 4,
+      "avg_check": 1189
+    },
+    {
+      "name": "Прео",
+      "revenue": 3775,
+      "orders": 7,
+      "avg_check": 539
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 1920,
+      "orders": 4,
+      "avg_check": 480
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 1883,
+      "orders": 5,
+      "avg_check": 377
+    },
+    {
       "name": "Панорама",
-      "revenue": 0,
+      "revenue": 1296,
+      "orders": 4,
+      "avg_check": 324
+    },
+    {
+      "name": "Калинка",
+      "revenue": 1166,
+      "orders": 3,
+      "avg_check": 389
+    },
+    {
+      "name": "Газпром",
+      "revenue": 955,
+      "orders": 3,
+      "avg_check": 318
+    },
+    {
+      "name": "Новин",
+      "revenue": 916,
+      "orders": 3,
+      "avg_check": 305
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 905,
+      "orders": 2,
+      "avg_check": 452
+    },
+    {
+      "name": "Домашний",
+      "revenue": 757,
+      "orders": 3,
+      "avg_check": 252
+    },
+    {
+      "name": "Видный",
+      "revenue": 527,
       "orders": 1,
-      "avg_check": 0
+      "avg_check": 527
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 478,
+      "orders": 1,
+      "avg_check": 478
+    },
+    {
+      "name": "Советская",
+      "revenue": 239,
+      "orders": 1,
+      "avg_check": 239
     }
   ],
   "hourly": [
     {
       "hour": "07",
-      "revenue": 0
+      "revenue": 24553
     }
   ],
   "weekly": [
@@ -54,52 +132,120 @@
     {
       "date": "2026-07-14",
       "day_name": "Вт",
-      "revenue": 0
+      "revenue": 24553
     }
   ],
-  "top_items": [],
-  "summer_drinks": [],
+  "top_items": [
+    {
+      "name": "Капучино 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 29,
+      "revenue": 8041
+    },
+    {
+      "name": "Норвежский завтрак",
+      "group": "Завтраки",
+      "qty": 2,
+      "revenue": 1498
+    },
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 4,
+      "revenue": 1436
+    },
+    {
+      "name": "Раф Цитрусовый",
+      "group": "Рафы 350",
+      "qty": 3,
+      "revenue": 957
+    },
+    {
+      "name": "Раф Ванильный 450",
+      "group": "Рафы 450",
+      "qty": 2,
+      "revenue": 898
+    },
+    {
+      "name": "Латте 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 3,
+      "revenue": 867
+    },
+    {
+      "name": "Ливанский завтрак (с болгарским перцем)",
+      "group": "Завтраки",
+      "qty": 2,
+      "revenue": 798
+    },
+    {
+      "name": "Блины Жюльен",
+      "group": "Блины и сырники",
+      "qty": 2,
+      "revenue": 758
+    }
+  ],
+  "summer_drinks": [
+    {
+      "name": "Эспрессо Тоник манго-каламанси",
+      "group": "Тоник",
+      "qty": 1,
+      "revenue": 469
+    },
+    {
+      "name": "Эспрессо-Тоник классический (ЯНДЕКС)",
+      "group": "Холодный кофе и матча_350",
+      "qty": 1,
+      "revenue": 379
+    },
+    {
+      "name": "Хол. Чай Жасмин-тимьян",
+      "group": "Холодный чай 350/590",
+      "qty": 1,
+      "revenue": 279
+    }
+  ],
   "plan": {
     "summary": {
-      "mtd_revenue": 33992968,
-      "mtd_orders": 53814,
+      "mtd_revenue": 34017521,
+      "mtd_orders": 53863,
       "mtd_avg_check": 632,
       "plan_month": 82090000,
       "expected_to_date": 37072903,
       "pct_of_plan": 41.4,
-      "pct_vs_expected": 91.7,
+      "pct_vs_expected": 91.8,
       "day_of_month": 14,
       "days_in_month": 31
     },
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 3488007,
-        "mtd_orders": 5848,
+        "mtd_revenue": 3492988,
+        "mtd_orders": 5857,
         "mtd_avg_check": 596,
         "plan_month": 8340000,
         "expected_to_date": 3766452,
-        "pct_of_plan": 41.8,
-        "pct_vs_expected": 92.6,
+        "pct_of_plan": 41.9,
+        "pct_vs_expected": 92.7,
         "avg_check_plan": 580,
         "pct_avg_check": 102.8
       },
       {
         "name": "Прео",
-        "mtd_revenue": 2980519,
-        "mtd_orders": 4350,
+        "mtd_revenue": 2984294,
+        "mtd_orders": 4357,
         "mtd_avg_check": 685,
         "plan_month": 6400000,
         "expected_to_date": 2890323,
         "pct_of_plan": 46.6,
-        "pct_vs_expected": 103.1,
+        "pct_vs_expected": 103.3,
         "avg_check_plan": 565,
         "pct_avg_check": 121.2
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 2616324,
-        "mtd_orders": 4049,
+        "mtd_revenue": 2616802,
+        "mtd_orders": 4050,
         "mtd_avg_check": 646,
         "plan_month": 6100000,
         "expected_to_date": 2754839,
@@ -110,20 +256,20 @@
       },
       {
         "name": "Калинка",
-        "mtd_revenue": 2412245,
-        "mtd_orders": 4023,
-        "mtd_avg_check": 600,
+        "mtd_revenue": 2413411,
+        "mtd_orders": 4026,
+        "mtd_avg_check": 599,
         "plan_month": 5450000,
         "expected_to_date": 2461290,
         "pct_of_plan": 44.3,
-        "pct_vs_expected": 98.0,
+        "pct_vs_expected": 98.1,
         "avg_check_plan": 597,
-        "pct_avg_check": 100.5
+        "pct_avg_check": 100.3
       },
       {
         "name": "Видный",
-        "mtd_revenue": 2247218,
-        "mtd_orders": 3192,
+        "mtd_revenue": 2247745,
+        "mtd_orders": 3193,
         "mtd_avg_check": 704,
         "plan_month": 5250000,
         "expected_to_date": 2370968,
@@ -134,32 +280,32 @@
       },
       {
         "name": "Новин",
-        "mtd_revenue": 2039958,
-        "mtd_orders": 2973,
+        "mtd_revenue": 2040874,
+        "mtd_orders": 2976,
         "mtd_avg_check": 686,
         "plan_month": 4750000,
         "expected_to_date": 2145161,
-        "pct_of_plan": 42.9,
+        "pct_of_plan": 43.0,
         "pct_vs_expected": 95.1,
         "avg_check_plan": 618,
         "pct_avg_check": 111.0
       },
       {
         "name": "Паруса",
-        "mtd_revenue": 2021858,
-        "mtd_orders": 3109,
-        "mtd_avg_check": 650,
+        "mtd_revenue": 2026613,
+        "mtd_orders": 3113,
+        "mtd_avg_check": 651,
         "plan_month": 4900000,
         "expected_to_date": 2212903,
-        "pct_of_plan": 41.3,
-        "pct_vs_expected": 91.4,
+        "pct_of_plan": 41.4,
+        "pct_vs_expected": 91.6,
         "avg_check_plan": 627,
-        "pct_avg_check": 103.7
+        "pct_avg_check": 103.8
       },
       {
         "name": "Советская",
-        "mtd_revenue": 1978779,
-        "mtd_orders": 3316,
+        "mtd_revenue": 1979018,
+        "mtd_orders": 3317,
         "mtd_avg_check": 597,
         "plan_month": 4200000,
         "expected_to_date": 1896774,
@@ -170,15 +316,15 @@
       },
       {
         "name": "Панорама",
-        "mtd_revenue": 1917225,
-        "mtd_orders": 3012,
-        "mtd_avg_check": 637,
+        "mtd_revenue": 1918521,
+        "mtd_orders": 3015,
+        "mtd_avg_check": 636,
         "plan_month": 4550000,
         "expected_to_date": 2054839,
-        "pct_of_plan": 42.1,
-        "pct_vs_expected": 93.3,
+        "pct_of_plan": 42.2,
+        "pct_vs_expected": 93.4,
         "avg_check_plan": 599,
-        "pct_avg_check": 106.3
+        "pct_avg_check": 106.2
       },
       {
         "name": "Гарден Кофе Тобольск",
@@ -194,13 +340,13 @@
       },
       {
         "name": "Гарден Кофе Сургут",
-        "mtd_revenue": 1506571,
-        "mtd_orders": 1980,
+        "mtd_revenue": 1507476,
+        "mtd_orders": 1982,
         "mtd_avg_check": 761,
         "plan_month": 4600000,
         "expected_to_date": 2077419,
         "pct_of_plan": 32.8,
-        "pct_vs_expected": 72.5,
+        "pct_vs_expected": 72.6,
         "avg_check_plan": 720,
         "pct_avg_check": 105.7
       },
@@ -242,21 +388,21 @@
       },
       {
         "name": "Мельникайте",
-        "mtd_revenue": 1197827,
-        "mtd_orders": 1917,
+        "mtd_revenue": 1199747,
+        "mtd_orders": 1921,
         "mtd_avg_check": 625,
         "plan_month": 2950000,
         "expected_to_date": 1332258,
-        "pct_of_plan": 40.6,
-        "pct_vs_expected": 89.9,
+        "pct_of_plan": 40.7,
+        "pct_vs_expected": 90.1,
         "avg_check_plan": 590,
         "pct_avg_check": 105.9
       },
       {
         "name": "Домашний",
-        "mtd_revenue": 1141674,
-        "mtd_orders": 1700,
-        "mtd_avg_check": 672,
+        "mtd_revenue": 1142431,
+        "mtd_orders": 1703,
+        "mtd_avg_check": 671,
         "plan_month": 3000000,
         "expected_to_date": 1354839,
         "pct_of_plan": 38.1,
@@ -290,25 +436,25 @@
       },
       {
         "name": "Осипенко",
-        "mtd_revenue": 392738,
-        "mtd_orders": 959,
-        "mtd_avg_check": 410,
+        "mtd_revenue": 394621,
+        "mtd_orders": 964,
+        "mtd_avg_check": 409,
         "plan_month": 1030000,
         "expected_to_date": 465161,
-        "pct_of_plan": 38.1,
-        "pct_vs_expected": 84.4,
+        "pct_of_plan": 38.3,
+        "pct_vs_expected": 84.8,
         "avg_check_plan": 413,
-        "pct_avg_check": 99.3
+        "pct_avg_check": 99.0
       },
       {
         "name": "Газпром",
-        "mtd_revenue": 332933,
-        "mtd_orders": 1150,
+        "mtd_revenue": 333888,
+        "mtd_orders": 1153,
         "mtd_avg_check": 290,
         "plan_month": 1050000,
         "expected_to_date": 474194,
-        "pct_of_plan": 31.7,
-        "pct_vs_expected": 70.2,
+        "pct_of_plan": 31.8,
+        "pct_vs_expected": 70.4,
         "avg_check_plan": 301,
         "pct_avg_check": 96.3
       }
