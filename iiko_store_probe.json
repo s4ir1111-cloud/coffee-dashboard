@@ -10,8 +10,231 @@
     "ТЦ ЕКБ"
   ],
   "matches": [],
-  "name_like": [],
+  "name_like": [
+    {
+      "path": "$.stores[16]",
+      "id": 120401,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": 120401,
+      "name": "Гарден Кофе Сургут",
+      "code": "30",
+      "raw": {
+        "id": 120401,
+        "code": "30",
+        "accountId": 45599,
+        "crmId": 5449262,
+        "templateId": 41728,
+        "templateName": "Default",
+        "restaurantAddress": "Ханты-Мансийский автономный округ, Сургут, 7, улица Маяковского",
+        "timeZone": "(UTC+5:00) Азия/Екатеринбург",
+        "isAliveConnection": true,
+        "jurPersonId": "b4bf77e6-b1dd-4942-82ed-e092728471a9",
+        "jurPersonName": "ООО \"Гарден Сургут\"",
+        "uocOrganizationId": "046dd863-3c66-47ac-9482-226293dbad0a",
+        "departmentId": "c8463a45-c0d1-45d0-8f97-65013edcdea7",
+        "name": "Гарден Кофе Сургут",
+        "lat": "61.2491867",
+        "lng": "73.4193925",
+        "addressComment": "",
+        "available": true
+      },
+      "endpoint": "GET /api/stores/list"
+    },
+    {
+      "path": "$.stores[19]",
+      "id": 170714,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": 170714,
+      "name": "Гарден Кофе Тобольск",
+      "code": "43",
+      "raw": {
+        "id": 170714,
+        "code": "43",
+        "accountId": 45599,
+        "crmId": 8906197,
+        "templateId": 41728,
+        "templateName": "Default",
+        "restaurantAddress": "7-й микрорайон, 30, Тюмень, Тюменская область, Россия, 626157",
+        "timeZone": "(UTC+5:00) Азия/Екатеринбург",
+        "isAliveConnection": true,
+        "jurPersonId": "9a47afd0-493d-4251-bd98-5b956a3466aa",
+        "jurPersonName": "ИП Туров А.Н.",
+        "uocOrganizationId": "75df7ed6-62bb-4bd3-8262-d200941145a3",
+        "departmentId": "5ed06b6d-dfea-4fd9-b517-d24401516990",
+        "name": "Гарден Кофе Тобольск",
+        "lat": "0.0000000",
+        "lng": "0.0000000",
+        "addressComment": "",
+        "available": true
+      },
+      "endpoint": "GET /api/stores/list"
+    },
+    {
+      "path": "$[6]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "Гарден",
+      "code": null,
+      "raw": {
+        "index": 6,
+        "name": "Гарден",
+        "nodeType": "GROUP",
+        "parentIndex": null,
+        "store": null
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[7]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "Гарден Кофе Сургут",
+      "code": null,
+      "raw": {
+        "index": 7,
+        "name": "Гарден Кофе Сургут",
+        "nodeType": "STORE",
+        "parentIndex": 19
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[8]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "Гарден Кофе Тобольск",
+      "code": null,
+      "raw": {
+        "index": 8,
+        "name": "Гарден Кофе Тобольск",
+        "nodeType": "STORE",
+        "parentIndex": 13
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[17]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "ООО \"Гарден Кофе Роастерс\"",
+      "code": null,
+      "raw": {
+        "index": 18,
+        "name": "ООО \"Гарден Кофе Роастерс\"",
+        "nodeType": "GROUP",
+        "parentIndex": 6,
+        "store": null
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[18]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "ООО \"Гарден Сургут\"",
+      "code": null,
+      "raw": {
+        "index": 19,
+        "name": "ООО \"Гарден Сургут\"",
+        "nodeType": "GROUP",
+        "parentIndex": 6,
+        "store": null
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[19]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "ООО \"Гарден Урал\"",
+      "code": null,
+      "raw": {
+        "index": 20,
+        "name": "ООО \"Гарден Урал\"",
+        "nodeType": "GROUP",
+        "parentIndex": 6,
+        "store": null
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[20]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "ООО \"Гарден\"",
+      "code": null,
+      "raw": {
+        "index": 21,
+        "name": "ООО \"Гарден\"",
+        "nodeType": "GROUP",
+        "parentIndex": 6,
+        "store": null
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    },
+    {
+      "path": "$[21]",
+      "id": null,
+      "storeId": null,
+      "restaurantId": null,
+      "guid": null,
+      "name": "ООО \"Гарденс\"",
+      "code": null,
+      "raw": {
+        "index": 22,
+        "name": "ООО \"Гарденс\"",
+        "nodeType": "GROUP",
+        "parentIndex": 6,
+        "store": null
+      },
+      "endpoint": "GET /api/kpi-metric/stores"
+    }
+  ],
   "probe_summary": [
+    {
+      "endpoint": "GET /api/auth",
+      "status": 200,
+      "has_json": true,
+      "text_head": "{\"domain\":\"kofeinya-garden-co-co\",\"clientName\":\"\\u041a\\u043e\\u0444\\u0435\\u0439\\u043d\\u044f GARDEN \\u0426\\u041e\",\"authorized\":true,\"user\":{\"accountId\":45599,\"id\":\"d2857e20-2be9-40bc-8361-89371c44cb62\",\"name\":\"\\u0427\\u0438\\u0440\\u043a\\u043e\\u0432 \\u0421\\u0435\\u0440\\u0433\\u0435\\u0439 \\u0412\\u0438\\u043a",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/config/get",
+      "status": 200,
+      "has_json": true,
+      "text_head": "{\"currency\":{\"name\":\"Russian Rouble\",\"symbol\":\"\\u20bd\",\"isoCode\":\"RUB\",\"isoNumber\":\"643\",\"maxMinorLength\":2,\"banknotes\":[50,100,200,500,1000,2000,5000]},\"percentPrecision\":0,\"weekStartDay\":\"1\",\"new\":false,\"default_locale\":\"ru_RU\",\"vatIncludedInPrice\":true,\"useSuppliersProducts\":true,\"isChain\":true,\"",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/stores/list",
+      "status": 200,
+      "has_json": true,
+      "text_head": "{\"error\":false,\"errorMessage\":\"\",\"stores\":[{\"id\":56178,\"code\":\"3\",\"accountId\":45599,\"crmId\":1845653,\"templateId\":41728,\"templateName\":\"Default\",\"templateProperties\":{\"isExpress\":true,\"isDineIn\":false,\"isDelco\":false,\"intervals\":[{\"name\":\"INTERVAL.DEFAULT.MORNING\",\"time\":\"12:00\"},{\"name\":\"INTERVAL.DE",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/kpi-metric/stores",
+      "status": 200,
+      "has_json": true,
+      "text_head": "[{\"index\":0,\"name\":\"Garden \\u041a\\u0426\",\"nodeType\":\"STORE\",\"parentIndex\":21,\"store\":{\"id\":56203,\"storeCode\":\"7\",\"storeName\":\"Garden \\u041a\\u0426\",\"isExpress\":true,\"isDelco\":false,\"isAliveConnection\":true,\"isNotUsed\":false,\"uocOrganizationId\":\"b4d9fbbf-c90d-4a11-8613-14b13f33b700\"}},{\"index\":1,\"name",
+      "error": null
+    },
     {
       "endpoint": "POST /api/kpi/dashboard/get-data",
       "status": 400,
