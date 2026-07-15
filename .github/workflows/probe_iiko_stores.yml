@@ -1,0 +1,41 @@
+name: Probe iiko stores
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - probe_iiko_stores.py
+      - .github/workflows/probe_iiko_stores.yml
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - name: Probe stores
+        env:
+          IIKO_HOST:         ${{ secrets.IIKO_HOST }}
+          IIKO_LOGIN:        ${{ secrets.IIKO_LOGIN }}
+          IIKO_PASSWORD:     ${{ secrets.IIKO_PASSWORD }}
+          IIKO_WEB_HOST:     ${{ secrets.IIKO_WEB_HOST }}
+          IIKO_WEB_LOGIN:    ${{ secrets.IIKO_WEB_LOGIN }}
+          IIKO_WEB_PASSWORD: ${{ secrets.IIKO_WEB_PASSWORD }}
+        run: python probe_iiko_stores.py
+
+      - name: Commit probe result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add iiko_store_probe.json
+          git diff --staged --quiet || git commit -m "probe: iiko stores $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main
+          git push
