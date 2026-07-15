@@ -19,6 +19,7 @@ STORE_IDS = [
     178149, 115697, 56197, 56190, 80486, 87392, 56193, 80477,
     56188, 156443, 59619, 56178, 94945, 108119, 56458, 56203,
 ]
+SAMPLE_STORE_IDS = [80477, 56178, 56203]
 
 TARGET_NAMES = [
     "ИП Бокслер Обжарка",
@@ -165,7 +166,9 @@ def olap_query(session, group_fields, store_ids_marker):
         "includeVoidTransactions": False,
         "includeNonBusinessPaymentTypes": False,
     }
-    if store_ids_marker == "all_known":
+    if isinstance(store_ids_marker, int):
+        body["storeIds"] = [store_ids_marker]
+    elif store_ids_marker == "all_known":
         body["storeIds"] = STORE_IDS
     elif store_ids_marker == "empty":
         body["storeIds"] = []
@@ -244,16 +247,24 @@ def main():
 
     field_results = []
     for field in CANDIDATE_FIELDS:
-        result = olap_query(session, [field], "all_known")
-        if result.get("ok"):
-            field_results.append(summarize_rows(field, result.get("rows") or []))
-        else:
-            field_results.append({
-                "field": field,
-                "ok": False,
-                "stage": result.get("stage"),
-                "message": result.get("message"),
-            })
+        samples = []
+        for store_id in SAMPLE_STORE_IDS:
+            result = olap_query(session, [field], store_id)
+            if result.get("ok"):
+                summary = summarize_rows(field, result.get("rows") or [])
+                summary["store_id"] = store_id
+                summary["row_count"] = result.get("row_count")
+                samples.append(summary)
+            else:
+                samples.append({
+                    "store_id": store_id,
+                    "ok": False,
+                    "stage": result.get("stage"),
+                    "message": result.get("message"),
+                })
+                if result.get("stage") == "init":
+                    break
+        field_results.append({"field": field, "samples": samples})
 
     no_store_results = []
     for marker in ["omitted", "empty"]:
