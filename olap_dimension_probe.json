@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T09:07:37Z",
+  "generated_at": "2026-07-15T09:13:33Z",
   "period": {
     "from": "2026-06-01",
     "to": "2026-07-01"
@@ -104,315 +104,1269 @@
   "field_results": [
     {
       "field": "Store.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Store.StoreName",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Store.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Store.Code",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Restaurant.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Restaurant.Restaurant",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Restaurant.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Restaurant.Code",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Department.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Department",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "field": "Department",
+          "unique_values": 1,
+          "matches": [],
+          "sample_values": [
+            {
+              "value": "Обжарка",
+              "sum": -307691.24
+            }
+          ],
+          "store_id": 80477,
+          "row_count": 1
+        },
+        {
+          "field": "Department",
+          "unique_values": 1,
+          "matches": [],
+          "sample_values": [
+            {
+              "value": "Паруса",
+              "sum": 1464944.45
+            }
+          ],
+          "store_id": 56178,
+          "row_count": 1
+        },
+        {
+          "field": "Department",
+          "unique_values": 0,
+          "matches": [],
+          "sample_values": [],
+          "store_id": 56203,
+          "row_count": 0
+        }
+      ]
     },
     {
       "field": "Department.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Department.Code",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "field": "Department.Code",
+          "unique_values": 1,
+          "matches": [],
+          "sample_values": [
+            {
+              "value": "16",
+              "sum": -307691.24
+            }
+          ],
+          "store_id": 80477,
+          "row_count": 1
+        },
+        {
+          "field": "Department.Code",
+          "unique_values": 1,
+          "matches": [],
+          "sample_values": [
+            {
+              "value": "3",
+              "sum": 1464944.45
+            }
+          ],
+          "store_id": 56178,
+          "row_count": 1
+        },
+        {
+          "field": "Department.Code",
+          "unique_values": 0,
+          "matches": [],
+          "sample_values": [],
+          "store_id": 56203,
+          "row_count": 0
+        }
+      ]
     },
     {
       "field": "Division.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Division",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Division.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Subdivision.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Subdivision",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Subdivision.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Organization.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Organization",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Organization.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "UocOrganization.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "UocOrganization.Id",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Conception.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Conception",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "field": "Conception",
+          "unique_values": 1,
+          "matches": [],
+          "sample_values": [
+            {
+              "value": "Обжарка зерна",
+              "sum": -93140.94
+            }
+          ],
+          "store_id": 80477,
+          "row_count": 2
+        },
+        {
+          "field": "Conception",
+          "unique_values": 5,
+          "matches": [
+            {
+              "target": "Офис",
+              "value": "Офис",
+              "sum": 0
+            }
+          ],
+          "sample_values": [
+            {
+              "value": "04. Парус",
+              "sum": 2954319.05
+            },
+            {
+              "value": "06. Новин",
+              "sum": 0
+            },
+            {
+              "value": "08. Газпром",
+              "sum": 0
+            },
+            {
+              "value": "Офис",
+              "sum": 0
+            },
+            {
+              "value": "Тренинг центр",
+              "sum": 0
+            }
+          ],
+          "store_id": 56178,
+          "row_count": 6
+        },
+        {
+          "field": "Conception",
+          "unique_values": 0,
+          "matches": [],
+          "sample_values": [],
+          "store_id": 56203,
+          "row_count": 0
+        }
+      ]
     },
     {
       "field": "Concept.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Concept",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "LegalEntity.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "LegalEntity",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "JurPerson.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "JurPerson",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Corporation.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Corporation",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Company.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Company",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Account.Organization",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Account.Department",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Account.Store",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Transaction.Department",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Transaction.Store",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Transaction.Restaurant",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "CashRegister.Store",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "CashRegister.StoreName",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "PriceCategory.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "RevenueCenter.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "CostCenter.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "CostCentre.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "AccountingObject.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Place.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Outlet.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "PointOfSale.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     },
     {
       "field": "Terminal.Name",
-      "ok": false,
-      "stage": "init",
-      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+      "samples": [
+        {
+          "store_id": 80477,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56178,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        },
+        {
+          "store_id": 56203,
+          "ok": false,
+          "stage": "status",
+          "message": "ERROR"
+        }
+      ]
     }
   ],
   "no_store_results": [
