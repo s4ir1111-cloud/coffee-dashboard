@@ -1,0 +1,434 @@
+{
+  "generated_at": "2026-07-15T09:07:37Z",
+  "period": {
+    "from": "2026-06-01",
+    "to": "2026-07-01"
+  },
+  "targets": [
+    "ИП Бокслер Обжарка",
+    "Кейтеринг",
+    "Московская",
+    "Офис",
+    "Склад Гарден ТМЦ/ОС",
+    "Склад Гарден Урал ТМЦ/ОС",
+    "Склад ГарденС ТМЦ/ОС",
+    "Склад Республики Гарден Кофе Роастерс",
+    "Софилэнд",
+    "ТЦ Бариста",
+    "ТЦ ЕКБ",
+    "Цех (инвест)"
+  ],
+  "metadata": [
+    {
+      "endpoint": "GET /api/olap/fields",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/fields\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/fields\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "GET /api/olap/fields?olapType=TRANSACTIONS",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/fields\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/fields\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "GET /api/olap/metadata",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/metadata\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/metadata\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "GET /api/olap/metadata?olapType=TRANSACTIONS",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/metadata\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/metadata\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "GET /api/olap/schema",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/schema\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/schema\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "GET /api/olap/schema/TRANSACTIONS",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/schema/TRANSACTIONS\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/schema/TRANSACTIONS\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "GET /api/olap/get-fields",
+      "status": 404,
+      "errorMessage": "No route found for \"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/get-fields\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"GET http://kofeinya-garden-co-co.iikoweb.ru/api/olap/get-fields\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "POST /api/olap/get-fields",
+      "status": 404,
+      "errorMessage": "No route found for \"POST http://kofeinya-garden-co-co.iikoweb.ru/api/olap/get-fields\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"POST http://kofeinya-garden-co-co.iikoweb.ru/api/olap/get-fields\\\"\", \"formValidationError\": false}"
+      }
+    },
+    {
+      "endpoint": "POST /api/olap/fields",
+      "status": 404,
+      "errorMessage": "No route found for \"POST http://kofeinya-garden-co-co.iikoweb.ru/api/olap/fields\"",
+      "summary": {
+        "hits": [],
+        "text_head": "{\"error\": true, \"warning\": false, \"errorMessage\": \"No route found for \\\"POST http://kofeinya-garden-co-co.iikoweb.ru/api/olap/fields\\\"\", \"formValidationError\": false}"
+      }
+    }
+  ],
+  "field_results": [
+    {
+      "field": "Store.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Store.StoreName",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Store.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Store.Code",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Restaurant.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Restaurant.Restaurant",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Restaurant.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Restaurant.Code",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Department.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Department",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Department.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Department.Code",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Division.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Division",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Division.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Subdivision.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Subdivision",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Subdivision.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Organization.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Organization",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Organization.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "UocOrganization.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "UocOrganization.Id",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Conception.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Conception",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Concept.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Concept",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "LegalEntity.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "LegalEntity",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "JurPerson.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "JurPerson",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Corporation.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Corporation",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Company.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Company",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Account.Organization",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Account.Department",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Account.Store",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Transaction.Department",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Transaction.Store",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Transaction.Restaurant",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "CashRegister.Store",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "CashRegister.StoreName",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "PriceCategory.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "RevenueCenter.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "CostCenter.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "CostCentre.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "AccountingObject.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Place.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Outlet.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "PointOfSale.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    },
+    {
+      "field": "Terminal.Name",
+      "ok": false,
+      "stage": "init",
+      "message": "Для запроса отчета по нескольким ресторанам требуется лицензия"
+    }
+  ],
+  "no_store_results": [
+    {
+      "storeIds": "omitted",
+      "ok": false,
+      "stage": "init",
+      "message": "Restaurant must be array with length = 1",
+      "row_count": null
+    },
+    {
+      "storeIds": "empty",
+      "ok": false,
+      "stage": "init",
+      "message": "Restaurant must be array with length = 1",
+      "row_count": null
+    }
+  ]
+}
