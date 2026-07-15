@@ -1,0 +1,93 @@
+{
+  "targets": [
+    "Кейтеринг",
+    "Офис",
+    "Склад Гарден ТМЦ/ОС",
+    "Склад Гарден Урал ТМЦ/ОС",
+    "Склад ГарденС ТМЦ/ОС",
+    "Склад Республики Гарден Кофе Роастерс",
+    "ТЦ Бариста",
+    "ТЦ ЕКБ"
+  ],
+  "matches": [],
+  "name_like": [],
+  "probe_summary": [
+    {
+      "endpoint": "POST /api/kpi/dashboard/get-data",
+      "status": 400,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"The required option \\u0022storeIds\\u0022 is missing.\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "POST /api/kpi/dashboard/get-data",
+      "status": 400,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"Restaurant must be set\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/kpi/dashboard/get-filter-data",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/kpi\\/dashboard\\/get-filter-data\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "POST /api/kpi/dashboard/get-filter-data",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022POST http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/kpi\\/dashboard\\/get-filter-data\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/kpi/dashboard/filters",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/kpi\\/dashboard\\/filters\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "POST /api/kpi/dashboard/filters",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022POST http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/kpi\\/dashboard\\/filters\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/kpi/dashboard/get-settings",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/kpi\\/dashboard\\/get-settings\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/restaurants",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/restaurants\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/restaurant",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/restaurant\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/organization/restaurant/list",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/organization\\/restaurant\\/list\\u0022\",\"formValidationError\":false}",
+      "error": null
+    },
+    {
+      "endpoint": "GET /api/olap/dictionaries",
+      "status": 404,
+      "has_json": true,
+      "text_head": "{\"error\":true,\"warning\":false,\"errorMessage\":\"No route found for \\u0022GET http:\\/\\/kofeinya-garden-co-co.iikoweb.ru\\/api\\/olap\\/dictionaries\\u0022\",\"formValidationError\":false}",
+      "error": null
+    }
+  ]
+}
