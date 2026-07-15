@@ -84,6 +84,10 @@ def main():
 
     probes = []
     endpoints = [
+        ("GET", "/api/auth", None),
+        ("GET", "/api/config/get", None),
+        ("GET", "/api/stores/list", None),
+        ("GET", "/api/kpi-metric/stores", None),
         ("POST", "/api/kpi/dashboard/get-data", {
             "dataType": "DATA_SUMMARY_BY_STORE",
             "dateFrom": "2026-07-01",
