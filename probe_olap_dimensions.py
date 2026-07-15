@@ -36,60 +36,7 @@ TARGET_NAMES = [
     "Цех (инвест)",
 ]
 
-CANDIDATE_FIELDS = [
-    "Store.Name",
-    "Store.StoreName",
-    "Store.Id",
-    "Store.Code",
-    "Restaurant.Name",
-    "Restaurant.Restaurant",
-    "Restaurant.Id",
-    "Restaurant.Code",
-    "Department.Name",
-    "Department",
-    "Department.Id",
-    "Department.Code",
-    "Division.Name",
-    "Division",
-    "Division.Id",
-    "Subdivision.Name",
-    "Subdivision",
-    "Subdivision.Id",
-    "Organization.Name",
-    "Organization",
-    "Organization.Id",
-    "UocOrganization.Name",
-    "UocOrganization.Id",
-    "Conception.Name",
-    "Conception",
-    "Concept.Name",
-    "Concept",
-    "LegalEntity.Name",
-    "LegalEntity",
-    "JurPerson.Name",
-    "JurPerson",
-    "Corporation.Name",
-    "Corporation",
-    "Company.Name",
-    "Company",
-    "Account.Organization",
-    "Account.Department",
-    "Account.Store",
-    "Transaction.Department",
-    "Transaction.Store",
-    "Transaction.Restaurant",
-    "CashRegister.Store",
-    "CashRegister.StoreName",
-    "PriceCategory.Name",
-    "RevenueCenter.Name",
-    "CostCenter.Name",
-    "CostCentre.Name",
-    "AccountingObject.Name",
-    "Place.Name",
-    "Outlet.Name",
-    "PointOfSale.Name",
-    "Terminal.Name",
-]
+CANDIDATE_FIELDS = ["Department", "Department.Code", "Conception"]
 
 METADATA_ENDPOINTS = [
     ("GET", "/api/olap/fields", None),
@@ -285,6 +232,21 @@ def main():
         "field_results": field_results,
         "no_store_results": no_store_results,
     }
+
+    all_known_scan = []
+    for store_id in STORE_IDS:
+        for field in CANDIDATE_FIELDS:
+            result = olap_query(session, [field], store_id)
+            if result.get("ok"):
+                summary = summarize_rows(field, result.get("rows") or [])
+                if summary["matches"]:
+                    all_known_scan.append({
+                        "store_id": store_id,
+                        "field": field,
+                        "matches": summary["matches"],
+                        "sample_values": summary["sample_values"],
+                    })
+    output["all_known_scan_matches"] = all_known_scan
 
     with open("olap_dimension_probe.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
