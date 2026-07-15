@@ -70,6 +70,25 @@ def compact_match(path, value):
     }
 
 
+def compact_store(value):
+    if not isinstance(value, dict):
+        return value
+    store = value.get("store") if isinstance(value.get("store"), dict) else value
+    return {
+        "index": value.get("index"),
+        "nodeType": value.get("nodeType"),
+        "parentIndex": value.get("parentIndex"),
+        "name": value.get("name") or store.get("name") or store.get("storeName"),
+        "id": value.get("id") or store.get("id"),
+        "code": value.get("code") or store.get("storeCode"),
+        "available": value.get("available") if "available" in value else store.get("available"),
+        "uocOrganizationId": value.get("uocOrganizationId") or store.get("uocOrganizationId"),
+        "departmentId": value.get("departmentId") or store.get("departmentId"),
+        "jurPersonName": value.get("jurPersonName") or store.get("jurPersonName"),
+        "raw": value,
+    }
+
+
 def main():
     session = requests.Session()
     login = session.post(
@@ -146,10 +165,22 @@ def main():
                 match["endpoint"] = f"{probe['method']} {probe['path']}"
                 all_name_like.append(match)
 
+    extracts = {}
+    for probe in probes:
+        endpoint = f"{probe['method']} {probe['path']}"
+        payload = probe.get("result", {}).get("json")
+        if endpoint == "GET /api/stores/list" and isinstance(payload, dict):
+            extracts["stores_list"] = [compact_store(item) for item in payload.get("stores", [])]
+        elif endpoint == "GET /api/kpi-metric/stores" and isinstance(payload, list):
+            extracts["kpi_metric_stores"] = [compact_store(item) for item in payload]
+        elif endpoint == "GET /api/config/get" and isinstance(payload, dict):
+            extracts["config_stores"] = [compact_store(item) for item in payload.get("stores", [])]
+
     output = {
         "targets": TARGETS,
         "matches": matches,
         "name_like": all_name_like,
+        "extracts": extracts,
         "probe_summary": [
             {
                 "endpoint": f"{p['method']} {p['path']}",
