@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T09:13:33Z",
+  "generated_at": "2026-07-15T09:15:26Z",
   "period": {
     "from": "2026-06-01",
     "to": "2026-07-01"
@@ -103,213 +103,6 @@
   ],
   "field_results": [
     {
-      "field": "Store.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Store.StoreName",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Store.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Store.Code",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Restaurant.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Restaurant.Restaurant",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Restaurant.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Restaurant.Code",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Department.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
       "field": "Department",
       "samples": [
         {
@@ -349,29 +142,6 @@
       ]
     },
     {
-      "field": "Department.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
       "field": "Department.Code",
       "samples": [
         {
@@ -407,282 +177,6 @@
           "sample_values": [],
           "store_id": 56203,
           "row_count": 0
-        }
-      ]
-    },
-    {
-      "field": "Division.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Division",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Division.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Subdivision.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Subdivision",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Subdivision.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Organization.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Organization",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Organization.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "UocOrganization.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "UocOrganization.Id",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Conception.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
         }
       ]
     },
@@ -746,627 +240,6 @@
           "row_count": 0
         }
       ]
-    },
-    {
-      "field": "Concept.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Concept",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "LegalEntity.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "LegalEntity",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "JurPerson.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "JurPerson",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Corporation.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Corporation",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Company.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Company",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Account.Organization",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Account.Department",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Account.Store",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Transaction.Department",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Transaction.Store",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Transaction.Restaurant",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "CashRegister.Store",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "CashRegister.StoreName",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "PriceCategory.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "RevenueCenter.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "CostCenter.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "CostCentre.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "AccountingObject.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Place.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Outlet.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "PointOfSale.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
-    },
-    {
-      "field": "Terminal.Name",
-      "samples": [
-        {
-          "store_id": 80477,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56178,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        },
-        {
-          "store_id": 56203,
-          "ok": false,
-          "stage": "status",
-          "message": "ERROR"
-        }
-      ]
     }
   ],
   "no_store_results": [
@@ -1383,6 +256,256 @@
       "stage": "init",
       "message": "Restaurant must be array with length = 1",
       "row_count": null
+    }
+  ],
+  "all_known_scan_matches": [
+    {
+      "store_id": 172412,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "23. ТЦ ЕКБ",
+          "value": "23. ТЦ ЕКБ",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "20. Гагарина",
+          "sum": 1518442.49
+        },
+        {
+          "value": "23. ТЦ ЕКБ",
+          "sum": 0
+        }
+      ]
+    },
+    {
+      "store_id": 56197,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "Офис",
+          "value": "Офис",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "05. Европейский",
+          "sum": 2081640.87
+        },
+        {
+          "value": "04. Парус",
+          "sum": -2.24
+        },
+        {
+          "value": "07. Панорама",
+          "sum": 0
+        },
+        {
+          "value": "Офис",
+          "sum": 0
+        }
+      ]
+    },
+    {
+      "store_id": 56190,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "Офис",
+          "value": "Офис",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "01. Калинка",
+          "sum": 3503133.86
+        },
+        {
+          "value": "02. Советская",
+          "sum": 0
+        },
+        {
+          "value": "03. Океан",
+          "sum": 0
+        },
+        {
+          "value": "06. Новин",
+          "sum": 0
+        },
+        {
+          "value": "07. Панорама",
+          "sum": 0
+        },
+        {
+          "value": "08. Газпром",
+          "sum": 0
+        },
+        {
+          "value": "12. Свердлова",
+          "sum": 0
+        },
+        {
+          "value": "Офис",
+          "sum": 0
+        }
+      ]
+    },
+    {
+      "store_id": 156443,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "17. Кейтеринг",
+          "value": "17. Кейтеринг",
+          "sum": 0
+        },
+        {
+          "target": "Офис",
+          "value": "Офис",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "16. Осипенко",
+          "sum": 587033.74
+        },
+        {
+          "value": "12. Свердлова",
+          "sum": 0
+        },
+        {
+          "value": "17. Кейтеринг",
+          "sum": 0
+        },
+        {
+          "value": "Офис",
+          "sum": 0
+        }
+      ]
+    },
+    {
+      "store_id": 59619,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "Офис",
+          "value": "Офис",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "07. Панорама",
+          "sum": 2681841.8
+        },
+        {
+          "value": "02. Советская",
+          "sum": -4.34
+        },
+        {
+          "value": "01. Калинка",
+          "sum": -0.87
+        },
+        {
+          "value": "05. Европейский",
+          "sum": 0
+        },
+        {
+          "value": "12. Свердлова",
+          "sum": 0
+        },
+        {
+          "value": "Офис",
+          "sum": 0
+        },
+        {
+          "value": "Тренинг центр",
+          "sum": 0
+        }
+      ]
+    },
+    {
+      "store_id": 56178,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "Офис",
+          "value": "Офис",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "04. Парус",
+          "sum": 2954319.05
+        },
+        {
+          "value": "06. Новин",
+          "sum": 0
+        },
+        {
+          "value": "08. Газпром",
+          "sum": 0
+        },
+        {
+          "value": "Офис",
+          "sum": 0
+        },
+        {
+          "value": "Тренинг центр",
+          "sum": 0
+        }
+      ]
+    },
+    {
+      "store_id": 108119,
+      "field": "Conception",
+      "matches": [
+        {
+          "target": "Офис",
+          "value": "Офис",
+          "sum": 0
+        }
+      ],
+      "sample_values": [
+        {
+          "value": "12. Свердлова",
+          "sum": 3988577.45
+        },
+        {
+          "value": "01. Калинка",
+          "sum": -1
+        },
+        {
+          "value": "16. Осипенко",
+          "sum": 0.28
+        },
+        {
+          "value": "02. Советская",
+          "sum": 0
+        },
+        {
+          "value": "03. Океан",
+          "sum": 0
+        },
+        {
+          "value": "05. Европейский",
+          "sum": 0
+        },
+        {
+          "value": "06. Новин",
+          "sum": 0
+        },
+        {
+          "value": "Офис",
+          "sum": 0
+        }
+      ]
     }
   ]
 }
