@@ -2,9 +2,9 @@
   "date": "2026-07-16",
   "summary": {
     "revenue": 2531119,
-    "orders": 4165,
-    "avg_check": 608,
-    "discount_pct": 13.7
+    "orders": 4167,
+    "avg_check": 607,
+    "discount_pct": 13.9
   },
   "points": [
     {
@@ -46,8 +46,8 @@
     {
       "name": "Панорама",
       "revenue": 145501,
-      "orders": 262,
-      "avg_check": 555
+      "orders": 264,
+      "avg_check": 551
     },
     {
       "name": "Паруса",
@@ -129,6 +129,10 @@
     }
   ],
   "hourly": [
+    {
+      "hour": "00",
+      "revenue": 0
+    },
     {
       "hour": "07",
       "revenue": 61032
@@ -338,7 +342,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 41794268,
-      "mtd_orders": 66678,
+      "mtd_orders": 66680,
       "mtd_avg_check": 627,
       "plan_month": 82090000,
       "expected_to_date": 42369032,
@@ -447,14 +451,14 @@
       {
         "name": "Панорама",
         "mtd_revenue": 2366571,
-        "mtd_orders": 3734,
-        "mtd_avg_check": 634,
+        "mtd_orders": 3736,
+        "mtd_avg_check": 633,
         "plan_month": 4550000,
         "expected_to_date": 2348387,
         "pct_of_plan": 52.0,
         "pct_vs_expected": 100.8,
         "avg_check_plan": 599,
-        "pct_avg_check": 105.8
+        "pct_avg_check": 105.7
       },
       {
         "name": "Гарден Кофе Тобольск",
