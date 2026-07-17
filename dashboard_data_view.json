@@ -1,10 +1,10 @@
 {
   "date": "2026-07-17",
   "summary": {
-    "revenue": 317741,
-    "orders": 611,
-    "avg_check": 520,
-    "discount_pct": 17.3
+    "revenue": 328901,
+    "orders": 628,
+    "avg_check": 524,
+    "discount_pct": 17.0
   },
   "points": [
     {
@@ -32,6 +32,12 @@
       "avg_check": 565
     },
     {
+      "name": "Новин",
+      "revenue": 23250,
+      "orders": 39,
+      "avg_check": 596
+    },
+    {
       "name": "Советская",
       "revenue": 20429,
       "orders": 50,
@@ -42,12 +48,6 @@
       "revenue": 19123,
       "orders": 38,
       "avg_check": 503
-    },
-    {
-      "name": "Новин",
-      "revenue": 18669,
-      "orders": 33,
-      "avg_check": 566
     },
     {
       "name": "Видный",
@@ -86,16 +86,22 @@
       "avg_check": 724
     },
     {
+      "name": "Домашний",
+      "revenue": 9955,
+      "orders": 18,
+      "avg_check": 553
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 9701,
+      "orders": 16,
+      "avg_check": 606
+    },
+    {
       "name": "Гагарина",
       "revenue": 9480,
       "orders": 11,
       "avg_check": 862
-    },
-    {
-      "name": "Драмтеатр",
-      "revenue": 9469,
-      "orders": 15,
-      "avg_check": 631
     },
     {
       "name": "Ворлд Класс",
@@ -104,16 +110,10 @@
       "avg_check": 588
     },
     {
-      "name": "Домашний",
-      "revenue": 7067,
-      "orders": 14,
-      "avg_check": 505
-    },
-    {
       "name": "Европа",
-      "revenue": 4946,
-      "orders": 12,
-      "avg_check": 412
+      "revenue": 8405,
+      "orders": 18,
+      "avg_check": 467
     },
     {
       "name": "Осипенко",
@@ -129,11 +129,11 @@
     },
     {
       "hour": "08",
-      "revenue": 190867
+      "revenue": 192064
     },
     {
       "hour": "09",
-      "revenue": 70054
+      "revenue": 80017
     }
   ],
   "weekly": [
@@ -170,27 +170,27 @@
     {
       "date": "2026-07-17",
       "day_name": "Пт",
-      "revenue": 317741
+      "revenue": 328901
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 210,
-      "revenue": 59250
+      "qty": 218,
+      "revenue": 61562
+    },
+    {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 40,
+      "revenue": 14360
     },
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
       "qty": 27,
       "revenue": 13833
-    },
-    {
-      "name": "Флэт Уайт 350 мл",
-      "group": "Кофе Терминал",
-      "qty": 38,
-      "revenue": 13642
     },
     {
       "name": "Норвежский завтрак",
@@ -201,8 +201,8 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 55,
-      "revenue": 12785
+      "qty": 56,
+      "revenue": 13024
     },
     {
       "name": "Латте 350 мл",
@@ -213,14 +213,14 @@
     {
       "name": "Скрембл с форелью",
       "group": "Завтраки",
-      "qty": 18,
-      "revenue": 10422
+      "qty": 19,
+      "revenue": 11001
     },
     {
-      "name": "Драник с форелью",
-      "group": "Завтраки",
-      "qty": 14,
-      "revenue": 8166
+      "name": "Раф Арахисовый",
+      "group": "Рафы 350",
+      "qty": 26,
+      "revenue": 8194
     }
   ],
   "summer_drinks": [
@@ -275,13 +275,13 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 42112009,
-      "mtd_orders": 67293,
+      "mtd_revenue": 42123169,
+      "mtd_orders": 67310,
       "mtd_avg_check": 626,
       "plan_month": 82090000,
       "expected_to_date": 45017097,
       "pct_of_plan": 51.3,
-      "pct_vs_expected": 93.5,
+      "pct_vs_expected": 93.6,
       "day_of_month": 17,
       "days_in_month": 31
     },
@@ -348,13 +348,13 @@
       },
       {
         "name": "Новин",
-        "mtd_revenue": 2545680,
-        "mtd_orders": 3771,
+        "mtd_revenue": 2550261,
+        "mtd_orders": 3777,
         "mtd_avg_check": 675,
         "plan_month": 4750000,
         "expected_to_date": 2604839,
-        "pct_of_plan": 53.6,
-        "pct_vs_expected": 97.7,
+        "pct_of_plan": 53.7,
+        "pct_vs_expected": 97.9,
         "avg_check_plan": 618,
         "pct_avg_check": 109.2
       },
@@ -432,15 +432,15 @@
       },
       {
         "name": "Европа",
-        "mtd_revenue": 1648278,
-        "mtd_orders": 2669,
-        "mtd_avg_check": 618,
+        "mtd_revenue": 1651737,
+        "mtd_orders": 2675,
+        "mtd_avg_check": 617,
         "plan_month": 3400000,
         "expected_to_date": 1864516,
-        "pct_of_plan": 48.5,
-        "pct_vs_expected": 88.4,
+        "pct_of_plan": 48.6,
+        "pct_vs_expected": 88.6,
         "avg_check_plan": 595,
-        "pct_avg_check": 103.9
+        "pct_avg_check": 103.7
       },
       {
         "name": "Мельникайте",
@@ -468,20 +468,20 @@
       },
       {
         "name": "Домашний",
-        "mtd_revenue": 1419759,
-        "mtd_orders": 2143,
+        "mtd_revenue": 1422647,
+        "mtd_orders": 2147,
         "mtd_avg_check": 663,
         "plan_month": 3000000,
         "expected_to_date": 1645161,
-        "pct_of_plan": 47.3,
-        "pct_vs_expected": 86.3,
+        "pct_of_plan": 47.4,
+        "pct_vs_expected": 86.5,
         "avg_check_plan": null,
         "pct_avg_check": null
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 1370123,
-        "mtd_orders": 2534,
+        "mtd_revenue": 1370355,
+        "mtd_orders": 2535,
         "mtd_avg_check": 541,
         "plan_month": 3350000,
         "expected_to_date": 1837097,
