@@ -74,6 +74,7 @@ def main():
     current_hours = [int(r["HourOpen"]) for r in rows if str(r.get("HourOpen", "")).isdigit()]
     comparison_hour = max(current_hours) if current_hours else None
     yesterday_by_dept = {}
+    yesterday_orders_by_dept = {}
     if comparison_hour is not None:
         for r in yesterday_rows:
             hour = str(r.get("HourOpen", ""))
@@ -82,6 +83,10 @@ def main():
             dept = DEPT_ALIASES.get(r["Department"], r["Department"])
             yesterday_by_dept[dept] = (
                 yesterday_by_dept.get(dept, 0) + r.get("DishDiscountSumInt", 0)
+            )
+            yesterday_orders_by_dept[dept] = (
+                yesterday_orders_by_dept.get(dept, 0)
+                + r.get("UniqOrderId.OrdersCount", 0)
             )
 
     points = []
@@ -95,6 +100,7 @@ def main():
             "orders": orders,
             "avg_check": avg_check,
             "yesterday_same_hour_revenue": yesterday_by_dept.get(dept, 0),
+            "yesterday_same_hour_orders": yesterday_orders_by_dept.get(dept, 0),
         })
 
     # --- По часам (для совместимости, не отображается) ---
@@ -140,6 +146,7 @@ def main():
     total_orders = sum(p["orders"] for p in points)
     total_avg_check = round(total_revenue / total_orders) if total_orders else 0
     total_yesterday_same_hour = sum(yesterday_by_dept.values())
+    total_yesterday_same_hour_orders = sum(yesterday_orders_by_dept.values())
 
     # --- % скидки по стандартному отчёту IIKO «Продажи по типам скидок» ---
     # Нельзя считать скидку как DishSumInt - DishDiscountSumInt: эта разница
@@ -216,12 +223,17 @@ def main():
             "orders": total_orders,
             "avg_check": total_avg_check,
             "yesterday_same_hour_revenue": total_yesterday_same_hour,
+            "yesterday_same_hour_orders": total_yesterday_same_hour_orders,
             "comparison_hour": f"{comparison_hour:02d}" if comparison_hour is not None else None,
             "discount_pct": discount_pct,
         },
         "points": points,
         "yesterday_same_hour_points": [
-            {"name": dept, "revenue": revenue}
+            {
+                "name": dept,
+                "revenue": revenue,
+                "orders": yesterday_orders_by_dept.get(dept, 0),
+            }
             for dept, revenue in sorted(
                 yesterday_by_dept.items(), key=lambda item: -item[1]
             )

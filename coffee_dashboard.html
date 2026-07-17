@@ -229,6 +229,7 @@
     <div class="label">Заказов сегодня</div>
     <div class="value" id="sum-orders">—</div>
     <div class="sub" id="sum-avg">—</div>
+    <div class="sub" id="sum-yesterday-orders">Вчера: —</div>
   </div>
   <div class="card">
     <div class="label">Скидки сегодня</div>
@@ -478,6 +479,14 @@
       : 'Вчера: —';
     document.getElementById('sum-orders').textContent  = totalOrders.toLocaleString('ru-RU');
     document.getElementById('sum-avg').textContent     = 'Средний чек: ' + fmtMoney(totalAvgChk);
+    const yesterdayOrders = selectedStores.size === 0
+      ? (data.summary.yesterday_same_hour_orders || 0)
+      : (data.yesterday_same_hour_points || [])
+          .filter(p => selectedStores.has(p.name))
+          .reduce((s,p) => s + (p.orders||0), 0);
+    document.getElementById('sum-yesterday-orders').textContent = comparisonHour
+      ? `Вчера к ${comparisonHour}:59: ${yesterdayOrders.toLocaleString('ru-RU')}`
+      : 'Вчера: —';
     // скидки — агрегат по сети, не фильтруем
     document.getElementById('sum-discount').textContent =
       (data.summary.discount_pct ?? '—') + (data.summary.discount_pct != null ? ' %' : '');
