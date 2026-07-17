@@ -78,6 +78,37 @@ def _olap(host: str, token: str, body: dict) -> dict:
     return resp.json()
 
 
+def _olap_columns(host: str, token: str, report_type: str = "SALES") -> dict:
+    """Возвращает каталог доступных колонок OLAP с локализованными названиями."""
+    resp = requests.get(
+        f"{host}/resto/api/v2/reports/olap/columns",
+        params={"key": token, "reportType": report_type},
+        verify=VERIFY_SSL,
+        timeout=30,
+    )
+    if not resp.ok:
+        print(f"   HTTP {resp.status_code}, ответ сервера: {resp.text[:1000]}")
+    resp.raise_for_status()
+    return resp.json()
+
+
+def _find_olap_column(columns: dict, russian_name: str) -> str:
+    """Находит техническое имя OLAP-поля по названию из интерфейса iikoOffice."""
+    source = columns.get("data", columns) if isinstance(columns, dict) else columns
+    entries = source.items() if isinstance(source, dict) else (
+        (item.get("fieldName") or item.get("id"), item) for item in source
+    )
+    wanted = russian_name.casefold().replace("ё", "е").strip()
+    for field_name, meta in entries:
+        if not field_name or not isinstance(meta, dict):
+            continue
+        display_name = str(meta.get("name") or meta.get("title") or "")
+        normalized = display_name.casefold().replace("ё", "е").strip()
+        if normalized == wanted:
+            return field_name
+    raise KeyError(f"OLAP-поле «{russian_name}» не найдено")
+
+
 def olap_sales_report(host: str, token: str, day: str, next_day: str) -> dict:
     """OLAP-отчёт по продажам за день: по точкам и по часам открытия."""
     body = {
@@ -144,15 +175,17 @@ def olap_weekly_report(host: str, token: str, week_start: str, next_day: str) ->
 
 
 def olap_discounts_report(host: str, token: str, day: str, next_day: str) -> dict:
-    """OLAP-отчёт о скидках за день: по типу скидки и точке."""
+    """OLAP-отчёт, повторяющий итог стандартного отчёта «Продажи по типам скидок»."""
+    columns = _olap_columns(host, token)
+    discount_type = _find_olap_column(columns, "Тип скидки")
+    gross_sum = _find_olap_column(columns, "Сумма без скидки")
+    net_sum = _find_olap_column(columns, "Сумма со скидкой")
+    discount_sum = _find_olap_column(columns, "Сумма скидки")
     body = {
         "reportType": "SALES",
-        "groupByRowFields": ["Department", "DiscountType"],
+        "groupByRowFields": [discount_type],
         "groupByColFields": [],
-        "aggregateFields": [
-            "DishSumInt",
-            "DishDiscountSumInt",
-        ],
+        "aggregateFields": [gross_sum, net_sum, discount_sum],
         "filters": {
             "OpenDate.Typed": {
                 "filterType": "DateRange",
@@ -162,7 +195,17 @@ def olap_discounts_report(host: str, token: str, day: str, next_day: str) -> dic
             }
         },
     }
-    return _olap(host, token, body)
+    report = _olap(host, token, body)
+    report["data"] = [
+        {
+            "discount_type": row.get(discount_type),
+            "gross_sum": row.get(gross_sum, 0),
+            "net_sum": row.get(net_sum, 0),
+            "discount_sum": row.get(discount_sum, 0),
+        }
+        for row in report.get("data", [])
+    ]
+    return report
 
 
 def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
