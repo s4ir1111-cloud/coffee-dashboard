@@ -220,6 +220,12 @@ def main():
             "discount_pct": discount_pct,
         },
         "points": points,
+        "yesterday_same_hour_points": [
+            {"name": dept, "revenue": revenue}
+            for dept, revenue in sorted(
+                yesterday_by_dept.items(), key=lambda item: -item[1]
+            )
+        ],
         "hourly": hourly,
         "weekly": weekly,
         "top_items": top_items,

@@ -467,9 +467,11 @@
 
     document.getElementById('sum-revenue').textContent = fmtMoney(totalRev);
     document.getElementById('sum-date').textContent    = data.date;
-    const yesterdaySameHour = points.reduce(
-      (s,p) => s + (p.yesterday_same_hour_revenue||0), 0
-    );
+    const yesterdaySameHour = selectedStores.size === 0
+      ? (data.summary.yesterday_same_hour_revenue || 0)
+      : (data.yesterday_same_hour_points || [])
+          .filter(p => selectedStores.has(p.name))
+          .reduce((s,p) => s + (p.revenue||0), 0);
     const comparisonHour = data.summary.comparison_hour;
     document.getElementById('sum-yesterday-hour').textContent = comparisonHour
       ? `Вчера к ${comparisonHour}:59: ${fmtMoneyShort(yesterdaySameHour)}`
