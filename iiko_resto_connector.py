@@ -230,6 +230,7 @@ def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
 def main():
     today = date.today()
     today_str = today.isoformat()
+    yesterday_str = (today - timedelta(days=1)).isoformat()
     tomorrow = (today + timedelta(days=1)).isoformat()
     month_start = today.replace(day=1).isoformat()
     week_start = (today - timedelta(days=6)).isoformat()
@@ -248,6 +249,9 @@ def main():
     try:
         print(f"2. Строим отчёт по продажам за {today_str}...")
         sales = olap_sales_report(HOST, token, today_str, tomorrow)
+
+        print(f"2а. Строим почасовой отчёт за {yesterday_str}...")
+        sales_yesterday = olap_sales_report(HOST, token, yesterday_str, today_str)
 
         print(f"3. Строим отчёт с начала месяца ({month_start} -> {today_str})...")
         sales_mtd = olap_mtd_report(HOST, token, month_start, tomorrow)
@@ -269,6 +273,7 @@ def main():
             "date": today_str,
             "month_start": month_start,
             "sales_raw": sales,
+            "sales_yesterday_raw": sales_yesterday,
             "sales_mtd_raw": sales_mtd,
             "top_items_raw": top_items,
             "sales_weekly_raw": weekly,

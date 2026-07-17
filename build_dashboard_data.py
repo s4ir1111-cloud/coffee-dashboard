@@ -54,9 +54,10 @@ def main():
     plans = {DEPT_ALIASES.get(k, k): v for k, v in raw_plans.items()}
     avg_check_plans = {DEPT_ALIASES.get(k, k): v for k, v in raw_avg_check_plans.items()}
 
-    today = date.today()
+    today = date.fromisoformat(raw.get("date", date.today().isoformat()))
 
     rows = raw["sales_raw"]["data"]
+    yesterday_rows = raw.get("sales_yesterday_raw", {}).get("data", [])
     mtd_rows = raw["sales_mtd_raw"]["data"]
     top_rows = raw["top_items_raw"]["data"]
 
@@ -68,6 +69,21 @@ def main():
         d["revenue"] += r.get("DishDiscountSumInt", 0)
         d["orders"] += r.get("UniqOrderId.OrdersCount", 0)
 
+    # Вчера до того же часа, который уже появился в сегодняшнем отчёте.
+    # Значение считается отдельно по точкам, чтобы сохранялась работа фильтра.
+    current_hours = [int(r["HourOpen"]) for r in rows if str(r.get("HourOpen", "")).isdigit()]
+    comparison_hour = max(current_hours) if current_hours else None
+    yesterday_by_dept = {}
+    if comparison_hour is not None:
+        for r in yesterday_rows:
+            hour = str(r.get("HourOpen", ""))
+            if not hour.isdigit() or int(hour) > comparison_hour:
+                continue
+            dept = DEPT_ALIASES.get(r["Department"], r["Department"])
+            yesterday_by_dept[dept] = (
+                yesterday_by_dept.get(dept, 0) + r.get("DishDiscountSumInt", 0)
+            )
+
     points = []
     for dept, d in sorted(by_dept.items(), key=lambda kv: -kv[1]["revenue"]):
         revenue = d["revenue"]
@@ -78,6 +94,7 @@ def main():
             "revenue": revenue,
             "orders": orders,
             "avg_check": avg_check,
+            "yesterday_same_hour_revenue": yesterday_by_dept.get(dept, 0),
         })
 
     # --- По часам (для совместимости, не отображается) ---
@@ -122,6 +139,7 @@ def main():
     total_revenue = sum(p["revenue"] for p in points)
     total_orders = sum(p["orders"] for p in points)
     total_avg_check = round(total_revenue / total_orders) if total_orders else 0
+    total_yesterday_same_hour = sum(yesterday_by_dept.values())
 
     # --- % скидки по стандартному отчёту IIKO «Продажи по типам скидок» ---
     # Нельзя считать скидку как DishSumInt - DishDiscountSumInt: эта разница
@@ -197,6 +215,8 @@ def main():
             "revenue": total_revenue,
             "orders": total_orders,
             "avg_check": total_avg_check,
+            "yesterday_same_hour_revenue": total_yesterday_same_hour,
+            "comparison_hour": f"{comparison_hour:02d}" if comparison_hour is not None else None,
             "discount_pct": discount_pct,
         },
         "points": points,
