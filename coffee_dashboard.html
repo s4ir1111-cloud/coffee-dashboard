@@ -155,10 +155,15 @@
     display:flex;
     flex-direction:column;
     min-height:0;
+    min-width:0;
   }
   .card-block canvas{
     flex:1 1 auto;
     min-height:0;
+    min-width:0;
+    width:100%;
+    max-width:100%;
+    display:block;
   }
   .top-items{list-style:none;overflow:hidden;flex:1 1 auto;}
   .top-items li{
@@ -561,6 +566,10 @@
     const h = canvas.clientHeight || 140;
     canvas.width  = w * dpr;
     canvas.height = h * dpr;
+    // loadData() redraws the chart every five minutes. Reset the canvas
+    // transform first, otherwise DPR scaling accumulates and pushes all but
+    // the first bars outside the visible area after several refreshes.
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, w, h);
 
