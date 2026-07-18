@@ -2,7 +2,16 @@
   "date": "2026-07-18",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Панорама",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4314,7 +4323,7 @@
         "Department": "Панорама",
         "DishDiscountSumInt": 2504017,
         "DishSumInt": 2840949,
-        "UniqOrderId.OrdersCount": 3976
+        "UniqOrderId.OrdersCount": 3977
       },
       {
         "Department": "Паруса",
@@ -4344,7 +4353,14 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 0,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Фильтр Кофе Безлимит",
+        "DishSumInt": 0
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -4378,12 +4394,24 @@
         "DishDiscountSumInt": 2627005,
         "DishSumInt": 3023864,
         "OpenDate.Typed": "2026-07-17"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-07-18"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 0,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
