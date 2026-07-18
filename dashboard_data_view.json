@@ -1,15 +1,23 @@
 {
   "date": "2026-07-18",
   "summary": {
-    "revenue": 184354,
-    "orders": 281,
-    "avg_check": 656,
+    "revenue": 190761,
+    "orders": 290,
+    "avg_check": 658,
     "yesterday_same_hour_revenue": 523603,
     "yesterday_same_hour_orders": 950,
     "comparison_hour": "09",
-    "discount_pct": 10.4
+    "discount_pct": 10.3
   },
   "points": [
+    {
+      "name": "Паруса",
+      "revenue": 21339,
+      "orders": 23,
+      "avg_check": 928,
+      "yesterday_same_hour_revenue": 28479,
+      "yesterday_same_hour_orders": 56
+    },
     {
       "name": "Новин",
       "revenue": 19995,
@@ -25,14 +33,6 @@
       "avg_check": 569,
       "yesterday_same_hour_revenue": 48432,
       "yesterday_same_hour_orders": 83
-    },
-    {
-      "name": "Паруса",
-      "revenue": 15490,
-      "orders": 16,
-      "avg_check": 968,
-      "yesterday_same_hour_revenue": 28479,
-      "yesterday_same_hour_orders": 56
     },
     {
       "name": "Прео",
@@ -100,9 +100,9 @@
     },
     {
       "name": "Драмтеатр",
-      "revenue": 7642,
-      "orders": 10,
-      "avg_check": 764,
+      "revenue": 8200,
+      "orders": 12,
+      "avg_check": 683,
       "yesterday_same_hour_revenue": 13297,
       "yesterday_same_hour_orders": 22
     },
@@ -276,7 +276,7 @@
     },
     {
       "hour": "09",
-      "revenue": 9473
+      "revenue": 15880
     }
   ],
   "weekly": [
@@ -313,15 +313,15 @@
     {
       "date": "2026-07-18",
       "day_name": "Сб",
-      "revenue": 184354
+      "revenue": 190761
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 99,
-      "revenue": 27931
+      "qty": 101,
+      "revenue": 28509
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -336,16 +336,16 @@
       "revenue": 7490
     },
     {
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 19,
+      "revenue": 6701
+    },
+    {
       "name": "Скрембл с форелью",
       "group": "Завтраки",
       "qty": 11,
       "revenue": 6369
-    },
-    {
-      "name": "Флэт Уайт 350 мл",
-      "group": "Кофе Терминал",
-      "qty": 18,
-      "revenue": 6342
     },
     {
       "name": "Комбо Завтрак Баварский",
@@ -360,10 +360,10 @@
       "revenue": 5437
     },
     {
-      "name": "Латте 350 мл",
-      "group": "Кофе Терминал",
-      "qty": 18,
-      "revenue": 4862
+      "name": "Комбо завтрак Шерлока",
+      "group": "Завтраки",
+      "qty": 11,
+      "revenue": 5249
     }
   ],
   "summer_drinks": [
@@ -418,13 +418,13 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 44636270,
-      "mtd_orders": 71407,
+      "mtd_revenue": 44642677,
+      "mtd_orders": 71416,
       "mtd_avg_check": 625,
       "plan_month": 82090000,
       "expected_to_date": 47665161,
       "pct_of_plan": 54.4,
-      "pct_vs_expected": 93.6,
+      "pct_vs_expected": 93.7,
       "day_of_month": 18,
       "days_in_month": 31
     },
@@ -491,13 +491,13 @@
       },
       {
         "name": "Паруса",
-        "mtd_revenue": 2733420,
-        "mtd_orders": 4219,
+        "mtd_revenue": 2739269,
+        "mtd_orders": 4226,
         "mtd_avg_check": 648,
         "plan_month": 4900000,
         "expected_to_date": 2845161,
-        "pct_of_plan": 55.8,
-        "pct_vs_expected": 96.1,
+        "pct_of_plan": 55.9,
+        "pct_vs_expected": 96.3,
         "avg_check_plan": 627,
         "pct_avg_check": 103.3
       },
@@ -623,13 +623,13 @@
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 1447991,
-        "mtd_orders": 2670,
+        "mtd_revenue": 1448549,
+        "mtd_orders": 2672,
         "mtd_avg_check": 542,
         "plan_month": 3350000,
         "expected_to_date": 1945161,
         "pct_of_plan": 43.2,
-        "pct_vs_expected": 74.4,
+        "pct_vs_expected": 74.5,
         "avg_check_plan": 530,
         "pct_avg_check": 102.3
       },
