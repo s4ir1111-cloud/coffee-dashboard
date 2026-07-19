@@ -1,17 +1,112 @@
 {
   "date": "2026-07-19",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": null,
-    "discount_pct": null
+    "revenue": 289,
+    "orders": 1,
+    "avg_check": 289,
+    "yesterday_same_hour_revenue": 46717,
+    "yesterday_same_hour_orders": 75,
+    "comparison_hour": "07",
+    "discount_pct": 0.0
   },
-  "points": [],
-  "yesterday_same_hour_points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Панорама",
+      "revenue": 289,
+      "orders": 1,
+      "avg_check": 289,
+      "yesterday_same_hour_revenue": 4453,
+      "yesterday_same_hour_orders": 6
+    }
+  ],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Паруса",
+      "revenue": 9662,
+      "orders": 8
+    },
+    {
+      "name": "Океан",
+      "revenue": 6498,
+      "orders": 11
+    },
+    {
+      "name": "Панорама",
+      "revenue": 4453,
+      "orders": 6
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 3638,
+      "orders": 5
+    },
+    {
+      "name": "Советская",
+      "revenue": 3428,
+      "orders": 5
+    },
+    {
+      "name": "Видный",
+      "revenue": 3226,
+      "orders": 8
+    },
+    {
+      "name": "Новин",
+      "revenue": 3040,
+      "orders": 4
+    },
+    {
+      "name": "Калинка",
+      "revenue": 2960,
+      "orders": 4
+    },
+    {
+      "name": "Прео",
+      "revenue": 2143,
+      "orders": 5
+    },
+    {
+      "name": "Европа",
+      "revenue": 2123,
+      "orders": 4
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 1572,
+      "orders": 4
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 1195,
+      "orders": 3
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 1071,
+      "orders": 2
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 787,
+      "orders": 2
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 722,
+      "orders": 2
+    },
+    {
+      "name": "Домашний",
+      "revenue": 199,
+      "orders": 2
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 289
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-13",
@@ -46,15 +141,22 @@
     {
       "date": "2026-07-19",
       "day_name": "Вс",
-      "revenue": 0
+      "revenue": 289
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Фильтр Кофе Безлимит",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 289
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 47229885,
-      "mtd_orders": 75267,
+      "mtd_revenue": 47230174,
+      "mtd_orders": 75268,
       "mtd_avg_check": 627,
       "plan_month": 82090000,
       "expected_to_date": 50313226,
@@ -162,8 +264,8 @@
       },
       {
         "name": "Панорама",
-        "mtd_revenue": 2657656,
-        "mtd_orders": 4206,
+        "mtd_revenue": 2657945,
+        "mtd_orders": 4207,
         "mtd_avg_check": 632,
         "plan_month": 4550000,
         "expected_to_date": 2788710,
