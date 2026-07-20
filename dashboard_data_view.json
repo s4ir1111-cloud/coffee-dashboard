@@ -1,15 +1,23 @@
 {
   "date": "2026-07-20",
   "summary": {
-    "revenue": 2278427,
-    "orders": 3803,
-    "avg_check": 599,
-    "yesterday_same_hour_revenue": 2266151,
-    "yesterday_same_hour_orders": 3236,
-    "comparison_hour": "22",
+    "revenue": 2281383,
+    "orders": 3812,
+    "avg_check": 598,
+    "yesterday_same_hour_revenue": 2266290,
+    "yesterday_same_hour_orders": 3238,
+    "comparison_hour": "23",
     "discount_pct": 6.8
   },
   "points": [
+    {
+      "name": "Океан",
+      "revenue": 215315,
+      "orders": 347,
+      "avg_check": 621,
+      "yesterday_same_hour_revenue": 246230,
+      "yesterday_same_hour_orders": 345
+    },
     {
       "name": "Прео",
       "revenue": 213806,
@@ -17,14 +25,6 @@
       "avg_check": 683,
       "yesterday_same_hour_revenue": 195706,
       "yesterday_same_hour_orders": 293
-    },
-    {
-      "name": "Океан",
-      "revenue": 212359,
-      "orders": 339,
-      "avg_check": 626,
-      "yesterday_same_hour_revenue": 246230,
-      "yesterday_same_hour_orders": 345
     },
     {
       "name": "Калинка",
@@ -37,8 +37,8 @@
     {
       "name": "Свердлова",
       "revenue": 169169,
-      "orders": 293,
-      "avg_check": 577,
+      "orders": 294,
+      "avg_check": 575,
       "yesterday_same_hour_revenue": 175668,
       "yesterday_same_hour_orders": 244
     },
@@ -55,8 +55,8 @@
       "revenue": 150787,
       "orders": 221,
       "avg_check": 682,
-      "yesterday_same_hour_revenue": 158228,
-      "yesterday_same_hour_orders": 212
+      "yesterday_same_hour_revenue": 158367,
+      "yesterday_same_hour_orders": 213
     },
     {
       "name": "Новин",
@@ -72,7 +72,7 @@
       "orders": 219,
       "avg_check": 586,
       "yesterday_same_hour_revenue": 95631,
-      "yesterday_same_hour_orders": 132
+      "yesterday_same_hour_orders": 133
     },
     {
       "name": "Гарден Кофе Тобольск",
@@ -194,8 +194,8 @@
     },
     {
       "name": "Видный",
-      "revenue": 158228,
-      "orders": 212
+      "revenue": 158367,
+      "orders": 213
     },
     {
       "name": "Гарден Кофе Тобольск",
@@ -235,7 +235,7 @@
     {
       "name": "Панорама",
       "revenue": 95631,
-      "orders": 132
+      "orders": 133
     },
     {
       "name": "Домашний",
@@ -331,7 +331,11 @@
     },
     {
       "hour": "22",
-      "revenue": 26912
+      "revenue": 29868
+    },
+    {
+      "hour": "23",
+      "revenue": 0
     }
   ],
   "weekly": [
@@ -368,7 +372,7 @@
     {
       "date": "2026-07-20",
       "day_name": "Пн",
-      "revenue": 2278427
+      "revenue": 2281383
     }
   ],
   "top_items": [
@@ -409,24 +413,24 @@
       "revenue": 49285
     },
     {
+      "name": "Раф Солёная карамель",
+      "group": "Рафы 350",
+      "qty": 145,
+      "revenue": 46085
+    },
+    {
       "name": "Раф Солёная карамель 450",
       "group": "Рафы 450",
       "qty": 102,
       "revenue": 45808
-    },
-    {
-      "name": "Раф Солёная карамель",
-      "group": "Рафы 350",
-      "qty": 144,
-      "revenue": 45766
     }
   ],
   "summer_drinks": [
     {
       "name": "Лимонад Ежевика-мята",
       "group": "Лимонады 350",
-      "qty": 73,
-      "revenue": 23287
+      "qty": 74,
+      "revenue": 23606
     },
     {
       "name": "Смузи Клубника Банан",
@@ -437,20 +441,20 @@
     {
       "name": "Лимонад Клубника-Маракуйя",
       "group": "Лимонады 350",
-      "qty": 71,
-      "revenue": 19809
+      "qty": 72,
+      "revenue": 20088
+    },
+    {
+      "name": "Холодный Латте",
+      "group": "Холодный кл. кофе 350/590",
+      "qty": 53,
+      "revenue": 16377
     },
     {
       "name": "Холодный Латте 590 мл",
       "group": "Холодный кл. кофе 350/590",
       "qty": 42,
       "revenue": 16338
-    },
-    {
-      "name": "Холодный Латте",
-      "group": "Холодный кл. кофе 350/590",
-      "qty": 52,
-      "revenue": 16068
     },
     {
       "name": "Лимонад Ежевика-мята 590 мл",
@@ -473,8 +477,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 51774602,
-      "mtd_orders": 82308,
+      "mtd_revenue": 51777558,
+      "mtd_orders": 82317,
       "mtd_avg_check": 629,
       "plan_month": 82090000,
       "expected_to_date": 52961290,
@@ -486,8 +490,8 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 5293978,
-        "mtd_orders": 8819,
+        "mtd_revenue": 5296934,
+        "mtd_orders": 8827,
         "mtd_avg_check": 600,
         "plan_month": 8340000,
         "expected_to_date": 5380645,
@@ -511,7 +515,7 @@
       {
         "name": "Свердлова",
         "mtd_revenue": 4010542,
-        "mtd_orders": 6225,
+        "mtd_orders": 6226,
         "mtd_avg_check": 644,
         "plan_month": 6100000,
         "expected_to_date": 3935484,
