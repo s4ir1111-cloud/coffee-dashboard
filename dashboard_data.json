@@ -84,6 +84,22 @@
         "UniqOrderId.OrdersCount": 2
       },
       {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 723,
+        "DishSumInt": 838,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 3
+      },
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 223,
+        "DishSumInt": 319,
+        "HourOpen": "07",
+        "OrderType": "Савывоз САЙТ",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
         "Department": "Преображенский",
         "DishDiscountSumInt": 637,
         "DishSumInt": 985,
@@ -4007,9 +4023,9 @@
       },
       {
         "Department": "Паруса",
-        "DishDiscountSumInt": 3030461,
-        "DishSumInt": 3661373,
-        "UniqOrderId.OrdersCount": 4635
+        "DishDiscountSumInt": 3031407,
+        "DishSumInt": 3662530,
+        "UniqOrderId.OrdersCount": 4639
       },
       {
         "Department": "Преображенский",
@@ -4089,7 +4105,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2,
+        "DishAmountInt": 3,
         "DishGroup": "Молоко РАФ Арахис",
         "DishName": "- *Молоко Раф Арахис",
         "DishSumInt": 0
@@ -4107,7 +4123,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1,
+        "DishAmountInt": 2,
         "DishGroup": "Молоко Флэт Уайт 350мл",
         "DishName": "- *Молоко Флэт Уайт_б",
         "DishSumInt": 0
@@ -4341,10 +4357,10 @@
         "DishSumInt": 749
       },
       {
-        "DishAmountInt": 2,
+        "DishAmountInt": 3,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Арахисовый ",
-        "DishSumInt": 638
+        "DishSumInt": 957
       },
       {
         "DishAmountInt": 1,
@@ -4395,7 +4411,7 @@
         "DishSumInt": 349
       },
       {
-        "DishAmountInt": 2,
+        "DishAmountInt": 3,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 0
@@ -4407,10 +4423,16 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1,
+        "DishAmountInt": 2,
         "DishGroup": "Кофе Терминал",
         "DishName": "Флэт Уайт 350 мл ",
-        "DishSumInt": 359
+        "DishSumInt": 718
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Фреши",
+        "DishName": "Фреш Апельсиновый 250 мл ",
+        "DishSumInt": 479
       },
       {
         "DishAmountInt": 1,
@@ -4460,8 +4482,8 @@
         "OpenDate.Typed": "2026-07-19"
       },
       {
-        "DishDiscountSumInt": 13029,
-        "DishSumInt": 16357,
+        "DishDiscountSumInt": 13975,
+        "DishSumInt": 17514,
         "OpenDate.Typed": "2026-07-20"
       }
     ],
@@ -4471,8 +4493,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 4513,
-        "net_sum": 4613,
+        "gross_sum": 4992,
+        "net_sum": 5092,
         "discount_sum": 0
       },
       {
@@ -4483,9 +4505,9 @@
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене",
-        "gross_sum": 318,
-        "net_sum": 100,
-        "discount_sum": 139
+        "gross_sum": 996,
+        "net_sum": 567,
+        "discount_sum": 350
       },
       {
         "discount_type": "Кофе по сниженной цене",
