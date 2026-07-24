@@ -1,28 +1,28 @@
 {
   "date": "2026-07-24",
   "summary": {
-    "revenue": 2809465,
-    "orders": 4583,
+    "revenue": 2814427,
+    "orders": 4593,
     "avg_check": 613,
     "yesterday_same_hour_revenue": 2704939,
     "yesterday_same_hour_orders": 4453,
     "comparison_hour": "23",
-    "discount_pct": 30.9
+    "discount_pct": 30.4
   },
   "points": [
     {
       "name": "Океан",
-      "revenue": 312232,
-      "orders": 508,
-      "avg_check": 615,
+      "revenue": 315529,
+      "orders": 514,
+      "avg_check": 614,
       "yesterday_same_hour_revenue": 307859,
       "yesterday_same_hour_orders": 525
     },
     {
       "name": "Калинка",
       "revenue": 243248,
-      "orders": 394,
-      "avg_check": 617,
+      "orders": 396,
+      "avg_check": 614,
       "yesterday_same_hour_revenue": 202857,
       "yesterday_same_hour_orders": 328
     },
@@ -36,17 +36,17 @@
     },
     {
       "name": "Свердлова",
-      "revenue": 213030,
-      "orders": 327,
-      "avg_check": 651,
+      "revenue": 214695,
+      "orders": 328,
+      "avg_check": 655,
       "yesterday_same_hour_revenue": 240523,
       "yesterday_same_hour_orders": 359
     },
     {
       "name": "Видный",
       "revenue": 180761,
-      "orders": 259,
-      "avg_check": 698,
+      "orders": 260,
+      "avg_check": 695,
       "yesterday_same_hour_revenue": 182520,
       "yesterday_same_hour_orders": 265
     },
@@ -348,7 +348,7 @@
     },
     {
       "hour": "23",
-      "revenue": 2310
+      "revenue": 7272
     }
   ],
   "weekly": [
@@ -385,7 +385,7 @@
     {
       "date": "2026-07-24",
       "day_name": "Пт",
-      "revenue": 2809465
+      "revenue": 2814427
     }
   ],
   "top_items": [
@@ -398,8 +398,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 801,
-      "revenue": 230369
+      "qty": 802,
+      "revenue": 230658
     },
     {
       "name": "Блины с тартаром из свежей клубники",
@@ -408,10 +408,16 @@
       "revenue": 173430
     },
     {
+      "name": "Макаруны",
+      "group": "Десерты Терминал",
+      "qty": 644,
+      "revenue": 95956
+    },
+    {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 300,
-      "revenue": 71640
+      "qty": 302,
+      "revenue": 72118
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -430,12 +436,6 @@
       "group": "Кофе Терминал",
       "qty": 201,
       "revenue": 58029
-    },
-    {
-      "name": "Флэт Уайт 350 мл",
-      "group": "Кофе Терминал",
-      "qty": 160,
-      "revenue": 57000
     }
   ],
   "summer_drinks": [
@@ -466,8 +466,8 @@
     {
       "name": "Лимонад Клубника-Маракуйя 590 мл",
       "group": "Лимонады 590",
-      "qty": 81,
-      "revenue": 30699
+      "qty": 83,
+      "revenue": 31457
     },
     {
       "name": "Холодный Латте 590 мл",
@@ -490,8 +490,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 62543114,
-      "mtd_orders": 100083,
+      "mtd_revenue": 62548076,
+      "mtd_orders": 100093,
       "mtd_avg_check": 625,
       "plan_month": 82090000,
       "expected_to_date": 63553548,
@@ -503,13 +503,13 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 6412364,
-        "mtd_orders": 10770,
+        "mtd_revenue": 6415661,
+        "mtd_orders": 10776,
         "mtd_avg_check": 595,
         "plan_month": 8340000,
         "expected_to_date": 6456774,
         "pct_of_plan": 76.9,
-        "pct_vs_expected": 99.3,
+        "pct_vs_expected": 99.4,
         "avg_check_plan": 580,
         "pct_avg_check": 102.6
       },
@@ -527,20 +527,20 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 4874595,
-        "mtd_orders": 7608,
+        "mtd_revenue": 4876260,
+        "mtd_orders": 7609,
         "mtd_avg_check": 641,
         "plan_month": 6100000,
         "expected_to_date": 4722581,
         "pct_of_plan": 79.9,
-        "pct_vs_expected": 103.2,
+        "pct_vs_expected": 103.3,
         "avg_check_plan": 635,
         "pct_avg_check": 100.9
       },
       {
         "name": "Калинка",
         "mtd_revenue": 4643941,
-        "mtd_orders": 7691,
+        "mtd_orders": 7693,
         "mtd_avg_check": 604,
         "plan_month": 5450000,
         "expected_to_date": 4219355,
@@ -552,7 +552,7 @@
       {
         "name": "Видный",
         "mtd_revenue": 4070607,
-        "mtd_orders": 5866,
+        "mtd_orders": 5867,
         "mtd_avg_check": 694,
         "plan_month": 5250000,
         "expected_to_date": 4064516,
