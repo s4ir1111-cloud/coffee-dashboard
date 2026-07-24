@@ -2,16 +2,121 @@
   "date": "2026-07-24",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": null,
+    "yesterday_same_hour_revenue": 72840,
+    "yesterday_same_hour_orders": 167,
+    "comparison_hour": "07",
     "discount_pct": null
   },
-  "points": [],
-  "yesterday_same_hour_points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 3742,
+      "yesterday_same_hour_orders": 9
+    }
+  ],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Океан",
+      "revenue": 9693,
+      "orders": 22
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 7382,
+      "orders": 15
+    },
+    {
+      "name": "Калинка",
+      "revenue": 6784,
+      "orders": 16
+    },
+    {
+      "name": "Паруса",
+      "revenue": 6072,
+      "orders": 17
+    },
+    {
+      "name": "Новин",
+      "revenue": 5863,
+      "orders": 14
+    },
+    {
+      "name": "Газпром",
+      "revenue": 4465,
+      "orders": 14
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 4356,
+      "orders": 5
+    },
+    {
+      "name": "Советская",
+      "revenue": 4174,
+      "orders": 10
+    },
+    {
+      "name": "Прео",
+      "revenue": 3742,
+      "orders": 9
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 3295,
+      "orders": 8
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 3211,
+      "orders": 6
+    },
+    {
+      "name": "Панорама",
+      "revenue": 3030,
+      "orders": 8
+    },
+    {
+      "name": "Арсиб",
+      "revenue": 2659,
+      "orders": 6
+    },
+    {
+      "name": "Европа",
+      "revenue": 2504,
+      "orders": 5
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 2289,
+      "orders": 4
+    },
+    {
+      "name": "Гагарина",
+      "revenue": 1705,
+      "orders": 4
+    },
+    {
+      "name": "Домашний",
+      "revenue": 1047,
+      "orders": 2
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 569,
+      "orders": 2
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-18",
@@ -54,7 +159,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 59733649,
-      "mtd_orders": 95502,
+      "mtd_orders": 95503,
       "mtd_avg_check": 625,
       "plan_month": 82090000,
       "expected_to_date": 63553548,
@@ -79,14 +184,14 @@
       {
         "name": "Прео",
         "mtd_revenue": 5229898,
-        "mtd_orders": 7674,
-        "mtd_avg_check": 682,
+        "mtd_orders": 7675,
+        "mtd_avg_check": 681,
         "plan_month": 6400000,
         "expected_to_date": 4954839,
         "pct_of_plan": 81.7,
         "pct_vs_expected": 105.6,
         "avg_check_plan": 565,
-        "pct_avg_check": 120.7
+        "pct_avg_check": 120.5
       },
       {
         "name": "Свердлова",
