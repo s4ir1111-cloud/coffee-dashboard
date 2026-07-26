@@ -1,17 +1,122 @@
 {
   "date": "2026-07-26",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": null,
-    "discount_pct": null
+    "revenue": 199,
+    "orders": 1,
+    "avg_check": 199,
+    "yesterday_same_hour_revenue": 68226,
+    "yesterday_same_hour_orders": 106,
+    "comparison_hour": "07",
+    "discount_pct": 8.0
   },
-  "points": [],
-  "yesterday_same_hour_points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Свердлова",
+      "revenue": 199,
+      "orders": 1,
+      "avg_check": 199,
+      "yesterday_same_hour_revenue": 3846,
+      "yesterday_same_hour_orders": 8
+    }
+  ],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Океан",
+      "revenue": 32239,
+      "orders": 48
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 5448,
+      "orders": 5
+    },
+    {
+      "name": "Советская",
+      "revenue": 5283,
+      "orders": 5
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 3846,
+      "orders": 8
+    },
+    {
+      "name": "Новин",
+      "revenue": 2861,
+      "orders": 2
+    },
+    {
+      "name": "Прео",
+      "revenue": 2504,
+      "orders": 3
+    },
+    {
+      "name": "Паруса",
+      "revenue": 2448,
+      "orders": 6
+    },
+    {
+      "name": "Домашний",
+      "revenue": 2253,
+      "orders": 2
+    },
+    {
+      "name": "Видный",
+      "revenue": 1932,
+      "orders": 5
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 1734,
+      "orders": 2
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 1495,
+      "orders": 4
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 1185,
+      "orders": 5
+    },
+    {
+      "name": "Гагарина",
+      "revenue": 1174,
+      "orders": 2
+    },
+    {
+      "name": "Калинка",
+      "revenue": 1006,
+      "orders": 3
+    },
+    {
+      "name": "Панорама",
+      "revenue": 996,
+      "orders": 3
+    },
+    {
+      "name": "Европа",
+      "revenue": 686,
+      "orders": 1
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 618,
+      "orders": 1
+    },
+    {
+      "name": "Арсиб",
+      "revenue": 518,
+      "orders": 1
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 199
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-20",
@@ -46,15 +151,28 @@
     {
       "date": "2026-07-26",
       "day_name": "Вс",
-      "revenue": 0
+      "revenue": 199
     }
   ],
-  "top_items": [],
+  "top_items": [
+    {
+      "name": "Каша пшенная",
+      "group": "Каши",
+      "qty": 1,
+      "revenue": 259
+    },
+    {
+      "name": "Американо 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 1,
+      "revenue": 239
+    }
+  ],
   "summer_drinks": [],
   "plan": {
     "summary": {
-      "mtd_revenue": 65748809,
-      "mtd_orders": 104830,
+      "mtd_revenue": 65749008,
+      "mtd_orders": 104831,
       "mtd_avg_check": 627,
       "plan_month": 82090000,
       "expected_to_date": 68849677,
@@ -90,8 +208,8 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 5121790,
-        "mtd_orders": 7966,
+        "mtd_revenue": 5121989,
+        "mtd_orders": 7967,
         "mtd_avg_check": 643,
         "plan_month": 6100000,
         "expected_to_date": 5116129,

@@ -2,7 +2,16 @@
   "date": "2026-07-26",
   "month_start": "2026-07-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Свердлова",
+        "DishDiscountSumInt": 199,
+        "DishSumInt": 498,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4178,9 +4187,9 @@
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 5121790,
-        "DishSumInt": 5869860,
-        "UniqOrderId.OrdersCount": 7966
+        "DishDiscountSumInt": 5121989,
+        "DishSumInt": 5870358,
+        "UniqOrderId.OrdersCount": 7967
       },
       {
         "Department": "Советская",
@@ -4198,7 +4207,20 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе Терминал",
+        "DishName": "Американо 250 мл ",
+        "DishSumInt": 239
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Каши",
+        "DishName": "Каша пшенная",
+        "DishSumInt": 259
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -4232,12 +4254,24 @@
         "DishDiscountSumInt": 3183127,
         "DishSumInt": 3605477,
         "OpenDate.Typed": "2026-07-25"
+      },
+      {
+        "DishDiscountSumInt": 199,
+        "DishSumInt": 498,
+        "OpenDate.Typed": "2026-07-26"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "Кофе по сниженной цене",
+        "gross_sum": 498,
+        "net_sum": 199,
+        "discount_sum": 40
+      }
+    ],
     "summary": []
   }
 }
