@@ -1,22 +1,30 @@
 {
   "date": "2026-07-31",
   "summary": {
-    "revenue": 2625654,
-    "orders": 4197,
+    "revenue": 2630318,
+    "orders": 4199,
     "avg_check": 626,
     "yesterday_same_hour_revenue": 2583430,
     "yesterday_same_hour_orders": 4330,
     "comparison_hour": "23",
-    "discount_pct": 6.9
+    "discount_pct": 7.0
   },
   "points": [
     {
       "name": "Океан",
-      "revenue": 212912,
-      "orders": 354,
-      "avg_check": 601,
+      "revenue": 213051,
+      "orders": 355,
+      "avg_check": 600,
       "yesterday_same_hour_revenue": 243356,
       "yesterday_same_hour_orders": 411
+    },
+    {
+      "name": "Прео",
+      "revenue": 210678,
+      "orders": 273,
+      "avg_check": 772,
+      "yesterday_same_hour_revenue": 201714,
+      "yesterday_same_hour_orders": 326
     },
     {
       "name": "Свердлова",
@@ -25,14 +33,6 @@
       "avg_check": 634,
       "yesterday_same_hour_revenue": 184550,
       "yesterday_same_hour_orders": 310
-    },
-    {
-      "name": "Прео",
-      "revenue": 206153,
-      "orders": 272,
-      "avg_check": 758,
-      "yesterday_same_hour_revenue": 201714,
-      "yesterday_same_hour_orders": 326
     },
     {
       "name": "Калинка",
@@ -353,7 +353,7 @@
     },
     {
       "hour": "23",
-      "revenue": 2052
+      "revenue": 6716
     }
   ],
   "weekly": [
@@ -390,7 +390,7 @@
     {
       "date": "2026-07-31",
       "day_name": "Пт",
-      "revenue": 2625654
+      "revenue": 2630318
     }
   ],
   "top_items": [
@@ -495,9 +495,9 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 81272046,
-      "mtd_orders": 129520,
-      "mtd_avg_check": 627,
+      "mtd_revenue": 81276710,
+      "mtd_orders": 129522,
+      "mtd_avg_check": 628,
       "plan_month": 82090000,
       "expected_to_date": 82090000,
       "pct_of_plan": 99.0,
@@ -508,8 +508,8 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 8452081,
-        "mtd_orders": 14113,
+        "mtd_revenue": 8452220,
+        "mtd_orders": 14114,
         "mtd_avg_check": 599,
         "plan_month": 8340000,
         "expected_to_date": 8340000,
@@ -520,13 +520,13 @@
       },
       {
         "name": "Прео",
-        "mtd_revenue": 6970342,
-        "mtd_orders": 10130,
+        "mtd_revenue": 6974867,
+        "mtd_orders": 10131,
         "mtd_avg_check": 688,
         "plan_month": 6400000,
         "expected_to_date": 6400000,
-        "pct_of_plan": 108.9,
-        "pct_vs_expected": 108.9,
+        "pct_of_plan": 109.0,
+        "pct_vs_expected": 109.0,
         "avg_check_plan": 565,
         "pct_avg_check": 121.8
       },
