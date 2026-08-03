@@ -2,16 +2,116 @@
   "date": "2026-08-03",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": null,
+    "yesterday_same_hour_revenue": 25040,
+    "yesterday_same_hour_orders": 47,
+    "comparison_hour": "07",
     "discount_pct": null
   },
-  "points": [],
-  "yesterday_same_hour_points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Паруса",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 4196,
+      "yesterday_same_hour_orders": 5
+    }
+  ],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Видный",
+      "revenue": 5172,
+      "orders": 7
+    },
+    {
+      "name": "Прео",
+      "revenue": 4671,
+      "orders": 10
+    },
+    {
+      "name": "Паруса",
+      "revenue": 4196,
+      "orders": 5
+    },
+    {
+      "name": "Арсиб",
+      "revenue": 2229,
+      "orders": 2
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 1480,
+      "orders": 3
+    },
+    {
+      "name": "Советская",
+      "revenue": 1273,
+      "orders": 3
+    },
+    {
+      "name": "Домашний",
+      "revenue": 1086,
+      "orders": 2
+    },
+    {
+      "name": "Новин",
+      "revenue": 1017,
+      "orders": 3
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 900,
+      "orders": 1
+    },
+    {
+      "name": "Софилэнд",
+      "revenue": 718,
+      "orders": 1
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 498,
+      "orders": 2
+    },
+    {
+      "name": "Гагарина",
+      "revenue": 467,
+      "orders": 2
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 438,
+      "orders": 2
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 289,
+      "orders": 1
+    },
+    {
+      "name": "Калинка",
+      "revenue": 288,
+      "orders": 1
+    },
+    {
+      "name": "Европа",
+      "revenue": 169,
+      "orders": 1
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 149,
+      "orders": 1
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-07-28",
@@ -54,7 +154,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 5049992,
-      "mtd_orders": 7387,
+      "mtd_orders": 7388,
       "mtd_avg_check": 684,
       "plan_month": 82090000,
       "expected_to_date": 7944194,
@@ -151,14 +251,14 @@
       {
         "name": "Паруса",
         "mtd_revenue": 294940,
-        "mtd_orders": 417,
-        "mtd_avg_check": 707,
+        "mtd_orders": 418,
+        "mtd_avg_check": 706,
         "plan_month": 4900000,
         "expected_to_date": 474194,
         "pct_of_plan": 6.0,
         "pct_vs_expected": 62.2,
         "avg_check_plan": 627,
-        "pct_avg_check": 112.8
+        "pct_avg_check": 112.6
       },
       {
         "name": "Советская",
