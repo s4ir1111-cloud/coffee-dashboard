@@ -178,6 +178,31 @@
   footer{
     display:none;
   }
+  .plans-upload-btn{
+    padding:7px 12px;border-radius:8px;border:1px solid var(--border);
+    background:var(--card2);color:var(--muted);font-size:12px;font-weight:700;
+    cursor:pointer;font-family:'Barlow Condensed',Arial,sans-serif;
+    letter-spacing:.7px;text-transform:uppercase;white-space:nowrap;
+  }
+  .plans-upload-btn.active{color:#2d3147;background:var(--accent);border-color:var(--accent);}
+  .plans-upload-menu{
+    display:none;position:absolute;top:calc(100% + 8px);right:0;width:220px;
+    padding:8px;background:var(--card);border:1px solid var(--border);border-radius:9px;
+    z-index:220;box-shadow:0 8px 40px rgba(0,0,0,.6);
+  }
+  .plans-upload-menu button{
+    display:block;width:100%;padding:8px 10px;border:0;border-radius:6px;
+    background:transparent;color:var(--text);text-align:left;font-family:inherit;
+    font-size:12px;cursor:pointer;
+  }
+  .plans-upload-menu button:hover{background:var(--card2);}
+  .plans-upload-menu .danger{color:var(--bad);}
+  .plans-toast{
+    display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);
+    z-index:300;max-width:520px;padding:9px 16px;border-radius:8px;
+    background:#202439;border:1px solid var(--accent);color:var(--text);
+    box-shadow:0 8px 30px rgba(0,0,0,.55);font-size:12px;text-align:center;
+  }
 </style>
 </head>
 <body>
@@ -210,6 +235,16 @@
       width:28px;height:28px;border-radius:8px;border:1px solid var(--accent);
       background:var(--accent);color:#2d3147;
       font-size:14px;font-weight:900;cursor:pointer;line-height:1;padding:0;">✕</button>
+    <div id="plans-upload-wrap" style="position:relative;">
+      <button id="plans-upload-btn" class="plans-upload-btn" onclick="togglePlansUploadMenu()" title="Загрузить новый файл с планами">Планы ↑</button>
+      <div id="plans-upload-menu" class="plans-upload-menu">
+        <button onclick="choosePlansFile()">Выбрать файл Excel / JSON</button>
+        <button onclick="choosePlansFolder()">Выбрать папку с планами</button>
+        <button id="plans-reset-btn" class="danger" onclick="resetImportedPlans()" style="display:none;">Вернуть планы с сервера</button>
+      </div>
+      <input id="plans-file-input" type="file" accept=".xlsx,.xls,.json" hidden onchange="handlePlansSelection(this)">
+      <input id="plans-folder-input" type="file" accept=".xlsx,.xls,.json" webkitdirectory directory multiple hidden onchange="handlePlansSelection(this)">
+    </div>
     <div id="filter-panel" style="display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
       background:var(--card);border:1px solid var(--border);border-radius:10px;
       padding:14px;width:360px;z-index:200;box-shadow:0 8px 40px rgba(0,0,0,.6);">
@@ -217,6 +252,8 @@
   </div>
   <div class="clock" id="clock">--:--:--</div>
 </header>
+
+<div id="plans-toast" class="plans-toast"></div>
 
 <section class="summary">
   <div class="card">
@@ -312,6 +349,7 @@
   Данные из IIKO Server (iikoOffice) · OLAP-отчёт по продажам · файл dashboard_data_view.json
 </footer>
 
+<script src="xlsx.full.min.js"></script>
 <script>
   // ── ЧАСЫ ──
   function updateClock(){
@@ -338,6 +376,7 @@
   let weeklyData = [];
   let todayStr = '';
   let selectedStores = new Set(); // пусто = все
+  const PLANS_STORAGE_KEY = 'gardenCoffeeImportedPlansV1';
 
   const CITY_GROUPS = {
     'Тюмень': ['Океан','Свердлова','Паруса','Видный','Панорама','Калинка','Новин',
@@ -361,8 +400,201 @@
     const wrap = document.getElementById('filter-wrap');
     if(wrap && !wrap.contains(e.target)){
       document.getElementById('filter-panel').style.display = 'none';
+      document.getElementById('plans-upload-menu').style.display = 'none';
     }
   });
+
+  // ── ИМПОРТ ПЛАНОВ ИЗ EXCEL / JSON ──
+  function togglePlansUploadMenu(){
+    const menu = document.getElementById('plans-upload-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    document.getElementById('filter-panel').style.display = 'none';
+  }
+
+  function choosePlansFile(){
+    document.getElementById('plans-upload-menu').style.display = 'none';
+    document.getElementById('plans-file-input').click();
+  }
+
+  function choosePlansFolder(){
+    document.getElementById('plans-upload-menu').style.display = 'none';
+    document.getElementById('plans-folder-input').click();
+  }
+
+  function showPlansToast(message, isError=false){
+    const toast = document.getElementById('plans-toast');
+    toast.textContent = message;
+    toast.style.borderColor = isError ? 'var(--bad)' : 'var(--accent)';
+    toast.style.display = 'block';
+    clearTimeout(showPlansToast.timer);
+    showPlansToast.timer = setTimeout(() => { toast.style.display = 'none'; }, 5000);
+  }
+
+  function numberFromCell(value){
+    if(typeof value === 'number' && Number.isFinite(value)) return value;
+    if(value == null) return null;
+    const normalized = String(value).replace(/[\s\u00a0₽]/g,'').replace(',','.');
+    const number = Number(normalized);
+    return Number.isFinite(number) ? number : null;
+  }
+
+  function canonicalPlanName(value){
+    const original = String(value ?? '').trim().replace(/^\d+\s*[.)-]\s*/, '');
+    const key = original.toLocaleLowerCase('ru-RU')
+      .replace(/ё/g,'е').replace(/[«»"']/g,'').replace(/\s+/g,' ');
+    const aliases = {
+      'парус':'Паруса', 'паруса':'Паруса',
+      'европейский':'Европа', 'европа':'Европа',
+      'преображенский':'Прео', 'прео':'Прео',
+      'сургут':'Гарден Кофе Сургут', 'гарден кофе сургут':'Гарден Кофе Сургут',
+      'тобольск':'Гарден Кофе Тобольск', 'гарден кофе тобольск':'Гарден Кофе Тобольск',
+      'world class':'Ворлд Класс', 'ворлд класс':'Ворлд Класс'
+    };
+    return aliases[key] || original;
+  }
+
+  const KNOWN_PLAN_STORES = new Set([
+    'Океан','Свердлова','Паруса','Видный','Панорама','Калинка','Новин','Драмтеатр',
+    'Газпром','Осипенко','Европа','Гагарина','Домашний','Ворлд Класс','Советская',
+    'Мельникайте','Арсиб','Прео','Гарден Кофе Сургут','Гарден Кофе Тобольск'
+  ]);
+
+  function parsePlansJson(text){
+    const parsed = JSON.parse(text);
+    const monthly = parsed.monthly_plans || parsed.monthlyPlans;
+    if(!monthly || typeof monthly !== 'object') throw new Error('В JSON нет раздела monthly_plans');
+    const avg = parsed.avg_check_plans || parsed.avgCheckPlans || {};
+    const monthlyPlans = {};
+    const avgCheckPlans = {};
+    Object.entries(monthly).forEach(([name,value]) => {
+      const amount = numberFromCell(value);
+      if(amount > 0) monthlyPlans[canonicalPlanName(name)] = Math.round(amount);
+    });
+    Object.entries(avg).forEach(([name,value]) => {
+      const amount = numberFromCell(value);
+      if(amount > 0) avgCheckPlans[canonicalPlanName(name)] = Math.round(amount);
+    });
+    return {monthly_plans:monthlyPlans, avg_check_plans:avgCheckPlans};
+  }
+
+  async function parsePlansExcel(file){
+    if(typeof XLSX === 'undefined') throw new Error('Модуль чтения Excel не загрузился');
+    const workbook = XLSX.read(await file.arrayBuffer(), {type:'array'});
+    const preferred = workbook.SheetNames.find(n => /^20\d{2}$/.test(n.trim())) || workbook.SheetNames[0];
+    if(!preferred) throw new Error('В книге нет листов');
+    const rows = XLSX.utils.sheet_to_json(workbook.Sheets[preferred], {header:1, raw:true, defval:null});
+    const monthlyPlans = {};
+    const avgCheckPlans = {};
+    let planColumn = 4;
+    let avgCheckColumn = 7;
+    rows.slice(0,15).forEach(row => row.forEach((cell,index) => {
+      const label = String(cell ?? '').toLocaleLowerCase('ru-RU').replace(/ё/g,'е').trim();
+      if(/план/.test(label) && !/(чек|кухн|фк|фот)/.test(label)) planColumn = index;
+      if(/чек/.test(label) && /план/.test(label)) avgCheckColumn = index;
+    }));
+    rows.forEach(row => {
+      const name = canonicalPlanName(row[0]);
+      const plan = numberFromCell(row[planColumn]);
+      const avgCheck = numberFromCell(row[avgCheckColumn]);
+      if(KNOWN_PLAN_STORES.has(name) && plan > 10000){
+        monthlyPlans[name] = Math.round(plan);
+        if(avgCheck > 0) avgCheckPlans[name] = Math.round(avgCheck);
+      }
+    });
+    if(Object.keys(monthlyPlans).length < 5){
+      throw new Error('Не найдены планы: ожидаются названия в A, план в E, средний чек в H');
+    }
+    return {monthly_plans:monthlyPlans, avg_check_plans:avgCheckPlans, sheet:preferred};
+  }
+
+  async function handlePlansSelection(input){
+    const candidates = Array.from(input.files || [])
+      .filter(file => /\.(xlsx|xls|json)$/i.test(file.name))
+      .sort((a,b) => b.lastModified - a.lastModified);
+    input.value = '';
+    if(!candidates.length){
+      showPlansToast('В выбранной папке нет файлов .xlsx, .xls или .json', true);
+      return;
+    }
+    const file = candidates.find(f => /^KPI\b/i.test(f.name)) || candidates[0];
+    try{
+      const data = /\.json$/i.test(file.name)
+        ? parsePlansJson(await file.text())
+        : await parsePlansExcel(file);
+      const imported = {...data, fileName:file.name, importedAt:new Date().toISOString()};
+      localStorage.setItem(PLANS_STORAGE_KEY, JSON.stringify(imported));
+      updatePlansUploadState(imported);
+      loadData();
+      showPlansToast(`Планы загружены: ${file.name} · ${Object.keys(data.monthly_plans).length} точек`);
+    }catch(error){
+      console.error('Ошибка импорта планов:', error);
+      showPlansToast(`Не удалось загрузить планы: ${error.message}`, true);
+    }
+  }
+
+  function getImportedPlans(){
+    try{return JSON.parse(localStorage.getItem(PLANS_STORAGE_KEY) || 'null');}
+    catch(error){return null;}
+  }
+
+  function updatePlansUploadState(imported=getImportedPlans()){
+    const btn = document.getElementById('plans-upload-btn');
+    const reset = document.getElementById('plans-reset-btn');
+    btn.classList.toggle('active', !!imported);
+    btn.textContent = imported ? 'Планы ✓' : 'Планы ↑';
+    btn.title = imported ? `Загружено: ${imported.fileName}` : 'Загрузить новый файл с планами';
+    reset.style.display = imported ? 'block' : 'none';
+  }
+
+  function resetImportedPlans(){
+    localStorage.removeItem(PLANS_STORAGE_KEY);
+    document.getElementById('plans-upload-menu').style.display = 'none';
+    updatePlansUploadState(null);
+    showPlansToast('Локальные планы сброшены. Загружаю планы с сервера…');
+    loadData();
+  }
+
+  function applyImportedPlans(data, imported){
+    if(!imported?.monthly_plans || !data.plan) return data;
+    const oldPoints = new Map((data.plan.points || []).map(point => [point.name, point]));
+    const dom = data.plan.summary?.day_of_month || new Date().getDate();
+    const dim = data.plan.summary?.days_in_month || 30;
+    const pace = dom / dim;
+    const planPoints = Object.entries(imported.monthly_plans).map(([rawName,planValue]) => {
+      const name = canonicalPlanName(rawName);
+      const old = oldPoints.get(name) || {};
+      const planMonth = Math.round(numberFromCell(planValue) || 0);
+      const mtdRevenue = old.mtd_revenue || 0;
+      const mtdOrders = old.mtd_orders || 0;
+      const mtdAvgCheck = mtdOrders ? Math.round(mtdRevenue/mtdOrders) : 0;
+      const expected = Math.round(planMonth * pace);
+      const avgCheckPlan = imported.avg_check_plans?.[rawName] || imported.avg_check_plans?.[name] || null;
+      return {
+        name, mtd_revenue:mtdRevenue, mtd_orders:mtdOrders, mtd_avg_check:mtdAvgCheck,
+        plan_month:planMonth, expected_to_date:expected,
+        pct_of_plan:planMonth ? Math.round(mtdRevenue/planMonth*1000)/10 : 0,
+        pct_vs_expected:expected ? Math.round(mtdRevenue/expected*1000)/10 : 0,
+        avg_check_plan:avgCheckPlan,
+        pct_avg_check:avgCheckPlan && mtdAvgCheck ? Math.round(mtdAvgCheck/avgCheckPlan*1000)/10 : null
+      };
+    }).filter(point => point.plan_month > 0).sort((a,b) => b.mtd_revenue-a.mtd_revenue);
+    const totalMtd = planPoints.reduce((sum,p) => sum+p.mtd_revenue,0);
+    const totalOrders = planPoints.reduce((sum,p) => sum+p.mtd_orders,0);
+    const totalPlan = planPoints.reduce((sum,p) => sum+p.plan_month,0);
+    const totalExpected = Math.round(totalPlan*pace);
+    data.plan = {
+      points:planPoints,
+      summary:{
+        mtd_revenue:totalMtd, mtd_orders:totalOrders,
+        mtd_avg_check:totalOrders ? Math.round(totalMtd/totalOrders) : 0,
+        plan_month:totalPlan, expected_to_date:totalExpected,
+        pct_of_plan:totalPlan ? Math.round(totalMtd/totalPlan*1000)/10 : 0,
+        pct_vs_expected:totalExpected ? Math.round(totalMtd/totalExpected*1000)/10 : 0,
+        day_of_month:dom, days_in_month:dim
+      }
+    };
+    return data;
+  }
 
   function toggleStore(name){
     if(selectedStores.has(name)) selectedStores.delete(name);
@@ -446,7 +678,10 @@
 
   // ── РЕНДЕР ──
   function renderData(data){
+    const importedPlans = getImportedPlans();
+    if(importedPlans) applyImportedPlans(data, importedPlans);
     rawData = data;
+    updatePlansUploadState(importedPlans);
     buildFilterPanel();
     updateFilterBtn();
     renderFiltered(data);
