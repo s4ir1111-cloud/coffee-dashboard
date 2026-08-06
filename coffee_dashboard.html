@@ -801,10 +801,16 @@
 
   // ── ЗАГРУЗКА ──
   function loadData(){
-    fetch('dashboard_data_view.json', {cache:'no-store'})
+    const dataUrl = location.protocol === 'file:'
+      ? 'https://s4ir1111-cloud.github.io/coffee-dashboard/dashboard_data_view.json'
+      : 'dashboard_data_view.json';
+    fetch(dataUrl, {cache:'no-store'})
       .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(renderData)
-      .catch(err => console.error('Ошибка загрузки:', err));
+      .catch(err => {
+        console.error('Ошибка загрузки:', err);
+        showPlansToast('Не удалось загрузить данные продаж. Откройте онлайн-версию дашборда.', true);
+      });
   }
 
   loadData();
