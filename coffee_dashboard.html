@@ -499,6 +499,11 @@
     'Мельникайте','Арсиб','Прео','Софилэнд','Гарден Кофе Сургут','Гарден Кофе Тобольск'
   ]);
 
+  const MANUAL_PLAN_OVERRIDES = {
+    monthly_plans:{'Гарден Кофе Сургут':3450000,'Гарден Кофе Тобольск':4350000},
+    avg_check_plans:{'Гарден Кофе Сургут':750,'Гарден Кофе Тобольск':680}
+  };
+
   function parsePlansJson(text){
     const parsed = JSON.parse(text);
     const monthly = parsed.monthly_plans || parsed.monthlyPlans;
@@ -596,11 +601,13 @@
 
   function applyImportedPlans(data, imported){
     if(!imported?.monthly_plans || !data.plan) return data;
+    const monthlyPlans = {...imported.monthly_plans,...MANUAL_PLAN_OVERRIDES.monthly_plans};
+    const avgCheckPlans = {...(imported.avg_check_plans || {}),...MANUAL_PLAN_OVERRIDES.avg_check_plans};
     const oldPoints = new Map((data.plan.points || []).map(point => [point.name, point]));
     const dom = data.plan.summary?.day_of_month || new Date().getDate();
     const dim = data.plan.summary?.days_in_month || 30;
     const pace = dom / dim;
-    const planPoints = Object.entries(imported.monthly_plans).map(([rawName,planValue]) => {
+    const planPoints = Object.entries(monthlyPlans).map(([rawName,planValue]) => {
       const name = canonicalPlanName(rawName);
       const old = oldPoints.get(name) || {};
       const planMonth = Math.round(numberFromCell(planValue) || 0);
@@ -608,7 +615,7 @@
       const mtdOrders = old.mtd_orders || 0;
       const mtdAvgCheck = mtdOrders ? Math.round(mtdRevenue/mtdOrders) : 0;
       const expected = Math.round(planMonth * pace);
-      const avgCheckPlan = imported.avg_check_plans?.[rawName] || imported.avg_check_plans?.[name] || null;
+      const avgCheckPlan = avgCheckPlans[rawName] || avgCheckPlans[name] || null;
       return {
         name, mtd_revenue:mtdRevenue, mtd_orders:mtdOrders, mtd_avg_check:mtdAvgCheck,
         plan_month:planMonth, expected_to_date:expected,
