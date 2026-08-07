@@ -2,7 +2,24 @@
   "date": "2026-08-07",
   "month_start": "2026-08-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Софилэнд",
+        "DishDiscountSumInt": 149,
+        "DishSumInt": 149,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4146,18 +4163,18 @@
       {
         "Department": "Софилэнд",
         "DishDiscountSumInt": 3423,
-        "DishSumInt": 5063,
+        "DishSumInt": 5831,
         "HourOpen": "12",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
+        "UniqOrderId.OrdersCount": 12
       },
       {
         "Department": "Софилэнд",
-        "DishDiscountSumInt": 1228,
+        "DishDiscountSumInt": 0,
         "DishSumInt": 1228,
         "HourOpen": "12",
         "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
+        "UniqOrderId.OrdersCount": 2
       },
       {
         "Department": "Софилэнд",
@@ -4217,11 +4234,19 @@
       },
       {
         "Department": "Софилэнд",
-        "DishDiscountSumInt": 219,
-        "DishSumInt": 219,
+        "DishDiscountSumInt": 3628,
+        "DishSumInt": 4077,
         "HourOpen": "20",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
+        "UniqOrderId.OrdersCount": 9
+      },
+      {
+        "Department": "Софилэнд",
+        "DishDiscountSumInt": 1207,
+        "DishSumInt": 1207,
+        "HourOpen": "21",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
       }
     ],
     "summary": []
@@ -4328,7 +4353,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 921112,
         "DishSumInt": 1093627,
-        "UniqOrderId.OrdersCount": 1462
+        "UniqOrderId.OrdersCount": 1463
       },
       {
         "Department": "Преображенский",
@@ -4350,15 +4375,28 @@
       },
       {
         "Department": "Софилэнд",
-        "DishDiscountSumInt": 428466,
-        "DishSumInt": 558537,
-        "UniqOrderId.OrdersCount": 807
+        "DishDiscountSumInt": 432003,
+        "DishSumInt": 564519,
+        "UniqOrderId.OrdersCount": 820
       }
     ],
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Десерты Терминал",
+        "DishName": "Макаруны ",
+        "DishSumInt": 149
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -4389,15 +4427,27 @@
         "OpenDate.Typed": "2026-08-05"
       },
       {
-        "DishDiscountSumInt": 2542389,
-        "DishSumInt": 4442476,
+        "DishDiscountSumInt": 2545777,
+        "DishSumInt": 4448309,
         "OpenDate.Typed": "2026-08-06"
+      },
+      {
+        "DishDiscountSumInt": 149,
+        "DishSumInt": 149,
+        "OpenDate.Typed": "2026-08-07"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 149,
+        "net_sum": 149,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
