@@ -2,7 +2,16 @@
   "date": "2026-08-09",
   "month_start": "2026-08-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Домашний",
+        "DishDiscountSumInt": 1410,
+        "DishSumInt": 1865,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4032,9 +4041,9 @@
       },
       {
         "Department": "Домашний",
-        "DishDiscountSumInt": 681524,
-        "DishSumInt": 6169735,
-        "UniqOrderId.OrdersCount": 1062
+        "DishDiscountSumInt": 682934,
+        "DishSumInt": 6171600,
+        "UniqOrderId.OrdersCount": 1063
       },
       {
         "Department": "Драмтеатр",
@@ -4118,7 +4127,50 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Акции кофе в подарок",
+        "DishName": "Американо 250 мл в подарок",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе в зернах",
+        "DishName": "Бразилия Бэрри 200 г ",
+        "DishSumInt": 600
+      },
+      {
+        "DishAmountInt": 2,
+        "DishGroup": "Акции кофе в подарок",
+        "DishName": "Капучино 250 мл в подарок",
+        "DishSumInt": 0
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Кофе в зернах",
+        "DishName": "Мексика Кисая 200 г",
+        "DishSumInt": 620
+      },
+      {
+        "DishAmountInt": 3,
+        "DishGroup": "Добавки БАР",
+        "DishName": "Мороженое 50 г",
+        "DishSumInt": 237
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Добавки БАР",
+        "DishName": "Соус Солёная Карамель 40 г",
+        "DishSumInt": 59
+      },
+      {
+        "DishAmountInt": 1,
+        "DishGroup": "Холодные напитки 350",
+        "DishName": "Хол. Ходзича с солен. карм.",
+        "DishSumInt": 349
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -4152,12 +4204,24 @@
         "DishDiscountSumInt": 2682420,
         "DishSumInt": 6914634,
         "OpenDate.Typed": "2026-08-08"
+      },
+      {
+        "DishDiscountSumInt": 1410,
+        "DishSumInt": 1865,
+        "OpenDate.Typed": "2026-08-09"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "Скидка сотрудника iikoCard",
+        "gross_sum": 1865,
+        "net_sum": 1410,
+        "discount_sum": 455
+      }
+    ],
     "summary": []
   }
 }
