@@ -2,16 +2,131 @@
   "date": "2026-08-11",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": null,
+    "yesterday_same_hour_revenue": 51386,
+    "yesterday_same_hour_orders": 102,
+    "comparison_hour": "07",
     "discount_pct": null
   },
-  "points": [],
-  "yesterday_same_hour_points": [],
-  "hourly": [],
+  "points": [
+    {
+      "name": "Паруса",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 4228,
+      "yesterday_same_hour_orders": 8
+    }
+  ],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Океан",
+      "revenue": 5787,
+      "orders": 7
+    },
+    {
+      "name": "Прео",
+      "revenue": 4960,
+      "orders": 9
+    },
+    {
+      "name": "Паруса",
+      "revenue": 4228,
+      "orders": 8
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 3973,
+      "orders": 6
+    },
+    {
+      "name": "Европа",
+      "revenue": 3783,
+      "orders": 6
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 3274,
+      "orders": 9
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 3202,
+      "orders": 5
+    },
+    {
+      "name": "Панорама",
+      "revenue": 2842,
+      "orders": 6
+    },
+    {
+      "name": "Газпром",
+      "revenue": 2619,
+      "orders": 9
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 2364,
+      "orders": 3
+    },
+    {
+      "name": "Гагарина",
+      "revenue": 2105,
+      "orders": 4
+    },
+    {
+      "name": "Калинка",
+      "revenue": 2053,
+      "orders": 5
+    },
+    {
+      "name": "Новин",
+      "revenue": 2051,
+      "orders": 5
+    },
+    {
+      "name": "Видный",
+      "revenue": 1643,
+      "orders": 3
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 1565,
+      "orders": 4
+    },
+    {
+      "name": "Советская",
+      "revenue": 1244,
+      "orders": 4
+    },
+    {
+      "name": "Ворлд Класс",
+      "revenue": 1153,
+      "orders": 2
+    },
+    {
+      "name": "Софилэнд",
+      "revenue": 1116,
+      "orders": 3
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 896,
+      "orders": 3
+    },
+    {
+      "name": "Арсиб",
+      "revenue": 528,
+      "orders": 1
+    }
+  ],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-08-05",
@@ -54,7 +169,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 25569750,
-      "mtd_orders": 41146,
+      "mtd_orders": 41147,
       "mtd_avg_check": 621,
       "plan_month": 81500000,
       "expected_to_date": 28919355,
@@ -127,7 +242,7 @@
       {
         "name": "Паруса",
         "mtd_revenue": 1512214,
-        "mtd_orders": 2392,
+        "mtd_orders": 2393,
         "mtd_avg_check": 632,
         "plan_month": 4850000,
         "expected_to_date": 1720968,
