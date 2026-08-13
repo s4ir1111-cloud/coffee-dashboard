@@ -2,7 +2,16 @@
   "date": "2026-08-13",
   "month_start": "2026-08-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -586,10 +595,10 @@
       {
         "Department": "Ворлд Класс",
         "DishDiscountSumInt": 3974,
-        "DishSumInt": 4562,
+        "DishSumInt": 4880,
         "HourOpen": "19",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
+        "UniqOrderId.OrdersCount": 13
       },
       {
         "Department": "Гагарина",
@@ -4307,8 +4316,8 @@
       {
         "Department": "Ворлд Класс",
         "DishDiscountSumInt": 678511,
-        "DishSumInt": 830257,
-        "UniqOrderId.OrdersCount": 1344
+        "DishSumInt": 830575,
+        "UniqOrderId.OrdersCount": 1345
       },
       {
         "Department": "Гагарина",
@@ -4392,7 +4401,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 1821788,
         "DishSumInt": 2156972,
-        "UniqOrderId.OrdersCount": 2907
+        "UniqOrderId.OrdersCount": 2908
       },
       {
         "Department": "Преображенский",
@@ -4422,7 +4431,14 @@
     "summary": []
   },
   "top_items_raw": {
-    "data": [],
+    "data": [
+      {
+        "DishAmountInt": 1,
+        "DishGroup": null,
+        "DishName": "Тестовое блюдо",
+        "DishSumInt": 0
+      }
+    ],
     "summary": []
   },
   "sales_weekly_raw": {
@@ -4454,14 +4470,26 @@
       },
       {
         "DishDiscountSumInt": 2679862,
-        "DishSumInt": 3082431,
+        "DishSumInt": 3082749,
         "OpenDate.Typed": "2026-08-12"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-08-13"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 0,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
