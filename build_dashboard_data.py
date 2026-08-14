@@ -123,7 +123,7 @@ def main():
         ds = d.isoformat()
         weekly.append({"date": ds, "day_name": DAYS_RU[d.weekday()], "revenue": weekly_by_date.get(ds, 0)})
 
-    # --- Топ позиций (исключаем модификаторы с нулевой суммой) ---
+    # --- Топ позиций с начала месяца (исключаем модификаторы с нулевой суммой) ---
     items = [
         {
             "name": r["DishName"].strip(),
@@ -137,7 +137,7 @@ def main():
     items.sort(key=lambda x: -x["revenue"])
     top_items = items[:8]
 
-    # --- Топ летних напитков ---
+    # --- Топ летних напитков с начала месяца ---
     summer_drinks = [it for it in items if is_summer_drink(it["name"], it["group"])]
     summer_drinks = summer_drinks[:8]
 

@@ -23,7 +23,7 @@
    средний чек — по точкам (Department) и по часам (HourOpen).
 3. Строит OLAP-отчёт по продажам с начала месяца по сегодня — по точкам
    (для план/факт).
-4. Строит топ позиций по выручке за сегодня.
+4. Строит топ позиций по выручке с начала месяца по сегодня.
 5. Сохраняет всё в dashboard_data.json.
 6. Разлогинивается.
 """
@@ -208,8 +208,8 @@ def olap_discounts_report(host: str, token: str, day: str, next_day: str) -> dic
     return report
 
 
-def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
-    """OLAP-отчёт: топ позиций по выручке за день (с группой блюда для фильтра летних напитков)."""
+def olap_top_items(host: str, token: str, month_start: str, next_day: str) -> dict:
+    """OLAP-отчёт: топ позиций с начала месяца (с группой блюда для фильтра летних напитков)."""
     body = {
         "reportType": "SALES",
         "groupByRowFields": ["DishName", "DishGroup"],
@@ -219,7 +219,7 @@ def olap_top_items(host: str, token: str, day: str, next_day: str) -> dict:
             "OpenDate.Typed": {
                 "filterType": "DateRange",
                 "periodType": "CUSTOM",
-                "from": day,
+                "from": month_start,
                 "to": next_day,
             }
         },
@@ -256,8 +256,8 @@ def main():
         print(f"3. Строим отчёт с начала месяца ({month_start} -> {today_str})...")
         sales_mtd = olap_mtd_report(HOST, token, month_start, tomorrow)
 
-        print("4. Строим топ позиций...")
-        top_items = olap_top_items(HOST, token, today_str, tomorrow)
+        print(f"4. Строим топ позиций с начала месяца ({month_start} -> {today_str})...")
+        top_items = olap_top_items(HOST, token, month_start, tomorrow)
 
         print(f"5. Строим выручку за 7 дней ({week_start} -> {today_str})...")
         weekly = olap_weekly_report(HOST, token, week_start, tomorrow)
