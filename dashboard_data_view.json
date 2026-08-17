@@ -1,15 +1,23 @@
 {
   "date": "2026-08-17",
   "summary": {
-    "revenue": 0,
-    "orders": 1,
-    "avg_check": 0,
+    "revenue": 149,
+    "orders": 2,
+    "avg_check": 74,
     "yesterday_same_hour_revenue": 24610,
     "yesterday_same_hour_orders": 39,
     "comparison_hour": "07",
-    "discount_pct": null
+    "discount_pct": 19.7
   },
   "points": [
+    {
+      "name": "Софилэнд",
+      "revenue": 149,
+      "orders": 1,
+      "avg_check": 149,
+      "yesterday_same_hour_revenue": 504,
+      "yesterday_same_hour_orders": 2
+    },
     {
       "name": "Паруса",
       "revenue": 0,
@@ -94,7 +102,7 @@
   "hourly": [
     {
       "hour": "07",
-      "revenue": 0
+      "revenue": 149
     }
   ],
   "weekly": [
@@ -131,7 +139,7 @@
     {
       "date": "2026-08-17",
       "day_name": "Пн",
-      "revenue": 0
+      "revenue": 149
     }
   ],
   "top_items": [
@@ -236,8 +244,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 41473657,
-      "mtd_orders": 67037,
+      "mtd_revenue": 41473806,
+      "mtd_orders": 67038,
       "mtd_avg_check": 619,
       "plan_month": 81500000,
       "expected_to_date": 44693548,
@@ -453,8 +461,8 @@
       },
       {
         "name": "Софилэнд",
-        "mtd_revenue": 1137925,
-        "mtd_orders": 1983,
+        "mtd_revenue": 1138074,
+        "mtd_orders": 1984,
         "mtd_avg_check": 574,
         "plan_month": 2300000,
         "expected_to_date": 1261290,

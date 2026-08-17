@@ -10,6 +10,14 @@
         "HourOpen": "07",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Софилэнд",
+        "DishDiscountSumInt": 149,
+        "DishSumInt": 149,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
       }
     ],
     "summary": []
@@ -4287,9 +4295,9 @@
       },
       {
         "Department": "Софилэнд",
-        "DishDiscountSumInt": 1137925,
-        "DishSumInt": 1471285,
-        "UniqOrderId.OrdersCount": 1983
+        "DishDiscountSumInt": 1138074,
+        "DishSumInt": 1471434,
+        "UniqOrderId.OrdersCount": 1984
       }
     ],
     "summary": []
@@ -10183,10 +10191,10 @@
         "DishSumInt": 676787
       },
       {
-        "DishAmountInt": 3915,
+        "DishAmountInt": 3916,
         "DishGroup": "Десерты Терминал",
         "DishName": "Макаруны ",
-        "DishSumInt": 583186
+        "DishSumInt": 583335
       },
       {
         "DishAmountInt": 53,
@@ -12378,8 +12386,8 @@
         "OpenDate.Typed": "2026-08-16"
       },
       {
-        "DishDiscountSumInt": 0,
-        "DishSumInt": 0,
+        "DishDiscountSumInt": 149,
+        "DishSumInt": 149,
         "OpenDate.Typed": "2026-08-17"
       }
     ],
@@ -12389,9 +12397,15 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 0,
-        "net_sum": 0,
+        "gross_sum": 149,
+        "net_sum": 149,
         "discount_sum": 0
+      },
+      {
+        "discount_type": "Кофе по сниженной цене",
+        "gross_sum": 359,
+        "net_sum": 259,
+        "discount_sum": 100
       }
     ],
     "summary": []
