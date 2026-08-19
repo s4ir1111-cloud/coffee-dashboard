@@ -373,7 +373,7 @@
 
 <div class="bottom-row">
   <div class="card-block">
-    <h2 class="section-title" style="margin-bottom:6px;">Выручка по дням (7 дней)</h2>
+    <h2 class="section-title" style="margin-bottom:6px;">Выручка по дням · текущий месяц</h2>
     <canvas id="revenueChart"></canvas>
   </div>
   <div class="card-block">
@@ -907,7 +907,8 @@
       ctx.lineTo(x+barW,y+barH); ctx.lineTo(x,y+barH); ctx.lineTo(x,y+r);
       ctx.quadraticCurveTo(x,y,x+r,y); ctx.fill();
 
-      if(d.revenue>0){
+      const showValue = isToday || n <= 10 || i % (w < 700 ? 5 : 2) === 0;
+      if(d.revenue>0 && showValue){
         ctx.fillStyle=isToday?'#bedf3d':'#9da5c0';
         ctx.font=`bold ${Math.max(9,Math.min(11,Math.floor(barW*.4)))}px 'Barlow Condensed',sans-serif`;
         ctx.textAlign='center';
@@ -918,7 +919,8 @@
       ctx.fillStyle=isToday?'#bedf3d':'#9da5c0';
       ctx.font=`${isToday?'bold':'normal'} 12px 'Barlow Condensed',sans-serif`;
       ctx.textAlign='center';
-      ctx.fillText(d.day_name,x+barW/2,h-6);
+      const showDay = isToday || n <= 20 || i === 0 || i % (w < 700 ? 3 : 2) === 0;
+      if(showDay) ctx.fillText(d.day_label || d.day_name,x+barW/2,h-6);
     });
   }
   window.addEventListener('resize', drawChart);

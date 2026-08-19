@@ -155,8 +155,8 @@ def olap_mtd_report(host: str, token: str, month_start: str, next_day: str) -> d
     return _olap(host, token, body)
 
 
-def olap_weekly_report(host: str, token: str, week_start: str, next_day: str) -> dict:
-    """OLAP-отчёт по продажам за последние 7 дней (сгруппировано по дате)."""
+def olap_month_daily_report(host: str, token: str, month_start: str, next_day: str) -> dict:
+    """OLAP-отчёт по продажам с начала месяца (сгруппировано по дате)."""
     body = {
         "reportType": "SALES",
         "groupByRowFields": ["OpenDate.Typed"],
@@ -166,7 +166,7 @@ def olap_weekly_report(host: str, token: str, week_start: str, next_day: str) ->
             "OpenDate.Typed": {
                 "filterType": "DateRange",
                 "periodType": "CUSTOM",
-                "from": week_start,
+                "from": month_start,
                 "to": next_day,
             }
         },
@@ -233,7 +233,6 @@ def main():
     yesterday_str = (today - timedelta(days=1)).isoformat()
     tomorrow = (today + timedelta(days=1)).isoformat()
     month_start = today.replace(day=1).isoformat()
-    week_start = (today - timedelta(days=6)).isoformat()
 
     username = os.environ.get("IIKO_LOGIN")
     password = os.environ.get("IIKO_PASSWORD")
@@ -259,8 +258,8 @@ def main():
         print(f"4. Строим топ позиций с начала месяца ({month_start} -> {today_str})...")
         top_items = olap_top_items(HOST, token, month_start, tomorrow)
 
-        print(f"5. Строим выручку за 7 дней ({week_start} -> {today_str})...")
-        weekly = olap_weekly_report(HOST, token, week_start, tomorrow)
+        print(f"5. Строим выручку по дням месяца ({month_start} -> {today_str})...")
+        weekly = olap_month_daily_report(HOST, token, month_start, tomorrow)
 
         print(f"6. Строим отчёт о скидках за {today_str}...")
         try:

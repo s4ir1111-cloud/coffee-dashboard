@@ -111,17 +111,22 @@ def main():
     hours_sorted = sorted(by_hour.keys())
     hourly = [{"hour": h, "revenue": by_hour[h]} for h in hours_sorted]
 
-    # --- Выручка по дням (последние 7 дней) ---
+    # --- Выручка по дням текущего месяца ---
     weekly_rows = raw.get("sales_weekly_raw", {}).get("data", [])
     weekly_by_date = {}
     for r in weekly_rows:
         d = r.get("OpenDate.Typed", "")
         weekly_by_date[d] = weekly_by_date.get(d, 0) + r.get("DishDiscountSumInt", 0)
     weekly = []
-    for i in range(6, -1, -1):
-        d = today - timedelta(days=i)
+    for day_number in range(1, today.day + 1):
+        d = today.replace(day=day_number)
         ds = d.isoformat()
-        weekly.append({"date": ds, "day_name": DAYS_RU[d.weekday()], "revenue": weekly_by_date.get(ds, 0)})
+        weekly.append({
+            "date": ds,
+            "day_name": DAYS_RU[d.weekday()],
+            "day_label": str(day_number),
+            "revenue": weekly_by_date.get(ds, 0),
+        })
 
     # --- Топ позиций с начала месяца (исключаем модификаторы с нулевой суммой) ---
     items = [
