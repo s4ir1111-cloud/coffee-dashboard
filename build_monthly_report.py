@@ -239,6 +239,16 @@ def telegram_message(report):
         f"EBITDA: {kpis['EBITDA']['display']} · маржа {report['margins']['ebitda_pct']:.1f}%",
         f"Чистая прибыль: {kpis['Чистая прибыль']['display']}",
     ]
+    ext = report.get("extended_analytics", {})
+    guest_frequency = ext.get("guest_frequency", {})
+    if ext:
+        lines += [
+            "",
+            "👥 Гости и посещения:",
+            f"• Средний чек: {ext.get('avg_check', 0):,.0f} ₽",
+            f"• Частота: {guest_frequency.get('visits_per_guest', '—')} визита на гостя",
+            f"• Повторные гости: {guest_frequency.get('repeat_guest_pct', '—')}%",
+        ]
     if bad_stores:
         lines += ["", "🔻 Наибольшее снижение выручки:"]
         lines += [f"• {s['name']}: {money(s['revenue_delta_money'])} ({percent(s['revenue_delta_pct'])})" for s in bad_stores]
