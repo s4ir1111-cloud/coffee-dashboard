@@ -14,10 +14,12 @@
 
 import json
 import os
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 import calendar
 
 DAYS_RU = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+DASHBOARD_TIMEZONE = ZoneInfo(os.environ.get("DASHBOARD_TIMEZONE", "Asia/Yekaterinburg"))
 
 # Переименования точек (IIKO-название → отображаемое)
 DEPT_ALIASES = {
@@ -69,10 +71,15 @@ def main():
         d["revenue"] += r.get("DishDiscountSumInt", 0)
         d["orders"] += r.get("UniqOrderId.OrdersCount", 0)
 
-    # Вчера до того же часа, который уже появился в сегодняшнем отчёте.
-    # Значение считается отдельно по точкам, чтобы сохранялась работа фильтра.
+    # Вчера до последнего полностью завершённого часа по местному времени.
+    # Нельзя брать максимальный HourOpen сегодняшних строк: интернет-предзаказ
+    # может иметь будущий час (например, 21:00 при текущем времени 16:58).
     current_hours = [int(r["HourOpen"]) for r in rows if str(r.get("HourOpen", "")).isdigit()]
-    comparison_hour = max(current_hours) if current_hours else None
+    local_now = datetime.now(DASHBOARD_TIMEZONE)
+    if today == local_now.date():
+        comparison_hour = local_now.hour - 1 if local_now.hour > 0 else None
+    else:
+        comparison_hour = max(current_hours) if current_hours else None
     yesterday_by_dept = {}
     yesterday_orders_by_dept = {}
     if comparison_hour is not None:
