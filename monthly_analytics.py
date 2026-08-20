@@ -4,6 +4,7 @@ Every numeric conclusion is deterministic. Missing source domains are returned
 with an explicit unavailable status instead of inferred or fabricated values.
 """
 
+import calendar
 import json
 import os
 from datetime import date, datetime, timezone
@@ -329,6 +330,7 @@ def build_full_report(data, requested_month=None):
             total_sales = sum(x.get("revenue",0) for x in checks)
             extended = {
                 "checks": total_checks, "avg_check": round(total_sales/total_checks,2) if total_checks else 0,
+                "checks_per_day": round(total_checks/calendar.monthrange(int(current["mkey"][:4]), int(current["mkey"][5:]))[1],1), "guest_frequency": ready.get("guest_frequency",{}),
                 "top_menu": sorted(ready.get("menu_sku",[]),key=lambda x:x.get("revenue",0),reverse=True)[:20],
                 "top_purchases": sorted(ready.get("purchases",[]),key=lambda x:x.get("sum",0),reverse=True)[:20],
                 "top_raw_material": sorted(ready.get("raw_material",[]),key=lambda x:x.get("sum",0),reverse=True)[:20],

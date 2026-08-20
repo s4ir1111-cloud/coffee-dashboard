@@ -5,6 +5,7 @@ import hashlib
 import gzip
 import json
 import os
+from statistics import median
 from datetime import date
 
 import requests
@@ -52,13 +53,19 @@ def main():
             "sales_checks": ("SALES", ["Department"], ["DishDiscountSumInt", "UniqOrderId.OrdersCount"], "OpenDate.Typed"),
             "menu_sku": ("SALES", ["Department", "DishName", "DishGroup", "DishCategory"], ["DishAmountInt", "DishDiscountSumInt", "ProductCostBase.ProductCost"], "OpenDate.Typed"),
             "sales_by_hour": ("SALES", ["Department", "OpenDate.Typed", "HourOpen"], ["DishDiscountSumInt", "UniqOrderId.OrdersCount"], "OpenDate.Typed"),
+            "guest_frequency": ("SALES", ["Delivery.CustomerCardNumber", "Delivery.CustomerPhone"], ["DishDiscountSumInt", "UniqOrderId.OrdersCount"], "OpenDate.Typed"),
             "purchases": ("TRANSACTIONS", ["DateTime.DateTyped", "Department", "Counteragent.Name", "Product.Id", "Product.Name", "Product.MeasureUnit", "InvoiceNumber"], ["Amount.In", "Sum.Incoming", "Product.AvgSum"], "DateTime.DateTyped"),
             "raw_material": ("TRANSACTIONS", ["DateTime.DateTyped", "Department", "Product.Id", "Product.Name", "Product.MeasureUnit", "Account.Name", "Contr-Account.Name"], ["Amount.Out", "Sum.Outgoing"], "DateTime.DateTyped"),
         }
         for name, args in queries.items():
             try:
                 rows = olap(token, *args, start, end)
-                output["sources"][name] = {"status": "available", "rows": rows}
+                if name == "guest_frequency":
+                    visits = sorted(float(row.get("UniqOrderId.OrdersCount") or 0) for row in rows if row.get("Delivery.CustomerCardNumber") or row.get("Delivery.CustomerPhone"))
+                    summary = {"identified_guests":len(visits),"visits":round(sum(visits)),"visits_per_guest":round(sum(visits)/len(visits),2) if visits else 0,"median_visits":round(median(visits),1) if visits else 0,"repeat_guest_pct":round(sum(v>=2 for v in visits)/len(visits)*100,1) if visits else 0}
+                    output["sources"][name] = {"status":"available","summary":summary,"rows":[]}
+                else:
+                    output["sources"][name] = {"status": "available", "rows": rows}
                 print(f"{name}: {len(rows)} rows")
             except Exception as exc:
                 output["sources"][name] = {"status": "error", "error": type(exc).__name__, "rows": []}
@@ -72,7 +79,7 @@ def main():
         "generated_at": output["generated_at"], "period": output["period"],
         "uncompressed_bytes": len(encoded), "compressed_bytes": os.path.getsize(OUT),
         "sources": {
-            name: {"status": item["status"], "rows": len(item.get("rows", [])), "error": item.get("error")}
+            name: {"status": item["status"], "rows": len(item.get("rows", [])), "summary": item.get("summary"), "error": item.get("error")}
             for name, item in output["sources"].items()
         },
     }

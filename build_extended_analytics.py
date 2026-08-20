@@ -42,7 +42,7 @@ def main():
         key=(row.get("Department"),row.get("Product.Id"),row.get("Product.Name"),row.get("Product.MeasureUnit"),row.get("Account.Name"),row.get("Contr-Account.Name"))
         usage[key]["qty"]+=qty; usage[key]["sum"]+=total
     usage_rows=[{"store":k[0],"product_id":k[1],"item":k[2],"unit":k[3],"account":k[4],"contra_account":k[5],"qty":round(v["qty"],3),"sum":round(v["sum"])} for k,v in usage.items()]
-    ready={"generated_at":raw["generated_at"],"period":raw["period"],"sales_checks":checks,"menu_sku":menu,"purchases":purchase_rows,"raw_material":usage_rows,"sales_by_hour":src["sales_by_hour"]["rows"]}
+    ready={"generated_at":raw["generated_at"],"period":raw["period"],"sales_checks":checks,"guest_frequency":src.get("guest_frequency",{}).get("summary",{}),"menu_sku":menu,"purchases":purchase_rows,"raw_material":usage_rows,"sales_by_hour":src["sales_by_hour"]["rows"]}
     with open(OUT,"w",encoding="utf-8") as target: json.dump(ready,target,ensure_ascii=False,separators=(",",":"))
     print({k:len(v) if isinstance(v,list) else v for k,v in ready.items()})
 if __name__ == "__main__": main()
