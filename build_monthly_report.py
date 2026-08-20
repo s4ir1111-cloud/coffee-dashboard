@@ -7,6 +7,8 @@ import json
 import os
 from datetime import date, datetime, timezone
 
+from monthly_analytics import build_full_report
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PNL_PATH = os.path.join(BASE_DIR, "pnl_data.json")
 REPORT_JSON = os.path.join(BASE_DIR, "monthly_report.json")
@@ -179,18 +181,47 @@ def render_html(report):
         for x in report["expense_findings"]
     ) or '<tr><td colspan="5">Значимых положительных отклонений расходов не обнаружено.</td></tr>'
     actions = "".join(
-        f'<tr><td>{i+1}</td><td>{esc(a["problem"])}</td><td>{money(a["effect"])}</td><td>{esc(a["action"])}</td><td>{esc(a["owner"])}</td><td>{esc(a["deadline"])}</td><td>{esc(a["kpi"])}</td></tr>'
-        for i, a in enumerate(report["actions"])
+        f'<tr><td>{a["priority"]}</td><td>{esc(a["problem"])}</td><td>{esc(a["action"])}</td><td>{esc(a["kpi"])}</td><td>{esc(a["current_level"])}</td><td>{esc(a["target"])}</td><td>{money(a["expected_effect"])}</td><td>{esc(a["owner"])}</td><td>{esc(a["deadline"])}</td></tr>'
+        for a in report.get("action_plan", [])
     )
     limits = "".join(f"<li>{esc(x)}</li>" for x in report["data_limits"])
     margins = report["margins"]
+    executive = "".join(f"<li>{esc(item)}</li>" for item in report.get("executive_summary", []))
+    comparisons = "".join(
+        f'<tr><td>{esc(name)}</td><td>{money(row["value"])}</td><td>{percent(row["mom_pct"])}</td><td>{percent(row["yoy_pct"])}</td><td>{percent(row["vs_3m_pct"])}</td><td>{percent(row["vs_6m_pct"])}</td></tr>'
+        for name, row in report.get("comparisons", {}).items()
+    )
+    problems = "".join(
+        f'<article class="finding"><h3>{esc(item["marker"])} {esc(item["title"])}</h3><p>{esc(item["what"])}</p><p>{esc(item["why"])}</p><b>Эффект: {money(item["financial_impact"])} / мес · Impact Score {item["impact_score"]}</b></article>'
+        for item in report.get("problems", [])
+    )
+    opportunities = "".join(
+        f'<article class="finding"><h3>{esc(item["title"])}</h3><p>{esc(item["evidence"])}</p><p>{esc(item["action"])}</p><b>Потенциал: {money(item["financial_impact"])} / мес</b></article>'
+        for item in report.get("opportunities", [])
+    )
+    coverage = "".join(
+        f'<tr><td>{esc(name)}</td><td>{esc(item["status"])}</td><td>{esc(item["required_source"])}</td></tr>'
+        for name, item in report.get("source_coverage", {}).items()
+    )
+    unavailable_sections = "".join(
+        f'<article class="finding"><h3>{esc(name)}</h3><p class="bad">DATA QUALITY WARNING · источник не подключён</p><p>{esc(item["required_source"])}</p></article>'
+        for name, item in report.get("source_coverage", {}).items()
+    )
+    dq = report.get("data_quality", {})
+    dq_items = "".join(f"<li>{esc(item)}</li>" for item in dq.get("warnings", [])) or "<li>Контрольные проверки пройдены.</li>"
+    previous_review = report.get("previous_plan_review", {})
     return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Garden · Управленческий отчёт</title>
-<style>:root{{--bg:#09110f;--panel:#111d19;--line:#263a32;--text:#f3f7f5;--muted:#9fb0a8;--accent:#d9b36c;--good:#62d69b;--bad:#ff827a}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 Inter,Arial,sans-serif}}main{{max-width:1320px;margin:auto;padding:34px 22px 60px}}header{{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:20px}}h1{{margin:0;font-size:31px}}h2{{margin:34px 0 12px;font-size:20px}}.eyebrow,.note,span,em{{color:var(--muted)}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}}.card{{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}}.card strong{{display:block;font-size:25px;margin:6px 0}}em{{font-style:normal;font-size:13px}}.good{{color:var(--good)!important}}.bad{{color:var(--bad)!important}}table{{width:100%;border-collapse:collapse;background:var(--panel);border-radius:14px;overflow:hidden}}th,td{{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}}th:first-child,td:first-child{{text-align:left}}th{{color:var(--muted);font-size:12px;text-transform:uppercase}}.margins{{display:flex;gap:12px;flex-wrap:wrap}}.pill{{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 13px}}.warn{{border-left:3px solid var(--accent);background:var(--panel);padding:13px 18px;margin-top:28px}}footer{{color:var(--muted);margin-top:32px}}@media(max-width:800px){{.grid{{grid-template-columns:1fr 1fr}}header{{display:block}}.scroll{{overflow:auto}}table{{min-width:760px}}}}@media(max-width:480px){{.grid{{grid-template-columns:1fr}}}}</style></head>
+<style>:root{{--bg:#09110f;--panel:#111d19;--line:#263a32;--text:#f3f7f5;--muted:#9fb0a8;--accent:#d9b36c;--good:#62d69b;--bad:#ff827a}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 Inter,Arial,sans-serif}}main{{max-width:1320px;margin:auto;padding:34px 22px 60px}}header{{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:20px}}h1{{margin:0;font-size:31px}}h2{{margin:34px 0 12px;font-size:20px}}h3{{margin:0 0 8px}}.eyebrow,.note,span,em{{color:var(--muted)}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}}.card,.finding{{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}}.card strong{{display:block;font-size:25px;margin:6px 0}}.findings{{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}}em{{font-style:normal;font-size:13px}}.good{{color:var(--good)!important}}.bad{{color:var(--bad)!important}}table{{width:100%;border-collapse:collapse;background:var(--panel);border-radius:14px;overflow:hidden}}th,td{{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}}th:first-child,td:first-child{{text-align:left}}th{{color:var(--muted);font-size:12px;text-transform:uppercase}}.margins{{display:flex;gap:12px;flex-wrap:wrap}}.pill{{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 13px}}.warn{{border-left:3px solid var(--accent);background:var(--panel);padding:13px 18px;margin-top:28px}}footer{{color:var(--muted);margin-top:32px}}@media(max-width:800px){{.grid,.findings{{grid-template-columns:1fr 1fr}}header{{display:block}}.scroll{{overflow:auto}}table{{min-width:760px}}}}@media(max-width:480px){{.grid,.findings{{grid-template-columns:1fr}}}}</style></head>
 <body><main><header><div><div class="eyebrow">GARDEN COFFEE · АВТОМАТИЧЕСКИЙ ОТЧЁТ</div><h1>{esc(report["period_label"])}</h1></div><div class="note">Сравнение: {esc(report["comparison_label"] or "нет данных")}</div></header>
-<section class="grid">{cards}</section><h2>Маржинальность</h2><div class="margins"><div class="pill">Себестоимость <b>{margins['cogs_pct']:.1f}%</b></div><div class="pill">Валовая маржа <b>{margins['gross_margin_pct']:.1f}%</b></div><div class="pill">OPEX <b>{margins['opex_pct']:.1f}%</b></div><div class="pill">EBITDA <b>{margins['ebitda_pct']:.1f}%</b></div><div class="pill">Чистая маржа <b>{margins['net_margin_pct']:.1f}%</b></div></div>
+<div class="warn"><b>Data Quality · {esc(dq.get('status','unknown'))}</b><ul>{dq_items}</ul></div><h2>Executive Summary</h2><ol>{executive}</ol>
+<section class="grid">{cards}</section><h2>Сравнения MoM / YoY / 3 / 6 месяцев</h2><div class="scroll"><table><thead><tr><th>KPI</th><th>Значение</th><th>MoM</th><th>YoY</th><th>к среднему 3 мес.</th><th>к среднему 6 мес.</th></tr></thead><tbody>{comparisons}</tbody></table></div><h2>Маржинальность</h2><div class="margins"><div class="pill">Себестоимость <b>{margins['cogs_pct']:.1f}%</b></div><div class="pill">Валовая маржа <b>{margins['gross_margin_pct']:.1f}%</b></div><div class="pill">OPEX <b>{margins['opex_pct']:.1f}%</b></div><div class="pill">EBITDA <b>{margins['ebitda_pct']:.1f}%</b></div><div class="pill">Чистая маржа <b>{margins['net_margin_pct']:.1f}%</b></div></div>
+<h2>TOP-5 проблем</h2><div class="findings">{problems}</div><h2>TOP-5 точек роста</h2><div class="findings">{opportunities}</div>
 <h2>Кофейни · от максимального падения к росту</h2><div class="scroll"><table><thead><tr><th>Точка</th><th>Выручка</th><th>MoM</th><th>Чистая прибыль</th><th>Маржа</th></tr></thead><tbody>{stores}</tbody></table></div>
 <h2>Главные отклонения расходов</h2><div class="scroll"><table><thead><tr><th>Статья</th><th>Сумма</th><th>Изменение</th><th>Денежный эффект</th><th>Статус причины</th></tr></thead><tbody>{expenses}</tbody></table></div>
-<h2>План действий</h2><div class="scroll"><table><thead><tr><th>№</th><th>Проблема</th><th>Эффект</th><th>Действие</th><th>Ответственный</th><th>Срок</th><th>KPI</th></tr></thead><tbody>{actions}</tbody></table></div>
+<h2>План действий</h2><div class="scroll"><table><thead><tr><th>№</th><th>Проблема</th><th>Действие</th><th>KPI</th><th>Текущий уровень</th><th>Цель</th><th>Эффект</th><th>Ответственный</th><th>Срок</th></tr></thead><tbody>{actions}</tbody></table></div>
+<div class="warn"><b>Контроль предыдущего плана · {esc(previous_review.get('status','unknown'))}</b><p>{esc(previous_review.get('message',''))}</p></div>
+<h2>Покрытие источников по ТЗ</h2><div class="scroll"><table><thead><tr><th>Контур</th><th>Статус</th><th>Что требуется</th></tr></thead><tbody>{coverage}</tbody></table></div>
+<h2>Продажи, меню, закупки, персонал и сырьё</h2><div class="findings">{unavailable_sections}</div>
 <div class="warn"><b>Ограничения данных</b><ul>{limits}</ul></div><footer>Сформировано {esc(report['generated_at'][:10])} · источник: iiko P&L / OLAP</footer></main></body></html>'''
 
 
@@ -210,6 +241,9 @@ def telegram_message(report):
     if report["expense_findings"]:
         lines += ["", "⚠️ Рост расходов:"]
         lines += [f"• {x['item']}: +{money(x['money_effect'])}" for x in report["expense_findings"][:3]]
+    unavailable = [name for name, item in report.get("source_coverage", {}).items() if item.get("status") != "available"]
+    if unavailable:
+        lines += ["", "⚠️ Не подключены источники: " + ", ".join(unavailable)]
     lines += ["", f"План действий и полный отчёт: {PUBLIC_URL}"]
     return "\n".join(lines)
 
@@ -219,13 +253,20 @@ def main():
     parser.add_argument("--month", help="Месяц YYYY-MM; по умолчанию предыдущий завершённый")
     args = parser.parse_args()
     with open(PNL_PATH, encoding="utf-8") as source:
-        report = build_report(json.load(source), args.month)
+        report = build_full_report(json.load(source), args.month)
     with open(REPORT_JSON, "w", encoding="utf-8") as target:
         json.dump(report, target, ensure_ascii=False, indent=2)
     with open(REPORT_HTML, "w", encoding="utf-8") as target:
-        target.write(render_html(report))
+        rendered = render_html(report)
+        target.write(rendered)
     with open(TELEGRAM_TEXT, "w", encoding="utf-8") as target:
         target.write(telegram_message(report) + "\n")
+    history_dir = os.path.join(BASE_DIR, "reports", "monthly")
+    os.makedirs(history_dir, exist_ok=True)
+    with open(os.path.join(history_dir, f"{report['period']}.json"), "w", encoding="utf-8") as target:
+        json.dump(report, target, ensure_ascii=False, indent=2)
+    with open(os.path.join(history_dir, f"{report['period']}.html"), "w", encoding="utf-8") as target:
+        target.write(rendered)
     print(f"Built monthly report for {report['period']}: {REPORT_HTML}")
 
 

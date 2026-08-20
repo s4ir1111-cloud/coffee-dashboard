@@ -155,7 +155,9 @@ def query_olap_with_fields(session, store_id, date_from, date_to, group_fields):
                 "dateFrom": date_from,
                 "dateTo": date_to,
                 "includeLeft": True,
-                "includeRight": True,
+                # dateTo is the first day of the next month; the right boundary
+                # must be exclusive or adjacent months overlap by one day.
+                "includeRight": False,
             },
             {
                 "field": "Account.Group",

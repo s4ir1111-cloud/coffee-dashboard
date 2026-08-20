@@ -1,0 +1,21 @@
+{
+  "anomaly_thresholds": {
+    "mom_pct": 10,
+    "vs_3m_pct": 15,
+    "vs_network_pct": 10,
+    "negative_months": 2
+  },
+  "purchase_price_thresholds": {
+    "yellow_pct": 0.01,
+    "orange_pct": 3,
+    "red_pct": 7,
+    "critical_monthly_effect_rub": 100000
+  },
+  "impact_weights": {
+    "financial": 0.4,
+    "scale": 0.15,
+    "duration": 0.15,
+    "confidence": 0.2,
+    "ease": 0.1
+  }
+}

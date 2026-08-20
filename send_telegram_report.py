@@ -6,7 +6,7 @@ import sys
 import requests
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MESSAGE_PATH = os.path.join(BASE_DIR, "telegram_monthly_report.txt")
+MESSAGE_PATH = os.environ.get("TELEGRAM_MESSAGE_FILE") or os.path.join(BASE_DIR, "telegram_monthly_report.txt")
 
 
 def main():
