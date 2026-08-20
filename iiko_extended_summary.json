@@ -1,32 +1,49 @@
 {
   "generated_at": "2026-08-20",
   "period": "2026-07",
-  "uncompressed_bytes": 415233748,
-  "compressed_bytes": 29342020,
+  "uncompressed_bytes": 415235450,
+  "compressed_bytes": 29342230,
   "sources": {
     "sales_checks": {
       "status": "available",
       "rows": 21,
+      "summary": null,
       "error": null
     },
     "menu_sku": {
       "status": "available",
       "rows": 14607,
+      "summary": null,
       "error": null
     },
     "sales_by_hour": {
       "status": "available",
       "rows": 9372,
+      "summary": null,
+      "error": null
+    },
+    "guest_frequency": {
+      "status": "available",
+      "rows": 0,
+      "summary": {
+        "identified_guests": 18728,
+        "visits": 70595,
+        "visits_per_guest": 3.77,
+        "median_visits": 2.0,
+        "repeat_guest_pct": 61.0
+      },
       "error": null
     },
     "purchases": {
       "status": "available",
       "rows": 288986,
+      "summary": null,
       "error": null
     },
     "raw_material": {
       "status": "available",
-      "rows": 844178,
+      "rows": 844182,
+      "summary": null,
       "error": null
     }
   }
