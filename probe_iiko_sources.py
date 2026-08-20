@@ -85,10 +85,10 @@ def main():
                 params={"key": token, "reportType": report_type},
                 timeout=30,
             )
-            entry = {"http_status": response.status_code, "columns": 0, "relevant": {}}
+            entry = {"http_status": response.status_code, "columns": 0, "all_columns": [], "relevant": {}}
             if response.ok:
                 columns = flatten_columns(response.json())
-                entry.update({"columns": len(columns), "relevant": relevant(columns)})
+                entry.update({"columns": len(columns), "all_columns": columns, "relevant": relevant(columns)})
             else:
                 entry["error"] = response.text[:200]
             output["reports"][report_type] = entry
