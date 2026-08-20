@@ -344,18 +344,23 @@ def build_full_report(data, requested_month=None):
                 for key, label in metrics.items()
             ]
             avg_mom = next((x["mom_pct"] for x in guest_comparisons if x["key"] == "avg_check"), None)
+            avg_yoy = next((x["yoy_pct"] for x in guest_comparisons if x["key"] == "avg_check"), None)
             freq_mom = next((x["mom_pct"] for x in guest_comparisons if x["key"] == "visits_per_guest"), None)
+            freq_yoy = next((x["yoy_pct"] for x in guest_comparisons if x["key"] == "visits_per_guest"), None)
+            guests_yoy = next((x["yoy_pct"] for x in guest_comparisons if x["key"] == "identified_guests"), None)
             repeat_now = trend_current.get("repeat_guest_pct")
             guest_analysis = []
             if avg_mom is not None:
-                guest_analysis.append(f"Средний чек {'вырос' if avg_mom >= 0 else 'снизился'} на {abs(avg_mom):.1f}% MoM: проверять вклад цены, продуктового микса и скидок.")
+                guest_analysis.append(f"Средний чек {'вырос' if avg_mom >= 0 else 'снизился'} на {abs(avg_mom):.1f}% MoM и {('вырос' if (avg_yoy or 0) >= 0 else 'снизился')} на {abs(avg_yoy or 0):.1f}% YoY. Рост нужно разложить на цену, продуктовый микс и скидки, чтобы подтвердить его качество.")
             if freq_mom is not None:
-                guest_analysis.append(f"Частота посещений {'выросла' if freq_mom >= 0 else 'снизилась'} на {abs(freq_mom):.1f}% MoM; это {'положительный сигнал удержания' if freq_mom >= 0 else 'сигнал риска оттока'}.")
+                guest_analysis.append(f"Частота посещений {'выросла' if freq_mom >= 0 else 'снизилась'} на {abs(freq_mom):.1f}% MoM, но {'выросла' if (freq_yoy or 0) >= 0 else 'ниже'} на {abs(freq_yoy or 0):.1f}% YoY. Краткосрочное улучшение пока не компенсировало годовое снижение удержания.")
+            if guests_yoy is not None:
+                guest_analysis.append(f"База идентифицированных гостей выросла на {guests_yoy:.1f}% YoY при динамике частоты {freq_yoy:+.1f}%: сеть хорошо привлекает гостей, но потенциал находится в переводе новых гостей в повторные.")
             if repeat_now is not None:
                 guest_analysis.append(f"Доля повторных гостей — {repeat_now:.1f}%; доля разовых гостей — {100-repeat_now:.1f}%.")
             guest_recommendations = [
-                {"action": "Запустить возврат гостей без визита 21–30 дней персональным предложением.", "kpi": "Визитов на гостя", "target": round(trend_current.get("visits_per_guest", 0) * 1.05, 2), "deadline": "30 дней"},
-                {"action": "Поднять повторные визиты через предложение на следующую покупку, а не скидку в текущем чеке.", "kpi": "Повторные гости", "target": round(min(100, trend_current.get("repeat_guest_pct", 0) + 3), 1), "deadline": "30 дней"},
+                {"action": "Запустить возврат гостей без визита 21–30 дней персональным предложением.", "kpi": "Визитов на гостя", "target": trend_yoy.get("visits_per_guest", round(trend_current.get("visits_per_guest", 0) * 1.03, 2)), "deadline": "30 дней"},
+                {"action": "Поднять повторные визиты через предложение на следующую покупку, а не скидку в текущем чеке.", "kpi": "Повторные гости", "target": trend_yoy.get("repeat_guest_pct", round(min(100, trend_current.get("repeat_guest_pct", 0) + 2), 1)), "deadline": "30 дней"},
                 {"action": "Провести A/B-тест допродажи напиток + десерт на точках с чеком ниже среднего сети.", "kpi": "Средний чек", "target": round(trend_current.get("avg_check", 0) * 1.03), "deadline": "30 дней"},
             ]
             extended = {
