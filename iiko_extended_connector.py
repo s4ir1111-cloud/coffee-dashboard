@@ -23,6 +23,17 @@ def month_range(key):
     return f"{key}-01", f"{year + (month == 12):04d}-{1 if month == 12 else month + 1:02d}-01"
 
 
+def shift_month(key, offset):
+    year, month = map(int, key.split("-"))
+    absolute = year * 12 + month - 1 + offset
+    return f"{absolute // 12:04d}-{absolute % 12 + 1:02d}"
+
+
+def guest_summary(rows):
+    visits = sorted(float(row.get("UniqOrderId.OrdersCount") or 0) for row in rows if row.get("Delivery.CustomerCardNumber") or row.get("Delivery.CustomerPhone"))
+    return {"identified_guests":len(visits),"visits":round(sum(visits)),"visits_per_guest":round(sum(visits)/len(visits),2) if visits else 0,"median_visits":round(median(visits),1) if visits else 0,"repeat_guest_pct":round(sum(v>=2 for v in visits)/len(visits)*100,1) if visits else 0}
+
+
 def login():
     response = requests.get(f"{HOST}/resto/api/auth", params={
         "login": LOGIN, "pass": hashlib.sha1(PASSWORD.encode()).hexdigest()
@@ -61,15 +72,22 @@ def main():
             try:
                 rows = olap(token, *args, start, end)
                 if name == "guest_frequency":
-                    visits = sorted(float(row.get("UniqOrderId.OrdersCount") or 0) for row in rows if row.get("Delivery.CustomerCardNumber") or row.get("Delivery.CustomerPhone"))
-                    summary = {"identified_guests":len(visits),"visits":round(sum(visits)),"visits_per_guest":round(sum(visits)/len(visits),2) if visits else 0,"median_visits":round(median(visits),1) if visits else 0,"repeat_guest_pct":round(sum(v>=2 for v in visits)/len(visits)*100,1) if visits else 0}
-                    output["sources"][name] = {"status":"available","summary":summary,"rows":[]}
+                    output["sources"][name] = {"status":"available","summary":guest_summary(rows),"rows":[]}
                 else:
                     output["sources"][name] = {"status": "available", "rows": rows}
                 print(f"{name}: {len(rows)} rows")
             except Exception as exc:
                 output["sources"][name] = {"status": "error", "error": type(exc).__name__, "rows": []}
                 print(f"{name}: {type(exc).__name__}")
+        trends = []
+        for period in (MONTH, shift_month(MONTH, -1), shift_month(MONTH, -12)):
+            period_start, period_end = month_range(period)
+            sales = olap(token, "SALES", ["Department"], ["DishDiscountSumInt", "UniqOrderId.OrdersCount"], "OpenDate.Typed", period_start, period_end)
+            guests = olap(token, "SALES", ["Delivery.CustomerCardNumber", "Delivery.CustomerPhone"], ["UniqOrderId.OrdersCount"], "OpenDate.Typed", period_start, period_end)
+            revenue = sum(float(row.get("DishDiscountSumInt") or 0) for row in sales)
+            checks = sum(float(row.get("UniqOrderId.OrdersCount") or 0) for row in sales)
+            trends.append({"period": period, "checks": round(checks), "avg_check": round(revenue/checks, 2) if checks else 0, **guest_summary(guests)})
+        output["sources"]["guest_trends"] = {"status":"available","summary":{"periods":trends},"rows":[]}
     finally:
         requests.get(f"{HOST}/resto/api/logout", params={"key": token}, timeout=20)
     encoded = json.dumps(output, ensure_ascii=False, separators=(",", ":")).encode("utf-8")

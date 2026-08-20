@@ -328,9 +328,41 @@ def build_full_report(data, requested_month=None):
             checks = ready.get("sales_checks", [])
             total_checks = sum(x.get("checks",0) for x in checks)
             total_sales = sum(x.get("revenue",0) for x in checks)
+            guest_trends = ready.get("guest_trends", [])
+            trend_by_period = {item.get("period"): item for item in guest_trends}
+            trend_current = trend_by_period.get(current["mkey"], {})
+            trend_previous = trend_by_period.get(previous["mkey"], {}) if previous else {}
+            trend_yoy = trend_by_period.get(yoy["mkey"], {}) if yoy else {}
+            metrics = {
+                "avg_check": "Средний чек", "visits_per_guest": "Визитов на гостя",
+                "repeat_guest_pct": "Повторные гости", "identified_guests": "Идентифицированные гости",
+            }
+            guest_comparisons = [
+                {"key": key, "label": label, "value": trend_current.get(key),
+                 "mom_pct": pct_change(trend_current.get(key, 0), trend_previous.get(key, 0)),
+                 "yoy_pct": pct_change(trend_current.get(key, 0), trend_yoy.get(key, 0))}
+                for key, label in metrics.items()
+            ]
+            avg_mom = next((x["mom_pct"] for x in guest_comparisons if x["key"] == "avg_check"), None)
+            freq_mom = next((x["mom_pct"] for x in guest_comparisons if x["key"] == "visits_per_guest"), None)
+            repeat_now = trend_current.get("repeat_guest_pct")
+            guest_analysis = []
+            if avg_mom is not None:
+                guest_analysis.append(f"Средний чек {'вырос' if avg_mom >= 0 else 'снизился'} на {abs(avg_mom):.1f}% MoM: проверять вклад цены, продуктового микса и скидок.")
+            if freq_mom is not None:
+                guest_analysis.append(f"Частота посещений {'выросла' if freq_mom >= 0 else 'снизилась'} на {abs(freq_mom):.1f}% MoM; это {'положительный сигнал удержания' if freq_mom >= 0 else 'сигнал риска оттока'}.")
+            if repeat_now is not None:
+                guest_analysis.append(f"Доля повторных гостей — {repeat_now:.1f}%; доля разовых гостей — {100-repeat_now:.1f}%.")
+            guest_recommendations = [
+                {"action": "Запустить возврат гостей без визита 21–30 дней персональным предложением.", "kpi": "Визитов на гостя", "target": round(trend_current.get("visits_per_guest", 0) * 1.05, 2), "deadline": "30 дней"},
+                {"action": "Поднять повторные визиты через предложение на следующую покупку, а не скидку в текущем чеке.", "kpi": "Повторные гости", "target": round(min(100, trend_current.get("repeat_guest_pct", 0) + 3), 1), "deadline": "30 дней"},
+                {"action": "Провести A/B-тест допродажи напиток + десерт на точках с чеком ниже среднего сети.", "kpi": "Средний чек", "target": round(trend_current.get("avg_check", 0) * 1.03), "deadline": "30 дней"},
+            ]
             extended = {
                 "checks": total_checks, "avg_check": round(total_sales/total_checks,2) if total_checks else 0,
                 "checks_per_day": round(total_checks/calendar.monthrange(int(current["mkey"][:4]), int(current["mkey"][5:]))[1],1), "guest_frequency": ready.get("guest_frequency",{}),
+                "guest_trends": guest_trends, "guest_comparisons": guest_comparisons,
+                "guest_analysis": guest_analysis, "guest_recommendations": guest_recommendations,
                 "top_menu": sorted(ready.get("menu_sku",[]),key=lambda x:x.get("revenue",0),reverse=True)[:20],
                 "top_purchases": sorted(ready.get("purchases",[]),key=lambda x:x.get("sum",0),reverse=True)[:20],
                 "top_raw_material": sorted(ready.get("raw_material",[]),key=lambda x:x.get("sum",0),reverse=True)[:20],

@@ -211,6 +211,13 @@ def render_html(report):
     gf = ext.get("guest_frequency", {})
     repeat_guest = f'{gf["repeat_guest_pct"]}%' if gf.get("repeat_guest_pct") is not None else "—"
     ext_summary = f'<div class="margins"><div class="pill">Чеки <b>{ext.get("checks",0):,.0f}</b></div><div class="pill">Средний чек <b>{ext.get("avg_check",0):,.0f} ₽</b></div><div class="pill">Чеков в день <b>{ext.get("checks_per_day",0):,.0f}</b></div><div class="pill">Визитов на гостя <b>{gf.get("visits_per_guest", "—")}</b></div><div class="pill">Медиана визитов <b>{gf.get("median_visits", "—")}</b></div><div class="pill">Повторные гости <b>{repeat_guest}</b></div></div>' if ext else ''
+    guest_comparison_rows = "".join(
+        f'<tr><td>{esc(item["label"])}</td><td>{item.get("value", "—")}{" ₽" if item["key"] == "avg_check" else "%" if item["key"] == "repeat_guest_pct" else ""}</td><td>{percent(item.get("mom_pct"))}</td><td>{percent(item.get("yoy_pct"))}</td></tr>'
+        for item in ext.get("guest_comparisons", [])
+    )
+    guest_comparison = f'<div class="scroll"><table><thead><tr><th>Показатель</th><th>Июль 2026</th><th>MoM</th><th>YoY</th></tr></thead><tbody>{guest_comparison_rows}</tbody></table></div>' if guest_comparison_rows else ''
+    guest_analysis = "".join(f'<article class="finding"><h3>Вывод</h3><p>{esc(item)}</p></article>' for item in ext.get("guest_analysis", []))
+    guest_actions = "".join(f'<article class="finding"><h3>{esc(item["kpi"])}</h3><p>{esc(item["action"])}</p><b>Цель: {item["target"]} · срок {esc(item["deadline"])}</b></article>' for item in ext.get("guest_recommendations", []))
     dq = report.get("data_quality", {})
     dq_items = "".join(f"<li>{esc(item)}</li>" for item in dq.get("warnings", [])) or "<li>Контрольные проверки пройдены.</li>"
     previous_review = report.get("previous_plan_review", {})
@@ -218,7 +225,7 @@ def render_html(report):
 <style>:root{{--bg:#09110f;--panel:#111d19;--line:#263a32;--text:#f3f7f5;--muted:#9fb0a8;--accent:#d9b36c;--good:#62d69b;--bad:#ff827a}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 Inter,Arial,sans-serif}}main{{max-width:1320px;margin:auto;padding:34px 22px 60px}}header{{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:20px}}h1{{margin:0;font-size:31px}}h2{{margin:34px 0 12px;font-size:20px}}h3{{margin:0 0 8px}}.eyebrow,.note,span,em{{color:var(--muted)}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}}.card,.finding{{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}}.card strong{{display:block;font-size:25px;margin:6px 0}}.findings{{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}}em{{font-style:normal;font-size:13px}}.good{{color:var(--good)!important}}.bad{{color:var(--bad)!important}}table{{width:100%;border-collapse:collapse;background:var(--panel);border-radius:14px;overflow:hidden}}th,td{{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}}th:first-child,td:first-child{{text-align:left}}th{{color:var(--muted);font-size:12px;text-transform:uppercase}}.margins{{display:flex;gap:12px;flex-wrap:wrap}}.pill{{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 13px}}.warn{{border-left:3px solid var(--accent);background:var(--panel);padding:13px 18px;margin-top:28px}}footer{{color:var(--muted);margin-top:32px}}@media(max-width:800px){{.grid,.findings{{grid-template-columns:1fr 1fr}}header{{display:block}}.scroll{{overflow:auto}}table{{min-width:760px}}}}@media(max-width:480px){{.grid,.findings{{grid-template-columns:1fr}}}}</style></head>
 <body><main><header><div><div class="eyebrow">GARDEN COFFEE · АВТОМАТИЧЕСКИЙ ОТЧЁТ</div><h1>{esc(report["period_label"])}</h1></div><div class="note">Сравнение: {esc(report["comparison_label"] or "нет данных")}</div></header>
 <div class="warn"><b>Data Quality · {esc(dq.get('status','unknown'))}</b><ul>{dq_items}</ul></div><h2>Executive Summary</h2><ol>{executive}</ol>
-<section class="grid">{cards}</section><h2>Гости, посещения и средний чек</h2>{ext_summary}<h2>Сравнения MoM / YoY / 3 / 6 месяцев</h2><div class="scroll"><table><thead><tr><th>KPI</th><th>Значение</th><th>MoM</th><th>YoY</th><th>к среднему 3 мес.</th><th>к среднему 6 мес.</th></tr></thead><tbody>{comparisons}</tbody></table></div><h2>Маржинальность</h2><div class="margins"><div class="pill">Себестоимость <b>{margins['cogs_pct']:.1f}%</b></div><div class="pill">Валовая маржа <b>{margins['gross_margin_pct']:.1f}%</b></div><div class="pill">OPEX <b>{margins['opex_pct']:.1f}%</b></div><div class="pill">EBITDA <b>{margins['ebitda_pct']:.1f}%</b></div><div class="pill">Чистая маржа <b>{margins['net_margin_pct']:.1f}%</b></div></div>
+<section class="grid">{cards}</section><h2>Гости, посещения и средний чек</h2>{ext_summary}{guest_comparison}<h2>Анализ гостевых метрик</h2><div class="findings">{guest_analysis}</div><h2>Предложения по росту частоты и чека</h2><div class="findings">{guest_actions}</div><h2>Сравнения MoM / YoY / 3 / 6 месяцев</h2><div class="scroll"><table><thead><tr><th>KPI</th><th>Значение</th><th>MoM</th><th>YoY</th><th>к среднему 3 мес.</th><th>к среднему 6 мес.</th></tr></thead><tbody>{comparisons}</tbody></table></div><h2>Маржинальность</h2><div class="margins"><div class="pill">Себестоимость <b>{margins['cogs_pct']:.1f}%</b></div><div class="pill">Валовая маржа <b>{margins['gross_margin_pct']:.1f}%</b></div><div class="pill">OPEX <b>{margins['opex_pct']:.1f}%</b></div><div class="pill">EBITDA <b>{margins['ebitda_pct']:.1f}%</b></div><div class="pill">Чистая маржа <b>{margins['net_margin_pct']:.1f}%</b></div></div>
 <h2>TOP-5 проблем</h2><div class="findings">{problems}</div><h2>TOP-5 точек роста</h2><div class="findings">{opportunities}</div>
 <h2>Кофейни · от максимального падения к росту</h2><div class="scroll"><table><thead><tr><th>Точка</th><th>Выручка</th><th>MoM</th><th>Чистая прибыль</th><th>Маржа</th></tr></thead><tbody>{stores}</tbody></table></div>
 <h2>Главные отклонения расходов</h2><div class="scroll"><table><thead><tr><th>Статья</th><th>Сумма</th><th>Изменение</th><th>Денежный эффект</th><th>Статус причины</th></tr></thead><tbody>{expenses}</tbody></table></div>
@@ -242,6 +249,7 @@ def telegram_message(report):
     ext = report.get("extended_analytics", {})
     guest_frequency = ext.get("guest_frequency", {})
     if ext:
+        guest_cmp = {item["key"]: item for item in ext.get("guest_comparisons", [])}
         lines += [
             "",
             "👥 Гости и посещения:",
@@ -249,6 +257,15 @@ def telegram_message(report):
             f"• Частота: {guest_frequency.get('visits_per_guest', '—')} визита на гостя",
             f"• Повторные гости: {guest_frequency.get('repeat_guest_pct', '—')}%",
         ]
+        if guest_cmp:
+            lines += [
+                f"• Средний чек: {percent(guest_cmp.get('avg_check', {}).get('mom_pct'))} MoM / {percent(guest_cmp.get('avg_check', {}).get('yoy_pct'))} YoY",
+                f"• Частота: {percent(guest_cmp.get('visits_per_guest', {}).get('mom_pct'))} MoM / {percent(guest_cmp.get('visits_per_guest', {}).get('yoy_pct'))} YoY",
+            ]
+        if ext.get("guest_analysis"):
+            lines += ["", "📊 Выводы:"] + [f"• {item}" for item in ext["guest_analysis"]]
+        if ext.get("guest_recommendations"):
+            lines += ["", "🎯 Что делать:"] + [f"• {item['action']} Цель: {item['target']}." for item in ext["guest_recommendations"]]
     if bad_stores:
         lines += ["", "🔻 Наибольшее снижение выручки:"]
         lines += [f"• {s['name']}: {money(s['revenue_delta_money'])} ({percent(s['revenue_delta_pct'])})" for s in bad_stores]
