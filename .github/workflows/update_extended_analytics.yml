@@ -1,0 +1,41 @@
+name: Update Extended iiko Analytics
+
+on:
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'YYYY-MM'
+        required: false
+        default: '2026-07'
+  push:
+    paths:
+      - 'iiko_extended_connector.py'
+      - '.github/workflows/update_extended_analytics.yml'
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Extract extended analytics
+        env:
+          IIKO_HOST: ${{ secrets.IIKO_HOST }}
+          IIKO_LOGIN: ${{ secrets.IIKO_LOGIN }}
+          IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
+          IIKO_ANALYTICS_MONTH: ${{ inputs.month || '2026-07' }}
+        run: python iiko_extended_connector.py
+      - name: Save data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add iiko_extended_data.json
+          git pull --rebase --autostash origin main
+          git add iiko_extended_data.json
+          git diff --staged --quiet || git commit -m "data: update extended iiko analytics"
+          git push
