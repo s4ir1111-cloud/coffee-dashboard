@@ -125,6 +125,7 @@ def main():
             "date": ds,
             "day_name": DAYS_RU[d.weekday()],
             "day_label": str(day_number),
+            "date_label": d.strftime("%d.%m"),
             "revenue": weekly_by_date.get(ds, 0),
         })
 

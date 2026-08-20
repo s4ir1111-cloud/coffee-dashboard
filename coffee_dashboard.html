@@ -373,7 +373,7 @@
 
 <div class="bottom-row">
   <div class="card-block">
-    <h2 class="section-title" style="margin-bottom:6px;">Выручка по дням · текущий месяц</h2>
+    <h2 id="revenue-chart-title" class="section-title" style="margin-bottom:6px;">Продажи по датам · текущий месяц</h2>
     <canvas id="revenueChart"></canvas>
   </div>
   <div class="card-block">
@@ -842,6 +842,8 @@
 
     weeklyData = data.weekly || [];
     todayStr = data.date;
+    const chartMonth = new Date(`${data.date}T12:00:00`).toLocaleDateString('ru-RU', {month:'long',year:'numeric'});
+    document.getElementById('revenue-chart-title').textContent = `Продажи по датам · ${chartMonth}`;
     drawChart();
   }
 
@@ -920,7 +922,7 @@
       ctx.font=`${isToday?'bold':'normal'} 12px 'Barlow Condensed',sans-serif`;
       ctx.textAlign='center';
       const showDay = isToday || n <= 20 || i === 0 || i % (w < 700 ? 3 : 2) === 0;
-      if(showDay) ctx.fillText(d.day_label || d.day_name,x+barW/2,h-6);
+      if(showDay) ctx.fillText(d.date_label || d.date.slice(5).split('-').reverse().join('.'),x+barW/2,h-6);
     });
   }
   window.addEventListener('resize', drawChart);
