@@ -5,6 +5,1573 @@
     "SALES": {
       "http_status": 200,
       "columns": 313,
+      "all_columns": [
+        {
+          "field": "PercentOfSummary.ByCol",
+          "title": "% по столбцу",
+          "type": "PERCENT"
+        },
+        {
+          "field": "PercentOfSummary.ByRow",
+          "title": "% по строке",
+          "type": "PERCENT"
+        },
+        {
+          "field": "CloseTime.Minutes15",
+          "title": "15-минутный интервал закрытия",
+          "type": "STRING"
+        },
+        {
+          "field": "OpenTime.Minutes15",
+          "title": "15-минутный интервал открытия",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboId",
+          "title": "ID Комбо",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboGroupId",
+          "title": "ID Шага Комбо",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "AuthUser.Id",
+          "title": "ID авторизовавшего",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishId",
+          "title": "ID блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "WaiterTeam.Id",
+          "title": "ID бригады официантов",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishCategory.Accounting.Id",
+          "title": "ID бухгалтерской категории блюда",
+          "type": "ID"
+        },
+        {
+          "field": "GroupOrderId",
+          "title": "ID группового заказа",
+          "type": "ID"
+        },
+        {
+          "field": "RestorauntGroup.Id",
+          "title": "ID группы",
+          "type": "ID"
+        },
+        {
+          "field": "DishGroup.Id",
+          "title": "ID группы блюда",
+          "type": "ID"
+        },
+        {
+          "field": "Delivery.Id",
+          "title": "ID доставки",
+          "type": "ID"
+        },
+        {
+          "field": "UniqOrderId.Id",
+          "title": "ID заказа",
+          "type": "ID"
+        },
+        {
+          "field": "SourceOrderId",
+          "title": "ID заказа-источника",
+          "type": "ID"
+        },
+        {
+          "field": "Cashier.Id",
+          "title": "ID кассира",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "SessionID",
+          "title": "ID кассовой смены",
+          "type": "ID"
+        },
+        {
+          "field": "DishCategory.Id",
+          "title": "ID категории блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Delivery.Courier.Id",
+          "title": "ID курьера",
+          "type": "STRING"
+        },
+        {
+          "field": "CookingPlace.Id",
+          "title": "ID места приготовления",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishTaxCategory.Id",
+          "title": "ID налоговой категории",
+          "type": "ID"
+        },
+        {
+          "field": "Delivery.DeliveryOperator.Id",
+          "title": "ID оператора доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "SoldWithDish.Id",
+          "title": "ID основного блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "RestaurantSection.Id",
+          "title": "ID отделения",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "WaiterName.ID",
+          "title": "ID официанта блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderWaiter.Id",
+          "title": "ID официанта заказа",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Department.Id",
+          "title": "ID подразделения",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "ItemSaleEvent.Id",
+          "title": "ID позиции заказа",
+          "type": "ID"
+        },
+        {
+          "field": "SoldWithItem.Id",
+          "title": "ID позиции заказа основного блюда",
+          "type": "ID"
+        },
+        {
+          "field": "DishTags.IdsCombo",
+          "title": "ID пользовательских свойств (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTag.Id",
+          "title": "ID пользовательского свойства",
+          "type": "ID"
+        },
+        {
+          "field": "PaymentTransaction.Id",
+          "title": "ID проводки оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "PaymentTransaction.Ids",
+          "title": "ID проводок оплат (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboSizeId",
+          "title": "ID размера Комбо",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishSize.Id",
+          "title": "ID размера блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Store.Id",
+          "title": "ID склада",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderType.Id",
+          "title": "ID типа заказа",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "PayTypes.GUID",
+          "title": "ID типа оплаты",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderIncrease.Type.IDs",
+          "title": "ID типов надбавок",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderDiscount.Type.IDs",
+          "title": "ID типов скидок",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Scale.Id",
+          "title": "ID шкалы размеров блюда",
+          "type": "ID"
+        },
+        {
+          "field": "Delivery.Email",
+          "title": "e-mail доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "AuthUser",
+          "title": "Авторизовал",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Address",
+          "title": "Адрес",
+          "type": "STRING"
+        },
+        {
+          "field": "Banquet",
+          "title": "Банкет",
+          "type": "ENUM"
+        },
+        {
+          "field": "NonCashPaymentType",
+          "title": "Безналичный тип оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "DishName",
+          "title": "Блюдо",
+          "type": "STRING"
+        },
+        {
+          "field": "DeletedWithWriteoff",
+          "title": "Блюдо удалено",
+          "type": "ENUM"
+        },
+        {
+          "field": "WaiterTeam.Name",
+          "title": "Бригада официантов",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCategory.Accounting",
+          "title": "Бухгалтерская категория блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "CreditUser",
+          "title": "В кредит на...",
+          "type": "STRING"
+        },
+        {
+          "field": "Currencies.Currency",
+          "title": "Валюта оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "CardOwner",
+          "title": "Владелец карты гостя",
+          "type": "STRING"
+        },
+        {
+          "field": "ExternalNumber",
+          "title": "Внешний номер заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Storned",
+          "title": "Возврат чека",
+          "type": "ENUM"
+        },
+        {
+          "field": "OrderTime.PrechequeLength",
+          "title": "Время в пречеке (мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.WayDuration",
+          "title": "Время в пути(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "CloseTime",
+          "title": "Время закрытия",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.CloseTime",
+          "title": "Время закрытия доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "OrderTime.OrderLengthSum",
+          "title": "Время обсл.сумм.(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderTime.OrderLength",
+          "title": "Время обслуживания (мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderCooking.WaitingDuration.Avg",
+          "title": "Время ожидания приготовления заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Delivery.CookingFinishTime",
+          "title": "Время окончания приготовления",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.PackedTime",
+          "title": "Время окончания сборки доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "OpenTime",
+          "title": "Время открытия",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.SendTime",
+          "title": "Время отправки доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.PrintTime",
+          "title": "Время печати доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.BillTime",
+          "title": "Время печати накладной",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.ConfirmTime",
+          "title": "Время подтверждения доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "PrechequeTime",
+          "title": "Время пречека",
+          "type": "DATETIME"
+        },
+        {
+          "field": "YearOpen",
+          "title": "Год",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.City",
+          "title": "Город",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderDiscount.GuestCard",
+          "title": "Гостевая карта",
+          "type": "STRING"
+        },
+        {
+          "field": "RestorauntGroup",
+          "title": "Группа",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup",
+          "title": "Группа блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.TopParent",
+          "title": "Группа блюда 1-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.SecondParent",
+          "title": "Группа блюда 2-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.ThirdParent",
+          "title": "Группа блюда 3-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "PayTypes.Group",
+          "title": "Группа оплаты",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.CustomerCreatedDateTyped",
+          "title": "Дата создания клиента",
+          "type": "DATE"
+        },
+        {
+          "field": "DayOfWeekOpen",
+          "title": "День недели",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Line2",
+          "title": "Детали адреса",
+          "type": "STRING"
+        },
+        {
+          "field": "DishServicePrintTime.OpenToLastPrintDuration",
+          "title": "Длит: откр.-посл.серв.печать",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.CookingToSendDuration",
+          "title": "Длит: посл.серв.печать-отправка",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.IsDelivery",
+          "title": "Доставка",
+          "type": "ENUM"
+        },
+        {
+          "field": "DishMeasureUnit",
+          "title": "Единица измерения",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.StartDelayTime.Avg",
+          "title": "Задержка начала приготовления (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderDeleted",
+          "title": "Заказ удален",
+          "type": "ENUM"
+        },
+        {
+          "field": "UniqOrderId.OrdersCount",
+          "title": "Заказов",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.Zone",
+          "title": "Зона доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.ExternalCartographyId",
+          "title": "Идентификатор адреса",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.Hierarchy",
+          "title": "Иерархия блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Index",
+          "title": "Индекс адреса",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.SourceKey",
+          "title": "Источник доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "OriginName",
+          "title": "Источник заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.IsAsap",
+          "title": "Как можно скорее",
+          "type": "ENUM"
+        },
+        {
+          "field": "Card",
+          "title": "Карта авторизации",
+          "type": "STRING"
+        },
+        {
+          "field": "CashRegisterName",
+          "title": "Касса",
+          "type": "STRING"
+        },
+        {
+          "field": "Cashier",
+          "title": "Кассир",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category1",
+          "title": "Категория 1",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category2",
+          "title": "Категория 2",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category3",
+          "title": "Категория 3",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category4",
+          "title": "Категория 4",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category5",
+          "title": "Категория 5",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCategory",
+          "title": "Категория блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "QuarterOpen",
+          "title": "Квартал",
+          "type": "STRING"
+        },
+        {
+          "field": "OuterEconomicActivityNomenclatureCodeName",
+          "title": "Код ТН ВЭД ЕАЭС / УКТЗЕД",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCode",
+          "title": "Код блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCode.Quick",
+          "title": "Код быстрого набора блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.Num",
+          "title": "Код группы блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Conception.Code",
+          "title": "Код концепции",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Code",
+          "title": "Код подразделения",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.ShortName",
+          "title": "Код размера блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.DiscountAmount",
+          "title": "Колич. блюд со скидкой",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboAmount",
+          "title": "Количество Комбо",
+          "type": "INTEGER"
+        },
+        {
+          "field": "DishAmountInt",
+          "title": "Количество блюд",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "PayTypes.VoucherNum",
+          "title": "Количество ваучеров",
+          "type": "INTEGER"
+        },
+        {
+          "field": "GuestNum",
+          "title": "Количество гостей",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "PayableAmountInt",
+          "title": "Количество платных блюд",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "OrderComment",
+          "title": "Комментарий заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Comment",
+          "title": "Комментарий к блюду",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.DeliveryComment",
+          "title": "Комментарий к доставке",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerComment",
+          "title": "Комментарий к клиенту",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CancelComment",
+          "title": "Комментарий к отмене доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "DeletionComment",
+          "title": "Комментарий к удалению блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "CreditUser.Company",
+          "title": "Компания-контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "Counteragent.Name",
+          "title": "Контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "Conception",
+          "title": "Концепция",
+          "type": "STRING"
+        },
+        {
+          "field": "CardType",
+          "title": "Кредитная карта",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Line1",
+          "title": "Куда везти",
+          "type": "STRING"
+        },
+        {
+          "field": "Currencies.CurrencyRate",
+          "title": "Курс валюты оплаты",
+          "type": "MONEY"
+        },
+        {
+          "field": "Delivery.Courier",
+          "title": "Курьер",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.EcsService",
+          "title": "Курьерская служба",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax1.Sum",
+          "title": "Местный налог 1",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax2.Sum",
+          "title": "Местный налог 2",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax3.Sum",
+          "title": "Местный налог 3",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax4.Sum",
+          "title": "Местный налог 4",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax5.Sum",
+          "title": "Местный налог 5",
+          "type": "MONEY"
+        },
+        {
+          "field": "CookingPlace",
+          "title": "Место приготовления",
+          "type": "STRING"
+        },
+        {
+          "field": "Mounth",
+          "title": "Месяц",
+          "type": "STRING"
+        },
+        {
+          "field": "IncentiveSumBase.Sum",
+          "title": "Мотивационный бонус",
+          "type": "MONEY"
+        },
+        {
+          "field": "VAT.SplitVat",
+          "title": "НДС платит гость",
+          "type": "ENUM"
+        },
+        {
+          "field": "VAT.Sum",
+          "title": "НДС по чекам(Сумма)",
+          "type": "MONEY"
+        },
+        {
+          "field": "VAT.Percent",
+          "title": "НДС(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "StoreTo",
+          "title": "На склад",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboName",
+          "title": "Название Комбо",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax1",
+          "title": "Название местного налога 1",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax2",
+          "title": "Название местного налога 2",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax3",
+          "title": "Название местного налога 3",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax4",
+          "title": "Название местного налога 4",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax5",
+          "title": "Название местного налога 5",
+          "type": "STRING"
+        },
+        {
+          "field": "DishForeignName",
+          "title": "Наименование блюда на иностранном языке",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType",
+          "title": "Наименование скидки, надбавки",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTaxCategory.Name",
+          "title": "Налоговая категория",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductCostBase.Profit",
+          "title": "Наценка",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.MarkUp",
+          "title": "Наценка(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "WeekInYearOpen",
+          "title": "Неделя года",
+          "type": "STRING"
+        },
+        {
+          "field": "WeekInMonthOpen",
+          "title": "Неделя месяца",
+          "type": "STRING"
+        },
+        {
+          "field": "Bonus.CardNumber",
+          "title": "Номер бонусной карты",
+          "type": "STRING"
+        },
+        {
+          "field": "GroupOrderNum",
+          "title": "Номер группового чека",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.Number",
+          "title": "Номер доставки",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.CustomerCardNumber",
+          "title": "Номер карты клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "CardNumber",
+          "title": "Номер карты оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "CashRegisterName.Number",
+          "title": "Номер кассы",
+          "type": "INTEGER"
+        },
+        {
+          "field": "CouponInfo.Number",
+          "title": "Номер купона",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.ServeNumber",
+          "title": "Номер подачи",
+          "type": "STRING"
+        },
+        {
+          "field": "SessionNum",
+          "title": "Номер смены",
+          "type": "INTEGER"
+        },
+        {
+          "field": "TableNum",
+          "title": "Номер стола",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderNum",
+          "title": "Номер чека",
+          "type": "INTEGER"
+        },
+        {
+          "field": "SourceOrderNum",
+          "title": "Номер чека-источника",
+          "type": "INTEGER"
+        },
+        {
+          "field": "VatInvoice.InvoiceNumbers",
+          "title": "Номера счетов-фактур",
+          "type": "STRING"
+        },
+        {
+          "field": "VatInvoice.DeletedInvoiceNumbers",
+          "title": "Номера удаленных счетов-фактур",
+          "type": "STRING"
+        },
+        {
+          "field": "FiscalChequeNumber",
+          "title": "Номера фиск. чеков",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.DeliveryOperator",
+          "title": "Оператор доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "OperationType",
+          "title": "Операция",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.Delay",
+          "title": "Опоздание доставки(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Cooking.FeedLateTime.Avg",
+          "title": "Опоздание подачи (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.CookingLateTime.Avg",
+          "title": "Опоздание приготовления (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "RestaurantSection",
+          "title": "Отделение",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerOpinionComment",
+          "title": "Отзыв клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.DiffBetweenActualDeliveryTimeAndPredictedDeliveryTime",
+          "title": "Отклонение от сроков доставки, фактическое от прогнозируемого (мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "WaiterName",
+          "title": "Официант блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderWaiter.Name",
+          "title": "Официант заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.AvgMark",
+          "title": "Оценка доставки, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AvgCourierMark",
+          "title": "Оценка курьера, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AvgFoodMark",
+          "title": "Оценка кухни, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AvgOperatorMark",
+          "title": "Оценка оператора, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.ExpectedTime",
+          "title": "Планируемое время доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "OrderItems",
+          "title": "Позиций чека",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderCooking.TotalDuration.Avg",
+          "title": "Полное время обработки заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "DishFullName",
+          "title": "Полное наименование блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTags.NamesCombo",
+          "title": "Пользовательские свойства (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTag.Name",
+          "title": "Пользовательское свойство",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Priority",
+          "title": "Порядковый номер размера блюда",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.CancelCause",
+          "title": "Причина отмены доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "WriteoffReason",
+          "title": "Причина списания",
+          "type": "STRING"
+        },
+        {
+          "field": "RemovalType",
+          "title": "Причина удаления блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.PredictedDeliveryTime",
+          "title": "Прогнозируемое время доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.PredictedCookingCompleteTime",
+          "title": "Прогнозируемое время окончания готовки заказа",
+          "type": "DATETIME"
+        },
+        {
+          "field": "SoldWithDish",
+          "title": "Продано с блюдом",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.GuestWaitTime.Avg",
+          "title": "Продолжительность ожидания гостя (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.ServeTime.Avg",
+          "title": "Продолжительность подачи гостю (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderCooking.ServingDuration.Avg",
+          "title": "Продолжительность подачи заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.CookingDuration.Avg",
+          "title": "Продолжительность приготовления (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking1Duration.Avg",
+          "title": "Продолжительность приготовления 1 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking2Duration.Avg",
+          "title": "Продолжительность приготовления 2 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking3Duration.Avg",
+          "title": "Продолжительность приготовления 3 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking4Duration.Avg",
+          "title": "Продолжительность приготовления 4 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderCooking.CookingDuration.Avg",
+          "title": "Продолжительность приготовления заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.KitchenTime.Avg",
+          "title": "Продолжительность работы кухни (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderCooking.PackingDuration.Avg",
+          "title": "Продолжительность упаковки заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "IncreasePercent",
+          "title": "Процент надбавки",
+          "type": "PERCENT"
+        },
+        {
+          "field": "DiscountPercent",
+          "title": "Процент скидки",
+          "type": "PERCENT"
+        },
+        {
+          "field": "PublicExternalData",
+          "title": "Публичные данные плагинов",
+          "type": "STRING"
+        },
+        {
+          "field": "PublicExternalData.Xml",
+          "title": "Публичные данные плагинов (XML)",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.PublicExternalData",
+          "title": "Публичные данные плагинов о приготовлении",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.PublicExternalData.Xml",
+          "title": "Публичные данные плагинов о приготовлении (XML)",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderCooking.PublicExternalData",
+          "title": "Публичные данные плагинов о приготовлении заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderCooking.PublicExternalData.Xml",
+          "title": "Публичные данные плагинов о приготовлении заказа (XML)",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboSizeName",
+          "title": "Размер Комбо",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Name",
+          "title": "Размер блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Region",
+          "title": "Район",
+          "type": "STRING"
+        },
+        {
+          "field": "CashLocation",
+          "title": "Расположение кассы",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderServiceType",
+          "title": "Режим обслуживания",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.MarketingSource",
+          "title": "Реклама",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerMarketingSource",
+          "title": "Реклама клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductCostBase.ProductCost",
+          "title": "Себестоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.PercentWithoutVAT",
+          "title": "Себестоимость без НДС(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "ProductCostBase.OneItem",
+          "title": "Себестоимость единицы",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.Percent",
+          "title": "Себестоимость(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "DishServicePrintTime",
+          "title": "Сервисная печать блюда",
+          "type": "DATETIME"
+        },
+        {
+          "field": "DishServicePrintTime.Max",
+          "title": "Сервисная печать последнего блюда",
+          "type": "DATETIME"
+        },
+        {
+          "field": "CouponInfos",
+          "title": "Серии и номера купонов",
+          "type": "STRING"
+        },
+        {
+          "field": "CashRegisterName.CashRegisterSerialNumber",
+          "title": "Серийный номер ФР",
+          "type": "STRING"
+        },
+        {
+          "field": "CouponInfo.Series",
+          "title": "Серия купона",
+          "type": "STRING"
+        },
+        {
+          "field": "Store.Name",
+          "title": "Со склада",
+          "type": "STRING"
+        },
+        {
+          "field": "WriteoffUser",
+          "title": "Списано на сотрудника",
+          "type": "STRING"
+        },
+        {
+          "field": "DishAmountInt.PerOrder",
+          "title": "Ср. количество блюд на чек",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "OrderTime.AveragePrechequeTime",
+          "title": "Ср.время в пречеке (мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.WayDurationAvg",
+          "title": "Ср.время в пути(мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "OrderTime.AverageOrderTime",
+          "title": "Ср.время обсл.(мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "GuestNum.Avg",
+          "title": "Ср.кол-во гостей на чек",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.DelayAvg",
+          "title": "Ср.опоздание доставки(мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DishDiscountSumInt.averageByGuest",
+          "title": "Средняя выручка с гостя",
+          "type": "MONEY"
+        },
+        {
+          "field": "Delivery.AggregatedAvgMark",
+          "title": "Средняя оценка доставки, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AggregatedAvgCourierMark",
+          "title": "Средняя оценка курьера, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AggregatedAvgFoodMark",
+          "title": "Средняя оценка кухни, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AggregatedAvgOperatorMark",
+          "title": "Средняя оценка оператора, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DishDiscountSumInt.average",
+          "title": "Средняя сумма заказа",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.averageWithoutVAT",
+          "title": "Средняя сумма заказа без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.averagePriceWithVAT",
+          "title": "Средняя цена",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.averagePrice",
+          "title": "Средняя цена без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishSumInt.averagePriceWithVAT",
+          "title": "Средняя цена без скидки",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax1.VatPercent",
+          "title": "Ставка НДС с местного налога 1",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax2.VatPercent",
+          "title": "Ставка НДС с местного налога 2",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax3.VatPercent",
+          "title": "Ставка НДС с местного налога 3",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax4.VatPercent",
+          "title": "Ставка НДС с местного налога 4",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax5.VatPercent",
+          "title": "Ставка НДС с местного налога 5",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax1.Percent",
+          "title": "Ставка местного налога 1",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax2.Percent",
+          "title": "Ставка местного налога 2",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax3.Percent",
+          "title": "Ставка местного налога 3",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax4.Percent",
+          "title": "Ставка местного налога 4",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax5.Percent",
+          "title": "Ставка местного налога 5",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.WayDurationSum",
+          "title": "Сумм.время в пути(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax1.VatSum",
+          "title": "Сумма НДС с местного налога 1",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax2.VatSum",
+          "title": "Сумма НДС с местного налога 2",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax3.VatSum",
+          "title": "Сумма НДС с местного налога 3",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax4.VatSum",
+          "title": "Сумма НДС с местного налога 4",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax5.VatSum",
+          "title": "Сумма НДС с местного налога 5",
+          "type": "INTEGER"
+        },
+        {
+          "field": "fullSum",
+          "title": "Сумма без НДС не включенного в стоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishSumInt",
+          "title": "Сумма без скидки",
+          "type": "MONEY"
+        },
+        {
+          "field": "Bonus.Sum",
+          "title": "Сумма бонуса",
+          "type": "MONEY"
+        },
+        {
+          "field": "Currencies.SumInCurrency",
+          "title": "Сумма в валюте оплаты / заказ",
+          "type": "OBJECT"
+        },
+        {
+          "field": "DishReturnSum",
+          "title": "Сумма возврата",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishReturnSum.withoutVAT",
+          "title": "Сумма возврата без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "IncreaseSum",
+          "title": "Сумма надбавки",
+          "type": "MONEY"
+        },
+        {
+          "field": "DiscountSum",
+          "title": "Сумма скидки",
+          "type": "MONEY"
+        },
+        {
+          "field": "discountWithoutVAT",
+          "title": "Сумма скидки без НДС не включенного в стоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt",
+          "title": "Сумма со скидкой",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.withoutVAT",
+          "title": "Сумма со скидкой без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "sumAfterDiscountWithoutVAT",
+          "title": "Сумма со скидкой без НДС не включенного в стоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "Cashier.Code",
+          "title": "Табельный номер кассира",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Phone",
+          "title": "Телефон доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerPhone",
+          "title": "Телефон клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "Bonus.Type",
+          "title": "Тип бонуса",
+          "type": "STRING"
+        },
+        {
+          "field": "NonCashPaymentType.DocumentType",
+          "title": "Тип документа списания",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.ServiceType",
+          "title": "Тип доставки",
+          "type": "ENUM"
+        },
+        {
+          "field": "OrderType",
+          "title": "Тип заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "CardTypeName",
+          "title": "Тип карты",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerCardType",
+          "title": "Тип карты клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "CookingPlaceType",
+          "title": "Тип места приготовления",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderIncrease.Type",
+          "title": "Тип надбавки",
+          "type": "STRING"
+        },
+        {
+          "field": "PayTypes",
+          "title": "Тип оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "PayTypes.Combo",
+          "title": "Тип оплаты (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderDiscount.Type",
+          "title": "Тип скидки",
+          "type": "STRING"
+        },
+        {
+          "field": "DishType",
+          "title": "Тип товара",
+          "type": "ENUM"
+        },
+        {
+          "field": "Department",
+          "title": "Торговое предприятие",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Street",
+          "title": "Улица",
+          "type": "STRING"
+        },
+        {
+          "field": "OpenDate.Typed",
+          "title": "Учетный день",
+          "type": "DATE"
+        },
+        {
+          "field": "Delivery.CustomerName",
+          "title": "ФИО клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.ActualTime",
+          "title": "Фактическое время доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "PayTypes.IsPrintCheque",
+          "title": "Фиск. тип оплаты",
+          "type": "ENUM"
+        },
+        {
+          "field": "PriceCategoryDiscountCardOwner",
+          "title": "ЦК владелец карты",
+          "type": "STRING"
+        },
+        {
+          "field": "PriceCategoryUserCardOwner",
+          "title": "ЦК контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "PriceCategoryCard",
+          "title": "ЦК номер карты",
+          "type": "STRING"
+        },
+        {
+          "field": "PriceCategory",
+          "title": "Ценовая категория клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "HourClose",
+          "title": "Час закрытия",
+          "type": "STRING"
+        },
+        {
+          "field": "HourOpen",
+          "title": "Час открытия",
+          "type": "STRING"
+        },
+        {
+          "field": "UniqOrderId",
+          "title": "Чеков",
+          "type": "INTEGER"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboGroupName",
+          "title": "Шаг Комбо",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Scale.Name",
+          "title": "Шкала размеров блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "JurName",
+          "title": "Юридическое лицо",
+          "type": "STRING"
+        }
+      ],
       "relevant": {
         "sales_checks": [
           {
@@ -1146,6 +2713,613 @@
     "TRANSACTIONS": {
       "http_status": 200,
       "columns": 121,
+      "all_columns": [
+        {
+          "field": "Sum.PartOfIncome",
+          "title": "% от выручки",
+          "type": "PERCENT"
+        },
+        {
+          "field": "Sum.PartOfTotalIncome",
+          "title": "% от общей выручки",
+          "type": "PERCENT"
+        },
+        {
+          "field": "PercentOfSummary.ByCol",
+          "title": "% по столбцу",
+          "type": "PERCENT"
+        },
+        {
+          "field": "PercentOfSummary.ByRow",
+          "title": "% по строке",
+          "type": "PERCENT"
+        },
+        {
+          "field": "Sum.PartOfSummaryByCol",
+          "title": "% суммы от итога по столбцам",
+          "type": "PERCENT"
+        },
+        {
+          "field": "Sum.PartOfSummaryByRow",
+          "title": "% суммы от итога по строкам",
+          "type": "PERCENT"
+        },
+        {
+          "field": "Session.GroupId",
+          "title": "ID группы",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderId",
+          "title": "ID заказа",
+          "type": "ID"
+        },
+        {
+          "field": "Product.Category.Id",
+          "title": "ID категории номенклатуры",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Counteragent.Id",
+          "title": "ID контрагента",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Product.Tags.IdsCombo",
+          "title": "ID пользовательских свойств (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.Tag.Id",
+          "title": "ID пользовательского свойства",
+          "type": "ID"
+        },
+        {
+          "field": "DishSize.Id",
+          "title": "ID размера блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Account.Id",
+          "title": "ID счета",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Product.Id",
+          "title": "ID элемента номенклатуры",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Product.Num",
+          "title": "Артикул элемента номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.AccountingCategory",
+          "title": "Бухгалтерская категория",
+          "type": "STRING"
+        },
+        {
+          "field": "DateTime.Year",
+          "title": "Год",
+          "type": "STRING"
+        },
+        {
+          "field": "Session.Group",
+          "title": "Группа",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.AlcoholClass.Group",
+          "title": "Группа алкогольной продукции",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.AlcoholClass.Group",
+          "title": "Группа алкогольной продукции",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Account.Group",
+          "title": "Группа корр.счета",
+          "type": "ENUM"
+        },
+        {
+          "field": "Product.TopParent",
+          "title": "Группа номенклатуры 1-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.SecondParent",
+          "title": "Группа номенклатуры 2-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.ThirdParent",
+          "title": "Группа номенклатуры 3-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.Group",
+          "title": "Группа счета",
+          "type": "ENUM"
+        },
+        {
+          "field": "InvoiceDate.Typed",
+          "title": "Дата входящего документа",
+          "type": "DATE"
+        },
+        {
+          "field": "DateTime.Typed",
+          "title": "Дата и время",
+          "type": "DATETIME"
+        },
+        {
+          "field": "DateSecondary.DateTimeTyped",
+          "title": "Дата и время проводки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "DateSecondary.DateTyped",
+          "title": "Дата проводки",
+          "type": "DATE"
+        },
+        {
+          "field": "TransactionSide",
+          "title": "Дебет/Кредит",
+          "type": "ENUM"
+        },
+        {
+          "field": "DateTime.DayOfWeak",
+          "title": "День недели",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.MeasureUnit",
+          "title": "Единица измерения",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.Hierarchy",
+          "title": "Иерархия номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "CashFlowCategory.Hierarchy",
+          "title": "Иерархия статей ДДС",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.AccountHierarchyFull",
+          "title": "Иерархия счета",
+          "type": "STRING"
+        },
+        {
+          "field": "Session.CashRegister",
+          "title": "Касса",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category1",
+          "title": "Категория 1",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category2",
+          "title": "Категория 2",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category3",
+          "title": "Категория 3",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category4",
+          "title": "Категория 4",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category5",
+          "title": "Категория 5",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.Category",
+          "title": "Категория номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "DateTime.Quarter",
+          "title": "Квартал",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.AlcoholClass",
+          "title": "Класс алкогольной продукции",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.AlcoholClass",
+          "title": "Класс алкогольной продукции",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.AlcoholClass.Code",
+          "title": "Код класса алкогольной продукции",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.AlcoholClass.Code",
+          "title": "Код класса алкогольной продукции",
+          "type": "STRING"
+        },
+        {
+          "field": "Conception.Code",
+          "title": "Код концепции",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Account.Code",
+          "title": "Код корр.счета",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Code",
+          "title": "Код подразделения",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.ShortName",
+          "title": "Код размера блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.Code",
+          "title": "Код счета",
+          "type": "STRING"
+        },
+        {
+          "field": "TransactionType.Code",
+          "title": "Код транзакции",
+          "type": "OBJECT"
+        },
+        {
+          "field": "Amount",
+          "title": "Количество",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Comment",
+          "title": "Комментарий",
+          "type": "STRING"
+        },
+        {
+          "field": "FinalBalance.Money",
+          "title": "Конечный денежный остаток",
+          "type": "MONEY"
+        },
+        {
+          "field": "FinalBalance.Amount",
+          "title": "Конечный остаток товара",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Counteragent.Name",
+          "title": "Контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "Conception",
+          "title": "Концепция",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.Category.Id",
+          "title": "Корр.ID категории номенклатуры",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Contr-Product.Tags.IdsCombo",
+          "title": "Корр.ID пользовательских свойств (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.Id",
+          "title": "Корр.ID эл.номенклатуры",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Contr-Product.Num",
+          "title": "Корр.Артикул элемента номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.AccountingCategory",
+          "title": "Корр.Бухгалтерская категория",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.TopParent",
+          "title": "Корр.Группа номенклатуры 1-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.SecondParent",
+          "title": "Корр.Группа номенклатуры 2-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.ThirdParent",
+          "title": "Корр.Группа номенклатуры 3-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.MeasureUnit",
+          "title": "Корр.Единица измерения",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.Hierarchy",
+          "title": "Корр.Иерархия номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.Category",
+          "title": "Корр.Категория номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.Tags.NamesCombo",
+          "title": "Корр.Пользовательские свойства (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Account.Name",
+          "title": "Корр.Счет/Склад",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.CookingPlaceType",
+          "title": "Корр.Тип места приготовления",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.Type",
+          "title": "Корр.Тип элемента номенклатуры",
+          "type": "ENUM"
+        },
+        {
+          "field": "Contr-Product.Name",
+          "title": "Корр.Элемент номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Amount",
+          "title": "Корр.количество",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DateTime.Month",
+          "title": "Месяц",
+          "type": "STRING"
+        },
+        {
+          "field": "StartBalance.Money",
+          "title": "Начальный денежный остаток",
+          "type": "MONEY"
+        },
+        {
+          "field": "StartBalance.Amount",
+          "title": "Начальный остаток товара",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DateTime.WeekInYear",
+          "title": "Неделя года",
+          "type": "STRING"
+        },
+        {
+          "field": "DateTime.WeekInMonth",
+          "title": "Неделя месяца",
+          "type": "STRING"
+        },
+        {
+          "field": "InvoiceNumber",
+          "title": "Номер входящего документа",
+          "type": "STRING"
+        },
+        {
+          "field": "Document",
+          "title": "Номер документа",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderNum",
+          "title": "Номер заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Amount.StoreInOutTyped",
+          "title": "Оборот эл.номенклатуры",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Session.RestaurantSection",
+          "title": "Отделение",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.Tags.NamesCombo",
+          "title": "Пользовательские свойства (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.Tag.Name",
+          "title": "Пользовательское свойство",
+          "type": "STRING"
+        },
+        {
+          "field": "Amount.In",
+          "title": "Приход (кол-во)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DishSize.Name",
+          "title": "Размер блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Amount.Out",
+          "title": "Расход (кол-во)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Store",
+          "title": "Склад",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.StoreOrAccount",
+          "title": "Склад/счет",
+          "type": "ENUM"
+        },
+        {
+          "field": "Product.AvgSum",
+          "title": "Средняя цена",
+          "type": "MONEY"
+        },
+        {
+          "field": "CashFlowCategory",
+          "title": "Статья ДДС",
+          "type": "STRING"
+        },
+        {
+          "field": "CashFlowCategory.HierarchyLevel1",
+          "title": "Статья ДДС 1-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "CashFlowCategory.HierarchyLevel2",
+          "title": "Статья ДДС 2-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "CashFlowCategory.HierarchyLevel3",
+          "title": "Статья ДДС 3-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Sum.ResignedSum",
+          "title": "Сумма",
+          "type": "MONEY"
+        },
+        {
+          "field": "Sum.Incoming",
+          "title": "Сумма прихода",
+          "type": "MONEY"
+        },
+        {
+          "field": "Sum.Outgoing",
+          "title": "Сумма расхода",
+          "type": "MONEY"
+        },
+        {
+          "field": "Account.Name",
+          "title": "Счет",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.AccountHierarchyTop",
+          "title": "Счет 1-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.AccountHierarchySecond",
+          "title": "Счет 2-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.AccountHierarchyThird",
+          "title": "Счет 3-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "Contr-Product.AlcoholClass.Type",
+          "title": "Тип алкогольной продукции",
+          "type": "ENUM"
+        },
+        {
+          "field": "Product.AlcoholClass.Type",
+          "title": "Тип алкогольной продукции",
+          "type": "ENUM"
+        },
+        {
+          "field": "Account.CounteragentType",
+          "title": "Тип контрагента",
+          "type": "ENUM"
+        },
+        {
+          "field": "Contr-Account.Type",
+          "title": "Тип корр.счета",
+          "type": "ENUM"
+        },
+        {
+          "field": "Product.CookingPlaceType",
+          "title": "Тип места приготовления",
+          "type": "STRING"
+        },
+        {
+          "field": "CashFlowCategory.Type",
+          "title": "Тип статьи ДДС",
+          "type": "ENUM"
+        },
+        {
+          "field": "Account.Type",
+          "title": "Тип счета",
+          "type": "ENUM"
+        },
+        {
+          "field": "TransactionType",
+          "title": "Тип транзакции",
+          "type": "ENUM"
+        },
+        {
+          "field": "Product.Type",
+          "title": "Тип элемента номенклатуры",
+          "type": "ENUM"
+        },
+        {
+          "field": "Department",
+          "title": "Торговое предприятие",
+          "type": "STRING"
+        },
+        {
+          "field": "Account.IsCashFlowAccount",
+          "title": "Участвует ли счет в ДДС",
+          "type": "ENUM"
+        },
+        {
+          "field": "DateTime.DateTyped",
+          "title": "Учетный день",
+          "type": "DATE"
+        },
+        {
+          "field": "DateTime.Hour",
+          "title": "Час",
+          "type": "STRING"
+        },
+        {
+          "field": "Product.Name",
+          "title": "Элемент номенклатуры",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.JurPerson",
+          "title": "Юридическое лицо",
+          "type": "STRING"
+        }
+      ],
       "relevant": {
         "sales_checks": [
           {
@@ -1837,6 +4011,108 @@
     "STOCK": {
       "http_status": 200,
       "columns": 20,
+      "all_columns": [
+        {
+          "field": "ProductId",
+          "title": "ID блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Department.Id",
+          "title": "ID подразделения",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "User.Id",
+          "title": "ID сотрудника",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "ProductNum",
+          "title": "Артикул",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductName",
+          "title": "Блюдо",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductAccountingCategory",
+          "title": "Бухгалтерская категория блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "EventDate",
+          "title": "Дата",
+          "type": "DATE"
+        },
+        {
+          "field": "EventCookingDate",
+          "title": "Дата и время приготовления",
+          "type": "DATETIME"
+        },
+        {
+          "field": "ProductMeasureUnit",
+          "title": "Единицы измерения",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductCategory",
+          "title": "Категория блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Code",
+          "title": "Код подразделения",
+          "type": "STRING"
+        },
+        {
+          "field": "Amount",
+          "title": "Количество",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "ProductExpirationDuration",
+          "title": "Просрочка на момент продажи",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "ProductCostBase.ProductCost",
+          "title": "Себестоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.OneItem",
+          "title": "Себестоимость единицы",
+          "type": "MONEY"
+        },
+        {
+          "field": "StoreFrom",
+          "title": "Склад",
+          "type": "STRING"
+        },
+        {
+          "field": "User",
+          "title": "Сотрудник",
+          "type": "STRING"
+        },
+        {
+          "field": "AccountTo",
+          "title": "Счет",
+          "type": "STRING"
+        },
+        {
+          "field": "Event.Type",
+          "title": "Тип события",
+          "type": "ENUM"
+        },
+        {
+          "field": "Department",
+          "title": "Торговое предприятие",
+          "type": "STRING"
+        }
+      ],
       "relevant": {
         "sales_checks": [
           {
@@ -1972,6 +4248,1573 @@
     "DELIVERIES": {
       "http_status": 200,
       "columns": 313,
+      "all_columns": [
+        {
+          "field": "PercentOfSummary.ByCol",
+          "title": "% по столбцу",
+          "type": "PERCENT"
+        },
+        {
+          "field": "PercentOfSummary.ByRow",
+          "title": "% по строке",
+          "type": "PERCENT"
+        },
+        {
+          "field": "CloseTime.Minutes15",
+          "title": "15-минутный интервал закрытия",
+          "type": "STRING"
+        },
+        {
+          "field": "OpenTime.Minutes15",
+          "title": "15-минутный интервал открытия",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboId",
+          "title": "ID Комбо",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboGroupId",
+          "title": "ID Шага Комбо",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "AuthUser.Id",
+          "title": "ID авторизовавшего",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishId",
+          "title": "ID блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "WaiterTeam.Id",
+          "title": "ID бригады официантов",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishCategory.Accounting.Id",
+          "title": "ID бухгалтерской категории блюда",
+          "type": "ID"
+        },
+        {
+          "field": "GroupOrderId",
+          "title": "ID группового заказа",
+          "type": "ID"
+        },
+        {
+          "field": "RestorauntGroup.Id",
+          "title": "ID группы",
+          "type": "ID"
+        },
+        {
+          "field": "DishGroup.Id",
+          "title": "ID группы блюда",
+          "type": "ID"
+        },
+        {
+          "field": "Delivery.Id",
+          "title": "ID доставки",
+          "type": "ID"
+        },
+        {
+          "field": "UniqOrderId.Id",
+          "title": "ID заказа",
+          "type": "ID"
+        },
+        {
+          "field": "SourceOrderId",
+          "title": "ID заказа-источника",
+          "type": "ID"
+        },
+        {
+          "field": "Cashier.Id",
+          "title": "ID кассира",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "SessionID",
+          "title": "ID кассовой смены",
+          "type": "ID"
+        },
+        {
+          "field": "DishCategory.Id",
+          "title": "ID категории блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Delivery.Courier.Id",
+          "title": "ID курьера",
+          "type": "STRING"
+        },
+        {
+          "field": "CookingPlace.Id",
+          "title": "ID места приготовления",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishTaxCategory.Id",
+          "title": "ID налоговой категории",
+          "type": "ID"
+        },
+        {
+          "field": "Delivery.DeliveryOperator.Id",
+          "title": "ID оператора доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "SoldWithDish.Id",
+          "title": "ID основного блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "RestaurantSection.Id",
+          "title": "ID отделения",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "WaiterName.ID",
+          "title": "ID официанта блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderWaiter.Id",
+          "title": "ID официанта заказа",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Department.Id",
+          "title": "ID подразделения",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "ItemSaleEvent.Id",
+          "title": "ID позиции заказа",
+          "type": "ID"
+        },
+        {
+          "field": "SoldWithItem.Id",
+          "title": "ID позиции заказа основного блюда",
+          "type": "ID"
+        },
+        {
+          "field": "DishTags.IdsCombo",
+          "title": "ID пользовательских свойств (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTag.Id",
+          "title": "ID пользовательского свойства",
+          "type": "ID"
+        },
+        {
+          "field": "PaymentTransaction.Id",
+          "title": "ID проводки оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "PaymentTransaction.Ids",
+          "title": "ID проводок оплат (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboSizeId",
+          "title": "ID размера Комбо",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "DishSize.Id",
+          "title": "ID размера блюда",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "Store.Id",
+          "title": "ID склада",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderType.Id",
+          "title": "ID типа заказа",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "PayTypes.GUID",
+          "title": "ID типа оплаты",
+          "type": "ID_STRING"
+        },
+        {
+          "field": "OrderIncrease.Type.IDs",
+          "title": "ID типов надбавок",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderDiscount.Type.IDs",
+          "title": "ID типов скидок",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Scale.Id",
+          "title": "ID шкалы размеров блюда",
+          "type": "ID"
+        },
+        {
+          "field": "Delivery.Email",
+          "title": "e-mail доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "AuthUser",
+          "title": "Авторизовал",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Address",
+          "title": "Адрес",
+          "type": "STRING"
+        },
+        {
+          "field": "Banquet",
+          "title": "Банкет",
+          "type": "ENUM"
+        },
+        {
+          "field": "NonCashPaymentType",
+          "title": "Безналичный тип оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "DishName",
+          "title": "Блюдо",
+          "type": "STRING"
+        },
+        {
+          "field": "DeletedWithWriteoff",
+          "title": "Блюдо удалено",
+          "type": "ENUM"
+        },
+        {
+          "field": "WaiterTeam.Name",
+          "title": "Бригада официантов",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCategory.Accounting",
+          "title": "Бухгалтерская категория блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "CreditUser",
+          "title": "В кредит на...",
+          "type": "STRING"
+        },
+        {
+          "field": "Currencies.Currency",
+          "title": "Валюта оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "CardOwner",
+          "title": "Владелец карты гостя",
+          "type": "STRING"
+        },
+        {
+          "field": "ExternalNumber",
+          "title": "Внешний номер заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Storned",
+          "title": "Возврат чека",
+          "type": "ENUM"
+        },
+        {
+          "field": "OrderTime.PrechequeLength",
+          "title": "Время в пречеке (мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.WayDuration",
+          "title": "Время в пути(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "CloseTime",
+          "title": "Время закрытия",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.CloseTime",
+          "title": "Время закрытия доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "OrderTime.OrderLengthSum",
+          "title": "Время обсл.сумм.(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderTime.OrderLength",
+          "title": "Время обслуживания (мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderCooking.WaitingDuration.Avg",
+          "title": "Время ожидания приготовления заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Delivery.CookingFinishTime",
+          "title": "Время окончания приготовления",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.PackedTime",
+          "title": "Время окончания сборки доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "OpenTime",
+          "title": "Время открытия",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.SendTime",
+          "title": "Время отправки доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.PrintTime",
+          "title": "Время печати доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.BillTime",
+          "title": "Время печати накладной",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.ConfirmTime",
+          "title": "Время подтверждения доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "PrechequeTime",
+          "title": "Время пречека",
+          "type": "DATETIME"
+        },
+        {
+          "field": "YearOpen",
+          "title": "Год",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.City",
+          "title": "Город",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderDiscount.GuestCard",
+          "title": "Гостевая карта",
+          "type": "STRING"
+        },
+        {
+          "field": "RestorauntGroup",
+          "title": "Группа",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup",
+          "title": "Группа блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.TopParent",
+          "title": "Группа блюда 1-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.SecondParent",
+          "title": "Группа блюда 2-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.ThirdParent",
+          "title": "Группа блюда 3-го уровня",
+          "type": "STRING"
+        },
+        {
+          "field": "PayTypes.Group",
+          "title": "Группа оплаты",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.CustomerCreatedDateTyped",
+          "title": "Дата создания клиента",
+          "type": "DATE"
+        },
+        {
+          "field": "DayOfWeekOpen",
+          "title": "День недели",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Line2",
+          "title": "Детали адреса",
+          "type": "STRING"
+        },
+        {
+          "field": "DishServicePrintTime.OpenToLastPrintDuration",
+          "title": "Длит: откр.-посл.серв.печать",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.CookingToSendDuration",
+          "title": "Длит: посл.серв.печать-отправка",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.IsDelivery",
+          "title": "Доставка",
+          "type": "ENUM"
+        },
+        {
+          "field": "DishMeasureUnit",
+          "title": "Единица измерения",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.StartDelayTime.Avg",
+          "title": "Задержка начала приготовления (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderDeleted",
+          "title": "Заказ удален",
+          "type": "ENUM"
+        },
+        {
+          "field": "UniqOrderId.OrdersCount",
+          "title": "Заказов",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.Zone",
+          "title": "Зона доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.ExternalCartographyId",
+          "title": "Идентификатор адреса",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.Hierarchy",
+          "title": "Иерархия блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Index",
+          "title": "Индекс адреса",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.SourceKey",
+          "title": "Источник доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "OriginName",
+          "title": "Источник заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.IsAsap",
+          "title": "Как можно скорее",
+          "type": "ENUM"
+        },
+        {
+          "field": "Card",
+          "title": "Карта авторизации",
+          "type": "STRING"
+        },
+        {
+          "field": "CashRegisterName",
+          "title": "Касса",
+          "type": "STRING"
+        },
+        {
+          "field": "Cashier",
+          "title": "Кассир",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category1",
+          "title": "Категория 1",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category2",
+          "title": "Категория 2",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category3",
+          "title": "Категория 3",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category4",
+          "title": "Категория 4",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Category5",
+          "title": "Категория 5",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCategory",
+          "title": "Категория блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "QuarterOpen",
+          "title": "Квартал",
+          "type": "STRING"
+        },
+        {
+          "field": "OuterEconomicActivityNomenclatureCodeName",
+          "title": "Код ТН ВЭД ЕАЭС / УКТЗЕД",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCode",
+          "title": "Код блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishCode.Quick",
+          "title": "Код быстрого набора блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishGroup.Num",
+          "title": "Код группы блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Conception.Code",
+          "title": "Код концепции",
+          "type": "STRING"
+        },
+        {
+          "field": "Department.Code",
+          "title": "Код подразделения",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.ShortName",
+          "title": "Код размера блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.DiscountAmount",
+          "title": "Колич. блюд со скидкой",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboAmount",
+          "title": "Количество Комбо",
+          "type": "INTEGER"
+        },
+        {
+          "field": "DishAmountInt",
+          "title": "Количество блюд",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "PayTypes.VoucherNum",
+          "title": "Количество ваучеров",
+          "type": "INTEGER"
+        },
+        {
+          "field": "GuestNum",
+          "title": "Количество гостей",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "PayableAmountInt",
+          "title": "Количество платных блюд",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "OrderComment",
+          "title": "Комментарий заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Comment",
+          "title": "Комментарий к блюду",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.DeliveryComment",
+          "title": "Комментарий к доставке",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerComment",
+          "title": "Комментарий к клиенту",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CancelComment",
+          "title": "Комментарий к отмене доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "DeletionComment",
+          "title": "Комментарий к удалению блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "CreditUser.Company",
+          "title": "Компания-контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "Counteragent.Name",
+          "title": "Контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "Conception",
+          "title": "Концепция",
+          "type": "STRING"
+        },
+        {
+          "field": "CardType",
+          "title": "Кредитная карта",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Line1",
+          "title": "Куда везти",
+          "type": "STRING"
+        },
+        {
+          "field": "Currencies.CurrencyRate",
+          "title": "Курс валюты оплаты",
+          "type": "MONEY"
+        },
+        {
+          "field": "Delivery.Courier",
+          "title": "Курьер",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.EcsService",
+          "title": "Курьерская служба",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax1.Sum",
+          "title": "Местный налог 1",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax2.Sum",
+          "title": "Местный налог 2",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax3.Sum",
+          "title": "Местный налог 3",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax4.Sum",
+          "title": "Местный налог 4",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax5.Sum",
+          "title": "Местный налог 5",
+          "type": "MONEY"
+        },
+        {
+          "field": "CookingPlace",
+          "title": "Место приготовления",
+          "type": "STRING"
+        },
+        {
+          "field": "Mounth",
+          "title": "Месяц",
+          "type": "STRING"
+        },
+        {
+          "field": "IncentiveSumBase.Sum",
+          "title": "Мотивационный бонус",
+          "type": "MONEY"
+        },
+        {
+          "field": "VAT.SplitVat",
+          "title": "НДС платит гость",
+          "type": "ENUM"
+        },
+        {
+          "field": "VAT.Sum",
+          "title": "НДС по чекам(Сумма)",
+          "type": "MONEY"
+        },
+        {
+          "field": "VAT.Percent",
+          "title": "НДС(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "StoreTo",
+          "title": "На склад",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboName",
+          "title": "Название Комбо",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax1",
+          "title": "Название местного налога 1",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax2",
+          "title": "Название местного налога 2",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax3",
+          "title": "Название местного налога 3",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax4",
+          "title": "Название местного налога 4",
+          "type": "STRING"
+        },
+        {
+          "field": "LocalTax5",
+          "title": "Название местного налога 5",
+          "type": "STRING"
+        },
+        {
+          "field": "DishForeignName",
+          "title": "Наименование блюда на иностранном языке",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType",
+          "title": "Наименование скидки, надбавки",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTaxCategory.Name",
+          "title": "Налоговая категория",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductCostBase.Profit",
+          "title": "Наценка",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.MarkUp",
+          "title": "Наценка(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "WeekInYearOpen",
+          "title": "Неделя года",
+          "type": "STRING"
+        },
+        {
+          "field": "WeekInMonthOpen",
+          "title": "Неделя месяца",
+          "type": "STRING"
+        },
+        {
+          "field": "Bonus.CardNumber",
+          "title": "Номер бонусной карты",
+          "type": "STRING"
+        },
+        {
+          "field": "GroupOrderNum",
+          "title": "Номер группового чека",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.Number",
+          "title": "Номер доставки",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.CustomerCardNumber",
+          "title": "Номер карты клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "CardNumber",
+          "title": "Номер карты оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "CashRegisterName.Number",
+          "title": "Номер кассы",
+          "type": "INTEGER"
+        },
+        {
+          "field": "CouponInfo.Number",
+          "title": "Номер купона",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.ServeNumber",
+          "title": "Номер подачи",
+          "type": "STRING"
+        },
+        {
+          "field": "SessionNum",
+          "title": "Номер смены",
+          "type": "INTEGER"
+        },
+        {
+          "field": "TableNum",
+          "title": "Номер стола",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderNum",
+          "title": "Номер чека",
+          "type": "INTEGER"
+        },
+        {
+          "field": "SourceOrderNum",
+          "title": "Номер чека-источника",
+          "type": "INTEGER"
+        },
+        {
+          "field": "VatInvoice.InvoiceNumbers",
+          "title": "Номера счетов-фактур",
+          "type": "STRING"
+        },
+        {
+          "field": "VatInvoice.DeletedInvoiceNumbers",
+          "title": "Номера удаленных счетов-фактур",
+          "type": "STRING"
+        },
+        {
+          "field": "FiscalChequeNumber",
+          "title": "Номера фиск. чеков",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.DeliveryOperator",
+          "title": "Оператор доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "OperationType",
+          "title": "Операция",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.Delay",
+          "title": "Опоздание доставки(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Cooking.FeedLateTime.Avg",
+          "title": "Опоздание подачи (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.CookingLateTime.Avg",
+          "title": "Опоздание приготовления (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "RestaurantSection",
+          "title": "Отделение",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerOpinionComment",
+          "title": "Отзыв клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.DiffBetweenActualDeliveryTimeAndPredictedDeliveryTime",
+          "title": "Отклонение от сроков доставки, фактическое от прогнозируемого (мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "WaiterName",
+          "title": "Официант блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderWaiter.Name",
+          "title": "Официант заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.AvgMark",
+          "title": "Оценка доставки, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AvgCourierMark",
+          "title": "Оценка курьера, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AvgFoodMark",
+          "title": "Оценка кухни, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AvgOperatorMark",
+          "title": "Оценка оператора, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.ExpectedTime",
+          "title": "Планируемое время доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "OrderItems",
+          "title": "Позиций чека",
+          "type": "INTEGER"
+        },
+        {
+          "field": "OrderCooking.TotalDuration.Avg",
+          "title": "Полное время обработки заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "DishFullName",
+          "title": "Полное наименование блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTags.NamesCombo",
+          "title": "Пользовательские свойства (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "DishTag.Name",
+          "title": "Пользовательское свойство",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Priority",
+          "title": "Порядковый номер размера блюда",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.CancelCause",
+          "title": "Причина отмены доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "WriteoffReason",
+          "title": "Причина списания",
+          "type": "STRING"
+        },
+        {
+          "field": "RemovalType",
+          "title": "Причина удаления блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.PredictedDeliveryTime",
+          "title": "Прогнозируемое время доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "Delivery.PredictedCookingCompleteTime",
+          "title": "Прогнозируемое время окончания готовки заказа",
+          "type": "DATETIME"
+        },
+        {
+          "field": "SoldWithDish",
+          "title": "Продано с блюдом",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.GuestWaitTime.Avg",
+          "title": "Продолжительность ожидания гостя (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.ServeTime.Avg",
+          "title": "Продолжительность подачи гостю (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderCooking.ServingDuration.Avg",
+          "title": "Продолжительность подачи заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.CookingDuration.Avg",
+          "title": "Продолжительность приготовления (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking1Duration.Avg",
+          "title": "Продолжительность приготовления 1 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking2Duration.Avg",
+          "title": "Продолжительность приготовления 2 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking3Duration.Avg",
+          "title": "Продолжительность приготовления 3 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.Cooking4Duration.Avg",
+          "title": "Продолжительность приготовления 4 (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderCooking.CookingDuration.Avg",
+          "title": "Продолжительность приготовления заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "Cooking.KitchenTime.Avg",
+          "title": "Продолжительность работы кухни (средняя)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "OrderCooking.PackingDuration.Avg",
+          "title": "Продолжительность упаковки заказа (среднее)",
+          "type": "DURATION_IN_SECONDS"
+        },
+        {
+          "field": "IncreasePercent",
+          "title": "Процент надбавки",
+          "type": "PERCENT"
+        },
+        {
+          "field": "DiscountPercent",
+          "title": "Процент скидки",
+          "type": "PERCENT"
+        },
+        {
+          "field": "PublicExternalData",
+          "title": "Публичные данные плагинов",
+          "type": "STRING"
+        },
+        {
+          "field": "PublicExternalData.Xml",
+          "title": "Публичные данные плагинов (XML)",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.PublicExternalData",
+          "title": "Публичные данные плагинов о приготовлении",
+          "type": "STRING"
+        },
+        {
+          "field": "Cooking.PublicExternalData.Xml",
+          "title": "Публичные данные плагинов о приготовлении (XML)",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderCooking.PublicExternalData",
+          "title": "Публичные данные плагинов о приготовлении заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderCooking.PublicExternalData.Xml",
+          "title": "Публичные данные плагинов о приготовлении заказа (XML)",
+          "type": "STRING"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboSizeName",
+          "title": "Размер Комбо",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Name",
+          "title": "Размер блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Region",
+          "title": "Район",
+          "type": "STRING"
+        },
+        {
+          "field": "CashLocation",
+          "title": "Расположение кассы",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderServiceType",
+          "title": "Режим обслуживания",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.MarketingSource",
+          "title": "Реклама",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerMarketingSource",
+          "title": "Реклама клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "ProductCostBase.ProductCost",
+          "title": "Себестоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.PercentWithoutVAT",
+          "title": "Себестоимость без НДС(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "ProductCostBase.OneItem",
+          "title": "Себестоимость единицы",
+          "type": "MONEY"
+        },
+        {
+          "field": "ProductCostBase.Percent",
+          "title": "Себестоимость(%)",
+          "type": "PERCENT"
+        },
+        {
+          "field": "DishServicePrintTime",
+          "title": "Сервисная печать блюда",
+          "type": "DATETIME"
+        },
+        {
+          "field": "DishServicePrintTime.Max",
+          "title": "Сервисная печать последнего блюда",
+          "type": "DATETIME"
+        },
+        {
+          "field": "CouponInfos",
+          "title": "Серии и номера купонов",
+          "type": "STRING"
+        },
+        {
+          "field": "CashRegisterName.CashRegisterSerialNumber",
+          "title": "Серийный номер ФР",
+          "type": "STRING"
+        },
+        {
+          "field": "CouponInfo.Series",
+          "title": "Серия купона",
+          "type": "STRING"
+        },
+        {
+          "field": "Store.Name",
+          "title": "Со склада",
+          "type": "STRING"
+        },
+        {
+          "field": "WriteoffUser",
+          "title": "Списано на сотрудника",
+          "type": "STRING"
+        },
+        {
+          "field": "DishAmountInt.PerOrder",
+          "title": "Ср. количество блюд на чек",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "OrderTime.AveragePrechequeTime",
+          "title": "Ср.время в пречеке (мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.WayDurationAvg",
+          "title": "Ср.время в пути(мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "OrderTime.AverageOrderTime",
+          "title": "Ср.время обсл.(мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "GuestNum.Avg",
+          "title": "Ср.кол-во гостей на чек",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.DelayAvg",
+          "title": "Ср.опоздание доставки(мин)",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DishDiscountSumInt.averageByGuest",
+          "title": "Средняя выручка с гостя",
+          "type": "MONEY"
+        },
+        {
+          "field": "Delivery.AggregatedAvgMark",
+          "title": "Средняя оценка доставки, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AggregatedAvgCourierMark",
+          "title": "Средняя оценка курьера, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AggregatedAvgFoodMark",
+          "title": "Средняя оценка кухни, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "Delivery.AggregatedAvgOperatorMark",
+          "title": "Средняя оценка оператора, %",
+          "type": "AMOUNT"
+        },
+        {
+          "field": "DishDiscountSumInt.average",
+          "title": "Средняя сумма заказа",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.averageWithoutVAT",
+          "title": "Средняя сумма заказа без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.averagePriceWithVAT",
+          "title": "Средняя цена",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.averagePrice",
+          "title": "Средняя цена без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishSumInt.averagePriceWithVAT",
+          "title": "Средняя цена без скидки",
+          "type": "MONEY"
+        },
+        {
+          "field": "LocalTax1.VatPercent",
+          "title": "Ставка НДС с местного налога 1",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax2.VatPercent",
+          "title": "Ставка НДС с местного налога 2",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax3.VatPercent",
+          "title": "Ставка НДС с местного налога 3",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax4.VatPercent",
+          "title": "Ставка НДС с местного налога 4",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax5.VatPercent",
+          "title": "Ставка НДС с местного налога 5",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax1.Percent",
+          "title": "Ставка местного налога 1",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax2.Percent",
+          "title": "Ставка местного налога 2",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax3.Percent",
+          "title": "Ставка местного налога 3",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax4.Percent",
+          "title": "Ставка местного налога 4",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax5.Percent",
+          "title": "Ставка местного налога 5",
+          "type": "INTEGER"
+        },
+        {
+          "field": "Delivery.WayDurationSum",
+          "title": "Сумм.время в пути(мин)",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax1.VatSum",
+          "title": "Сумма НДС с местного налога 1",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax2.VatSum",
+          "title": "Сумма НДС с местного налога 2",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax3.VatSum",
+          "title": "Сумма НДС с местного налога 3",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax4.VatSum",
+          "title": "Сумма НДС с местного налога 4",
+          "type": "INTEGER"
+        },
+        {
+          "field": "LocalTax5.VatSum",
+          "title": "Сумма НДС с местного налога 5",
+          "type": "INTEGER"
+        },
+        {
+          "field": "fullSum",
+          "title": "Сумма без НДС не включенного в стоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishSumInt",
+          "title": "Сумма без скидки",
+          "type": "MONEY"
+        },
+        {
+          "field": "Bonus.Sum",
+          "title": "Сумма бонуса",
+          "type": "MONEY"
+        },
+        {
+          "field": "Currencies.SumInCurrency",
+          "title": "Сумма в валюте оплаты / заказ",
+          "type": "OBJECT"
+        },
+        {
+          "field": "DishReturnSum",
+          "title": "Сумма возврата",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishReturnSum.withoutVAT",
+          "title": "Сумма возврата без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "IncreaseSum",
+          "title": "Сумма надбавки",
+          "type": "MONEY"
+        },
+        {
+          "field": "DiscountSum",
+          "title": "Сумма скидки",
+          "type": "MONEY"
+        },
+        {
+          "field": "discountWithoutVAT",
+          "title": "Сумма скидки без НДС не включенного в стоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt",
+          "title": "Сумма со скидкой",
+          "type": "MONEY"
+        },
+        {
+          "field": "DishDiscountSumInt.withoutVAT",
+          "title": "Сумма со скидкой без НДС",
+          "type": "MONEY"
+        },
+        {
+          "field": "sumAfterDiscountWithoutVAT",
+          "title": "Сумма со скидкой без НДС не включенного в стоимость",
+          "type": "MONEY"
+        },
+        {
+          "field": "Cashier.Code",
+          "title": "Табельный номер кассира",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Phone",
+          "title": "Телефон доставки",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerPhone",
+          "title": "Телефон клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "Bonus.Type",
+          "title": "Тип бонуса",
+          "type": "STRING"
+        },
+        {
+          "field": "NonCashPaymentType.DocumentType",
+          "title": "Тип документа списания",
+          "type": "ENUM"
+        },
+        {
+          "field": "Delivery.ServiceType",
+          "title": "Тип доставки",
+          "type": "ENUM"
+        },
+        {
+          "field": "OrderType",
+          "title": "Тип заказа",
+          "type": "STRING"
+        },
+        {
+          "field": "CardTypeName",
+          "title": "Тип карты",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.CustomerCardType",
+          "title": "Тип карты клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "CookingPlaceType",
+          "title": "Тип места приготовления",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderIncrease.Type",
+          "title": "Тип надбавки",
+          "type": "STRING"
+        },
+        {
+          "field": "PayTypes",
+          "title": "Тип оплаты",
+          "type": "STRING"
+        },
+        {
+          "field": "PayTypes.Combo",
+          "title": "Тип оплаты (комб.)",
+          "type": "STRING"
+        },
+        {
+          "field": "OrderDiscount.Type",
+          "title": "Тип скидки",
+          "type": "STRING"
+        },
+        {
+          "field": "DishType",
+          "title": "Тип товара",
+          "type": "ENUM"
+        },
+        {
+          "field": "Department",
+          "title": "Торговое предприятие",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.Street",
+          "title": "Улица",
+          "type": "STRING"
+        },
+        {
+          "field": "OpenDate.Typed",
+          "title": "Учетный день",
+          "type": "DATE"
+        },
+        {
+          "field": "Delivery.CustomerName",
+          "title": "ФИО клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "Delivery.ActualTime",
+          "title": "Фактическое время доставки",
+          "type": "DATETIME"
+        },
+        {
+          "field": "PayTypes.IsPrintCheque",
+          "title": "Фиск. тип оплаты",
+          "type": "ENUM"
+        },
+        {
+          "field": "PriceCategoryDiscountCardOwner",
+          "title": "ЦК владелец карты",
+          "type": "STRING"
+        },
+        {
+          "field": "PriceCategoryUserCardOwner",
+          "title": "ЦК контрагент",
+          "type": "STRING"
+        },
+        {
+          "field": "PriceCategoryCard",
+          "title": "ЦК номер карты",
+          "type": "STRING"
+        },
+        {
+          "field": "PriceCategory",
+          "title": "Ценовая категория клиента",
+          "type": "STRING"
+        },
+        {
+          "field": "HourClose",
+          "title": "Час закрытия",
+          "type": "STRING"
+        },
+        {
+          "field": "HourOpen",
+          "title": "Час открытия",
+          "type": "STRING"
+        },
+        {
+          "field": "UniqOrderId",
+          "title": "Чеков",
+          "type": "INTEGER"
+        },
+        {
+          "field": "ItemSaleEventDiscountType.ComboGroupName",
+          "title": "Шаг Комбо",
+          "type": "STRING"
+        },
+        {
+          "field": "DishSize.Scale.Name",
+          "title": "Шкала размеров блюда",
+          "type": "STRING"
+        },
+        {
+          "field": "JurName",
+          "title": "Юридическое лицо",
+          "type": "STRING"
+        }
+      ],
       "relevant": {
         "sales_checks": [
           {
