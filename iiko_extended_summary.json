@@ -1,8 +1,8 @@
 {
   "generated_at": "2026-08-20",
   "period": "2026-07",
-  "uncompressed_bytes": 415235450,
-  "compressed_bytes": 29342230,
+  "uncompressed_bytes": 415236017,
+  "compressed_bytes": 29342506,
   "sources": {
     "sales_checks": {
       "status": "available",
@@ -44,6 +44,45 @@
       "status": "available",
       "rows": 844182,
       "summary": null,
+      "error": null
+    },
+    "guest_trends": {
+      "status": "available",
+      "rows": 0,
+      "summary": {
+        "periods": [
+          {
+            "period": "2026-07",
+            "checks": 129994,
+            "avg_check": 627.43,
+            "identified_guests": 18728,
+            "visits": 70595,
+            "visits_per_guest": 3.77,
+            "median_visits": 2.0,
+            "repeat_guest_pct": 61.0
+          },
+          {
+            "period": "2026-06",
+            "checks": 127554,
+            "avg_check": 619.56,
+            "identified_guests": 18595,
+            "visits": 69467,
+            "visits_per_guest": 3.74,
+            "median_visits": 2.0,
+            "repeat_guest_pct": 60.9
+          },
+          {
+            "period": "2025-07",
+            "checks": 120466,
+            "avg_check": 574.17,
+            "identified_guests": 16122,
+            "visits": 62718,
+            "visits_per_guest": 3.89,
+            "median_visits": 2.0,
+            "repeat_guest_pct": 62.0
+          }
+        ]
+      },
       "error": null
     }
   }
