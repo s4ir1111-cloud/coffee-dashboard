@@ -2,6 +2,7 @@
 """Extract monthly sales, SKU, purchasing and raw-material data from iikoServer."""
 
 import hashlib
+import gzip
 import json
 import os
 from datetime import date
@@ -12,7 +13,8 @@ HOST = os.environ.get("IIKO_HOST", "https://kofeinya-garden-co.iiko.it").rstrip(
 LOGIN = os.environ.get("IIKO_LOGIN", "")
 PASSWORD = os.environ.get("IIKO_PASSWORD", "")
 MONTH = os.environ.get("IIKO_ANALYTICS_MONTH", "2026-07")
-OUT = "iiko_extended_data.json"
+OUT = "iiko_extended_data.json.gz"
+SUMMARY_OUT = "iiko_extended_summary.json"
 
 
 def month_range(key):
@@ -63,8 +65,19 @@ def main():
                 print(f"{name}: {type(exc).__name__}")
     finally:
         requests.get(f"{HOST}/resto/api/logout", params={"key": token}, timeout=20)
-    with open(OUT, "w", encoding="utf-8") as target:
-        json.dump(output, target, ensure_ascii=False, indent=2)
+    encoded = json.dumps(output, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    with gzip.open(OUT, "wb", compresslevel=9) as target:
+        target.write(encoded)
+    summary = {
+        "generated_at": output["generated_at"], "period": output["period"],
+        "uncompressed_bytes": len(encoded), "compressed_bytes": os.path.getsize(OUT),
+        "sources": {
+            name: {"status": item["status"], "rows": len(item.get("rows", [])), "error": item.get("error")}
+            for name, item in output["sources"].items()
+        },
+    }
+    with open(SUMMARY_OUT, "w", encoding="utf-8") as target:
+        json.dump(summary, target, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":
