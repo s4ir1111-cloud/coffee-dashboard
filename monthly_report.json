@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-20T09:24:12.028174+00:00",
+  "generated_at": "2026-08-20T10:44:28.467616+00:00",
   "period": "2026-07",
   "period_label": "Июл 2026",
   "comparison_label": "Июн 2026",
@@ -14,21 +14,21 @@
     },
     {
       "name": "Валовая прибыль",
-      "value": 33859041,
+      "value": 33859016,
       "display": "33.9 млн ₽",
       "delta_pct": 6.8
     },
     {
       "name": "EBITDA",
-      "value": 23076841,
+      "value": 23071556,
       "display": "23.1 млн ₽",
       "delta_pct": 10.2
     },
     {
       "name": "Чистая прибыль",
-      "value": 16802052,
+      "value": 16758435,
       "display": "16.8 млн ₽",
-      "delta_pct": 395.6
+      "delta_pct": 394.3
     }
   ],
   "kpi": {
@@ -42,7 +42,7 @@
       "avg_6m": 66089165
     },
     "cogs": {
-      "value": 46771118,
+      "value": 46771143,
       "mom_pct": 2.6,
       "yoy_pct": 16.9,
       "vs_3m_pct": 10.7,
@@ -51,7 +51,7 @@
       "avg_6m": 38799207
     },
     "gross_profit": {
-      "value": 33859041,
+      "value": 33859016,
       "mom_pct": 6.8,
       "yoy_pct": 7.0,
       "vs_3m_pct": 8.3,
@@ -60,16 +60,16 @@
       "avg_6m": 27289958
     },
     "opex": {
-      "value": 10782200,
-      "mom_pct": 0.2,
-      "yoy_pct": 39.9,
-      "vs_3m_pct": 5.7,
-      "vs_6m_pct": 10.9,
+      "value": 10787460,
+      "mom_pct": 0.3,
+      "yoy_pct": 40.0,
+      "vs_3m_pct": 5.8,
+      "vs_6m_pct": 11.0,
       "avg_3m": 10196422,
       "avg_6m": 9719870
     },
     "ebitda": {
-      "value": 23076841,
+      "value": 23071556,
       "mom_pct": 10.2,
       "yoy_pct": -3.6,
       "vs_3m_pct": 9.6,
@@ -78,11 +78,11 @@
       "avg_6m": 17570088
     },
     "net_profit": {
-      "value": 16802052,
-      "mom_pct": 395.6,
-      "yoy_pct": 27.1,
-      "vs_3m_pct": 54.5,
-      "vs_6m_pct": 219.8,
+      "value": 16758435,
+      "mom_pct": 394.3,
+      "yoy_pct": 26.7,
+      "vs_3m_pct": 54.1,
+      "vs_6m_pct": 219.0,
       "avg_3m": 10877778,
       "avg_6m": 5253902
     }
@@ -102,25 +102,675 @@
   },
   "source_coverage": {
     "sales_checks": {
-      "status": "unavailable",
-      "required_source": "нужна помесячная OLAP-выгрузка чеков и среднего чека"
+      "status": "available",
+      "required_source": "iiko подключён · 21 строк · период 2026-07"
     },
     "menu_sku": {
-      "status": "unavailable",
-      "required_source": "нужны исторические продажи и себестоимость по категориям/SKU"
+      "status": "available",
+      "required_source": "iiko подключён · 14607 строк · период 2026-07"
     },
     "purchase_prices": {
-      "status": "unavailable",
-      "required_source": "нужны документы поступления: товар, поставщик, цена, объём и дата"
+      "status": "available",
+      "required_source": "iiko подключён · 7999 строк · период 2026-07"
     },
     "workforce": {
       "status": "unavailable",
       "required_source": "нужны сотрудники смены, начало/конец смены и стоимость часа"
     },
     "raw_material": {
-      "status": "unavailable",
-      "required_source": "нужны списания/расход сырья и связи ингредиент → SKU"
+      "status": "available",
+      "required_source": "iiko подключён · 40132 строк · период 2026-07"
     }
+  },
+  "extended_analytics": {
+    "checks": 129994,
+    "avg_check": 627.43,
+    "top_menu": [
+      {
+        "store": "Преображенский",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 2333.0,
+        "revenue": 574858,
+        "cost": 87927,
+        "margin": 486931
+      },
+      {
+        "store": "Океан",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 2269.0,
+        "revenue": 545826,
+        "cost": 83841,
+        "margin": 461985
+      },
+      {
+        "store": "Свердлова",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 1846.0,
+        "revenue": 452827,
+        "cost": 70550,
+        "margin": 382277
+      },
+      {
+        "store": "Калинка",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 1733.0,
+        "revenue": 420849,
+        "cost": 63700,
+        "margin": 357149
+      },
+      {
+        "store": "Новин",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 1617.0,
+        "revenue": 393471,
+        "cost": 61253,
+        "margin": 332218
+      },
+      {
+        "store": "Видный",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 1507.0,
+        "revenue": 371735,
+        "cost": 57294,
+        "margin": 314441
+      },
+      {
+        "store": "Советская",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 1500.0,
+        "revenue": 353485,
+        "cost": 57337,
+        "margin": 296148
+      },
+      {
+        "store": "Паруса",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 1507.0,
+        "revenue": 349332,
+        "cost": 57197,
+        "margin": 292135
+      },
+      {
+        "store": "Панорама",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 992.0,
+        "revenue": 247389,
+        "cost": 38032,
+        "margin": 209357
+      },
+      {
+        "store": "Европа",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 986.0,
+        "revenue": 233235,
+        "cost": 37928,
+        "margin": 195307
+      },
+      {
+        "store": "Арсиб",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 994.0,
+        "revenue": 232524,
+        "cost": 36401,
+        "margin": 196123
+      },
+      {
+        "store": "Газпром",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 971.0,
+        "revenue": 218455,
+        "cost": 37450,
+        "margin": 181005
+      },
+      {
+        "store": "Гарден Кофе Тобольск",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 812.0,
+        "revenue": 216504,
+        "cost": 31222,
+        "margin": 185282
+      },
+      {
+        "store": "Драмтеатр",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 806.0,
+        "revenue": 195344,
+        "cost": 29208,
+        "margin": 166136
+      },
+      {
+        "store": "Мельникайте",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 796.5,
+        "revenue": 183188,
+        "cost": 28536,
+        "margin": 154652
+      },
+      {
+        "store": "Океан",
+        "sku": "Капучино 250 мл",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 863.0,
+        "revenue": 181976,
+        "cost": 17623,
+        "margin": 164353
+      },
+      {
+        "store": "Преображенский",
+        "sku": "Латте 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Латте",
+        "qty": 728.0,
+        "revenue": 181868,
+        "cost": 16193,
+        "margin": 165675
+      },
+      {
+        "store": "Океан",
+        "sku": "Лимонад Ежевика-мята ",
+        "group": "Лимонады 350",
+        "category": "Лимонад",
+        "qty": 617.0,
+        "revenue": 180965,
+        "cost": 33278,
+        "margin": 147687
+      },
+      {
+        "store": "Гарден Кофе Сургут",
+        "sku": "Капучино 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Капучино",
+        "qty": 748.0,
+        "revenue": 180642,
+        "cost": 28734,
+        "margin": 151908
+      },
+      {
+        "store": "Океан",
+        "sku": "Латте 350 мл ",
+        "group": "Кофе Терминал",
+        "category": "Латте",
+        "qty": 745.0,
+        "revenue": 178949,
+        "cost": 15868,
+        "margin": 163081
+      }
+    ],
+    "top_purchases": [
+      {
+        "store": "ИП Бокслер Обжарка",
+        "supplier": null,
+        "product_id": "dc6ba050-366c-45dd-80b0-3c789f3a1025",
+        "item": "Зерно Эспрессо_т",
+        "unit": "кг",
+        "qty": 1875.0,
+        "sum": 2148590,
+        "avg_price": 1145.9144,
+        "first_price": 1147.0492,
+        "last_price": 1153.8153
+      },
+      {
+        "store": "Офис",
+        "supplier": "ИП Соколов О.В.",
+        "product_id": "0876de5e-111e-4e47-b9d4-cb096f946b23",
+        "item": "Консультационные услуги",
+        "unit": "шт",
+        "qty": 1.0,
+        "sum": 2069300,
+        "avg_price": 2069300.0,
+        "first_price": 2069300.0,
+        "last_price": 2069300.0
+      },
+      {
+        "store": "ИП Бокслер Обжарка",
+        "supplier": null,
+        "product_id": "0c770291-dfab-4236-9ff2-d13ebecda189",
+        "item": "Зерно обжаренное Бленд Бариста_т",
+        "unit": "кг",
+        "qty": 1551.3,
+        "sum": 1777574,
+        "avg_price": 1145.8607,
+        "first_price": 1139.6121,
+        "last_price": 1148.7867
+      },
+      {
+        "store": "Склад ГарденС ТМЦ/ОС",
+        "supplier": "ИП Соколов О.В.",
+        "product_id": "0876de5e-111e-4e47-b9d4-cb096f946b23",
+        "item": "Консультационные услуги",
+        "unit": "шт",
+        "qty": 1.0,
+        "sum": 1262185,
+        "avg_price": 1262185.0,
+        "first_price": 1262185.0,
+        "last_price": 1262185.0
+      },
+      {
+        "store": "ИП Бокслер Обжарка",
+        "supplier": "Кофе Дрим ООО",
+        "product_id": "3e47f08e-83dd-4f51-9390-eb3dd0260e1b",
+        "item": "Зерно зеленое Гватемала Виносо_т",
+        "unit": "кг",
+        "qty": 1380.0,
+        "sum": 1225966,
+        "avg_price": 888.381,
+        "first_price": 888.381,
+        "last_price": 888.381
+      },
+      {
+        "store": "Гагарина",
+        "supplier": "ИП Селенских А.А.",
+        "product_id": "a6ba0b45-cca9-4e90-b62e-2eb7faa7b783",
+        "item": "Ремонт и обслуживание помещений",
+        "unit": "шт",
+        "qty": 2.0,
+        "sum": 879212,
+        "avg_price": 439606.25,
+        "first_price": 828084.5,
+        "last_price": 51128.0
+      },
+      {
+        "store": "ИП Бокслер Обжарка",
+        "supplier": "Сидс Кофе ООО",
+        "product_id": "bc793606-bbe1-486b-97f6-aa37d9fc1838",
+        "item": "Зерно зеленое Бразилия Бэрри_т",
+        "unit": "кг",
+        "qty": 885.0,
+        "sum": 705325,
+        "avg_price": 796.9775,
+        "first_price": 796.9775,
+        "last_price": 796.9775
+      },
+      {
+        "store": "Московская",
+        "supplier": "*Поставщик ОС\\Прочие ОС*",
+        "product_id": "bad9be64-b169-44ef-a9f4-1d579a528157",
+        "item": "Поступление ОС\\Прочее ТМЦ (для ОПиУ)",
+        "unit": "шт",
+        "qty": 2.0,
+        "sum": 539749,
+        "avg_price": 269874.5,
+        "first_price": 5185.0,
+        "last_price": 534564.0
+      },
+      {
+        "store": "Московская",
+        "supplier": "ИП Селенских А.А.",
+        "product_id": "a6ba0b45-cca9-4e90-b62e-2eb7faa7b783",
+        "item": "Ремонт и обслуживание помещений",
+        "unit": "шт",
+        "qty": 2.0,
+        "sum": 523350,
+        "avg_price": 261675.0,
+        "first_price": 261675.0,
+        "last_price": 261675.0
+      },
+      {
+        "store": "Советская",
+        "supplier": "ИП Лебедева О.П.",
+        "product_id": "ad23de6b-5154-4e07-b69d-088f23b71410",
+        "item": "Аренда",
+        "unit": "шт",
+        "qty": 1.0,
+        "sum": 500000,
+        "avg_price": 500000.0,
+        "first_price": 500000.0,
+        "last_price": 500000.0
+      },
+      {
+        "store": "Океан",
+        "supplier": "Рокецкая ИП",
+        "product_id": "ad23de6b-5154-4e07-b69d-088f23b71410",
+        "item": "Аренда",
+        "unit": "шт",
+        "qty": 1.0,
+        "sum": 389449,
+        "avg_price": 389448.7,
+        "first_price": 389448.7,
+        "last_price": 389448.7
+      },
+      {
+        "store": "Московская",
+        "supplier": "Власов АВ ИП",
+        "product_id": "60207caa-0fa9-433b-9920-f7ff87f9aee4",
+        "item": "Дизайнерские услуги",
+        "unit": "шт",
+        "qty": 2.0,
+        "sum": 383500,
+        "avg_price": 191750.0,
+        "first_price": 191750.0,
+        "last_price": 191750.0
+      },
+      {
+        "store": "ИП Бокслер Обжарка",
+        "supplier": "Переработка сырья ИП Бокслер (давальческое сырье): Переработка ИП Бокслер",
+        "product_id": "9c72aee2-85c5-40f9-a54b-d48aab5cd4ac",
+        "item": "Дрип пакет 1 шт_т",
+        "unit": "шт",
+        "qty": 7391.0,
+        "sum": 341844,
+        "avg_price": 46.2514,
+        "first_price": 46.2514,
+        "last_price": 46.2514
+      },
+      {
+        "store": "Московская",
+        "supplier": "Электрические технологии ООО",
+        "product_id": "e1a3bfdc-ee4f-4aae-94b7-6f2ccad31c20",
+        "item": "Электроматериалы_тмц",
+        "unit": "шт",
+        "qty": 636.0,
+        "sum": 338089,
+        "avg_price": 531.5872,
+        "first_price": 109.4309,
+        "last_price": 4705.8413
+      },
+      {
+        "store": "Заготовочный цех",
+        "supplier": "Стенников ИП",
+        "product_id": "a6ba0b45-cca9-4e90-b62e-2eb7faa7b783",
+        "item": "Ремонт и обслуживание помещений",
+        "unit": "шт",
+        "qty": 1.0,
+        "sum": 315200,
+        "avg_price": 315200.0,
+        "first_price": 315200.0,
+        "last_price": 315200.0
+      },
+      {
+        "store": "Океан",
+        "supplier": "ИП Бокслер Обжарка: Обжарка (ИП Бокслер)",
+        "product_id": "dc6ba050-366c-45dd-80b0-3c789f3a1025",
+        "item": "Зерно Эспрессо_т",
+        "unit": "кг",
+        "qty": 165.0,
+        "sum": 303600,
+        "avg_price": 1840.0,
+        "first_price": 1840.0,
+        "last_price": 1840.0
+      },
+      {
+        "store": "Склад Гарден ТМЦ/ОС",
+        "supplier": "ВЗЛП ООО",
+        "product_id": "ecc9a783-1a02-4609-b8af-8031f9f7a222",
+        "item": "Стакан для смузи 300_т",
+        "unit": "шт",
+        "qty": 50399.0,
+        "sum": 290808,
+        "avg_price": 5.7701,
+        "first_price": 5.7701,
+        "last_price": 5.7701
+      },
+      {
+        "store": "Московская",
+        "supplier": "Мадиан ООО",
+        "product_id": "69e4d5f5-7d25-46f7-a359-b629b2f20ea0",
+        "item": "МС1_Кофемолка ЕК43Т черная_(ИНВ_МС1)_ос",
+        "unit": "шт",
+        "qty": 1.0,
+        "sum": 283836,
+        "avg_price": 283836.0,
+        "first_price": 283836.0,
+        "last_price": 283836.0
+      },
+      {
+        "store": "Паруса",
+        "supplier": "Макаров ИП",
+        "product_id": "aba50db0-43c3-4d70-9f0e-f8ff1e04566c",
+        "item": "Коммунальные расходы",
+        "unit": "шт",
+        "qty": 3.0,
+        "sum": 261172,
+        "avg_price": 87057.29,
+        "first_price": 9399.68,
+        "last_price": 190776.09
+      },
+      {
+        "store": "Преображенский",
+        "supplier": "ИП Бокслер Обжарка: Обжарка (ИП Бокслер)",
+        "product_id": "dc6ba050-366c-45dd-80b0-3c789f3a1025",
+        "item": "Зерно Эспрессо_т",
+        "unit": "кг",
+        "qty": 141.0,
+        "sum": 259770,
+        "avg_price": 1842.3404,
+        "first_price": 1850.0,
+        "last_price": 1840.0
+      }
+    ],
+    "top_raw_material": [
+      {
+        "store": "Преображенский",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС ГарденС, Альфа",
+        "contra_account": "ДС Гарденс, Депозит Альфа",
+        "qty": 0.0,
+        "sum": 297602000
+      },
+      {
+        "store": "Преображенский",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарденс, Депозит Альфа",
+        "contra_account": "ДС ГарденС, Альфа",
+        "qty": 0.0,
+        "sum": 296518000
+      },
+      {
+        "store": "Офис",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден, Альфа",
+        "contra_account": "ДС Гарден, Депозит Альфа",
+        "qty": 0.0,
+        "sum": 264544000
+      },
+      {
+        "store": "Офис",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден, Депозит Альфа",
+        "contra_account": "ДС Гарден, Альфа",
+        "qty": 0.0,
+        "sum": 263265000
+      },
+      {
+        "store": "Кондитерская",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Роастерс, Депозит Альфа",
+        "contra_account": "ДС Роастерс, Альфа",
+        "qty": 0.0,
+        "sum": 115526000
+      },
+      {
+        "store": "Кондитерская",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Роастерс, Альфа",
+        "contra_account": "ДС Роастерс, Депозит Альфа",
+        "qty": 0.0,
+        "sum": 115263000
+      },
+      {
+        "store": "Офис",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС, эквайринг",
+        "contra_account": "ДС Гарден, Сбер",
+        "qty": 0.0,
+        "sum": 37990341
+      },
+      {
+        "store": "Преображенский",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС, эквайринг",
+        "contra_account": "ДС ГарденС, сбер",
+        "qty": 0.0,
+        "sum": 21018179
+      },
+      {
+        "store": "Гагарина",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден Урал, Депозит Альфа",
+        "contra_account": "ДС Гарден Урал, Альфа",
+        "qty": 0.0,
+        "sum": 16630000
+      },
+      {
+        "store": "Гагарина",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден Урал, Альфа",
+        "contra_account": "ДС Гарден Урал, Депозит Альфа",
+        "qty": 0.0,
+        "sum": 16560000
+      },
+      {
+        "store": "Офис",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден, Сбер",
+        "contra_account": "ДС Гарден, Альфа",
+        "qty": 0.0,
+        "sum": 15200000
+      },
+      {
+        "store": "Преображенский",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС ГарденС, сбер",
+        "contra_account": "ДС ГарденС, Альфа",
+        "qty": 0.0,
+        "sum": 10000000
+      },
+      {
+        "store": "Гагарина",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "Полученные и выданные займы и кредиты",
+        "contra_account": "ДС Гарден Урал, Сбер",
+        "qty": 0.0,
+        "sum": 8718000
+      },
+      {
+        "store": "Океан",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "Нераспределенная выручка",
+        "contra_account": "ДС, эквайринг",
+        "qty": 0.0,
+        "sum": 7998699
+      },
+      {
+        "store": "Московская",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден Урал, Сбер",
+        "contra_account": "Расчеты с контрагентами",
+        "qty": 0.0,
+        "sum": 7795535
+      },
+      {
+        "store": "Преображенский",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "Нераспределенная выручка",
+        "contra_account": "ДС, эквайринг",
+        "qty": 0.0,
+        "sum": 6720346
+      },
+      {
+        "store": "Свердлова",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "Нераспределенная выручка",
+        "contra_account": "ДС, эквайринг",
+        "qty": 0.0,
+        "sum": 6043549
+      },
+      {
+        "store": "Калинка",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "Нераспределенная выручка",
+        "contra_account": "ДС, эквайринг",
+        "qty": 0.0,
+        "sum": 5900551
+      },
+      {
+        "store": "Офис",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "ДС Гарден, Сбер",
+        "contra_account": "Расчеты с контрагентами",
+        "qty": 0.0,
+        "sum": 5151570
+      },
+      {
+        "store": "Видный",
+        "product_id": null,
+        "item": null,
+        "unit": null,
+        "account": "Нераспределенная выручка",
+        "contra_account": "ДС, эквайринг",
+        "qty": 0.0,
+        "sum": 5017567
+      }
+    ]
   },
   "executive_summary": [
     "🟠 Падение выручки · Ворлд Класс: эффект 0.5 млн ₽/мес. Причина требует проверки: чеки, средний чек, категории, SKU, часы и стоп-лист.",
@@ -143,7 +793,7 @@
       "avg_6m": 66089165
     },
     "cogs": {
-      "value": 46771118,
+      "value": 46771143,
       "mom_pct": 2.6,
       "yoy_pct": 16.9,
       "vs_3m_pct": 10.7,
@@ -152,7 +802,7 @@
       "avg_6m": 38799207
     },
     "gross_profit": {
-      "value": 33859041,
+      "value": 33859016,
       "mom_pct": 6.8,
       "yoy_pct": 7.0,
       "vs_3m_pct": 8.3,
@@ -161,16 +811,16 @@
       "avg_6m": 27289958
     },
     "opex": {
-      "value": 10782200,
-      "mom_pct": 0.2,
-      "yoy_pct": 39.9,
-      "vs_3m_pct": 5.7,
-      "vs_6m_pct": 10.9,
+      "value": 10787460,
+      "mom_pct": 0.3,
+      "yoy_pct": 40.0,
+      "vs_3m_pct": 5.8,
+      "vs_6m_pct": 11.0,
       "avg_3m": 10196422,
       "avg_6m": 9719870
     },
     "ebitda": {
-      "value": 23076841,
+      "value": 23071556,
       "mom_pct": 10.2,
       "yoy_pct": -3.6,
       "vs_3m_pct": 9.6,
@@ -179,11 +829,11 @@
       "avg_6m": 17570088
     },
     "net_profit": {
-      "value": 16802052,
-      "mom_pct": 395.6,
-      "yoy_pct": 27.1,
-      "vs_3m_pct": 54.5,
-      "vs_6m_pct": 219.8,
+      "value": 16758435,
+      "mom_pct": 394.3,
+      "yoy_pct": 26.7,
+      "vs_3m_pct": 54.1,
+      "vs_6m_pct": 219.0,
       "avg_3m": 10877778,
       "avg_6m": 5253902
     }
@@ -203,10 +853,10 @@
       "revenue_delta_money": -453213,
       "yoy_pct": null,
       "vs_3m_pct": 54.2,
-      "net_profit": 156364,
-      "net_margin_pct": 9.1,
-      "vs_network_margin_pp": -11.7,
-      "ebitda": -298035,
+      "net_profit": 112747,
+      "net_margin_pct": 6.6,
+      "vs_network_margin_pp": -14.2,
+      "ebitda": -298060,
       "contribution_pct": 2.1
     },
     {
@@ -1003,11 +1653,11 @@
     "Причина требует проверки: чеки, средний чек, категории, SKU, часы и стоп-лист."
   ],
   "data_limits": [
-    "нужна помесячная OLAP-выгрузка чеков и среднего чека",
-    "нужны исторические продажи и себестоимость по категориям/SKU",
-    "нужны документы поступления: товар, поставщик, цена, объём и дата",
+    "iiko подключён · 21 строк · период 2026-07",
+    "iiko подключён · 14607 строк · период 2026-07",
+    "iiko подключён · 7999 строк · период 2026-07",
     "нужны сотрудники смены, начало/конец смены и стоимость часа",
-    "нужны списания/расход сырья и связи ингредиент → SKU"
+    "iiko подключён · 40132 строк · период 2026-07"
   ],
   "thresholds": {
     "anomaly_thresholds": {

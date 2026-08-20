@@ -261,7 +261,17 @@ def source_coverage():
         "workforce": "нужны сотрудники смены, начало/конец смены и стоимость часа",
         "raw_material": "нужны списания/расход сырья и связи ингредиент → SKU",
     }
-    return {key: {"status": "unavailable", "required_source": value} for key, value in missing.items()}
+    result = {key: {"status": "unavailable", "required_source": value} for key, value in missing.items()}
+    ready_path = os.path.join(BASE_DIR, "iiko_analytics_ready.json")
+    if os.path.exists(ready_path):
+        with open(ready_path, encoding="utf-8") as source:
+            ready = json.load(source)
+        mapping = {"sales_checks":"sales_checks","menu_sku":"menu_sku","purchase_prices":"purchases","raw_material":"raw_material"}
+        for domain, key in mapping.items():
+            rows = ready.get(key, [])
+            if rows:
+                result[domain] = {"status":"available","required_source":f"iiko подключён · {len(rows)} строк · период {ready.get('period')}"}
+    return result
 
 
 def build_full_report(data, requested_month=None):
@@ -308,6 +318,21 @@ def build_full_report(data, requested_month=None):
         }
         for item in action_plan
     ]
+    extended = {}
+    ready_path = os.path.join(BASE_DIR, "iiko_analytics_ready.json")
+    if os.path.exists(ready_path):
+        with open(ready_path, encoding="utf-8") as source:
+            ready = json.load(source)
+        if ready.get("period") == current["mkey"]:
+            checks = ready.get("sales_checks", [])
+            total_checks = sum(x.get("checks",0) for x in checks)
+            total_sales = sum(x.get("revenue",0) for x in checks)
+            extended = {
+                "checks": total_checks, "avg_check": round(total_sales/total_checks,2) if total_checks else 0,
+                "top_menu": sorted(ready.get("menu_sku",[]),key=lambda x:x.get("revenue",0),reverse=True)[:20],
+                "top_purchases": sorted(ready.get("purchases",[]),key=lambda x:x.get("sum",0),reverse=True)[:20],
+                "top_raw_material": sorted(ready.get("raw_material",[]),key=lambda x:x.get("sum",0),reverse=True)[:20],
+            }
     return {
         "schema_version": 2,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -319,6 +344,7 @@ def build_full_report(data, requested_month=None):
         "kpi": comparisons,
         "data_quality": data_quality(data, current),
         "source_coverage": source_coverage(),
+        "extended_analytics": extended,
         "executive_summary": executive[:10],
         "comparisons": comparisons,
         "margins": {key: current["summary"].get(key, 0) for key in ("cogs_pct", "gross_margin_pct", "opex_pct", "ebitda_pct", "net_margin_pct")},

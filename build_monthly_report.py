@@ -204,9 +204,11 @@ def render_html(report):
         for name, item in report.get("source_coverage", {}).items()
     )
     unavailable_sections = "".join(
-        f'<article class="finding"><h3>{esc(name)}</h3><p class="bad">DATA QUALITY WARNING · источник не подключён</p><p>{esc(item["required_source"])}</p></article>'
+        f'<article class="finding"><h3>{esc(name)}</h3><p class="{("good" if item["status"]=="available" else "bad")}">{esc(item["status"])}</p><p>{esc(item["required_source"])}</p></article>'
         for name, item in report.get("source_coverage", {}).items()
     )
+    ext = report.get("extended_analytics", {})
+    ext_summary = f'<div class="margins"><div class="pill">Чеки <b>{ext.get("checks",0):,.0f}</b></div><div class="pill">Средний чек <b>{ext.get("avg_check",0):,.0f} ₽</b></div></div>' if ext else ''
     dq = report.get("data_quality", {})
     dq_items = "".join(f"<li>{esc(item)}</li>" for item in dq.get("warnings", [])) or "<li>Контрольные проверки пройдены.</li>"
     previous_review = report.get("previous_plan_review", {})
@@ -221,7 +223,7 @@ def render_html(report):
 <h2>План действий</h2><div class="scroll"><table><thead><tr><th>№</th><th>Проблема</th><th>Действие</th><th>KPI</th><th>Текущий уровень</th><th>Цель</th><th>Эффект</th><th>Ответственный</th><th>Срок</th></tr></thead><tbody>{actions}</tbody></table></div>
 <div class="warn"><b>Контроль предыдущего плана · {esc(previous_review.get('status','unknown'))}</b><p>{esc(previous_review.get('message',''))}</p></div>
 <h2>Покрытие источников по ТЗ</h2><div class="scroll"><table><thead><tr><th>Контур</th><th>Статус</th><th>Что требуется</th></tr></thead><tbody>{coverage}</tbody></table></div>
-<h2>Продажи, меню, закупки, персонал и сырьё</h2><div class="findings">{unavailable_sections}</div>
+<h2>Продажи, меню, закупки, персонал и сырьё</h2>{ext_summary}<div class="findings">{unavailable_sections}</div>
 <div class="warn"><b>Ограничения данных</b><ul>{limits}</ul></div><footer>Сформировано {esc(report['generated_at'][:10])} · источник: iiko P&L / OLAP</footer></main></body></html>'''
 
 

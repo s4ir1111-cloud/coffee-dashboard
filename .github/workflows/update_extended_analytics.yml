@@ -30,13 +30,15 @@ jobs:
           IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
           IIKO_ANALYTICS_MONTH: ${{ inputs.month || '2026-07' }}
         run: python iiko_extended_connector.py
+      - name: Build report-ready datasets
+        run: python build_extended_analytics.py
       - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add iiko_extended_data.json.gz iiko_extended_summary.json
+          git add iiko_extended_data.json.gz iiko_extended_summary.json iiko_analytics_ready.json
           git pull --rebase --autostash origin main
-          git add iiko_extended_data.json.gz iiko_extended_summary.json
+          git add iiko_extended_data.json.gz iiko_extended_summary.json iiko_analytics_ready.json
           git diff --staged --quiet || git commit -m "data: update extended iiko analytics"
           git pull --rebase origin main
           git push
