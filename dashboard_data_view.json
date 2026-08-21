@@ -2,16 +2,30 @@
   "date": "2026-08-21",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
     "discount_pct": null
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Мельникайте",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-08-01",
@@ -264,7 +278,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 51858435,
-      "mtd_orders": 84586,
+      "mtd_orders": 84587,
       "mtd_avg_check": 613,
       "plan_month": 81500000,
       "expected_to_date": 55209677,
@@ -469,7 +483,7 @@
       {
         "name": "Мельникайте",
         "mtd_revenue": 1687755,
-        "mtd_orders": 2820,
+        "mtd_orders": 2821,
         "mtd_avg_check": 598,
         "plan_month": 2700000,
         "expected_to_date": 1829032,
