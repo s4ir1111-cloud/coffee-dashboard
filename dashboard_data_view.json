@@ -1,13 +1,13 @@
 {
   "date": "2026-08-22",
   "summary": {
-    "revenue": 362460,
-    "orders": 558,
-    "avg_check": 650,
+    "revenue": 367802,
+    "orders": 567,
+    "avg_check": 649,
     "yesterday_same_hour_revenue": 563069,
     "yesterday_same_hour_orders": 1024,
     "comparison_hour": "09",
-    "discount_pct": 9.5
+    "discount_pct": 9.6
   },
   "points": [
     {
@@ -44,9 +44,9 @@
     },
     {
       "name": "Гарден Кофе Тобольск",
-      "revenue": 24747,
-      "orders": 41,
-      "avg_check": 604,
+      "revenue": 26236,
+      "orders": 46,
+      "avg_check": 570,
       "yesterday_same_hour_revenue": 29366,
       "yesterday_same_hour_orders": 42
     },
@@ -99,6 +99,14 @@
       "yesterday_same_hour_orders": 43
     },
     {
+      "name": "Софилэнд",
+      "revenue": 14638,
+      "orders": 23,
+      "avg_check": 636,
+      "yesterday_same_hour_revenue": 16973,
+      "yesterday_same_hour_orders": 33
+    },
+    {
       "name": "Советская",
       "revenue": 14541,
       "orders": 18,
@@ -129,14 +137,6 @@
       "avg_check": 1033,
       "yesterday_same_hour_revenue": 18219,
       "yesterday_same_hour_orders": 20
-    },
-    {
-      "name": "Софилэнд",
-      "revenue": 10785,
-      "orders": 19,
-      "avg_check": 568,
-      "yesterday_same_hour_revenue": 16973,
-      "yesterday_same_hour_orders": 33
     },
     {
       "name": "Драмтеатр",
@@ -293,7 +293,11 @@
     },
     {
       "hour": "09",
-      "revenue": 185122
+      "revenue": 190015
+    },
+    {
+      "hour": "10",
+      "revenue": 449
     }
   ],
   "weekly": [
@@ -449,15 +453,15 @@
       "day_name": "Сб",
       "day_label": "22",
       "date_label": "22.08",
-      "revenue": 362460
+      "revenue": 367802
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 19161.5,
-      "revenue": 5519554
+      "qty": 19162.5,
+      "revenue": 5519843
     },
     {
       "name": "Оказание услуг питания",
@@ -480,8 +484,8 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 3010,
-      "revenue": 1541940
+      "qty": 3011,
+      "revenue": 1542449
     },
     {
       "name": "Деревенский завтрак",
@@ -554,8 +558,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 55037737,
-      "mtd_orders": 89903,
+      "mtd_revenue": 55043079,
+      "mtd_orders": 89912,
       "mtd_avg_check": 612,
       "plan_month": 81500000,
       "expected_to_date": 57838710,
@@ -651,12 +655,12 @@
       },
       {
         "name": "Гарден Кофе Тобольск",
-        "mtd_revenue": 3094944,
-        "mtd_orders": 4626,
+        "mtd_revenue": 3096433,
+        "mtd_orders": 4631,
         "mtd_avg_check": 669,
         "plan_month": 4350000,
         "expected_to_date": 3087097,
-        "pct_of_plan": 71.1,
+        "pct_of_plan": 71.2,
         "pct_vs_expected": 100.3,
         "avg_check_plan": 680,
         "pct_avg_check": 98.4
@@ -771,13 +775,13 @@
       },
       {
         "name": "Софилэнд",
-        "mtd_revenue": 1542577,
-        "mtd_orders": 2702,
+        "mtd_revenue": 1546430,
+        "mtd_orders": 2706,
         "mtd_avg_check": 571,
         "plan_month": 2300000,
         "expected_to_date": 1632258,
-        "pct_of_plan": 67.1,
-        "pct_vs_expected": 94.5,
+        "pct_of_plan": 67.2,
+        "pct_vs_expected": 94.7,
         "avg_check_plan": 546,
         "pct_avg_check": 104.6
       },
