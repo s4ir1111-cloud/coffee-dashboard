@@ -2,7 +2,16 @@
   "date": "2026-08-22",
   "month_start": "2026-08-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4430,7 +4439,7 @@
         "Department": "Океан",
         "DishDiscountSumInt": 5364740,
         "DishSumInt": 5952254,
-        "UniqOrderId.OrdersCount": 9242
+        "UniqOrderId.OrdersCount": 9244
       },
       {
         "Department": "Осипенко",
@@ -11800,7 +11809,7 @@
         "DishSumInt": 1
       },
       {
-        "DishAmountInt": 1506,
+        "DishAmountInt": 1507,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 579500
@@ -12868,12 +12877,24 @@
         "DishDiscountSumInt": 2816842,
         "DishSumInt": 3227288,
         "OpenDate.Typed": "2026-08-21"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-08-22"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 0,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }

@@ -2,14 +2,23 @@
   "date": "2026-08-22",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 2,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 757,
     "yesterday_same_hour_orders": 2,
-    "comparison_hour": "05",
+    "comparison_hour": "06",
     "discount_pct": null
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Океан",
+      "revenue": 0,
+      "orders": 2,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 757,
+      "yesterday_same_hour_orders": 2
+    }
+  ],
   "yesterday_same_hour_points": [
     {
       "name": "Океан",
@@ -17,7 +26,12 @@
       "orders": 2
     }
   ],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-08-01",
@@ -277,7 +291,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 54675277,
-      "mtd_orders": 89345,
+      "mtd_orders": 89347,
       "mtd_avg_check": 612,
       "plan_month": 81500000,
       "expected_to_date": 57838710,
@@ -290,7 +304,7 @@
       {
         "name": "Океан",
         "mtd_revenue": 5364740,
-        "mtd_orders": 9242,
+        "mtd_orders": 9244,
         "mtd_avg_check": 580,
         "plan_month": 8000000,
         "expected_to_date": 5677419,
