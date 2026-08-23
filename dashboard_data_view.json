@@ -1,13 +1,13 @@
 {
   "date": "2026-08-23",
   "summary": {
-    "revenue": 9480,
-    "orders": 20,
-    "avg_check": 474,
+    "revenue": 10726,
+    "orders": 23,
+    "avg_check": 466,
     "yesterday_same_hour_revenue": 429,
     "yesterday_same_hour_orders": 3,
     "comparison_hour": "06",
-    "discount_pct": 11.7
+    "discount_pct": 11.1
   },
   "points": [
     {
@@ -15,6 +15,14 @@
       "revenue": 2621,
       "orders": 4,
       "avg_check": 655,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 1983,
+      "orders": 4,
+      "avg_check": 496,
       "yesterday_same_hour_revenue": 0,
       "yesterday_same_hour_orders": 0
     },
@@ -31,14 +39,6 @@
       "revenue": 1046,
       "orders": 1,
       "avg_check": 1046,
-      "yesterday_same_hour_revenue": 0,
-      "yesterday_same_hour_orders": 0
-    },
-    {
-      "name": "Гарден Кофе Тобольск",
-      "revenue": 976,
-      "orders": 2,
-      "avg_check": 488,
       "yesterday_same_hour_revenue": 0,
       "yesterday_same_hour_orders": 0
     },
@@ -97,6 +97,14 @@
       "avg_check": 239,
       "yesterday_same_hour_revenue": 0,
       "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Софилэнд",
+      "revenue": 239,
+      "orders": 1,
+      "avg_check": 239,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
     }
   ],
   "yesterday_same_hour_points": [
@@ -109,7 +117,7 @@
   "hourly": [
     {
       "hour": "07",
-      "revenue": 9480
+      "revenue": 10726
     }
   ],
   "weekly": [
@@ -272,15 +280,15 @@
       "day_name": "Вс",
       "day_label": "23",
       "date_label": "23.08",
-      "revenue": 9480
+      "revenue": 10726
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 19879.5,
-      "revenue": 5727566
+      "qty": 19880.5,
+      "revenue": 5727855
     },
     {
       "name": "Оказание услуг питания",
@@ -291,8 +299,8 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 7741,
-      "revenue": 1835322
+      "qty": 7742,
+      "revenue": 1835561
     },
     {
       "name": "Латте 350 мл",
@@ -377,8 +385,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 57347431,
-      "mtd_orders": 93279,
+      "mtd_revenue": 57348677,
+      "mtd_orders": 93282,
       "mtd_avg_check": 615,
       "plan_month": 81500000,
       "expected_to_date": 60467742,
@@ -474,13 +482,13 @@
       },
       {
         "name": "Гарден Кофе Тобольск",
-        "mtd_revenue": 3257451,
-        "mtd_orders": 4850,
+        "mtd_revenue": 3258458,
+        "mtd_orders": 4852,
         "mtd_avg_check": 672,
         "plan_month": 4350000,
         "expected_to_date": 3227419,
         "pct_of_plan": 74.9,
-        "pct_vs_expected": 100.9,
+        "pct_vs_expected": 101.0,
         "avg_check_plan": 680,
         "pct_avg_check": 98.8
       },
@@ -594,8 +602,8 @@
       },
       {
         "name": "Софилэнд",
-        "mtd_revenue": 1614557,
-        "mtd_orders": 2806,
+        "mtd_revenue": 1614796,
+        "mtd_orders": 2807,
         "mtd_avg_check": 575,
         "plan_month": 2300000,
         "expected_to_date": 1706452,
