@@ -2,14 +2,23 @@
   "date": "2026-08-23",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 429,
     "yesterday_same_hour_orders": 3,
     "comparison_hour": "06",
     "discount_pct": null
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Мельникайте",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [
     {
       "name": "Океан",
@@ -17,7 +26,12 @@
       "orders": 3
     }
   ],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-08-01",
@@ -284,7 +298,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 57337951,
-      "mtd_orders": 93259,
+      "mtd_orders": 93260,
       "mtd_avg_check": 615,
       "plan_month": 81500000,
       "expected_to_date": 60467742,
@@ -489,7 +503,7 @@
       {
         "name": "Мельникайте",
         "mtd_revenue": 1871972,
-        "mtd_orders": 3144,
+        "mtd_orders": 3145,
         "mtd_avg_check": 595,
         "plan_month": 2700000,
         "expected_to_date": 2003226,
