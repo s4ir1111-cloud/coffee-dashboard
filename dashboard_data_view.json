@@ -1,8 +1,8 @@
 {
   "date": "2026-08-23",
   "summary": {
-    "revenue": 2424789,
-    "orders": 3618,
+    "revenue": 2425676,
+    "orders": 3622,
     "avg_check": 670,
     "yesterday_same_hour_revenue": 2662674,
     "yesterday_same_hour_orders": 3914,
@@ -12,9 +12,9 @@
   "points": [
     {
       "name": "Океан",
-      "revenue": 230116,
-      "orders": 370,
-      "avg_check": 622,
+      "revenue": 230745,
+      "orders": 373,
+      "avg_check": 619,
       "yesterday_same_hour_revenue": 249432,
       "yesterday_same_hour_orders": 419
     },
@@ -28,9 +28,9 @@
     },
     {
       "name": "Свердлова",
-      "revenue": 201433,
-      "orders": 269,
-      "avg_check": 749,
+      "revenue": 201691,
+      "orders": 270,
+      "avg_check": 747,
       "yesterday_same_hour_revenue": 209017,
       "yesterday_same_hour_orders": 301
     },
@@ -275,6 +275,10 @@
   ],
   "hourly": [
     {
+      "hour": "01",
+      "revenue": 565
+    },
+    {
       "hour": "07",
       "revenue": 41220
     },
@@ -332,7 +336,7 @@
     },
     {
       "hour": "21",
-      "revenue": 73586
+      "revenue": 73908
     },
     {
       "hour": "22",
@@ -503,15 +507,15 @@
       "day_name": "Вс",
       "day_label": "23",
       "date_label": "23.08",
-      "revenue": 2424789
+      "revenue": 2425676
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 20742.5,
-      "revenue": 5977333
+      "qty": 20743.5,
+      "revenue": 5977622
     },
     {
       "name": "Оказание услуг питания",
@@ -608,8 +612,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 59762740,
-      "mtd_orders": 96877,
+      "mtd_revenue": 59763627,
+      "mtd_orders": 96881,
       "mtd_avg_check": 617,
       "plan_month": 81500000,
       "expected_to_date": 60467742,
@@ -621,8 +625,8 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 5844288,
-        "mtd_orders": 10031,
+        "mtd_revenue": 5844917,
+        "mtd_orders": 10034,
         "mtd_avg_check": 583,
         "plan_month": 8000000,
         "expected_to_date": 5935484,
@@ -645,13 +649,13 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 4505438,
-        "mtd_orders": 7189,
+        "mtd_revenue": 4505696,
+        "mtd_orders": 7190,
         "mtd_avg_check": 627,
         "plan_month": 6100000,
         "expected_to_date": 4525806,
         "pct_of_plan": 73.9,
-        "pct_vs_expected": 99.5,
+        "pct_vs_expected": 99.6,
         "avg_check_plan": 626,
         "pct_avg_check": 100.2
       },
