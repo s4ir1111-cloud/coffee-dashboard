@@ -1,15 +1,23 @@
 {
   "date": "2026-08-25",
   "summary": {
-    "revenue": 153670,
-    "orders": 317,
-    "avg_check": 485,
+    "revenue": 161861,
+    "orders": 330,
+    "avg_check": 490,
     "yesterday_same_hour_revenue": 55554,
     "yesterday_same_hour_orders": 140,
     "comparison_hour": "07",
-    "discount_pct": 13.4
+    "discount_pct": 13.5
   },
   "points": [
+    {
+      "name": "Свердлова",
+      "revenue": 18443,
+      "orders": 36,
+      "avg_check": 512,
+      "yesterday_same_hour_revenue": 2314,
+      "yesterday_same_hour_orders": 6
+    },
     {
       "name": "Видный",
       "revenue": 18266,
@@ -49,14 +57,6 @@
       "avg_check": 371,
       "yesterday_same_hour_revenue": 7698,
       "yesterday_same_hour_orders": 17
-    },
-    {
-      "name": "Свердлова",
-      "revenue": 10252,
-      "orders": 23,
-      "avg_check": 446,
-      "yesterday_same_hour_revenue": 2314,
-      "yesterday_same_hour_orders": 6
     },
     {
       "name": "Арсиб",
@@ -280,7 +280,7 @@
     },
     {
       "hour": "08",
-      "revenue": 98632
+      "revenue": 106823
     },
     {
       "hour": "17",
@@ -461,15 +461,15 @@
       "day_name": "Вт",
       "day_label": "25",
       "date_label": "25.08",
-      "revenue": 153670
+      "revenue": 161861
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 21718.5,
-      "revenue": 6258387
+      "qty": 21720.5,
+      "revenue": 6258965
     },
     {
       "name": "Оказание услуг питания",
@@ -480,14 +480,14 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 8400,
-      "revenue": 1991327
+      "qty": 8401,
+      "revenue": 1991566
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 6753.25,
-      "revenue": 1951249
+      "qty": 6756.25,
+      "revenue": 1952116
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -498,8 +498,8 @@
     {
       "name": "Деревенский завтрак",
       "group": "Завтраки",
-      "qty": 2947,
-      "revenue": 1594453
+      "qty": 2948,
+      "revenue": 1594992
     },
     {
       "name": "Драник с форелью",
@@ -566,8 +566,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 62397033,
-      "mtd_orders": 101519,
+      "mtd_revenue": 62405224,
+      "mtd_orders": 101532,
       "mtd_avg_check": 615,
       "plan_month": 81500000,
       "expected_to_date": 65725806,
@@ -603,13 +603,13 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 4680347,
-        "mtd_orders": 7509,
+        "mtd_revenue": 4688538,
+        "mtd_orders": 7522,
         "mtd_avg_check": 623,
         "plan_month": 6100000,
         "expected_to_date": 4919355,
-        "pct_of_plan": 76.7,
-        "pct_vs_expected": 95.1,
+        "pct_of_plan": 76.9,
+        "pct_vs_expected": 95.3,
         "avg_check_plan": 626,
         "pct_avg_check": 99.5
       },
