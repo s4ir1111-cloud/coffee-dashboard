@@ -2,7 +2,16 @@
   "date": "2026-08-26",
   "month_start": "2026-08-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Драмтеатр",
+        "DishDiscountSumInt": 486,
+        "DishSumInt": 695,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4502,9 +4511,9 @@
       },
       {
         "Department": "Драмтеатр",
-        "DishDiscountSumInt": 2137486,
-        "DishSumInt": 2978293,
-        "UniqOrderId.OrdersCount": 3923
+        "DishDiscountSumInt": 2137972,
+        "DishSumInt": 2978988,
+        "UniqOrderId.OrdersCount": 3924
       },
       {
         "Department": "Европа",
@@ -8352,10 +8361,10 @@
         "DishSumInt": 19
       },
       {
-        "DishAmountInt": 79,
+        "DishAmountInt": 80,
         "DishGroup": "*Допы Кухня",
         "DishName": "- огурец свежий 30 г",
-        "DishSumInt": 3081
+        "DishSumInt": 3120
       },
       {
         "DishAmountInt": 24,
@@ -8574,10 +8583,10 @@
         "DishSumInt": 18795
       },
       {
-        "DishAmountInt": 474,
+        "DishAmountInt": 475,
         "DishGroup": "*Допы Кухня",
         "DishName": "- сосиска куриная 1 шт",
-        "DishSumInt": 66086
+        "DishSumInt": 66225
       },
       {
         "DishAmountInt": 123,
@@ -8820,7 +8829,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 6529,
+        "DishAmountInt": 6530,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный 50 гр",
         "DishSumInt": 0
@@ -8916,10 +8925,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 225,
+        "DishAmountInt": 226,
         "DishGroup": "*Допы Кухня",
         "DishName": "- черри 30 гр",
-        "DishSumInt": 13275
+        "DishSumInt": 13334
       },
       {
         "DishAmountInt": 30,
@@ -8940,10 +8949,10 @@
         "DishSumInt": 1062
       },
       {
-        "DishAmountInt": 971,
+        "DishAmountInt": 972,
         "DishGroup": "*Допы Кухня",
         "DishName": "- яйцо 1 шт",
-        "DishSumInt": 67289
+        "DishSumInt": 67358
       },
       {
         "DishAmountInt": 4,
@@ -11184,10 +11193,10 @@
         "DishSumInt": 21056
       },
       {
-        "DishAmountInt": 1274,
+        "DishAmountInt": 1275,
         "DishGroup": "Завтраки",
         "DishName": "Омлет с трюфельным соусом",
-        "DishSumInt": 496736
+        "DishSumInt": 497125
       },
       {
         "DishAmountInt": 83,
@@ -13172,12 +13181,24 @@
         "DishDiscountSumInt": 2706886,
         "DishSumInt": 3110968,
         "OpenDate.Typed": "2026-08-25"
+      },
+      {
+        "DishDiscountSumInt": 486,
+        "DishSumInt": 695,
+        "OpenDate.Typed": "2026-08-26"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "Скидка сотрудника iikoCard",
+        "gross_sum": 695,
+        "net_sum": 486,
+        "discount_sum": 209
+      }
+    ],
     "summary": []
   }
 }
