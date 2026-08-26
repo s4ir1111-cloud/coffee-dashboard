@@ -1,13 +1,13 @@
 {
   "date": "2026-08-26",
   "summary": {
-    "revenue": 2592287,
-    "orders": 4350,
-    "avg_check": 596,
+    "revenue": 2604691,
+    "orders": 4355,
+    "avg_check": 598,
     "yesterday_same_hour_revenue": 2706404,
     "yesterday_same_hour_orders": 4522,
     "comparison_hour": "22",
-    "discount_pct": 3.4
+    "discount_pct": 3.5
   },
   "points": [
     {
@@ -35,20 +35,20 @@
       "yesterday_same_hour_orders": 337
     },
     {
+      "name": "Паруса",
+      "revenue": 207662,
+      "orders": 299,
+      "avg_check": 695,
+      "yesterday_same_hour_revenue": 140669,
+      "yesterday_same_hour_orders": 264
+    },
+    {
       "name": "Калинка",
       "revenue": 199255,
       "orders": 337,
       "avg_check": 591,
       "yesterday_same_hour_revenue": 173953,
       "yesterday_same_hour_orders": 321
-    },
-    {
-      "name": "Паруса",
-      "revenue": 195502,
-      "orders": 296,
-      "avg_check": 660,
-      "yesterday_same_hour_revenue": 140669,
-      "yesterday_same_hour_orders": 264
     },
     {
       "name": "Новин",
@@ -69,8 +69,8 @@
     {
       "name": "Советская",
       "revenue": 145060,
-      "orders": 272,
-      "avg_check": 533,
+      "orders": 273,
+      "avg_check": 531,
       "yesterday_same_hour_revenue": 157944,
       "yesterday_same_hour_orders": 284
     },
@@ -84,9 +84,9 @@
     },
     {
       "name": "Панорама",
-      "revenue": 122017,
-      "orders": 201,
-      "avg_check": 607,
+      "revenue": 122261,
+      "orders": 202,
+      "avg_check": 605,
       "yesterday_same_hour_revenue": 140465,
       "yesterday_same_hour_orders": 216
     },
@@ -341,7 +341,7 @@
     },
     {
       "hour": "20",
-      "revenue": 109915
+      "revenue": 110159
     },
     {
       "hour": "21",
@@ -349,7 +349,11 @@
     },
     {
       "hour": "22",
-      "revenue": 26773
+      "revenue": 37992
+    },
+    {
+      "hour": "23",
+      "revenue": 941
     }
   ],
   "weekly": [
@@ -533,7 +537,7 @@
       "day_name": "Ср",
       "day_label": "26",
       "date_label": "26.08",
-      "revenue": 2592287
+      "revenue": 2604691
     }
   ],
   "top_items": [
@@ -570,8 +574,8 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 3759,
-      "revenue": 1925101
+      "qty": 3761,
+      "revenue": 1926119
     },
     {
       "name": "Деревенский завтрак",
@@ -590,8 +594,8 @@
     {
       "name": "Айс Крим Арахис 590 мл",
       "group": "Холодный раф 590",
-      "qty": 1205,
-      "revenue": 722045
+      "qty": 1207,
+      "revenue": 723243
     },
     {
       "name": "Лимонад Клубника-Маракуйя",
@@ -638,8 +642,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 67543174,
-      "mtd_orders": 110078,
+      "mtd_revenue": 67555578,
+      "mtd_orders": 110083,
       "mtd_avg_check": 614,
       "plan_month": 81500000,
       "expected_to_date": 68354839,
@@ -711,15 +715,15 @@
       },
       {
         "name": "Паруса",
-        "mtd_revenue": 4044151,
-        "mtd_orders": 6483,
-        "mtd_avg_check": 624,
+        "mtd_revenue": 4056311,
+        "mtd_orders": 6486,
+        "mtd_avg_check": 625,
         "plan_month": 4850000,
         "expected_to_date": 4067742,
-        "pct_of_plan": 83.4,
-        "pct_vs_expected": 99.4,
+        "pct_of_plan": 83.6,
+        "pct_vs_expected": 99.7,
         "avg_check_plan": 647,
-        "pct_avg_check": 96.4
+        "pct_avg_check": 96.6
       },
       {
         "name": "Новин",
@@ -748,7 +752,7 @@
       {
         "name": "Советская",
         "mtd_revenue": 3724802,
-        "mtd_orders": 6503,
+        "mtd_orders": 6504,
         "mtd_avg_check": 573,
         "plan_month": 4550000,
         "expected_to_date": 3816129,
@@ -759,12 +763,12 @@
       },
       {
         "name": "Панорама",
-        "mtd_revenue": 3293808,
-        "mtd_orders": 5227,
+        "mtd_revenue": 3294052,
+        "mtd_orders": 5228,
         "mtd_avg_check": 630,
         "plan_month": 4000000,
         "expected_to_date": 3354839,
-        "pct_of_plan": 82.3,
+        "pct_of_plan": 82.4,
         "pct_vs_expected": 98.2,
         "avg_check_plan": 609,
         "pct_avg_check": 103.4
