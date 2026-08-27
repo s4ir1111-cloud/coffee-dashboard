@@ -2,7 +2,7 @@
   "date": "2026-08-27",
   "summary": {
     "revenue": 2645717,
-    "orders": 4462,
+    "orders": 4464,
     "avg_check": 593,
     "yesterday_same_hour_revenue": 2605089,
     "yesterday_same_hour_orders": 4359,
@@ -13,8 +13,8 @@
     {
       "name": "Океан",
       "revenue": 257321,
-      "orders": 446,
-      "avg_check": 577,
+      "orders": 448,
+      "avg_check": 574,
       "yesterday_same_hour_revenue": 233392,
       "yesterday_same_hour_orders": 409
     },
@@ -287,6 +287,10 @@
     }
   ],
   "hourly": [
+    {
+      "hour": "00",
+      "revenue": 0
+    },
     {
       "hour": "06",
       "revenue": 0
@@ -654,7 +658,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 70201693,
-      "mtd_orders": 114549,
+      "mtd_orders": 114551,
       "mtd_avg_check": 613,
       "plan_month": 81500000,
       "expected_to_date": 70983871,
@@ -667,14 +671,14 @@
       {
         "name": "Океан",
         "mtd_revenue": 6833385,
-        "mtd_orders": 11812,
-        "mtd_avg_check": 579,
+        "mtd_orders": 11814,
+        "mtd_avg_check": 578,
         "plan_month": 8000000,
         "expected_to_date": 6967742,
         "pct_of_plan": 85.4,
         "pct_vs_expected": 98.1,
         "avg_check_plan": 585,
-        "pct_avg_check": 99.0
+        "pct_avg_check": 98.8
       },
       {
         "name": "Прео",
