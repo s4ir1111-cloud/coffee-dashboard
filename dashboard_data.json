@@ -4,6 +4,14 @@
   "sales_raw": {
     "data": [
       {
+        "Department": "Гарден Кофе Сургут",
+        "DishDiscountSumInt": 118,
+        "DishSumInt": 169,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
         "Department": "Паруса",
         "DishDiscountSumInt": 0,
         "DishSumInt": 0,
@@ -4469,9 +4477,9 @@
       },
       {
         "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 2792877,
-        "DishSumInt": 3292917,
-        "UniqOrderId.OrdersCount": 3837
+        "DishDiscountSumInt": 2792995,
+        "DishSumInt": 3293086,
+        "UniqOrderId.OrdersCount": 3838
       },
       {
         "Department": "Гарден Кофе Тобольск",
@@ -10821,10 +10829,10 @@
         "DishSumInt": 15884
       },
       {
-        "DishAmountInt": 310,
+        "DishAmountInt": 311,
         "DishGroup": "Десерты Сургут",
         "DishName": "Макаруны_с",
-        "DishSumInt": 52390
+        "DishSumInt": 52559
       },
       {
         "DishAmountInt": 34,
@@ -13200,8 +13208,8 @@
         "OpenDate.Typed": "2026-08-26"
       },
       {
-        "DishDiscountSumInt": 0,
-        "DishSumInt": 0,
+        "DishDiscountSumInt": 118,
+        "DishSumInt": 169,
         "OpenDate.Typed": "2026-08-27"
       }
     ],
@@ -13214,6 +13222,12 @@
         "gross_sum": 0,
         "net_sum": 0,
         "discount_sum": 0
+      },
+      {
+        "discount_type": "Скидка сотрудника iikoCard",
+        "gross_sum": 169,
+        "net_sum": 118,
+        "discount_sum": 51
       }
     ],
     "summary": []

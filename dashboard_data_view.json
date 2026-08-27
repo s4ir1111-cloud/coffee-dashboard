@@ -1,15 +1,23 @@
 {
   "date": "2026-08-27",
   "summary": {
-    "revenue": 0,
-    "orders": 1,
-    "avg_check": 0,
+    "revenue": 118,
+    "orders": 2,
+    "avg_check": 59,
     "yesterday_same_hour_revenue": 398,
     "yesterday_same_hour_orders": 1,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 30.2
   },
   "points": [
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 118,
+      "orders": 1,
+      "avg_check": 118,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
     {
       "name": "Паруса",
       "revenue": 0,
@@ -30,6 +38,10 @@
     {
       "hour": "06",
       "revenue": 0
+    },
+    {
+      "hour": "07",
+      "revenue": 118
     }
   ],
   "weekly": [
@@ -220,7 +232,7 @@
       "day_name": "Чт",
       "day_label": "27",
       "date_label": "27.08",
-      "revenue": 0
+      "revenue": 118
     }
   ],
   "top_items": [
@@ -325,8 +337,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 67555976,
-      "mtd_orders": 110088,
+      "mtd_revenue": 67556094,
+      "mtd_orders": 110089,
       "mtd_avg_check": 614,
       "plan_month": 81500000,
       "expected_to_date": 70983871,
@@ -470,8 +482,8 @@
       },
       {
         "name": "Гарден Кофе Сургут",
-        "mtd_revenue": 2792877,
-        "mtd_orders": 3837,
+        "mtd_revenue": 2792995,
+        "mtd_orders": 3838,
         "mtd_avg_check": 728,
         "plan_month": 3450000,
         "expected_to_date": 3004839,
