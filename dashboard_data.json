@@ -2,7 +2,16 @@
   "date": "2026-08-27",
   "month_start": "2026-08-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "06",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4528,7 +4537,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 4056311,
         "DishSumInt": 4801718,
-        "UniqOrderId.OrdersCount": 6486
+        "UniqOrderId.OrdersCount": 6487
       },
       {
         "Department": "Преображенский",
@@ -12072,7 +12081,7 @@
         "DishSumInt": 1
       },
       {
-        "DishAmountInt": 1648,
+        "DishAmountInt": 1649,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 603000
@@ -13189,12 +13198,24 @@
         "DishDiscountSumInt": 2605089,
         "DishSumInt": 6051196,
         "OpenDate.Typed": "2026-08-26"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-08-27"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 0,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
