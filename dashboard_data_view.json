@@ -1,15 +1,88 @@
 {
   "date": "2026-08-30",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
+    "revenue": 6665,
+    "orders": 13,
+    "avg_check": 513,
     "yesterday_same_hour_revenue": 556,
     "yesterday_same_hour_orders": 1,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 12.8
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Панорама",
+      "revenue": 2076,
+      "orders": 1,
+      "avg_check": 2076,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 1434,
+      "orders": 2,
+      "avg_check": 717,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 749,
+      "orders": 1,
+      "avg_check": 749,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Видный",
+      "revenue": 558,
+      "orders": 2,
+      "avg_check": 279,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 527,
+      "orders": 2,
+      "avg_check": 264,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Новин",
+      "revenue": 438,
+      "orders": 2,
+      "avg_check": 219,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Советская",
+      "revenue": 356,
+      "orders": 1,
+      "avg_check": 356,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Прео",
+      "revenue": 288,
+      "orders": 1,
+      "avg_check": 288,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 239,
+      "orders": 1,
+      "avg_check": 239,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [
     {
       "name": "Океан",
@@ -17,7 +90,12 @@
       "orders": 1
     }
   ],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 6665
+    }
+  ],
   "weekly": [
     {
       "date": "2026-08-01",
@@ -227,15 +305,15 @@
       "day_name": "Вс",
       "day_label": "30",
       "date_label": "30.08",
-      "revenue": 0
+      "revenue": 6665
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 26518.5,
-      "revenue": 7641937
+      "qty": 26527.5,
+      "revenue": 7644538
     },
     {
       "name": "Бленд Бариста 1 кг",
@@ -258,8 +336,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 8168.25,
-      "revenue": 2359884
+      "qty": 8171.25,
+      "revenue": 2360751
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -332,8 +410,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 75790454,
-      "mtd_orders": 123363,
+      "mtd_revenue": 75797119,
+      "mtd_orders": 123376,
       "mtd_avg_check": 614,
       "plan_month": 81500000,
       "expected_to_date": 78870968,
@@ -357,8 +435,8 @@
       },
       {
         "name": "Прео",
-        "mtd_revenue": 6288122,
-        "mtd_orders": 9327,
+        "mtd_revenue": 6288410,
+        "mtd_orders": 9328,
         "mtd_avg_check": 674,
         "plan_month": 6650000,
         "expected_to_date": 6435484,
@@ -369,8 +447,8 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 5702487,
-        "mtd_orders": 9089,
+        "mtd_revenue": 5703014,
+        "mtd_orders": 9091,
         "mtd_avg_check": 627,
         "plan_month": 6100000,
         "expected_to_date": 5903226,
@@ -393,8 +471,8 @@
       },
       {
         "name": "Видный",
-        "mtd_revenue": 4860788,
-        "mtd_orders": 7011,
+        "mtd_revenue": 4861346,
+        "mtd_orders": 7013,
         "mtd_avg_check": 693,
         "plan_month": 5200000,
         "expected_to_date": 5032258,
@@ -417,8 +495,8 @@
       },
       {
         "name": "Новин",
-        "mtd_revenue": 4449195,
-        "mtd_orders": 6869,
+        "mtd_revenue": 4449633,
+        "mtd_orders": 6871,
         "mtd_avg_check": 648,
         "plan_month": 4750000,
         "expected_to_date": 4596774,
@@ -429,8 +507,8 @@
       },
       {
         "name": "Гарден Кофе Тобольск",
-        "mtd_revenue": 4310861,
-        "mtd_orders": 6421,
+        "mtd_revenue": 4311610,
+        "mtd_orders": 6422,
         "mtd_avg_check": 671,
         "plan_month": 4350000,
         "expected_to_date": 4209677,
@@ -441,8 +519,8 @@
       },
       {
         "name": "Советская",
-        "mtd_revenue": 4157626,
-        "mtd_orders": 7268,
+        "mtd_revenue": 4157982,
+        "mtd_orders": 7269,
         "mtd_avg_check": 572,
         "plan_month": 4550000,
         "expected_to_date": 4403226,
@@ -453,13 +531,13 @@
       },
       {
         "name": "Панорама",
-        "mtd_revenue": 3697175,
-        "mtd_orders": 5886,
+        "mtd_revenue": 3699251,
+        "mtd_orders": 5887,
         "mtd_avg_check": 628,
         "plan_month": 4000000,
         "expected_to_date": 3870968,
-        "pct_of_plan": 92.4,
-        "pct_vs_expected": 95.5,
+        "pct_of_plan": 92.5,
+        "pct_vs_expected": 95.6,
         "avg_check_plan": 609,
         "pct_avg_check": 103.1
       },
@@ -525,12 +603,12 @@
       },
       {
         "name": "Мельникайте",
-        "mtd_revenue": 2487126,
-        "mtd_orders": 4186,
+        "mtd_revenue": 2488560,
+        "mtd_orders": 4188,
         "mtd_avg_check": 594,
         "plan_month": 2700000,
         "expected_to_date": 2612903,
-        "pct_of_plan": 92.1,
+        "pct_of_plan": 92.2,
         "pct_vs_expected": 95.2,
         "avg_check_plan": 610,
         "pct_avg_check": 97.4
@@ -573,13 +651,13 @@
       },
       {
         "name": "Осипенко",
-        "mtd_revenue": 856523,
-        "mtd_orders": 2072,
+        "mtd_revenue": 856762,
+        "mtd_orders": 2073,
         "mtd_avg_check": 413,
         "plan_month": 900000,
         "expected_to_date": 870968,
         "pct_of_plan": 95.2,
-        "pct_vs_expected": 98.3,
+        "pct_vs_expected": 98.4,
         "avg_check_plan": 426,
         "pct_avg_check": 96.9
       },
