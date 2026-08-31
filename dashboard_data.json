@@ -4,6 +4,22 @@
   "sales_raw": {
     "data": [
       {
+        "Department": "Арсиб",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 578,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Видный",
+        "DishDiscountSumInt": 498,
+        "DishSumInt": 548,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      },
+      {
         "Department": "Ворлд Класс",
         "DishDiscountSumInt": 2314,
         "DishSumInt": 2875,
@@ -13,40 +29,48 @@
       },
       {
         "Department": "Газпром",
-        "DishDiscountSumInt": 498,
-        "DishSumInt": 628,
+        "DishDiscountSumInt": 1493,
+        "DishSumInt": 1854,
         "HourOpen": "07",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
+        "UniqOrderId.OrdersCount": 6
       },
       {
         "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 747,
-        "DishSumInt": 917,
+        "DishDiscountSumInt": 2740,
+        "DishSumInt": 3100,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 6
+      },
+      {
+        "Department": "Гарден Кофе Тобольск",
+        "DishDiscountSumInt": 1036,
+        "DishSumInt": 1355,
         "HourOpen": "07",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 3
       },
       {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 239,
-        "DishSumInt": 299,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
         "Department": "Домашний",
-        "DishDiscountSumInt": 618,
-        "DishSumInt": 668,
+        "DishDiscountSumInt": 1127,
+        "DishSumInt": 2014,
         "HourOpen": "07",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
+        "UniqOrderId.OrdersCount": 4
       },
       {
         "Department": "Драмтеатр",
         "DishDiscountSumInt": 628,
         "DishSumInt": 738,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      },
+      {
+        "Department": "Европа",
+        "DishDiscountSumInt": 909,
+        "DishSumInt": 909,
         "HourOpen": "07",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 2
@@ -61,43 +85,59 @@
       },
       {
         "Department": "Калинка",
-        "DishDiscountSumInt": 582,
-        "DishSumInt": 707,
+        "DishDiscountSumInt": 3344,
+        "DishSumInt": 3649,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      },
+      {
+        "Department": "Мельникайте",
+        "DishDiscountSumInt": 3618,
+        "DishSumInt": 4482,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 6
+      },
+      {
+        "Department": "Новин",
+        "DishDiscountSumInt": 1517,
+        "DishSumInt": 2071,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      },
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 2941,
+        "DishSumInt": 2947,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 7
+      },
+      {
+        "Department": "Осипенко",
+        "DishDiscountSumInt": 857,
+        "DishSumInt": 1495,
         "HourOpen": "07",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 2
       },
       {
-        "Department": "Новин",
-        "DishDiscountSumInt": 244,
-        "DishSumInt": 508,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 259,
-        "DishSumInt": 857,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
         "Department": "Паруса",
-        "DishDiscountSumInt": 1694,
-        "DishSumInt": 2253,
+        "DishDiscountSumInt": 3238,
+        "DishSumInt": 4047,
         "HourOpen": "07",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
+        "UniqOrderId.OrdersCount": 7
       },
       {
         "Department": "Преображенский",
-        "DishDiscountSumInt": 766,
-        "DishSumInt": 1344,
+        "DishDiscountSumInt": 2102,
+        "DishSumInt": 2860,
         "HourOpen": "07",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
+        "UniqOrderId.OrdersCount": 6
       },
       {
         "Department": "Свердлова",
@@ -109,19 +149,19 @@
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 3320,
-        "DishSumInt": 4208,
+        "DishDiscountSumInt": 4630,
+        "DishSumInt": 5783,
         "HourOpen": "07",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
+        "UniqOrderId.OrdersCount": 8
       },
       {
         "Department": "Советская",
-        "DishDiscountSumInt": 1952,
-        "DishSumInt": 2173,
+        "DishDiscountSumInt": 3624,
+        "DishSumInt": 4025,
         "HourOpen": "07",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
+        "UniqOrderId.OrdersCount": 9
       }
     ],
     "summary": []
@@ -4216,14 +4256,14 @@
       {
         "Department": "Арсиб",
         "DishDiscountSumInt": 3314173,
-        "DishSumInt": 3937218,
-        "UniqOrderId.OrdersCount": 5745
+        "DishSumInt": 3937796,
+        "UniqOrderId.OrdersCount": 5746
       },
       {
         "Department": "Видный",
-        "DishDiscountSumInt": 5027720,
-        "DishSumInt": 5728949,
-        "UniqOrderId.OrdersCount": 7238
+        "DishDiscountSumInt": 5028218,
+        "DishSumInt": 5729497,
+        "UniqOrderId.OrdersCount": 7240
       },
       {
         "Department": "Ворлд Класс",
@@ -4239,27 +4279,27 @@
       },
       {
         "Department": "Газпром",
-        "DishDiscountSumInt": 756727,
-        "DishSumInt": 943348,
-        "UniqOrderId.OrdersCount": 2640
+        "DishDiscountSumInt": 757722,
+        "DishSumInt": 944574,
+        "UniqOrderId.OrdersCount": 2644
       },
       {
         "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 3251427,
-        "DishSumInt": 3824173,
-        "UniqOrderId.OrdersCount": 4445
+        "DishDiscountSumInt": 3253420,
+        "DishSumInt": 3826356,
+        "UniqOrderId.OrdersCount": 4448
       },
       {
         "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 4469827,
-        "DishSumInt": 4933444,
-        "UniqOrderId.OrdersCount": 6635
+        "DishDiscountSumInt": 4470624,
+        "DishSumInt": 4934500,
+        "UniqOrderId.OrdersCount": 6637
       },
       {
         "Department": "Домашний",
-        "DishDiscountSumInt": 2671770,
-        "DishSumInt": 8469994,
-        "UniqOrderId.OrdersCount": 4094
+        "DishDiscountSumInt": 2672279,
+        "DishSumInt": 8471340,
+        "UniqOrderId.OrdersCount": 4096
       },
       {
         "Department": "Драмтеатр",
@@ -4269,39 +4309,39 @@
       },
       {
         "Department": "Европа",
-        "DishDiscountSumInt": 3166533,
-        "DishSumInt": 3625659,
-        "UniqOrderId.OrdersCount": 5139
+        "DishDiscountSumInt": 3167442,
+        "DishSumInt": 3626568,
+        "UniqOrderId.OrdersCount": 5141
       },
       {
         "Department": "Калинка",
-        "DishDiscountSumInt": 5445333,
-        "DishSumInt": 6099239,
-        "UniqOrderId.OrdersCount": 8864
+        "DishDiscountSumInt": 5448095,
+        "DishSumInt": 6102181,
+        "UniqOrderId.OrdersCount": 8867
       },
       {
         "Department": "Мельникайте",
-        "DishDiscountSumInt": 2568614,
-        "DishSumInt": 3051394,
-        "UniqOrderId.OrdersCount": 4314
+        "DishDiscountSumInt": 2572232,
+        "DishSumInt": 3055876,
+        "UniqOrderId.OrdersCount": 4320
       },
       {
         "Department": "Новин",
-        "DishDiscountSumInt": 4588121,
-        "DishSumInt": 5451783,
-        "UniqOrderId.OrdersCount": 7071
+        "DishDiscountSumInt": 4589394,
+        "DishSumInt": 5453346,
+        "UniqOrderId.OrdersCount": 7075
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 7597145,
-        "DishSumInt": 8407381,
-        "UniqOrderId.OrdersCount": 13046
+        "DishDiscountSumInt": 7600086,
+        "DishSumInt": 8410328,
+        "UniqOrderId.OrdersCount": 13053
       },
       {
         "Department": "Осипенко",
-        "DishDiscountSumInt": 880695,
-        "DishSumInt": 1087154,
-        "UniqOrderId.OrdersCount": 2124
+        "DishDiscountSumInt": 881293,
+        "DishSumInt": 1087792,
+        "UniqOrderId.OrdersCount": 2125
       },
       {
         "Department": "Панорама",
@@ -4311,27 +4351,27 @@
       },
       {
         "Department": "Паруса",
-        "DishDiscountSumInt": 4682315,
-        "DishSumInt": 5551876,
-        "UniqOrderId.OrdersCount": 7495
+        "DishDiscountSumInt": 4683859,
+        "DishSumInt": 5553670,
+        "UniqOrderId.OrdersCount": 7499
       },
       {
         "Department": "Преображенский",
-        "DishDiscountSumInt": 6505285,
-        "DishSumInt": 7377910,
-        "UniqOrderId.OrdersCount": 9642
+        "DishDiscountSumInt": 6506621,
+        "DishSumInt": 7379426,
+        "UniqOrderId.OrdersCount": 9645
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 5901573,
-        "DishSumInt": 6775594,
-        "UniqOrderId.OrdersCount": 9371
+        "DishDiscountSumInt": 5902883,
+        "DishSumInt": 6777169,
+        "UniqOrderId.OrdersCount": 9375
       },
       {
         "Department": "Советская",
-        "DishDiscountSumInt": 4314697,
-        "DishSumInt": 5001984,
-        "UniqOrderId.OrdersCount": 7496
+        "DishDiscountSumInt": 4316369,
+        "DishSumInt": 5003836,
+        "UniqOrderId.OrdersCount": 7500
       },
       {
         "Department": "Софилэнд",
@@ -4363,7 +4403,7 @@
         "DishSumInt": 7542
       },
       {
-        "DishAmountInt": 4548,
+        "DishAmountInt": 4550,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 170 мл (Кофе 250 мл)",
         "DishSumInt": 0
@@ -4381,7 +4421,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1941,
+        "DishAmountInt": 1942,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 250 мл (Кофе 350мл)",
         "DishSumInt": 0
@@ -4399,7 +4439,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3066,
+        "DishAmountInt": 3067,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*без молока",
         "DishSumInt": 0
@@ -4435,13 +4475,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1037,
+        "DishAmountInt": 1038,
         "DishGroup": "Молоко Раф Арахис",
         "DishName": "- *Молоко 450 Раф Арахис ",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 779,
+        "DishAmountInt": 780,
         "DishGroup": "Молоко Раф Ваниль",
         "DishName": "- *Молоко 450 Раф Ваниль ",
         "DishSumInt": 0
@@ -4453,7 +4493,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1803,
+        "DishAmountInt": 1804,
         "DishGroup": "Молоко Раф Солен.кар.",
         "DishName": "- *Молоко 450 Раф Соленая карамель ",
         "DishSumInt": 0
@@ -4471,13 +4511,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3620,
+        "DishAmountInt": 3621,
         "DishGroup": "*Молоко Какао",
         "DishName": "- *Молоко Какао",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 619,
+        "DishAmountInt": 621,
         "DishGroup": "*Молоко Какао 500",
         "DishName": "- *Молоко Какао 500",
         "DishSumInt": 0
@@ -4489,13 +4529,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 23650.5,
+        "DishAmountInt": 23677.5,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 9329,
+        "DishAmountInt": 9330,
         "DishGroup": "Молоко Капучино 250мл*",
         "DishName": "- *Молоко Капучино М",
         "DishSumInt": 0
@@ -4543,7 +4583,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 7403.25,
+        "DishAmountInt": 7407.25,
         "DishGroup": "Молоко Латте 350мл*",
         "DishName": "- *Молоко Латте 350 мл",
         "DishSumInt": 0
@@ -4687,7 +4727,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3466,
+        "DishAmountInt": 3467,
         "DishGroup": "Молоко РАФ Арахис",
         "DishName": "- *Молоко Раф Арахис",
         "DishSumInt": 0
@@ -4699,7 +4739,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2477,
+        "DishAmountInt": 2479,
         "DishGroup": "Молоко РАФ Ваниль",
         "DishName": "- *Молоко Раф Ваниль",
         "DishSumInt": 0
@@ -4717,7 +4757,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 5058,
+        "DishAmountInt": 5059,
         "DishGroup": "Молоко РАФ Солен.кар.",
         "DishName": "- *Молоко Раф Соленая карамель",
         "DishSumInt": 0
@@ -4753,7 +4793,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1790,
+        "DishAmountInt": 1792,
         "DishGroup": "Молоко РАФ Цитрус",
         "DishName": "- *Молоко Раф Цитрус",
         "DishSumInt": 0
@@ -4801,13 +4841,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3976,
+        "DishAmountInt": 3977,
         "DishGroup": "Молоко Флэт Уайт 350мл",
         "DishName": "- *Молоко Флэт Уайт_б",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3164,
+        "DishAmountInt": 3165,
         "DishGroup": "Молоко Флэт Уайт 250мл",
         "DishName": "- *Молоко Флэт Уайт_м",
         "DishSumInt": 0
@@ -5485,10 +5525,10 @@
         "DishSumInt": 7260
       },
       {
-        "DishAmountInt": 474,
+        "DishAmountInt": 475,
         "DishGroup": "Молоко Латте 350мл*",
         "DishName": "- Безлактозное Латте 350 мл",
-        "DishSumInt": 23700
+        "DishSumInt": 23750
       },
       {
         "DishAmountInt": 1,
@@ -5791,7 +5831,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 288,
+        "DishAmountInt": 289,
         "DishGroup": "Сиропы и соусы к ванил рафу",
         "DishName": "- Ванильный сироп 10 г",
         "DishSumInt": 0
@@ -5803,7 +5843,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1457,
+        "DishAmountInt": 1458,
         "DishGroup": "Сиропы и соусы к ванил рафу",
         "DishName": "- Ванильный сироп 20 г",
         "DishSumInt": 0
@@ -5815,7 +5855,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 430,
+        "DishAmountInt": 431,
         "DishGroup": "Сиропы/соусы к ванил рафу 450",
         "DishName": "- Ванильный сироп 30г",
         "DishSumInt": 0
@@ -6973,13 +7013,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 4063,
+        "DishAmountInt": 4066,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 10 мл",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3342,
+        "DishAmountInt": 3343,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 20 мл",
         "DishSumInt": 0
@@ -7153,10 +7193,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 629,
+        "DishAmountInt": 630,
         "DishGroup": "Сиропы",
         "DishName": "- Сироп Лесной орех 20 г",
-        "DishSumInt": 30901
+        "DishSumInt": 30950
       },
       {
         "DishAmountInt": 34,
@@ -7393,10 +7433,10 @@
         "DishSumInt": 2110
       },
       {
-        "DishAmountInt": 157,
+        "DishAmountInt": 158,
         "DishGroup": "Молоко РАФ Солен.кар.",
         "DishName": "- Сливки Раф Соленая карамель",
-        "DishSumInt": 12560
+        "DishSumInt": 12640
       },
       {
         "DishAmountInt": 5,
@@ -7495,10 +7535,10 @@
         "DishSumInt": 585
       },
       {
-        "DishAmountInt": 13964,
+        "DishAmountInt": 13967,
         "DishGroup": "Соусы",
         "DishName": "- Солёная карамель 40 г",
-        "DishSumInt": 825856
+        "DishSumInt": 826033
       },
       {
         "DishAmountInt": 112,
@@ -7513,10 +7553,10 @@
         "DishSumInt": 156
       },
       {
-        "DishAmountInt": 730,
+        "DishAmountInt": 731,
         "DishGroup": "Соусы",
         "DishName": "- Соус Арахис 60 гр",
-        "DishSumInt": 43470
+        "DishSumInt": 43529
       },
       {
         "DishAmountInt": 22,
@@ -7597,10 +7637,10 @@
         "DishSumInt": 316
       },
       {
-        "DishAmountInt": 45,
+        "DishAmountInt": 46,
         "DishGroup": "Сиропы и соусы к ванил рафу",
         "DishName": "- Топпинг карамельный 20 г",
-        "DishSumInt": 1755
+        "DishSumInt": 1794
       },
       {
         "DishAmountInt": 858,
@@ -7633,7 +7673,7 @@
         "DishSumInt": 3680
       },
       {
-        "DishAmountInt": 9205,
+        "DishAmountInt": 9211,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- Хлеб зерновой солодовый 40гр",
         "DishSumInt": 0
@@ -7681,7 +7721,7 @@
         "DishSumInt": 209
       },
       {
-        "DishAmountInt": 606,
+        "DishAmountInt": 607,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- американо 250 мл ",
         "DishSumInt": 0
@@ -7855,13 +7895,13 @@
         "DishSumInt": 297
       },
       {
-        "DishAmountInt": 3643,
+        "DishAmountInt": 3644,
         "DishGroup": "*Допы Напитки",
         "DishName": "- зефирки 10 г",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 648,
+        "DishAmountInt": 650,
         "DishGroup": "*Допы Напитки",
         "DishName": "- зефирки 15 г*",
         "DishSumInt": 0
@@ -7873,7 +7913,7 @@
         "DishSumInt": 1274
       },
       {
-        "DishAmountInt": 3408,
+        "DishAmountInt": 3409,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- капучино 250 мл ",
         "DishSumInt": 0
@@ -7885,10 +7925,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1664,
+        "DishAmountInt": 1665,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- капучино 350 мл ",
-        "DishSumInt": 129792
+        "DishSumInt": 129870
       },
       {
         "DishAmountInt": 6,
@@ -7969,7 +8009,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 10506,
+        "DishAmountInt": 10512,
         "DishGroup": "*Допы Напитки",
         "DishName": "- корица молотая ",
         "DishSumInt": 0
@@ -7999,10 +8039,10 @@
         "DishSumInt": 19
       },
       {
-        "DishAmountInt": 935,
+        "DishAmountInt": 937,
         "DishGroup": "*Допы Кухня",
         "DishName": "- курица 50 гр",
-        "DishSumInt": 120735
+        "DishSumInt": 120993
       },
       {
         "DishAmountInt": 99,
@@ -8023,7 +8063,7 @@
         "DishSumInt": 145
       },
       {
-        "DishAmountInt": 1382,
+        "DishAmountInt": 1383,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- латте 250 мл ",
         "DishSumInt": 0
@@ -8281,7 +8321,7 @@
         "DishSumInt": 1769
       },
       {
-        "DishAmountInt": 995,
+        "DishAmountInt": 996,
         "DishGroup": "С СОБОЙ 250мл/В ЧАШКЕ",
         "DishName": "- с собой",
         "DishSumInt": 0
@@ -8299,7 +8339,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 4482,
+        "DishAmountInt": 4485,
         "DishGroup": "*сиропы кофе 250",
         "DishName": "- сахарный сироп 10 мл",
         "DishSumInt": 0
@@ -8677,7 +8717,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 7830,
+        "DishAmountInt": 7835,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный 50 гр",
         "DishSumInt": 0
@@ -8785,10 +8825,10 @@
         "DishSumInt": 2006
       },
       {
-        "DishAmountInt": 2119,
+        "DishAmountInt": 2122,
         "DishGroup": "*Допы Напитки",
         "DishName": "- эспрессо 1 порция",
-        "DishSumInt": 104601
+        "DishSumInt": 104748
       },
       {
         "DishAmountInt": 21,
@@ -8899,10 +8939,10 @@
         "DishSumInt": 1158
       },
       {
-        "DishAmountInt": 4814,
+        "DishAmountInt": 4815,
         "DishGroup": "Кофе Терминал",
         "DishName": "Американо 250 мл ",
-        "DishSumInt": 1143230
+        "DishSumInt": 1143469
       },
       {
         "DishAmountInt": 35,
@@ -9091,10 +9131,10 @@
         "DishSumInt": 3132200
       },
       {
-        "DishAmountInt": 217,
+        "DishAmountInt": 218,
         "DishGroup": "Кофе в зернах",
         "DishName": "Бленд Бариста 200 г",
-        "DishSumInt": 134940
+        "DishSumInt": 135560
       },
       {
         "DishAmountInt": 44,
@@ -9133,10 +9173,10 @@
         "DishSumInt": 891
       },
       {
-        "DishAmountInt": 1959,
+        "DishAmountInt": 1960,
         "DishGroup": "Блины и сырники",
         "DishName": "Блинчики с ветчиной ",
-        "DishSumInt": 667201
+        "DishSumInt": 667540
       },
       {
         "DishAmountInt": 184,
@@ -9289,7 +9329,7 @@
         "DishSumInt": 15600
       },
       {
-        "DishAmountInt": 6347.5,
+        "DishAmountInt": 6353.5,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Вместе",
         "DishSumInt": 0
@@ -9397,10 +9437,10 @@
         "DishSumInt": 7002
       },
       {
-        "DishAmountInt": 3678,
+        "DishAmountInt": 3682,
         "DishGroup": "Завтраки",
         "DishName": "Деревенский завтрак ",
-        "DishSumInt": 1990232
+        "DishSumInt": 1992438
       },
       {
         "DishAmountInt": 492,
@@ -9625,10 +9665,10 @@
         "DishSumInt": 1598
       },
       {
-        "DishAmountInt": 41,
+        "DishAmountInt": 42,
         "DishGroup": "Добавки БАР",
         "DishName": "Зефирки 10 г",
-        "DishSumInt": 2009
+        "DishSumInt": 2058
       },
       {
         "DishAmountInt": 7,
@@ -9685,10 +9725,10 @@
         "DishSumInt": 14033
       },
       {
-        "DishAmountInt": 2698,
+        "DishAmountInt": 2699,
         "DishGroup": "Авторские напитки 350",
         "DishName": "Какао молочный 350 мл",
-        "DishSumInt": 835142
+        "DishSumInt": 835451
       },
       {
         "DishAmountInt": 457,
@@ -9715,10 +9755,10 @@
         "DishSumInt": 354396
       },
       {
-        "DishAmountInt": 226,
+        "DishAmountInt": 228,
         "DishGroup": "Авторские напитки 450",
         "DishName": "Какао темный 450",
-        "DishSumInt": 97154
+        "DishSumInt": 98012
       },
       {
         "DishAmountInt": 8,
@@ -9745,10 +9785,10 @@
         "DishSumInt": 16826
       },
       {
-        "DishAmountInt": 10593,
+        "DishAmountInt": 10594,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 250 мл",
-        "DishSumInt": 2508581
+        "DishSumInt": 2508820
       },
       {
         "DishAmountInt": 626,
@@ -9763,10 +9803,10 @@
         "DishSumInt": 23073
       },
       {
-        "DishAmountInt": 27438.5,
+        "DishAmountInt": 27465.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 7908457
+        "DishSumInt": 7916060
       },
       {
         "DishAmountInt": 329,
@@ -9829,10 +9869,10 @@
         "DishSumInt": 19637
       },
       {
-        "DishAmountInt": 1662,
+        "DishAmountInt": 1663,
         "DishGroup": "Каши",
         "DishName": "Каша овсяная с карамельным бананом",
-        "DishSumInt": 433218
+        "DishSumInt": 433477
       },
       {
         "DishAmountInt": 269,
@@ -9859,10 +9899,10 @@
         "DishSumInt": 6216
       },
       {
-        "DishAmountInt": 1711,
+        "DishAmountInt": 1712,
         "DishGroup": "Каши",
         "DishName": "Каша рисовая на кокосовом ",
-        "DishSumInt": 444519
+        "DishSumInt": 444778
       },
       {
         "DishAmountInt": 262,
@@ -9871,10 +9911,10 @@
         "DishSumInt": 86558
       },
       {
-        "DishAmountInt": 290,
+        "DishAmountInt": 291,
         "DishGroup": "Каши",
         "DishName": "Каша рисовая на молоке ",
-        "DishSumInt": 75120
+        "DishSumInt": 75379
       },
       {
         "DishAmountInt": 899,
@@ -10087,10 +10127,10 @@
         "DishSumInt": 14004
       },
       {
-        "DishAmountInt": 2987,
+        "DishAmountInt": 2988,
         "DishGroup": "Завтраки",
         "DishName": "Комбо Завтрак Баварский ",
-        "DishSumInt": 1529373
+        "DishSumInt": 1529942
       },
       {
         "DishAmountInt": 19,
@@ -10123,10 +10163,10 @@
         "DishSumInt": 22396
       },
       {
-        "DishAmountInt": 4381,
+        "DishAmountInt": 4383,
         "DishGroup": "Завтраки",
         "DishName": "Комбо завтрак Бариста ",
-        "DishSumInt": 2243189
+        "DishSumInt": 2244207
       },
       {
         "DishAmountInt": 30,
@@ -10159,10 +10199,10 @@
         "DishSumInt": 56499
       },
       {
-        "DishAmountInt": 2144,
+        "DishAmountInt": 2145,
         "DishGroup": "Завтраки",
         "DishName": "Комбо завтрак Шерлока ",
-        "DishSumInt": 1013456
+        "DishSumInt": 1013925
       },
       {
         "DishAmountInt": 52,
@@ -10279,10 +10319,10 @@
         "DishSumInt": 1318
       },
       {
-        "DishAmountInt": 406,
+        "DishAmountInt": 407,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Круассан с ветчиной ",
-        "DishSumInt": 195394
+        "DishSumInt": 195873
       },
       {
         "DishAmountInt": 42,
@@ -10435,10 +10475,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 8470.25,
+        "DishAmountInt": 8475.25,
         "DishGroup": "Кофе Терминал",
         "DishName": "Латте 350 мл ",
-        "DishSumInt": 2447372
+        "DishSumInt": 2448747
       },
       {
         "DishAmountInt": 224,
@@ -10681,10 +10721,10 @@
         "DishSumInt": 676787
       },
       {
-        "DishAmountInt": 7552,
+        "DishAmountInt": 7557,
         "DishGroup": "Десерты Терминал",
         "DishName": "Макаруны ",
-        "DishSumInt": 1125099
+        "DishSumInt": 1125844
       },
       {
         "DishAmountInt": 84,
@@ -10903,10 +10943,10 @@
         "DishSumInt": 5145
       },
       {
-        "DishAmountInt": 680,
+        "DishAmountInt": 681,
         "DishGroup": "Добавки БАР",
         "DishName": "Молоко 50 мл",
-        "DishSumInt": 19830
+        "DishSumInt": 19859
       },
       {
         "DishAmountInt": 339,
@@ -11185,10 +11225,10 @@
         "DishSumInt": 267
       },
       {
-        "DishAmountInt": 3677,
+        "DishAmountInt": 3678,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Арахисовый ",
-        "DishSumInt": 1170185
+        "DishSumInt": 1170504
       },
       {
         "DishAmountInt": 67,
@@ -11197,10 +11237,10 @@
         "DishSumInt": 27403
       },
       {
-        "DishAmountInt": 1087,
+        "DishAmountInt": 1088,
         "DishGroup": "Рафы 450",
         "DishName": "Раф Арахисовый 450",
-        "DishSumInt": 488373
+        "DishSumInt": 488822
       },
       {
         "DishAmountInt": 31,
@@ -11209,10 +11249,10 @@
         "DishSumInt": 17969
       },
       {
-        "DishAmountInt": 2610,
+        "DishAmountInt": 2612,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Ванильный ",
-        "DishSumInt": 828550
+        "DishSumInt": 829188
       },
       {
         "DishAmountInt": 52,
@@ -11221,10 +11261,10 @@
         "DishSumInt": 21268
       },
       {
-        "DishAmountInt": 825,
+        "DishAmountInt": 826,
         "DishGroup": "Рафы 450",
         "DishName": "Раф Ванильный 450",
-        "DishSumInt": 370555
+        "DishSumInt": 371004
       },
       {
         "DishAmountInt": 30,
@@ -11257,16 +11297,16 @@
         "DishSumInt": 579
       },
       {
-        "DishAmountInt": 5321,
+        "DishAmountInt": 5323,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Солёная карамель",
-        "DishSumInt": 1690229
+        "DishSumInt": 1690767
       },
       {
-        "DishAmountInt": 1891,
+        "DishAmountInt": 1892,
         "DishGroup": "Рафы 450",
         "DishName": "Раф Солёная карамель 450",
-        "DishSumInt": 849410
+        "DishSumInt": 849859
       },
       {
         "DishAmountInt": 121,
@@ -11281,10 +11321,10 @@
         "DishSumInt": 43515
       },
       {
-        "DishAmountInt": 1906,
+        "DishAmountInt": 1908,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Цитрусовый ",
-        "DishSumInt": 605854
+        "DishSumInt": 606392
       },
       {
         "DishAmountInt": 32,
@@ -11383,10 +11423,10 @@
         "DishSumInt": 31196
       },
       {
-        "DishAmountInt": 1157,
+        "DishAmountInt": 1158,
         "DishGroup": "Салаты и горячее",
         "DishName": "Салат с тунцом",
-        "DishSumInt": 509883
+        "DishSumInt": 510322
       },
       {
         "DishAmountInt": 60,
@@ -11503,10 +11543,10 @@
         "DishSumInt": 1160
       },
       {
-        "DishAmountInt": 1453,
+        "DishAmountInt": 1455,
         "DishGroup": "Завтраки",
         "DishName": "Скрембл с салатом из овощей",
-        "DishSumInt": 553417
+        "DishSumInt": 554175
       },
       {
         "DishAmountInt": 358,
@@ -11743,7 +11783,7 @@
         "DishSumInt": 534
       },
       {
-        "DishAmountInt": 13040,
+        "DishAmountInt": 13048,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Сразу",
         "DishSumInt": 0
@@ -11803,10 +11843,10 @@
         "DishSumInt": 11931
       },
       {
-        "DishAmountInt": 3302,
+        "DishAmountInt": 3303,
         "DishGroup": "Блины и сырники",
         "DishName": "Сырники классика ",
-        "DishSumInt": 1062578
+        "DishSumInt": 1062897
       },
       {
         "DishAmountInt": 394,
@@ -11833,10 +11873,10 @@
         "DishSumInt": 11256
       },
       {
-        "DishAmountInt": 811,
+        "DishAmountInt": 812,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Сэндвич на тосте с ветчиной",
-        "DishSumInt": 283129
+        "DishSumInt": 283478
       },
       {
         "DishAmountInt": 3,
@@ -11881,10 +11921,10 @@
         "DishSumInt": 102985
       },
       {
-        "DishAmountInt": 1466,
+        "DishAmountInt": 1468,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Сэндвич на фокачче с курицей",
-        "DishSumInt": 585154
+        "DishSumInt": 585952
       },
       {
         "DishAmountInt": 155,
@@ -11959,7 +11999,7 @@
         "DishSumInt": 1
       },
       {
-        "DishAmountInt": 1753,
+        "DishAmountInt": 1755,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 617500
@@ -12049,16 +12089,16 @@
         "DishSumInt": 13272
       },
       {
-        "DishAmountInt": 300,
+        "DishAmountInt": 301,
         "DishGroup": "Акции кофе в подарок",
         "DishName": "Фильтр Кофе 250 мл в подарок",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3546,
+        "DishAmountInt": 3548,
         "DishGroup": "Кофе Терминал",
         "DishName": "Фильтр Кофе Безлимит",
-        "DishSumInt": 1027986
+        "DishSumInt": 1028564
       },
       {
         "DishAmountInt": 1,
@@ -12067,10 +12107,10 @@
         "DishSumInt": 790
       },
       {
-        "DishAmountInt": 3567,
+        "DishAmountInt": 3568,
         "DishGroup": "Кофе Терминал",
         "DishName": "Флэт Уайт 250 мл ",
-        "DishSumInt": 959423
+        "DishSumInt": 959692
       },
       {
         "DishAmountInt": 16,
@@ -12079,10 +12119,10 @@
         "DishSumInt": 5424
       },
       {
-        "DishAmountInt": 4539,
+        "DishAmountInt": 4540,
         "DishGroup": "Кофе Терминал",
         "DishName": "Флэт Уайт 350 мл ",
-        "DishSumInt": 1620771
+        "DishSumInt": 1621130
       },
       {
         "DishAmountInt": 40,
@@ -12619,10 +12659,10 @@
         "DishSumInt": 60137
       },
       {
-        "DishAmountInt": 1857.5,
+        "DishAmountInt": 1858.5,
         "DishGroup": "Чай Авторский 450",
         "DishName": "Чай Клубника Лайм 450",
-        "DishSumInt": 760878
+        "DishSumInt": 761287
       },
       {
         "DishAmountInt": 4,
@@ -12757,10 +12797,10 @@
         "DishSumInt": 203410
       },
       {
-        "DishAmountInt": 631,
+        "DishAmountInt": 632,
         "DishGroup": "Чай листовой",
         "DishName": "Чай черный с чабрецом ",
-        "DishSumInt": 137323
+        "DishSumInt": 137542
       },
       {
         "DishAmountInt": 1,
@@ -12859,10 +12899,10 @@
         "DishSumInt": 12201
       },
       {
-        "DishAmountInt": 1305,
+        "DishAmountInt": 1307,
         "DishGroup": "Кофе Терминал",
         "DishName": "Эспрессо ",
-        "DishSumInt": 272745
+        "DishSumInt": 273163
       },
       {
         "DishAmountInt": 1761.75,
@@ -13110,8 +13150,8 @@
         "OpenDate.Typed": "2026-08-30"
       },
       {
-        "DishDiscountSumInt": 14857,
-        "DishSumInt": 19311,
+        "DishDiscountSumInt": 37612,
+        "DishSumInt": 46466,
         "OpenDate.Typed": "2026-08-31"
       }
     ],
@@ -13121,27 +13161,33 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 3479,
-        "net_sum": 2791,
-        "discount_sum": 0
+        "gross_sum": 10812,
+        "net_sum": 9098,
+        "discount_sum": 578
       },
       {
         "discount_type": "iikoCard",
-        "gross_sum": 917,
-        "net_sum": 747,
-        "discount_sum": 170
+        "gross_sum": 1216,
+        "net_sum": 986,
+        "discount_sum": 230
+      },
+      {
+        "discount_type": "iikoCard5 Бонусы Гости",
+        "gross_sum": 3081,
+        "net_sum": 2674,
+        "discount_sum": 427
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене",
-        "gross_sum": 2690,
-        "net_sum": 1383,
-        "discount_sum": 1227
+        "gross_sum": 5340,
+        "net_sum": 3314,
+        "discount_sum": 1946
       },
       {
         "discount_type": "Кофе по сниженной цене",
-        "gross_sum": 11255,
-        "net_sum": 9257,
-        "discount_sum": 1709
+        "gross_sum": 25047,
+        "net_sum": 20861,
+        "discount_sum": 3578
       },
       {
         "discount_type": "Сскидка 30% Республики 245 (World Class)",
