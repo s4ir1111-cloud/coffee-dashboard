@@ -430,7 +430,6 @@
   let rawData = null;
   let weeklyData = [];
   let revenuePeriods = {};
-  let revenuePeriodsByStore = {};
   let selectedRevenuePeriod = 'month';
   let todayStr = '';
   let selectedStores = new Set(); // пусто = все
@@ -859,18 +858,7 @@
       summerList.innerHTML = '<li style="color:var(--muted)">Нет данных</li>';
     }
 
-    const legacyMonth = data.weekly || [];
-    const legacyDay = (data.hourly || []).map(item => ({
-      ...item,label:`${String(item.hour).padStart(2,'0')}:00`,date:data.date
-    }));
-    const currentMonthLabel = new Date(`${data.date}T12:00:00`).toLocaleDateString('ru-RU',{month:'short'}).replace('.','');
-    revenuePeriods = data.revenue_periods || {
-      day:legacyDay,
-      week:legacyMonth.slice(-7),
-      month:legacyMonth,
-      year:[{date:data.date.slice(0,7),label:currentMonthLabel,revenue:legacyMonth.reduce((sum,item)=>sum+(item.revenue||0),0)}],
-    };
-    revenuePeriodsByStore = data.revenue_periods_points || {};
+    revenuePeriods = data.revenue_periods || {month:data.weekly || []};
     todayStr = data.date;
     setRevenuePeriod(selectedRevenuePeriod, false);
   }
@@ -900,23 +888,7 @@
     if(!revenuePeriods[period]?.length) period = revenuePeriods.month?.length ? 'month' : Object.keys(revenuePeriods)[0];
     if(!period) return;
     selectedRevenuePeriod = period;
-    const baseData = revenuePeriods[period] || [];
-    if(selectedStores.size === 0){
-      weeklyData = baseData;
-    }else{
-      weeklyData = baseData.map(bucket => {
-        const key = bucket.hour != null ? `h:${Number(bucket.hour)}` : `d:${bucket.date}`;
-        let revenue = 0;
-        selectedStores.forEach(store => {
-          const storeBuckets = revenuePeriodsByStore[store]?.[period] || [];
-          const match = storeBuckets.find(item =>
-            (item.hour != null ? `h:${Number(item.hour)}` : `d:${item.date}`) === key
-          );
-          revenue += match?.revenue || 0;
-        });
-        return {...bucket,revenue};
-      });
-    }
+    weeklyData = revenuePeriods[period] || [];
     const select = document.getElementById('revenue-period');
     if(select) select.value = period;
     const date = new Date(`${todayStr}T12:00:00`);
