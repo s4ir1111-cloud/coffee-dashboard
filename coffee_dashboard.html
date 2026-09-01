@@ -166,12 +166,6 @@
     max-width:100%;
     display:block;
   }
-  .chart-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;}
-  .period-select{
-    padding:4px 24px 4px 8px;border-radius:6px;border:1px solid var(--border);
-    background:var(--card2);color:var(--accent);font-family:'Barlow Condensed',Arial,sans-serif;
-    font-size:11px;font-weight:700;text-transform:uppercase;cursor:pointer;
-  }
   .top-items{list-style:none;overflow:hidden;flex:1 1 auto;}
   .top-items li{
     display:flex;
@@ -244,8 +238,6 @@
     .bottom-row{display:grid;grid-template-columns:1fr;gap:10px;min-height:0;}
     .card-block{padding:10px;min-height:230px;}
     .card-block canvas{height:210px!important;min-height:210px;}
-    .chart-heading{align-items:flex-start;}
-    .period-select{padding:7px 24px 7px 9px;font-size:12px;}
     .top-items{overflow:visible;}
     .top-items li{padding:8px 0;font-size:14px;gap:10px;}
     .top-items .qty{font-size:11px;white-space:nowrap;}
@@ -381,15 +373,7 @@
 
 <div class="bottom-row">
   <div class="card-block">
-    <div class="chart-heading">
-      <h2 id="revenue-chart-title" class="section-title">Продажи по дням · текущий месяц</h2>
-      <select id="revenue-period" class="period-select" onchange="setRevenuePeriod(this.value)" aria-label="Период графика продаж">
-        <option value="day">День</option>
-        <option value="week">Неделя</option>
-        <option value="month" selected>Месяц</option>
-        <option value="year">Год</option>
-      </select>
-    </div>
+    <h2 id="revenue-chart-title" class="section-title" style="margin-bottom:6px;">Продажи по датам · текущий месяц</h2>
     <canvas id="revenueChart"></canvas>
   </div>
   <div class="card-block">
@@ -429,8 +413,6 @@
   // ── ДАННЫЕ И ФИЛЬТР ──
   let rawData = null;
   let weeklyData = [];
-  let revenuePeriods = {};
-  let selectedRevenuePeriod = 'month';
   let todayStr = '';
   let selectedStores = new Set(); // пусто = все
   const PLANS_STORAGE_KEY = 'gardenCoffeeImportedPlansV1';
@@ -858,9 +840,11 @@
       summerList.innerHTML = '<li style="color:var(--muted)">Нет данных</li>';
     }
 
-    revenuePeriods = data.revenue_periods || {month:data.weekly || []};
+    weeklyData = data.weekly || [];
     todayStr = data.date;
-    setRevenuePeriod(selectedRevenuePeriod, false);
+    const chartMonth = new Date(`${data.date}T12:00:00`).toLocaleDateString('ru-RU', {month:'long',year:'numeric'});
+    document.getElementById('revenue-chart-title').textContent = `Продажи по датам · ${chartMonth}`;
+    drawChart();
   }
 
   // ── ЗАГРУЗКА ──
@@ -883,24 +867,6 @@
   // ── ГРАФИК ──
   const canvas = document.getElementById('revenueChart');
   const ctx = canvas.getContext('2d');
-
-  function setRevenuePeriod(period, redraw=true){
-    if(!revenuePeriods[period]?.length) period = revenuePeriods.month?.length ? 'month' : Object.keys(revenuePeriods)[0];
-    if(!period) return;
-    selectedRevenuePeriod = period;
-    weeklyData = revenuePeriods[period] || [];
-    const select = document.getElementById('revenue-period');
-    if(select) select.value = period;
-    const date = new Date(`${todayStr}T12:00:00`);
-    const titles = {
-      day:`Продажи по часам · ${date.toLocaleDateString('ru-RU',{day:'numeric',month:'long'})}`,
-      week:'Продажи по дням · последние 7 дней',
-      month:`Продажи по дням · ${date.toLocaleDateString('ru-RU',{month:'long',year:'numeric'})}`,
-      year:`Продажи по месяцам · ${date.getFullYear()} год`,
-    };
-    document.getElementById('revenue-chart-title').textContent = titles[period];
-    if(redraw || weeklyData.length) drawChart();
-  }
 
   function drawChart(){
     if(!weeklyData.length) return;
@@ -933,7 +899,7 @@
       const x=padL+i*(barW+barGap);
       const barH=(d.revenue/max)*chartH;
       const y=padT+chartH-barH;
-      const isToday=i===n-1;
+      const isToday=d.date===todayStr;
 
       ctx.fillStyle=isToday?'#bedf3d':'#4a5b7a';
       const r=4;
@@ -956,7 +922,7 @@
       ctx.font=`${isToday?'bold':'normal'} 12px 'Barlow Condensed',sans-serif`;
       ctx.textAlign='center';
       const showDay = isToday || n <= 20 || i === 0 || i % (w < 700 ? 3 : 2) === 0;
-      if(showDay) ctx.fillText(d.label || d.date_label || d.day_name || '',x+barW/2,h-6);
+      if(showDay) ctx.fillText(d.date_label || d.date.slice(5).split('-').reverse().join('.'),x+barW/2,h-6);
     });
   }
   window.addEventListener('resize', drawChart);
