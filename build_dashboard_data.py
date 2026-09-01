@@ -113,49 +113,59 @@ def main():
 
     # --- По часам текущего дня ---
     by_hour = {}
+    by_hour_by_dept = {}
     hour_cap = local_now.hour if today == local_now.date() else 23
     for r in rows:
         hour = str(r["HourOpen"])
         if not hour.isdigit() or int(hour) > hour_cap:
             continue
-        by_hour[hour] = by_hour.get(hour, 0) + r.get("DishDiscountSumInt", 0)
-    hours_sorted = sorted(by_hour.keys(), key=int)
-    hourly = [{"hour": h, "label": f"{int(h):02d}:00", "date": today.isoformat(), "revenue": by_hour[h]} for h in hours_sorted]
+        revenue = r.get("DishDiscountSumInt", 0)
+        dept = DEPT_ALIASES.get(r["Department"], r["Department"])
+        by_hour[hour] = by_hour.get(hour, 0) + revenue
+        dept_hours = by_hour_by_dept.setdefault(dept, {})
+        dept_hours[hour] = dept_hours.get(hour, 0) + revenue
 
     # --- Периоды графика: 7 дней, текущий месяц и текущий год ---
     period_rows = raw.get("sales_period_raw", raw.get("sales_weekly_raw", {})).get("data", [])
     daily_by_date = {}
+    daily_by_dept = {}
     for r in period_rows:
         d = r.get("OpenDate.Typed", "")
-        daily_by_date[d] = daily_by_date.get(d, 0) + r.get("DishDiscountSumInt", 0)
+        revenue = r.get("DishDiscountSumInt", 0)
+        daily_by_date[d] = daily_by_date.get(d, 0) + revenue
+        raw_dept = r.get("Department")
+        if raw_dept:
+            dept = DEPT_ALIASES.get(raw_dept, raw_dept)
+            dept_days = daily_by_dept.setdefault(dept, {})
+            dept_days[d] = dept_days.get(d, 0) + revenue
 
-    month_days = []
-    for day_number in range(1, today.day + 1):
-        d = today.replace(day=day_number)
-        ds = d.isoformat()
-        month_days.append({
-            "date": ds,
-            "day_name": DAYS_RU[d.weekday()],
-            "day_label": str(day_number),
-            "date_label": d.strftime("%d.%m"),
-            "label": d.strftime("%d.%m"),
-            "revenue": daily_by_date.get(ds, 0),
-        })
+    def make_revenue_periods(daily_values, hourly_values):
+        hours_sorted = sorted(hourly_values.keys(), key=int)
+        hourly = [{"hour": h, "label": f"{int(h):02d}:00", "date": today.isoformat(), "revenue": hourly_values[h]} for h in hours_sorted]
+        month_days = []
+        for day_number in range(1, today.day + 1):
+            d = today.replace(day=day_number)
+            ds = d.isoformat()
+            month_days.append({"date": ds, "label": d.strftime("%d.%m"), "revenue": daily_values.get(ds, 0)})
+        week_days = []
+        for days_ago in range(6, -1, -1):
+            d = today - timedelta(days=days_ago)
+            ds = d.isoformat()
+            week_days.append({"date": ds, "label": d.strftime("%d.%m"), "revenue": daily_values.get(ds, 0)})
+        year_months = []
+        for month_number in range(1, today.month + 1):
+            prefix = f"{today.year}-{month_number:02d}-"
+            revenue = sum(value for ds, value in daily_values.items() if ds.startswith(prefix))
+            year_months.append({"date": prefix[:7], "label": MONTHS_RU_SHORT[month_number - 1], "revenue": revenue})
+        return {"day": hourly, "week": week_days, "month": month_days, "year": year_months}
 
-    week_days = []
-    for days_ago in range(6, -1, -1):
-        d = today - timedelta(days=days_ago)
-        ds = d.isoformat()
-        week_days.append({"date": ds, "label": d.strftime("%d.%m"), "revenue": daily_by_date.get(ds, 0)})
-
-    year_months = []
-    for month_number in range(1, today.month + 1):
-        prefix = f"{today.year}-{month_number:02d}-"
-        revenue = sum(value for ds, value in daily_by_date.items() if ds.startswith(prefix))
-        year_months.append({"date": prefix[:7], "label": MONTHS_RU_SHORT[month_number - 1], "revenue": revenue})
-
-    revenue_periods = {"day": hourly, "week": week_days, "month": month_days, "year": year_months}
-    weekly = month_days
+    revenue_periods = make_revenue_periods(daily_by_date, by_hour)
+    all_period_depts = set(by_dept) | set(daily_by_dept)
+    revenue_periods_points = {
+        dept: make_revenue_periods(daily_by_dept.get(dept, {}), by_hour_by_dept.get(dept, {}))
+        for dept in sorted(all_period_depts)
+    }
+    weekly = revenue_periods["month"]
 
     # --- Топ позиций с начала месяца (исключаем модификаторы с нулевой суммой) ---
     items = [
@@ -275,6 +285,7 @@ def main():
         "hourly": hourly,
         "weekly": weekly,
         "revenue_periods": revenue_periods,
+        "revenue_periods_points": revenue_periods_points,
         "top_items": top_items,
         "summer_drinks": summer_drinks,
         "plan": {

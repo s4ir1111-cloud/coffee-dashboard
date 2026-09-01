@@ -159,7 +159,7 @@ def olap_period_daily_report(host: str, token: str, period_start: str, next_day:
     """OLAP-отчёт по дням за период, достаточный для недели, месяца и года."""
     body = {
         "reportType": "SALES",
-        "groupByRowFields": ["OpenDate.Typed"],
+        "groupByRowFields": ["OpenDate.Typed", "Department"],
         "groupByColFields": [],
         "aggregateFields": ["DishSumInt", "DishDiscountSumInt"],
         "filters": {
