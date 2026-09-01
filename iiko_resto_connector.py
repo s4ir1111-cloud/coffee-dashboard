@@ -155,8 +155,8 @@ def olap_mtd_report(host: str, token: str, month_start: str, next_day: str) -> d
     return _olap(host, token, body)
 
 
-def olap_month_daily_report(host: str, token: str, month_start: str, next_day: str) -> dict:
-    """OLAP-отчёт по продажам с начала месяца (сгруппировано по дате)."""
+def olap_period_daily_report(host: str, token: str, period_start: str, next_day: str) -> dict:
+    """OLAP-отчёт по дням за период, достаточный для недели, месяца и года."""
     body = {
         "reportType": "SALES",
         "groupByRowFields": ["OpenDate.Typed"],
@@ -166,7 +166,7 @@ def olap_month_daily_report(host: str, token: str, month_start: str, next_day: s
             "OpenDate.Typed": {
                 "filterType": "DateRange",
                 "periodType": "CUSTOM",
-                "from": month_start,
+                "from": period_start,
                 "to": next_day,
             }
         },
@@ -233,6 +233,8 @@ def main():
     yesterday_str = (today - timedelta(days=1)).isoformat()
     tomorrow = (today + timedelta(days=1)).isoformat()
     month_start = today.replace(day=1).isoformat()
+    year_start = today.replace(month=1, day=1)
+    period_start = min(year_start, today - timedelta(days=6)).isoformat()
 
     username = os.environ.get("IIKO_LOGIN")
     password = os.environ.get("IIKO_PASSWORD")
@@ -258,8 +260,8 @@ def main():
         print(f"4. Строим топ позиций с начала месяца ({month_start} -> {today_str})...")
         top_items = olap_top_items(HOST, token, month_start, tomorrow)
 
-        print(f"5. Строим выручку по дням месяца ({month_start} -> {today_str})...")
-        weekly = olap_month_daily_report(HOST, token, month_start, tomorrow)
+        print(f"5. Строим выручку по дням для выбора периода ({period_start} -> {today_str})...")
+        period_daily = olap_period_daily_report(HOST, token, period_start, tomorrow)
 
         print(f"6. Строим отчёт о скидках за {today_str}...")
         try:
@@ -275,7 +277,8 @@ def main():
             "sales_yesterday_raw": sales_yesterday,
             "sales_mtd_raw": sales_mtd,
             "top_items_raw": top_items,
-            "sales_weekly_raw": weekly,
+            "sales_period_raw": period_daily,
+            "sales_weekly_raw": period_daily,
             "discounts_raw": discounts,
         }
 
