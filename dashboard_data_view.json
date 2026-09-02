@@ -2,16 +2,30 @@
   "date": "2026-09-02",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 100.0
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Видный",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-09-01",
@@ -131,7 +145,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 2735941,
-      "mtd_orders": 4478,
+      "mtd_orders": 4479,
       "mtd_avg_check": 611,
       "plan_month": 81500000,
       "expected_to_date": 5433333,
@@ -180,14 +194,14 @@
       {
         "name": "Видный",
         "mtd_revenue": 190467,
-        "mtd_orders": 282,
-        "mtd_avg_check": 675,
+        "mtd_orders": 283,
+        "mtd_avg_check": 673,
         "plan_month": 5200000,
         "expected_to_date": 346667,
         "pct_of_plan": 3.7,
         "pct_vs_expected": 54.9,
         "avg_check_plan": 700,
-        "pct_avg_check": 96.4
+        "pct_avg_check": 96.1
       },
       {
         "name": "Свердлова",
