@@ -436,6 +436,14 @@
         "UniqOrderId.OrdersCount": 5
       },
       {
+        "Department": "Видный",
+        "DishDiscountSumInt": 167,
+        "DishSumInt": 239,
+        "HourOpen": "23",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
         "Department": "Ворлд Класс",
         "DishDiscountSumInt": 1120,
         "DishSumInt": 1515,
@@ -2502,10 +2510,10 @@
       {
         "Department": "Новин",
         "DishDiscountSumInt": 209,
-        "DishSumInt": 757,
+        "DishSumInt": 976,
         "HourOpen": "22",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
+        "UniqOrderId.OrdersCount": 2
       },
       {
         "Department": "Новин",
@@ -3824,6 +3832,14 @@
         "DishDiscountSumInt": 239,
         "DishSumInt": 239,
         "HourOpen": "22",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Свердлова",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 429,
+        "HourOpen": "23",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 1
       },
@@ -8349,9 +8365,9 @@
       },
       {
         "Department": "Видный",
-        "DishDiscountSumInt": 360853,
-        "DishSumInt": 453457,
-        "UniqOrderId.OrdersCount": 557
+        "DishDiscountSumInt": 361020,
+        "DishSumInt": 453696,
+        "UniqOrderId.OrdersCount": 558
       },
       {
         "Department": "Ворлд Класс",
@@ -8416,8 +8432,8 @@
       {
         "Department": "Новин",
         "DishDiscountSumInt": 320202,
-        "DishSumInt": 379988,
-        "UniqOrderId.OrdersCount": 488
+        "DishSumInt": 380207,
+        "UniqOrderId.OrdersCount": 489
       },
       {
         "Department": "Океан",
@@ -8452,8 +8468,8 @@
       {
         "Department": "Свердлова",
         "DishDiscountSumInt": 384879,
-        "DishSumInt": 445741,
-        "UniqOrderId.OrdersCount": 644
+        "DishSumInt": 446170,
+        "UniqOrderId.OrdersCount": 645
       },
       {
         "Department": "Советская",
@@ -11845,10 +11861,10 @@
         "DishSumInt": 3735
       },
       {
-        "DishAmountInt": 156,
+        "DishAmountInt": 157,
         "DishGroup": "Десерты Терминал",
         "DishName": "Кекс морковный 1 порц ",
-        "DishSumInt": 37284
+        "DishSumInt": 37523
       },
       {
         "DishAmountInt": 1,
@@ -12055,10 +12071,10 @@
         "DishSumInt": 128
       },
       {
-        "DishAmountInt": 125,
+        "DishAmountInt": 126,
         "DishGroup": "Десерты Терминал",
         "DishName": "Круассан ",
-        "DishSumInt": 27375
+        "DishSumInt": 27594
       },
       {
         "DishAmountInt": 1,
@@ -12079,10 +12095,10 @@
         "DishSumInt": 11576
       },
       {
-        "DishAmountInt": 1,
+        "DishAmountInt": 2,
         "DishGroup": "Десерты(ЯНДЕКС)",
         "DishName": "Круассан с домашней Нутеллой (ЯНДЕКС)",
-        "DishSumInt": 429
+        "DishSumInt": 858
       },
       {
         "DishAmountInt": 104,
@@ -14069,8 +14085,8 @@
         "OpenDate.Typed": "2026-09-01"
       },
       {
-        "DishDiscountSumInt": 2502617,
-        "DishSumInt": 3020655,
+        "DishDiscountSumInt": 2502784,
+        "DishSumInt": 3021542,
         "OpenDate.Typed": "2026-09-02"
       }
     ],
@@ -14080,7 +14096,7 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 2069725,
+        "gross_sum": 2070373,
         "net_sum": 1836062,
         "discount_sum": 31561
       },
@@ -14164,9 +14180,9 @@
       },
       {
         "discount_type": "Скидка сотрудника iikoCard",
-        "gross_sum": 35447,
-        "net_sum": 22688,
-        "discount_sum": 9505
+        "gross_sum": 35686,
+        "net_sum": 22855,
+        "discount_sum": 9577
       },
       {
         "discount_type": "Сскидка 30% Республики 245 (World Class)",
