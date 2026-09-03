@@ -16,6 +16,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 .header h1{font-size:18px;font-weight:700;color:#fff}.header h1 span{color:var(--accent)}
 .hbadge{background:var(--card2);border:1px solid var(--border);padding:3px 12px;border-radius:20px;font-size:12px;color:var(--sub)}
 .btn{padding:7px 16px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:opacity .15s}
+.btn{text-decoration:none;display:inline-flex;align-items:center}
 .btn-accent{background:var(--accent);color:#000}.btn-accent:hover{opacity:.85}
 .btn-ghost{background:var(--card2);border:1px solid var(--border);color:var(--sub)}.btn-ghost:hover{color:var(--text)}
 
@@ -92,6 +93,7 @@ tbody td{padding:9px 12px;font-size:12px;white-space:nowrap}
   <h1>Guest <span>CDP</span> — Кофейня Garden</h1>
   <div style="display:flex;gap:8px;align-items:center">
     <span class="hbadge" id="fileBadge">Загрузка данных…</span>
+    <a class="btn btn-ghost" href="https://github.com/s4ir1111-cloud/coffee-dashboard/actions/workflows/update-guest-cdp.yml" target="_blank" rel="noopener noreferrer" title="Открыть ручной запуск обновления в GitHub Actions">↻ Обновить данные</a>
     <button class="btn btn-ghost" id="btnNewFile" onclick="resetToUpload()" style="display:none">↩ Новый файл</button>
     <button class="btn btn-accent" id="btnExport" onclick="exportCSV()" style="display:none">⬇ CSV</button>
   </div>
