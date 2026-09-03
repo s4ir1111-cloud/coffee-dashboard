@@ -1,8 +1,8 @@
 {
   "date": "2026-09-03",
   "summary": {
-    "revenue": 2557864,
-    "orders": 4512,
+    "revenue": 2563097,
+    "orders": 4521,
     "avg_check": 567,
     "yesterday_same_hour_revenue": 2502301,
     "yesterday_same_hour_orders": 4499,
@@ -12,25 +12,25 @@
   "points": [
     {
       "name": "Океан",
-      "revenue": 271511,
-      "orders": 487,
-      "avg_check": 558,
+      "revenue": 273960,
+      "orders": 493,
+      "avg_check": 556,
       "yesterday_same_hour_revenue": 205418,
       "yesterday_same_hour_orders": 393
     },
     {
       "name": "Прео",
-      "revenue": 230212,
-      "orders": 358,
+      "revenue": 230996,
+      "orders": 359,
       "avg_check": 643,
       "yesterday_same_hour_revenue": 206922,
       "yesterday_same_hour_orders": 349
     },
     {
       "name": "Калинка",
-      "revenue": 194216,
-      "orders": 325,
-      "avg_check": 598,
+      "revenue": 196216,
+      "orders": 327,
+      "avg_check": 600,
       "yesterday_same_hour_revenue": 169974,
       "yesterday_same_hour_orders": 291
     },
@@ -349,7 +349,7 @@
     },
     {
       "hour": "22",
-      "revenue": 25265
+      "revenue": 30498
     }
   ],
   "weekly": [
@@ -372,21 +372,21 @@
       "day_name": "Чт",
       "day_label": "3",
       "date_label": "03.09",
-      "revenue": 2557864
+      "revenue": 2563097
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 3065.5,
-      "revenue": 884240
+      "qty": 3066.5,
+      "revenue": 884529
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1018,
-      "revenue": 294502
+      "qty": 1020,
+      "revenue": 295080
     },
     {
       "name": "Капучино 250 мл",
@@ -403,8 +403,8 @@
     {
       "name": "Раф Солёная карамель",
       "group": "Рафы 350",
-      "qty": 671,
-      "revenue": 213159
+      "qty": 672,
+      "revenue": 213478
     },
     {
       "name": "Драник с форелью",
@@ -477,8 +477,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 7796744,
-      "mtd_orders": 13493,
+      "mtd_revenue": 7801977,
+      "mtd_orders": 13502,
       "mtd_avg_check": 578,
       "plan_month": 81500000,
       "expected_to_date": 8150000,
@@ -490,27 +490,39 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 717500,
-        "mtd_orders": 1307,
-        "mtd_avg_check": 549,
+        "mtd_revenue": 719949,
+        "mtd_orders": 1313,
+        "mtd_avg_check": 548,
         "plan_month": 8000000,
         "expected_to_date": 800000,
         "pct_of_plan": 9.0,
-        "pct_vs_expected": 89.7,
+        "pct_vs_expected": 90.0,
         "avg_check_plan": 585,
-        "pct_avg_check": 93.8
+        "pct_avg_check": 93.7
       },
       {
         "name": "Прео",
-        "mtd_revenue": 684443,
-        "mtd_orders": 1053,
+        "mtd_revenue": 685227,
+        "mtd_orders": 1054,
         "mtd_avg_check": 650,
         "plan_month": 6650000,
         "expected_to_date": 665000,
         "pct_of_plan": 10.3,
-        "pct_vs_expected": 102.9,
+        "pct_vs_expected": 103.0,
         "avg_check_plan": 675,
         "pct_avg_check": 96.3
+      },
+      {
+        "name": "Калинка",
+        "mtd_revenue": 578494,
+        "mtd_orders": 970,
+        "mtd_avg_check": 596,
+        "plan_month": 5750000,
+        "expected_to_date": 575000,
+        "pct_of_plan": 10.1,
+        "pct_vs_expected": 100.6,
+        "avg_check_plan": 623,
+        "pct_avg_check": 95.7
       },
       {
         "name": "Свердлова",
@@ -522,18 +534,6 @@
         "pct_of_plan": 9.5,
         "pct_vs_expected": 94.6,
         "avg_check_plan": 626,
-        "pct_avg_check": 95.7
-      },
-      {
-        "name": "Калинка",
-        "mtd_revenue": 576494,
-        "mtd_orders": 968,
-        "mtd_avg_check": 596,
-        "plan_month": 5750000,
-        "expected_to_date": 575000,
-        "pct_of_plan": 10.0,
-        "pct_vs_expected": 100.3,
-        "avg_check_plan": 623,
         "pct_avg_check": 95.7
       },
       {
