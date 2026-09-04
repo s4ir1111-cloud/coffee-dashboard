@@ -1,20 +1,20 @@
 {
   "date": "2026-09-04",
   "summary": {
-    "revenue": 2716550,
-    "orders": 4728,
-    "avg_check": 575,
+    "revenue": 2719806,
+    "orders": 4735,
+    "avg_check": 574,
     "yesterday_same_hour_revenue": 2565128,
     "yesterday_same_hour_orders": 4531,
     "comparison_hour": "22",
-    "discount_pct": 7.1
+    "discount_pct": 7.2
   },
   "points": [
     {
       "name": "Океан",
-      "revenue": 292881,
-      "orders": 519,
-      "avg_check": 564,
+      "revenue": 295440,
+      "orders": 525,
+      "avg_check": 563,
       "yesterday_same_hour_revenue": 274258,
       "yesterday_same_hour_orders": 498
     },
@@ -28,8 +28,8 @@
     },
     {
       "name": "Калинка",
-      "revenue": 205725,
-      "orders": 355,
+      "revenue": 206422,
+      "orders": 356,
       "avg_check": 580,
       "yesterday_same_hour_revenue": 196216,
       "yesterday_same_hour_orders": 328
@@ -349,7 +349,11 @@
     },
     {
       "hour": "22",
-      "revenue": 32320
+      "revenue": 34879
+    },
+    {
+      "hour": "23",
+      "revenue": 697
     }
   ],
   "weekly": [
@@ -379,15 +383,15 @@
       "day_name": "Пт",
       "day_label": "4",
       "date_label": "04.09",
-      "revenue": 2716550
+      "revenue": 2719806
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 4098.5,
-      "revenue": 1181867
+      "qty": 4102.5,
+      "revenue": 1183023
     },
     {
       "name": "Латте 350 мл",
@@ -484,8 +488,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 10520915,
-      "mtd_orders": 18242,
+      "mtd_revenue": 10524171,
+      "mtd_orders": 18249,
       "mtd_avg_check": 577,
       "plan_month": 81500000,
       "expected_to_date": 10866667,
@@ -497,15 +501,15 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 1013128,
-        "mtd_orders": 1837,
-        "mtd_avg_check": 552,
+        "mtd_revenue": 1015687,
+        "mtd_orders": 1843,
+        "mtd_avg_check": 551,
         "plan_month": 8000000,
         "expected_to_date": 1066667,
         "pct_of_plan": 12.7,
-        "pct_vs_expected": 95.0,
+        "pct_vs_expected": 95.2,
         "avg_check_plan": 585,
-        "pct_avg_check": 94.4
+        "pct_avg_check": 94.2
       },
       {
         "name": "Прео",
@@ -533,13 +537,13 @@
       },
       {
         "name": "Калинка",
-        "mtd_revenue": 784219,
-        "mtd_orders": 1326,
+        "mtd_revenue": 784916,
+        "mtd_orders": 1327,
         "mtd_avg_check": 591,
         "plan_month": 5750000,
         "expected_to_date": 766667,
-        "pct_of_plan": 13.6,
-        "pct_vs_expected": 102.3,
+        "pct_of_plan": 13.7,
+        "pct_vs_expected": 102.4,
         "avg_check_plan": 623,
         "pct_avg_check": 94.9
       },
