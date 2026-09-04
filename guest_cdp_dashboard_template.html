@@ -464,7 +464,7 @@ function buildSegCards(sm){
       <div class="sname" style="color:${m.color}">${m.label}</div>
       <div class="sshare">${m.share}% гостей</div>
       <div class="savg">Ср. LTV: ${fmtR(m.avg_ltv)}</div>
-      ${trendHTML(m.count, comparison?.segment_counts?.[s])}`;
+      ${trendHTML(m.count, comparison?.segment_counts?.[s], fmt, ["at_risk","sleeping","lost"].includes(s))}`;
     d.onclick=()=>toggleSeg(s);
     c.appendChild(d);
   });
@@ -721,10 +721,11 @@ function trendData(current,previous){
   const change=(current-previous)/Math.abs(previous)*100;
   return{cls:change>0.05?"up":change<-.05?"down":"flat",arrow:change>0.05?"▲":change<-.05?"▼":"•",pct:Math.abs(change)};
 }
-function trendHTML(current,previous,formatter=fmt){
+function trendHTML(current,previous,formatter=fmt,invertColors=false){
   const t=trendData(current,previous);if(!t)return"";
   const change=t.pct===null?"новое значение":`${t.arrow} ${t.pct.toFixed(1)}%`;
-  return `<div class="trend ${t.cls}">Прошлый мес.: ${formatter(previous)} · ${change}</div>`;
+  const colorClass=invertColors?(t.cls==="up"?"down":t.cls==="down"?"up":t.cls):t.cls;
+  return `<div class="trend ${colorClass}">Прошлый мес.: ${formatter(previous)} · ${change}</div>`;
 }
 function setTrend(id,current,previous,formatter=fmt){
   const e=document.getElementById(id);if(!e)return;const t=trendData(current,previous);
