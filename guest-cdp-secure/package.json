@@ -1,0 +1,16 @@
+{
+  "name": "garden-guest-cdp-secure",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "node scripts/prepare-assets.mjs",
+    "types": "wrangler types",
+    "check": "tsc --noEmit && wrangler deploy --dry-run",
+    "dev": "npm run prepare && wrangler dev",
+    "deploy": "npm run prepare && wrangler deploy"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "wrangler": "latest"
+  }
+}
