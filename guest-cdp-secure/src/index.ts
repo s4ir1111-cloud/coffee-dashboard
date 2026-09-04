@@ -242,7 +242,13 @@ export default {
       if (url.pathname === "/api/me") return json({ user });
       if (url.pathname === "/" || url.pathname === "/dashboard" || url.pathname === "/dashboard.html") {
         const assetUrl = new URL("/dashboard.html", request.url);
-        return env.ASSETS.fetch(new Request(assetUrl, request));
+        const asset = await env.ASSETS.fetch(new Request(assetUrl, request));
+        const response = new Response(asset.body, asset);
+        response.headers.set("Cache-Control", "private, no-store");
+        response.headers.set("X-Content-Type-Options", "nosniff");
+        response.headers.set("Referrer-Policy", "no-referrer");
+        response.headers.set("Content-Security-Policy", "default-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'");
+        return response;
       }
       return new Response("Not found", { status: 404 });
     } catch (error) {
