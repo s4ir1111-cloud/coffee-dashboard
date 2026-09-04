@@ -446,6 +446,21 @@ def main():
         location_rows = location_data.get("data", [])
         print(f"   → {len(location_rows):,} строк\n")
 
+        # Снимок на конец прошлого календарного месяца для сравнения KPI.
+        current_month_start = today.replace(day=1)
+        previous_as_of = current_month_start - timedelta(days=1)
+        previous_date_to = previous_as_of.isoformat()
+        previous_recent_from = (previous_as_of - timedelta(days=args.days_back)).isoformat()
+        print(f"  Сравнение: состояние на {previous_as_of.isoformat()}…")
+        previous_ltv_data = fetch_ltv_per_guest(
+            connector, host, token, args.all_time_from, previous_date_to
+        )
+        previous_ltv_rows = previous_ltv_data.get("data", [])
+        previous_recent_data = fetch_recent_by_date(
+            connector, host, token, previous_recent_from, previous_date_to
+        )
+        previous_recent_rows = previous_recent_data.get("data", [])
+
     finally:
         print("🔓 Разлогиниваемся… ", end="")
         connector.logout(host, token)
@@ -454,6 +469,17 @@ def main():
     print("⚙️  Обработка данных…")
     guests = process(ltv_rows, recent_rows, location_rows, today)
     output = build_output(guests, today, args.all_time_from, args.days_back)
+    previous_guests = process(previous_ltv_rows, previous_recent_rows, [], previous_as_of)
+    previous_output = build_output(
+        previous_guests, previous_as_of, args.all_time_from, args.days_back
+    )
+    output["comparison"] = {
+        "label": previous_as_of.strftime("%m.%Y"),
+        "as_of": previous_as_of.isoformat(),
+        "summary": previous_output["summary"],
+        "segment_counts": previous_output["segment_counts"],
+        "segment_meta": previous_output["segment_meta"],
+    }
 
     out_path = os.path.join(BASE_DIR, args.out)
     with open(out_path, "w", encoding="utf-8") as f:

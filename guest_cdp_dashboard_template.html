@@ -44,6 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 .metric .val{font-size:26px;font-weight:700;color:#fff;line-height:1.1}
 .metric .lbl{font-size:11px;color:var(--sub);margin-top:4px}
 .metric .sub{font-size:11px;color:var(--green);margin-top:4px}
+.trend{font-size:10px;color:var(--sub);margin-top:5px}.trend.up{color:var(--green)}.trend.down{color:var(--red)}.trend.flat{color:var(--sub)}
 
 /* Segments */
 .segments{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:20px}
@@ -129,12 +130,12 @@ tbody td{padding:9px 12px;font-size:12px;white-space:nowrap}
   <div id="colWarn" class="col-warn" style="display:none"></div>
 
   <div class="metrics">
-    <div class="metric"><div class="val" id="mTotal">—</div><div class="lbl">Гостей в базе</div></div>
-    <div class="metric"><div class="val" id="mActive30">—</div><div class="lbl">Активных 30 дней</div><div class="sub" id="mA30p"></div></div>
-    <div class="metric"><div class="val" id="mActive90">—</div><div class="lbl">Активных 90 дней</div><div class="sub" id="mA90p"></div></div>
-    <div class="metric"><div class="val" id="mAvgLtv">—</div><div class="lbl">Средний LTV</div></div>
-    <div class="metric"><div class="val" id="mAvgCheck">—</div><div class="lbl">Средний чек</div></div>
-    <div class="metric"><div class="val" id="mTotalRev">—</div><div class="lbl">Общая выручка по картам</div></div>
+    <div class="metric"><div class="val" id="mTotal">—</div><div class="lbl">Гостей в базе</div><div class="trend" id="mTotalTrend"></div></div>
+    <div class="metric"><div class="val" id="mActive30">—</div><div class="lbl">Активных 30 дней</div><div class="sub" id="mA30p"></div><div class="trend" id="mA30Trend"></div></div>
+    <div class="metric"><div class="val" id="mActive90">—</div><div class="lbl">Активных 90 дней</div><div class="sub" id="mA90p"></div><div class="trend" id="mA90Trend"></div></div>
+    <div class="metric"><div class="val" id="mAvgLtv">—</div><div class="lbl">Средний LTV</div><div class="trend" id="mAvgLtvTrend"></div></div>
+    <div class="metric"><div class="val" id="mAvgCheck">—</div><div class="lbl">Средний чек</div><div class="trend" id="mAvgCheckTrend"></div></div>
+    <div class="metric"><div class="val" id="mTotalRev">—</div><div class="lbl">Общая выручка по картам</div><div class="trend" id="mTotalRevTrend"></div></div>
   </div>
 
   <div class="segments" id="segCards"></div>
@@ -197,7 +198,7 @@ const SEG_META = {
 };
 
 // ─── State ────────────────────────────────────────────────────────────────────
-let guests = [], filtered = [], activeSeg = "", page = 0;
+let guests = [], filtered = [], activeSeg = "", page = 0, comparison = null;
 const PAGE = 100;
 let charts = {};
 let hasName=false, hasPhone=false, hasCard=false, hasFav=false, hasBonus=false, hasDiscount=false, hasRecent=false;
@@ -226,6 +227,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function loadFromJSON(data){
   hasName=true; hasPhone=true; hasCard=true; hasFav=true; hasBonus=false;
   hasDiscount=true; hasRecent=true;
+  comparison = data.comparison || null;
 
   guests = data.guests.map(g => ({
     name:       g.name || "",
@@ -428,6 +430,14 @@ function renderDashboard() {
   setText("mAvgCheck", fmtR(avgC));
   setText("mTotalRev", fmt(trev)+" ₽");
 
+  const prev = comparison?.summary;
+  setTrend("mTotalTrend", total, prev?.total_guests, fmt);
+  setTrend("mA30Trend", a30, prev?.active_30d, fmt);
+  setTrend("mA90Trend", a90, prev?.active_90d, fmt);
+  setTrend("mAvgLtvTrend", avgL, prev?.avg_ltv, fmtR);
+  setTrend("mAvgCheckTrend", avgC, prev?.avg_check, fmtR);
+  setTrend("mTotalRevTrend", trev, prev?.total_revenue, v=>fmt(v)+" ₽");
+
   // Segment stats
   const sc={}, sl={};
   SEGS.forEach(s=>{sc[s]=0;sl[s]=0;});
@@ -453,7 +463,8 @@ function buildSegCards(sm){
     d.innerHTML=`<div class="sicon">${m.icon}</div><div class="scnt">${fmt(m.count)}</div>
       <div class="sname" style="color:${m.color}">${m.label}</div>
       <div class="sshare">${m.share}% гостей</div>
-      <div class="savg">Ср. LTV: ${fmtR(m.avg_ltv)}</div>`;
+      <div class="savg">Ср. LTV: ${fmtR(m.avg_ltv)}</div>
+      ${trendHTML(m.count, comparison?.segment_counts?.[s])}`;
     d.onclick=()=>toggleSeg(s);
     c.appendChild(d);
   });
@@ -704,6 +715,23 @@ function setText(id,v){const e=document.getElementById(id);if(e)e.textContent=v;
 function fmt(n){return Number(n||0).toLocaleString("ru-RU");}
 function fmtR(n){const v=Number(n||0);if(v>=1000000)return (v/1000000).toFixed(1)+"M ₽";if(v>=1000)return Math.round(v/1000)+"k ₽";return v+" ₽";}
 function pct(a,b){return b?Math.round(a/b*100):0;}
+function trendData(current,previous){
+  if(previous===undefined||previous===null)return null;
+  if(!previous)return{cls:current?"up":"flat",arrow:current?"▲":"•",pct:null};
+  const change=(current-previous)/Math.abs(previous)*100;
+  return{cls:change>0.05?"up":change<-.05?"down":"flat",arrow:change>0.05?"▲":change<-.05?"▼":"•",pct:Math.abs(change)};
+}
+function trendHTML(current,previous,formatter=fmt){
+  const t=trendData(current,previous);if(!t)return"";
+  const change=t.pct===null?"новое значение":`${t.arrow} ${t.pct.toFixed(1)}%`;
+  return `<div class="trend ${t.cls}">Прошлый мес.: ${formatter(previous)} · ${change}</div>`;
+}
+function setTrend(id,current,previous,formatter=fmt){
+  const e=document.getElementById(id);if(!e)return;const t=trendData(current,previous);
+  if(!t){e.textContent="";e.className="trend";return;}
+  e.className=`trend ${t.cls}`;
+  e.textContent=`Прошлый мес.: ${formatter(previous)} · ${t.pct===null?"новое значение":`${t.arrow} ${t.pct.toFixed(1)}%`}`;
+}
 </script>
 </body>
 </html>
