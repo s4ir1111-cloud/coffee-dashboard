@@ -77,5 +77,6 @@ jobs:
             echo "Данные не изменились — коммит не нужен"
           else
             git commit -m "update guest cdp data [auto]"
+            git pull --rebase origin main
             git push
           fi
