@@ -2,6 +2,10 @@ const SESSION_COOKIE = "garden_cdp_session";
 const SESSION_TTL_SECONDS = 12 * 60 * 60;
 // Cloudflare Workers Web Crypto currently limits PBKDF2 to 100,000 iterations.
 const PBKDF2_ITERATIONS = 100_000;
+const GITHUB_REPOSITORY = "s4ir1111-cloud/coffee-dashboard";
+const GITHUB_WORKFLOW = "update-guest-cdp.yml";
+
+type AppEnv = Env & { GITHUB_TOKEN: string };
 
 type User = { id: number; username: string; role: "admin" | "viewer"; active: number };
 
@@ -162,6 +166,19 @@ async function requireAdmin(request: Request, env: Env): Promise<User | Response
   return user;
 }
 
+async function githubRequest(env: AppEnv, path: string, init: RequestInit = {}): Promise<Response> {
+  return fetch(`https://api.github.com${path}`, {
+    ...init,
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": `Bearer ${env.GITHUB_TOKEN}`,
+      "User-Agent": "garden-guest-cdp-secure",
+      "X-GitHub-Api-Version": "2022-11-28",
+      ...(init.headers ?? {}),
+    },
+  });
+}
+
 export default {
   async fetch(request, env, ctx): Promise<Response> {
     const url = new URL(request.url);
@@ -211,6 +228,29 @@ export default {
         return json({ ok: true }, 201);
       }
 
+      if (url.pathname === "/api/admin/update" && method === "POST") {
+        const admin = await requireAdmin(request, env); if (admin instanceof Response) return admin;
+        const response = await githubRequest(env as AppEnv, `/repos/${GITHUB_REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW}/dispatches`, {
+          method: "POST",
+          body: JSON.stringify({ ref: "main", inputs: { days_back: "100" } }),
+        });
+        if (!response.ok) {
+          console.error(JSON.stringify({ event: "github_dispatch_failed", status: response.status, body: await response.text() }));
+          return json({ error: "Не удалось запустить обновление" }, 502);
+        }
+        await audit(env, admin.id, "dashboard.update");
+        return json({ ok: true, message: "Обновление запущено" }, 202);
+      }
+
+      if (url.pathname === "/api/admin/update-status" && method === "GET") {
+        const admin = await requireAdmin(request, env); if (admin instanceof Response) return admin;
+        const response = await githubRequest(env as AppEnv, `/repos/${GITHUB_REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW}/runs?branch=main&per_page=1`);
+        if (!response.ok) return json({ error: "Не удалось получить статус обновления" }, 502);
+        const data = await response.json<{ workflow_runs?: Array<{ status: string; conclusion: string | null; created_at: string; updated_at: string }> }>();
+        const run = data.workflow_runs?.[0] ?? null;
+        return json({ run });
+      }
+
       const statusMatch = url.pathname.match(/^\/api\/admin\/users\/(\d+)$/);
       if (statusMatch && method === "PATCH") {
         const admin = await requireAdmin(request, env); if (admin instanceof Response) return admin;
@@ -257,4 +297,4 @@ export default {
       return json({ error: "Внутренняя ошибка" }, 500);
     }
   },
-} satisfies ExportedHandler<Env>;
+} satisfies ExportedHandler<AppEnv>;
