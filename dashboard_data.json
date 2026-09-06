@@ -4,6 +4,14 @@
   "sales_raw": {
     "data": [
       {
+        "Department": "Арсиб",
+        "DishDiscountSumInt": 417,
+        "DishSumInt": 795,
+        "HourOpen": "11",
+        "OrderType": "Савывоз САЙТ",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
         "Department": "Океан",
         "DishDiscountSumInt": 0,
         "DishSumInt": 0,
@@ -4207,9 +4215,9 @@
     "data": [
       {
         "Department": "Арсиб",
-        "DishDiscountSumInt": 513229,
-        "DishSumInt": 603450,
-        "UniqOrderId.OrdersCount": 918
+        "DishDiscountSumInt": 513646,
+        "DishSumInt": 604245,
+        "UniqOrderId.OrdersCount": 919
       },
       {
         "Department": "Видный",
@@ -8723,10 +8731,10 @@
         "DishSumInt": 1699
       },
       {
-        "DishAmountInt": 246,
+        "DishAmountInt": 247,
         "DishGroup": "Десерты Терминал",
         "DishName": "Кукис Арахисовый ",
-        "DishSumInt": 48954
+        "DishSumInt": 49153
       },
       {
         "DishAmountInt": 5,
@@ -9011,10 +9019,10 @@
         "DishSumInt": 931
       },
       {
-        "DishAmountInt": 1323,
+        "DishAmountInt": 1327,
         "DishGroup": "Десерты Терминал",
         "DishName": "Макаруны ",
-        "DishSumInt": 197127
+        "DishSumInt": 197723
       },
       {
         "DishAmountInt": 7,
@@ -11009,8 +11017,8 @@
         "OpenDate.Typed": "2026-09-05"
       },
       {
-        "DishDiscountSumInt": 0,
-        "DishSumInt": 0,
+        "DishDiscountSumInt": 417,
+        "DishSumInt": 795,
         "OpenDate.Typed": "2026-09-06"
       }
     ],
@@ -11023,6 +11031,12 @@
         "gross_sum": 0,
         "net_sum": 0,
         "discount_sum": 0
+      },
+      {
+        "discount_type": "Скидка сотрудника iikoCard",
+        "gross_sum": 795,
+        "net_sum": 417,
+        "discount_sum": 378
       }
     ],
     "summary": []

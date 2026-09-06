@@ -1,15 +1,23 @@
 {
   "date": "2026-09-06",
   "summary": {
-    "revenue": 0,
-    "orders": 2,
-    "avg_check": 0,
+    "revenue": 417,
+    "orders": 3,
+    "avg_check": 139,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 47.5
   },
   "points": [
+    {
+      "name": "Арсиб",
+      "revenue": 417,
+      "orders": 1,
+      "avg_check": 417,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
     {
       "name": "Океан",
       "revenue": 0,
@@ -24,6 +32,10 @@
     {
       "hour": "06",
       "revenue": 0
+    },
+    {
+      "hour": "11",
+      "revenue": 417
     }
   ],
   "weekly": [
@@ -67,7 +79,7 @@
       "day_name": "Вс",
       "day_label": "6",
       "date_label": "06.09",
-      "revenue": 0
+      "revenue": 417
     }
   ],
   "top_items": [
@@ -172,8 +184,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 13354874,
-      "mtd_orders": 22634,
+      "mtd_revenue": 13355291,
+      "mtd_orders": 22635,
       "mtd_avg_check": 590,
       "plan_month": 81500000,
       "expected_to_date": 16300000,
@@ -353,8 +365,8 @@
       },
       {
         "name": "Арсиб",
-        "mtd_revenue": 513229,
-        "mtd_orders": 918,
+        "mtd_revenue": 513646,
+        "mtd_orders": 919,
         "mtd_avg_check": 559,
         "plan_month": 3150000,
         "expected_to_date": 630000,
