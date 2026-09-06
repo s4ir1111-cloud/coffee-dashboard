@@ -1,28 +1,28 @@
 {
   "date": "2026-09-06",
   "summary": {
-    "revenue": 2451724,
-    "orders": 3738,
-    "avg_check": 656,
+    "revenue": 2452223,
+    "orders": 3741,
+    "avg_check": 655,
     "yesterday_same_hour_revenue": 2795513,
     "yesterday_same_hour_orders": 4311,
     "comparison_hour": "22",
-    "discount_pct": 6.4
+    "discount_pct": 6.5
   },
   "points": [
     {
       "name": "Океан",
-      "revenue": 270467,
-      "orders": 451,
-      "avg_check": 600,
+      "revenue": 270966,
+      "orders": 452,
+      "avg_check": 599,
       "yesterday_same_hour_revenue": 301405,
       "yesterday_same_hour_orders": 509
     },
     {
       "name": "Прео",
       "revenue": 191478,
-      "orders": 269,
-      "avg_check": 712,
+      "orders": 270,
+      "avg_check": 709,
       "yesterday_same_hour_revenue": 199805,
       "yesterday_same_hour_orders": 311
     },
@@ -85,8 +85,8 @@
     {
       "name": "Советская",
       "revenue": 118206,
-      "orders": 183,
-      "avg_check": 646,
+      "orders": 184,
+      "avg_check": 642,
       "yesterday_same_hour_revenue": 135560,
       "yesterday_same_hour_orders": 231
     },
@@ -340,7 +340,11 @@
     },
     {
       "hour": "22",
-      "revenue": 25883
+      "revenue": 26382
+    },
+    {
+      "hour": "23",
+      "revenue": 0
     }
   ],
   "weekly": [
@@ -384,7 +388,7 @@
       "day_name": "Вс",
       "day_label": "6",
       "date_label": "06.09",
-      "revenue": 2451724
+      "revenue": 2452223
     }
   ],
   "top_items": [
@@ -427,8 +431,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 601,
-      "revenue": 349019
+      "qty": 602,
+      "revenue": 349598
     },
     {
       "name": "Флэт Уайт 350 мл",
@@ -489,8 +493,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 15806598,
-      "mtd_orders": 26370,
+      "mtd_revenue": 15807097,
+      "mtd_orders": 26373,
       "mtd_avg_check": 599,
       "plan_month": 81500000,
       "expected_to_date": 16300000,
@@ -502,27 +506,27 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 1605454,
-        "mtd_orders": 2837,
+        "mtd_revenue": 1605953,
+        "mtd_orders": 2838,
         "mtd_avg_check": 566,
         "plan_month": 8000000,
         "expected_to_date": 1600000,
         "pct_of_plan": 20.1,
-        "pct_vs_expected": 100.3,
+        "pct_vs_expected": 100.4,
         "avg_check_plan": 585,
         "pct_avg_check": 96.8
       },
       {
         "name": "Прео",
         "mtd_revenue": 1297813,
-        "mtd_orders": 1970,
-        "mtd_avg_check": 659,
+        "mtd_orders": 1971,
+        "mtd_avg_check": 658,
         "plan_month": 6650000,
         "expected_to_date": 1330000,
         "pct_of_plan": 19.5,
         "pct_vs_expected": 97.6,
         "avg_check_plan": 675,
-        "pct_avg_check": 97.6
+        "pct_avg_check": 97.5
       },
       {
         "name": "Свердлова",
@@ -587,7 +591,7 @@
       {
         "name": "Советская",
         "mtd_revenue": 850689,
-        "mtd_orders": 1532,
+        "mtd_orders": 1533,
         "mtd_avg_check": 555,
         "plan_month": 4550000,
         "expected_to_date": 910000,
