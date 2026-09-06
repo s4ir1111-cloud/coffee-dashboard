@@ -1,15 +1,23 @@
 {
   "date": "2026-09-06",
   "summary": {
-    "revenue": 253822,
-    "orders": 353,
-    "avg_check": 719,
+    "revenue": 269229,
+    "orders": 370,
+    "avg_check": 728,
     "yesterday_same_hour_revenue": 245729,
     "yesterday_same_hour_orders": 341,
     "comparison_hour": "08",
     "discount_pct": 8.4
   },
   "points": [
+    {
+      "name": "Прео",
+      "revenue": 27424,
+      "orders": 33,
+      "avg_check": 831,
+      "yesterday_same_hour_revenue": 14628,
+      "yesterday_same_hour_orders": 29
+    },
     {
       "name": "Советская",
       "revenue": 25654,
@@ -43,28 +51,20 @@
       "yesterday_same_hour_orders": 22
     },
     {
+      "name": "Свердлова",
+      "revenue": 19128,
+      "orders": 33,
+      "avg_check": 580,
+      "yesterday_same_hour_revenue": 27445,
+      "yesterday_same_hour_orders": 27
+    },
+    {
       "name": "Европа",
       "revenue": 18047,
       "orders": 32,
       "avg_check": 564,
       "yesterday_same_hour_revenue": 18104,
       "yesterday_same_hour_orders": 29
-    },
-    {
-      "name": "Прео",
-      "revenue": 16152,
-      "orders": 24,
-      "avg_check": 673,
-      "yesterday_same_hour_revenue": 14628,
-      "yesterday_same_hour_orders": 29
-    },
-    {
-      "name": "Свердлова",
-      "revenue": 15800,
-      "orders": 28,
-      "avg_check": 564,
-      "yesterday_same_hour_revenue": 27445,
-      "yesterday_same_hour_orders": 27
     },
     {
       "name": "Паруса",
@@ -92,9 +92,9 @@
     },
     {
       "name": "Драмтеатр",
-      "revenue": 12263,
-      "orders": 14,
-      "avg_check": 876,
+      "revenue": 12383,
+      "orders": 15,
+      "avg_check": 826,
       "yesterday_same_hour_revenue": 8451,
       "yesterday_same_hour_orders": 12
     },
@@ -116,9 +116,9 @@
     },
     {
       "name": "Арсиб",
-      "revenue": 8095,
-      "orders": 10,
-      "avg_check": 810,
+      "revenue": 8782,
+      "orders": 12,
+      "avg_check": 732,
       "yesterday_same_hour_revenue": 6817,
       "yesterday_same_hour_orders": 5
     },
@@ -276,11 +276,11 @@
     },
     {
       "hour": "08",
-      "revenue": 131875
+      "revenue": 133931
     },
     {
       "hour": "09",
-      "revenue": 78030
+      "revenue": 91381
     },
     {
       "hour": "11",
@@ -328,21 +328,21 @@
       "day_name": "Вс",
       "day_label": "6",
       "date_label": "06.09",
-      "revenue": 253822
+      "revenue": 269229
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 5132.25,
-      "revenue": 1479511
+      "qty": 5141.25,
+      "revenue": 1482112
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1672,
-      "revenue": 483148
+      "qty": 1673,
+      "revenue": 483437
     },
     {
       "name": "Капучино 250 мл",
@@ -353,26 +353,26 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 865,
-      "revenue": 442305
+      "qty": 866,
+      "revenue": 442814
     },
     {
       "name": "Раф Солёная карамель",
       "group": "Рафы 350",
-      "qty": 1066,
-      "revenue": 338314
+      "qty": 1070,
+      "revenue": 339590
     },
     {
       "name": "Скрембл с форелью",
       "group": "Завтраки",
-      "qty": 520,
-      "revenue": 312680
+      "qty": 526,
+      "revenue": 316274
     },
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 536,
-      "revenue": 311344
+      "qty": 537,
+      "revenue": 311923
     },
     {
       "name": "Флэт Уайт 350 мл",
@@ -391,8 +391,8 @@
     {
       "name": "Смузи Клубника Банан",
       "group": "Смузи",
-      "qty": 252,
-      "revenue": 92988
+      "qty": 253,
+      "revenue": 93357
     },
     {
       "name": "Лимонад Клубника-Маракуйя 590 мл",
@@ -413,16 +413,16 @@
       "revenue": 63612
     },
     {
+      "name": "Молочный коктейль",
+      "group": "Холодные напитки 350",
+      "qty": 186,
+      "revenue": 59334
+    },
+    {
       "name": "Холодный Латте",
       "group": "Холодный кл. кофе 350/590",
       "qty": 192,
       "revenue": 59328
-    },
-    {
-      "name": "Молочный коктейль",
-      "group": "Холодные напитки 350",
-      "qty": 185,
-      "revenue": 59015
     },
     {
       "name": "Матча Латте 350 мл",
@@ -433,13 +433,13 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 13608696,
-      "mtd_orders": 22985,
+      "mtd_revenue": 13624103,
+      "mtd_orders": 23002,
       "mtd_avg_check": 592,
       "plan_month": 81500000,
       "expected_to_date": 16300000,
       "pct_of_plan": 16.7,
-      "pct_vs_expected": 83.5,
+      "pct_vs_expected": 83.6,
       "day_of_month": 6,
       "days_in_month": 30
     },
@@ -458,25 +458,25 @@
       },
       {
         "name": "Прео",
-        "mtd_revenue": 1122487,
-        "mtd_orders": 1725,
-        "mtd_avg_check": 651,
+        "mtd_revenue": 1133759,
+        "mtd_orders": 1734,
+        "mtd_avg_check": 654,
         "plan_month": 6650000,
         "expected_to_date": 1330000,
-        "pct_of_plan": 16.9,
-        "pct_vs_expected": 84.4,
+        "pct_of_plan": 17.0,
+        "pct_vs_expected": 85.2,
         "avg_check_plan": 675,
-        "pct_avg_check": 96.4
+        "pct_avg_check": 96.9
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 1035226,
-        "mtd_orders": 1689,
+        "mtd_revenue": 1038554,
+        "mtd_orders": 1694,
         "mtd_avg_check": 613,
         "plan_month": 6100000,
         "expected_to_date": 1220000,
         "pct_of_plan": 17.0,
-        "pct_vs_expected": 84.9,
+        "pct_vs_expected": 85.1,
         "avg_check_plan": 626,
         "pct_avg_check": 97.9
       },
@@ -601,6 +601,18 @@
         "pct_avg_check": 97.8
       },
       {
+        "name": "Арсиб",
+        "mtd_revenue": 522011,
+        "mtd_orders": 930,
+        "mtd_avg_check": 561,
+        "plan_month": 3150000,
+        "expected_to_date": 630000,
+        "pct_of_plan": 16.6,
+        "pct_vs_expected": 82.9,
+        "avg_check_plan": 560,
+        "pct_avg_check": 100.2
+      },
+      {
         "name": "Мельникайте",
         "mtd_revenue": 521500,
         "mtd_orders": 918,
@@ -613,21 +625,9 @@
         "pct_avg_check": 93.1
       },
       {
-        "name": "Арсиб",
-        "mtd_revenue": 521324,
-        "mtd_orders": 928,
-        "mtd_avg_check": 562,
-        "plan_month": 3150000,
-        "expected_to_date": 630000,
-        "pct_of_plan": 16.5,
-        "pct_vs_expected": 82.7,
-        "avg_check_plan": 560,
-        "pct_avg_check": 100.4
-      },
-      {
         "name": "Драмтеатр",
-        "mtd_revenue": 430562,
-        "mtd_orders": 857,
+        "mtd_revenue": 430682,
+        "mtd_orders": 858,
         "mtd_avg_check": 502,
         "plan_month": 2950000,
         "expected_to_date": 590000,
