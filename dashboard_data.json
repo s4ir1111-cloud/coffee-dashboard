@@ -2,7 +2,16 @@
   "date": "2026-09-07",
   "month_start": "2026-09-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Газпром",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -3968,7 +3977,7 @@
         "Department": "Газпром",
         "DishDiscountSumInt": 150807,
         "DishSumInt": 195248,
-        "UniqOrderId.OrdersCount": 517
+        "UniqOrderId.OrdersCount": 518
       },
       {
         "Department": "Гарден Кофе Сургут",
@@ -10981,12 +10990,24 @@
         "DishDiscountSumInt": 2453188,
         "DishSumInt": 2951317,
         "OpenDate.Typed": "2026-09-06"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-09-07"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 0,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
