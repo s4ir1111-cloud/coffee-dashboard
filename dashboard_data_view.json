@@ -2,16 +2,30 @@
   "date": "2026-09-09",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
     "discount_pct": null
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Газпром",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "06",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-09-01",
@@ -180,7 +194,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 20793612,
-      "mtd_orders": 35069,
+      "mtd_orders": 35070,
       "mtd_avg_check": 593,
       "plan_month": 81500000,
       "expected_to_date": 24450000,
@@ -433,14 +447,14 @@
       {
         "name": "Газпром",
         "mtd_revenue": 227059,
-        "mtd_orders": 776,
-        "mtd_avg_check": 293,
+        "mtd_orders": 777,
+        "mtd_avg_check": 292,
         "plan_month": 850000,
         "expected_to_date": 255000,
         "pct_of_plan": 26.7,
         "pct_vs_expected": 89.0,
         "avg_check_plan": 284,
-        "pct_avg_check": 103.2
+        "pct_avg_check": 102.8
       }
     ]
   }
