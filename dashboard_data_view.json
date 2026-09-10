@@ -1,15 +1,24 @@
 {
   "date": "2026-09-10",
   "summary": {
-    "revenue": 0,
-    "orders": 0,
-    "avg_check": 0,
+    "revenue": 522,
+    "orders": 1,
+    "avg_check": 522,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 1,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 30.0
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Драмтеатр",
+      "revenue": 522,
+      "orders": 1,
+      "avg_check": 522,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [
     {
       "name": "Газпром",
@@ -17,7 +26,12 @@
       "orders": 1
     }
   ],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 522
+    }
+  ],
   "weekly": [
     {
       "date": "2026-09-01",
@@ -87,7 +101,7 @@
       "day_name": "Чт",
       "day_label": "10",
       "date_label": "10.09",
-      "revenue": 0
+      "revenue": 522
     }
   ],
   "top_items": [
@@ -192,8 +206,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 23277613,
-      "mtd_orders": 39442,
+      "mtd_revenue": 23278135,
+      "mtd_orders": 39443,
       "mtd_avg_check": 590,
       "plan_month": 81500000,
       "expected_to_date": 27166667,
@@ -385,8 +399,8 @@
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 778491,
-        "mtd_orders": 1514,
+        "mtd_revenue": 779013,
+        "mtd_orders": 1515,
         "mtd_avg_check": 514,
         "plan_month": 2950000,
         "expected_to_date": 983333,
