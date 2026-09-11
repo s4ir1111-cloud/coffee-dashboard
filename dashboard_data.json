@@ -2,7 +2,16 @@
   "date": "2026-09-11",
   "month_start": "2026-09-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Газпром",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 264,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4487,8 +4496,8 @@
       {
         "Department": "Газпром",
         "DishDiscountSumInt": 313394,
-        "DishSumInt": 390437,
-        "UniqOrderId.OrdersCount": 1078
+        "DishSumInt": 390701,
+        "UniqOrderId.OrdersCount": 1079
       },
       {
         "Department": "Гарден Кофе Сургут",
@@ -4742,7 +4751,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3342.5,
+        "DishAmountInt": 3343.5,
         "DishGroup": "Молоко Капучино 250мл*",
         "DishName": "- *Молоко Капучино М",
         "DishSumInt": 0
@@ -9074,10 +9083,10 @@
         "DishSumInt": 7697
       },
       {
-        "DishAmountInt": 3801.5,
+        "DishAmountInt": 3802.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 250 мл",
-        "DishSumInt": 897018
+        "DishSumInt": 897257
       },
       {
         "DishAmountInt": 204,
@@ -9446,10 +9455,10 @@
         "DishSumInt": 120
       },
       {
-        "DishAmountInt": 14,
+        "DishAmountInt": 15,
         "DishGroup": "Аксессуары для продажи",
         "DishName": "Коробка для макарун маленькая",
-        "DishSumInt": 350
+        "DishSumInt": 375
       },
       {
         "DishAmountInt": 2,
@@ -12103,12 +12112,24 @@
         "DishDiscountSumInt": 2645386,
         "DishSumInt": 3086534,
         "OpenDate.Typed": "2026-09-10"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 264,
+        "OpenDate.Typed": "2026-09-11"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 264,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }

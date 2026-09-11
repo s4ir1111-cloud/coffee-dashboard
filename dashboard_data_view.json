@@ -2,16 +2,30 @@
   "date": "2026-09-11",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 0.0
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Газпром",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-09-01",
@@ -101,8 +115,8 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 3801.5,
-      "revenue": 897018
+      "qty": 3802.5,
+      "revenue": 897257
     },
     {
       "name": "Латте 350 мл",
@@ -194,7 +208,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 25922999,
-      "mtd_orders": 44106,
+      "mtd_orders": 44107,
       "mtd_avg_check": 588,
       "plan_month": 81500000,
       "expected_to_date": 29883333,
@@ -435,14 +449,14 @@
       {
         "name": "Газпром",
         "mtd_revenue": 313394,
-        "mtd_orders": 1078,
-        "mtd_avg_check": 291,
+        "mtd_orders": 1079,
+        "mtd_avg_check": 290,
         "plan_month": 850000,
         "expected_to_date": 311667,
         "pct_of_plan": 36.9,
         "pct_vs_expected": 100.6,
         "avg_check_plan": 284,
-        "pct_avg_check": 102.5
+        "pct_avg_check": 102.1
       },
       {
         "name": "Осипенко",
