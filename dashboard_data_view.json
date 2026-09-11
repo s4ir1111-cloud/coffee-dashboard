@@ -1,15 +1,23 @@
 {
   "date": "2026-09-11",
   "summary": {
-    "revenue": 2618930,
-    "orders": 4472,
+    "revenue": 2622215,
+    "orders": 4478,
     "avg_check": 586,
     "yesterday_same_hour_revenue": 2645079,
     "yesterday_same_hour_orders": 4663,
     "comparison_hour": "22",
-    "discount_pct": 7.0
+    "discount_pct": 6.9
   },
   "points": [
+    {
+      "name": "Океан",
+      "revenue": 230467,
+      "orders": 418,
+      "avg_check": 551,
+      "yesterday_same_hour_revenue": 245438,
+      "yesterday_same_hour_orders": 455
+    },
     {
       "name": "Свердлова",
       "revenue": 228663,
@@ -17,14 +25,6 @@
       "avg_check": 671,
       "yesterday_same_hour_revenue": 212899,
       "yesterday_same_hour_orders": 355
-    },
-    {
-      "name": "Океан",
-      "revenue": 227870,
-      "orders": 414,
-      "avg_check": 550,
-      "yesterday_same_hour_revenue": 245438,
-      "yesterday_same_hour_orders": 455
     },
     {
       "name": "Прео",
@@ -61,8 +61,8 @@
     {
       "name": "Новин",
       "revenue": 146754,
-      "orders": 247,
-      "avg_check": 594,
+      "orders": 248,
+      "avg_check": 592,
       "yesterday_same_hour_revenue": 185091,
       "yesterday_same_hour_orders": 273
     },
@@ -76,9 +76,9 @@
     },
     {
       "name": "Панорама",
-      "revenue": 145375,
-      "orders": 245,
-      "avg_check": 593,
+      "revenue": 146063,
+      "orders": 246,
+      "avg_check": 594,
       "yesterday_same_hour_revenue": 129013,
       "yesterday_same_hour_orders": 238
     },
@@ -349,7 +349,7 @@
     },
     {
       "hour": "22",
-      "revenue": 22137
+      "revenue": 25422
     }
   ],
   "weekly": [
@@ -428,7 +428,7 @@
       "day_name": "Пт",
       "day_label": "11",
       "date_label": "11.09",
-      "revenue": 2618930
+      "revenue": 2622215
     }
   ],
   "top_items": [
@@ -447,8 +447,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 3238.33,
-      "revenue": 935677
+      "qty": 3239.33,
+      "revenue": 935966
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -465,8 +465,8 @@
     {
       "name": "Раф Солёная карамель",
       "group": "Рафы 350",
-      "qty": 2063,
-      "revenue": 654177
+      "qty": 2064,
+      "revenue": 654496
     },
     {
       "name": "Драник с форелью",
@@ -477,8 +477,8 @@
     {
       "name": "Флэт Уайт 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1773,
-      "revenue": 633937
+      "qty": 1774,
+      "revenue": 634296
     }
   ],
   "summer_drinks": [
@@ -521,8 +521,8 @@
     {
       "name": "Молочный коктейль",
       "group": "Холодные напитки 350",
-      "qty": 463,
-      "revenue": 147698
+      "qty": 464,
+      "revenue": 148017
     },
     {
       "name": "Смузи Манго Шейк",
@@ -533,8 +533,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 28541929,
-      "mtd_orders": 48578,
+      "mtd_revenue": 28545214,
+      "mtd_orders": 48584,
       "mtd_avg_check": 588,
       "plan_month": 81500000,
       "expected_to_date": 29883333,
@@ -546,15 +546,15 @@
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 2800608,
-        "mtd_orders": 5006,
-        "mtd_avg_check": 559,
+        "mtd_revenue": 2803205,
+        "mtd_orders": 5010,
+        "mtd_avg_check": 560,
         "plan_month": 8000000,
         "expected_to_date": 2933333,
         "pct_of_plan": 35.0,
-        "pct_vs_expected": 95.5,
+        "pct_vs_expected": 95.6,
         "avg_check_plan": 585,
-        "pct_avg_check": 95.6
+        "pct_avg_check": 95.7
       },
       {
         "name": "Прео",
@@ -619,7 +619,7 @@
       {
         "name": "Новин",
         "mtd_revenue": 1680720,
-        "mtd_orders": 2649,
+        "mtd_orders": 2650,
         "mtd_avg_check": 634,
         "plan_month": 4750000,
         "expected_to_date": 1741667,
@@ -642,8 +642,8 @@
       },
       {
         "name": "Панорама",
-        "mtd_revenue": 1536339,
-        "mtd_orders": 2640,
+        "mtd_revenue": 1537027,
+        "mtd_orders": 2641,
         "mtd_avg_check": 582,
         "plan_month": 4000000,
         "expected_to_date": 1466667,
