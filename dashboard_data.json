@@ -4004,9 +4004,9 @@
       },
       {
         "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 1182026,
-        "DishSumInt": 1437552,
-        "UniqOrderId.OrdersCount": 1736
+        "DishDiscountSumInt": 1182664,
+        "DishSumInt": 1440135,
+        "UniqOrderId.OrdersCount": 1737
       },
       {
         "Department": "Гарден Кофе Тобольск",
@@ -7686,7 +7686,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2731.75,
+        "DishAmountInt": 2732.75,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный 50 гр",
         "DishSumInt": 0
@@ -7698,7 +7698,7 @@
         "DishSumInt": 76
       },
       {
-        "DishAmountInt": 298,
+        "DishAmountInt": 299,
         "DishGroup": "Хлеб_на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный_50 гр(белый)",
         "DishSumInt": 0
@@ -8052,16 +8052,16 @@
         "DishSumInt": 784
       },
       {
-        "DishAmountInt": 22,
+        "DishAmountInt": 23,
         "DishGroup": "Несладкие",
         "DishName": "Блин с жульеном 1 шт",
-        "DishSumInt": 3328
+        "DishSumInt": 3487
       },
       {
-        "DishAmountInt": 92,
+        "DishAmountInt": 93,
         "DishGroup": "Несладкие",
         "DishName": "Блинчик 1 шт",
-        "DishSumInt": 5478
+        "DishSumInt": 5547
       },
       {
         "DishAmountInt": 4,
@@ -8070,10 +8070,10 @@
         "DishSumInt": 396
       },
       {
-        "DishAmountInt": 621.5,
+        "DishAmountInt": 622.5,
         "DishGroup": "Блины и сырники",
         "DishName": "Блинчики с ветчиной ",
-        "DishSumInt": 211839
+        "DishSumInt": 212208
       },
       {
         "DishAmountInt": 89,
@@ -10260,16 +10260,16 @@
         "DishSumInt": 377
       },
       {
-        "DishAmountInt": 489,
+        "DishAmountInt": 490,
         "DishGroup": "Завтраки",
         "DishName": "Скрембл c ромеско и печеными кабачками",
-        "DishSumInt": 195711
+        "DishSumInt": 196130
       },
       {
-        "DishAmountInt": 22,
+        "DishAmountInt": 23,
         "DishGroup": "Осеннее меню",
         "DishName": "Скрембл c ромеско и печеными кабачками (ЯНДЕКС)",
-        "DishSumInt": 11948
+        "DishSumInt": 12517
       },
       {
         "DishAmountInt": 61,
@@ -11310,6 +11310,12 @@
         "DishSumInt": 461
       },
       {
+        "DishAmountInt": 1,
+        "DishGroup": "Холодный чай (ЯНДЕКС)",
+        "DishName": "Чай \"Булочка с корицей\" 590 мл (ЯНДЕКС)",
+        "DishSumInt": 779
+      },
+      {
         "DishAmountInt": 93,
         "DishGroup": "Чай листовой",
         "DishName": "Чай Гречишный",
@@ -11382,10 +11388,10 @@
         "DishSumInt": 129
       },
       {
-        "DishAmountInt": 53,
+        "DishAmountInt": 54,
         "DishGroup": "Чай листовой",
         "DishName": "Чай Пуэр-Шу ",
-        "DishSumInt": 11667
+        "DishSumInt": 11886
       },
       {
         "DishAmountInt": 230,
@@ -11692,12 +11698,24 @@
         "DishDiscountSumInt": 2632858,
         "DishSumInt": 3050281,
         "OpenDate.Typed": "2026-09-11"
+      },
+      {
+        "DishDiscountSumInt": 638,
+        "DishSumInt": 2583,
+        "OpenDate.Typed": "2026-09-12"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 2583,
+        "net_sum": 638,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
