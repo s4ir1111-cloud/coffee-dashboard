@@ -2,16 +2,30 @@
   "date": "2026-09-14",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 100.0
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Софилэнд",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-09-01",
@@ -215,7 +229,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 33731990,
-      "mtd_orders": 56336,
+      "mtd_orders": 56337,
       "mtd_avg_check": 599,
       "plan_month": 81500000,
       "expected_to_date": 38033333,
@@ -432,14 +446,14 @@
       {
         "name": "Софилэнд",
         "mtd_revenue": 746349,
-        "mtd_orders": 1224,
-        "mtd_avg_check": 610,
+        "mtd_orders": 1225,
+        "mtd_avg_check": 609,
         "plan_month": 2300000,
         "expected_to_date": 1073333,
         "pct_of_plan": 32.4,
         "pct_vs_expected": 69.5,
         "avg_check_plan": 546,
-        "pct_avg_check": 111.7
+        "pct_avg_check": 111.5
       },
       {
         "name": "Ворлд Класс",
