@@ -2,7 +2,7 @@
   "date": "2026-09-14",
   "summary": {
     "revenue": 0,
-    "orders": 1,
+    "orders": 5,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
@@ -10,6 +10,22 @@
     "discount_pct": 100.0
   },
   "points": [
+    {
+      "name": "Океан",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Паруса",
+      "revenue": 0,
+      "orders": 3,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
     {
       "name": "Софилэнд",
       "revenue": 0,
@@ -229,7 +245,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 33731990,
-      "mtd_orders": 56337,
+      "mtd_orders": 56341,
       "mtd_avg_check": 599,
       "plan_month": 81500000,
       "expected_to_date": 38033333,
@@ -242,7 +258,7 @@
       {
         "name": "Океан",
         "mtd_revenue": 3330514,
-        "mtd_orders": 5869,
+        "mtd_orders": 5870,
         "mtd_avg_check": 567,
         "plan_month": 8000000,
         "expected_to_date": 3733333,
@@ -302,14 +318,14 @@
       {
         "name": "Паруса",
         "mtd_revenue": 2002642,
-        "mtd_orders": 3323,
-        "mtd_avg_check": 603,
+        "mtd_orders": 3326,
+        "mtd_avg_check": 602,
         "plan_month": 4850000,
         "expected_to_date": 2263333,
         "pct_of_plan": 41.3,
         "pct_vs_expected": 88.5,
         "avg_check_plan": 647,
-        "pct_avg_check": 93.2
+        "pct_avg_check": 93.0
       },
       {
         "name": "Новин",
