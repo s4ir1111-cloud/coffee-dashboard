@@ -1,7 +1,172 @@
 {
-  "date": "2026-09-19",
+  "date": "2026-09-20",
   "month_start": "2026-09-01",
   "sales_raw": {
+    "data": [
+      {
+        "Department": "Видный",
+        "DishDiscountSumInt": 3159,
+        "DishSumInt": 3589,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 6
+      },
+      {
+        "Department": "Гагарина",
+        "DishDiscountSumInt": 2435,
+        "DishSumInt": 3191,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      },
+      {
+        "Department": "Гарден Кофе Сургут",
+        "DishDiscountSumInt": 778,
+        "DishSumInt": 956,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      },
+      {
+        "Department": "Гарден Кофе Тобольск",
+        "DishDiscountSumInt": 1085,
+        "DishSumInt": 1444,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 3
+      },
+      {
+        "Department": "Гарден Кофе Тобольск",
+        "DishDiscountSumInt": 471,
+        "DishSumInt": 638,
+        "HourOpen": "07",
+        "OrderType": "С собой*",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Гарден Кофе Тобольск",
+        "DishDiscountSumInt": 548,
+        "DishSumInt": 548,
+        "HourOpen": "08",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Драмтеатр",
+        "DishDiscountSumInt": 627,
+        "DishSumInt": 707,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 3
+      },
+      {
+        "Department": "Европа",
+        "DishDiscountSumInt": 2986,
+        "DishSumInt": 3289,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 4
+      },
+      {
+        "Department": "Европа",
+        "DishDiscountSumInt": 1685,
+        "DishSumInt": 1685,
+        "HourOpen": "07",
+        "OrderType": "Яндекс Еда Тюмень",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Калинка",
+        "DishDiscountSumInt": 6190,
+        "DishSumInt": 8066,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 8
+      },
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 2653,
+        "HourOpen": "01",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 11
+      },
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 1279,
+        "DishSumInt": 3657,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 11
+      },
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 468,
+        "DishSumInt": 448,
+        "HourOpen": "08",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Панорама",
+        "DishDiscountSumInt": 1995,
+        "DishSumInt": 2125,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      },
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 1056,
+        "DishSumInt": 1206,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 2398,
+        "DishSumInt": 3037,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      },
+      {
+        "Department": "Свердлова",
+        "DishDiscountSumInt": 4376,
+        "DishSumInt": 4805,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      },
+      {
+        "Department": "Свердлова",
+        "DishDiscountSumInt": 1148,
+        "DishSumInt": 1148,
+        "HourOpen": "07",
+        "OrderType": "Яндекс Еда Тюмень",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Советская",
+        "DishDiscountSumInt": 702,
+        "DishSumInt": 946,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      },
+      {
+        "Department": "Софилэнд",
+        "DishDiscountSumInt": 4413,
+        "DishSumInt": 5540,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 5
+      }
+    ],
+    "summary": []
+  },
+  "sales_yesterday_raw": {
     "data": [
       {
         "Department": "Арсиб",
@@ -4334,4371 +4499,6 @@
     ],
     "summary": []
   },
-  "sales_yesterday_raw": {
-    "data": [
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 239,
-        "DishSumInt": 289,
-        "HourOpen": "07",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 2960,
-        "DishSumInt": 3709,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 778,
-        "DishSumInt": 1297,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 2007,
-        "DishSumInt": 2007,
-        "HourOpen": "07",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 4023,
-        "DishSumInt": 4734,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 424,
-        "DishSumInt": 498,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 1287,
-        "DishSumInt": 1787,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 2249,
-        "DishSumInt": 2852,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 10667,
-        "DishSumInt": 13163,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 259,
-        "DishSumInt": 259,
-        "HourOpen": "09",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 1087,
-        "DishSumInt": 1087,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 10227,
-        "DishSumInt": 12923,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 3672,
-        "DishSumInt": 3672,
-        "HourOpen": "10",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 1055,
-        "DishSumInt": 1055,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 11053,
-        "DishSumInt": 15034,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 708,
-        "DishSumInt": 708,
-        "HourOpen": "11",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 449,
-        "DishSumInt": 449,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 225,
-        "DishSumInt": 239,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 5764,
-        "DishSumInt": 7424,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 2536,
-        "DishSumInt": 2536,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 703,
-        "DishSumInt": 1167,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 11273,
-        "DishSumInt": 12987,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 6641,
-        "DishSumInt": 8543,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 1018,
-        "DishSumInt": 1018,
-        "HourOpen": "14",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 1236,
-        "DishSumInt": 1524,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 8879,
-        "DishSumInt": 9385,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 295,
-        "DishSumInt": 309,
-        "HourOpen": "16",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 5613,
-        "DishSumInt": 5830,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 9448,
-        "DishSumInt": 10230,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 769,
-        "DishSumInt": 769,
-        "HourOpen": "17",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 951,
-        "DishSumInt": 1137,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 6960,
-        "DishSumInt": 7279,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 918,
-        "DishSumInt": 1057,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 4657,
-        "DishSumInt": 7031,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 1720,
-        "DishSumInt": 1874,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Арсиб",
-        "DishDiscountSumInt": 627,
-        "DishSumInt": -909,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 1722,
-        "DishSumInt": 1972,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 362,
-        "DishSumInt": 369,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 15229,
-        "DishSumInt": 16691,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 26
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 1138,
-        "DishSumInt": 1138,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 1977,
-        "DishSumInt": 1977,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 10244,
-        "DishSumInt": 12019,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 2115,
-        "DishSumInt": 2528,
-        "HourOpen": "09",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 3962,
-        "DishSumInt": 3962,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 14002,
-        "DishSumInt": 15111,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 4253,
-        "DishSumInt": 4253,
-        "HourOpen": "10",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 558,
-        "DishSumInt": 558,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 8953,
-        "DishSumInt": 9410,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 773,
-        "DishSumInt": 1077,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 10497,
-        "DishSumInt": 11789,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 9234,
-        "DishSumInt": 11041,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 1228,
-        "DishSumInt": 1228,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 7527,
-        "DishSumInt": 8980,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 2314,
-        "DishSumInt": 2314,
-        "HourOpen": "14",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 221,
-        "DishSumInt": 239,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 8480,
-        "DishSumInt": 10288,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 7234,
-        "DishSumInt": 7588,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 509,
-        "DishSumInt": 509,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 4716,
-        "DishSumInt": 5211,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 479,
-        "DishSumInt": 479,
-        "HourOpen": "17",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 807,
-        "DishSumInt": 807,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 8175,
-        "DishSumInt": 9087,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 818,
-        "DishSumInt": 818,
-        "HourOpen": "18",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 1227,
-        "DishSumInt": 1227,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 5496,
-        "DishSumInt": 5640,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 10873,
-        "DishSumInt": 12945,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 7047,
-        "DishSumInt": 8590,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 7085,
-        "DishSumInt": 7626,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Видный",
-        "DishDiscountSumInt": 0,
-        "DishSumInt": 299,
-        "HourOpen": "23",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 4170,
-        "DishSumInt": 5465,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 1864,
-        "DishSumInt": 2024,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 7502,
-        "DishSumInt": 9888,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 3203,
-        "DishSumInt": 3437,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 2690,
-        "DishSumInt": 4624,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 5572,
-        "DishSumInt": 6946,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 3410,
-        "DishSumInt": 4107,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 2811,
-        "DishSumInt": 2811,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 2971,
-        "DishSumInt": 2971,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 9815,
-        "DishSumInt": 9874,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 5444,
-        "DishSumInt": 6038,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 2938,
-        "DishSumInt": 2938,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 2836,
-        "DishSumInt": 5414,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 2928,
-        "DishSumInt": 10014,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Ворлд Класс",
-        "DishDiscountSumInt": 1616,
-        "DishSumInt": 1616,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 4341,
-        "DishSumInt": 5811,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 525,
-        "DishSumInt": 548,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 727,
-        "DishSumInt": 847,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 7981,
-        "DishSumInt": 9519,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 10669,
-        "DishSumInt": 11704,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 1216,
-        "DishSumInt": 1216,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 1257,
-        "DishSumInt": 1257,
-        "HourOpen": "10",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 5199,
-        "DishSumInt": 5324,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 5716,
-        "DishSumInt": 6178,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 1936,
-        "DishSumInt": 1936,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 7174,
-        "DishSumInt": 8239,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 1527,
-        "DishSumInt": 1527,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 9887,
-        "DishSumInt": 11276,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 1636,
-        "DishSumInt": 1674,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 9706,
-        "DishSumInt": 11032,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 5172,
-        "DishSumInt": 6632,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 4176,
-        "DishSumInt": 4516,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 989,
-        "DishSumInt": 989,
-        "HourOpen": "16",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 658,
-        "DishSumInt": 658,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 8094,
-        "DishSumInt": 8693,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 6737,
-        "DishSumInt": 7614,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 5442,
-        "DishSumInt": 6071,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 210,
-        "DishSumInt": 868,
-        "HourOpen": "19",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 1516,
-        "DishSumInt": 1516,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 5920,
-        "DishSumInt": 7259,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Гагарина",
-        "DishDiscountSumInt": 679,
-        "DishSumInt": 717,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 1292,
-        "DishSumInt": 1903,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 10955,
-        "DishSumInt": 14119,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 43
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 423,
-        "DishSumInt": 568,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 8657,
-        "DishSumInt": 11687,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 33
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 1885,
-        "DishSumInt": 1923,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 1564,
-        "DishSumInt": 1882,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 2644,
-        "DishSumInt": 2818,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 2266,
-        "DishSumInt": 2372,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 1032,
-        "DishSumInt": 1434,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 3110,
-        "DishSumInt": 4983,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 456,
-        "DishSumInt": 528,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 1580,
-        "DishSumInt": 2839,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Газпром",
-        "DishDiscountSumInt": 422,
-        "DishSumInt": 467,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 12163,
-        "DishSumInt": 14038,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 8311,
-        "DishSumInt": 16112,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 2664,
-        "DishSumInt": 2664,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Курьеры Я.Еды",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 6938,
-        "DishSumInt": 8454,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 2874,
-        "DishSumInt": 2874,
-        "HourOpen": "10",
-        "OrderType": "Яндекс Еда Курьеры Я.Еды",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 9299,
-        "DishSumInt": 10902,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 578,
-        "DishSumInt": 589,
-        "HourOpen": "11",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 2466,
-        "DishSumInt": 2466,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Курьеры Я.Еды",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 9139,
-        "DishSumInt": 11621,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 394,
-        "DishSumInt": 788,
-        "HourOpen": "12",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 6388,
-        "DishSumInt": 12720,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 1933,
-        "DishSumInt": 2980,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 3764,
-        "DishSumInt": 11107,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 6374,
-        "DishSumInt": 7125,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 6083,
-        "DishSumInt": 6192,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 3338,
-        "DishSumInt": 3710,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 1968,
-        "DishSumInt": 2062,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 6209,
-        "DishSumInt": 8641,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 1716,
-        "DishSumInt": 1764,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 3480,
-        "DishSumInt": 4662,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 10764,
-        "DishSumInt": 12516,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 985,
-        "DishSumInt": 1087,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 1271,
-        "DishSumInt": 1805,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 11889,
-        "DishSumInt": 12429,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 239,
-        "DishSumInt": 239,
-        "HourOpen": "10",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 11089,
-        "DishSumInt": 11185,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 8573,
-        "DishSumInt": 10181,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 11343,
-        "DishSumInt": 15538,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 12938,
-        "DishSumInt": 13553,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 10867,
-        "DishSumInt": 11562,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 5203,
-        "DishSumInt": 7218,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 3361,
-        "DishSumInt": 3926,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 638,
-        "DishSumInt": 638,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 10546,
-        "DishSumInt": 11395,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 7668,
-        "DishSumInt": 9809,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 618,
-        "DishSumInt": 618,
-        "HourOpen": "18",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 587,
-        "DishSumInt": 587,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 9074,
-        "DishSumInt": 9826,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 499,
-        "DishSumInt": 499,
-        "HourOpen": "19",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 4420,
-        "DishSumInt": 4491,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 359,
-        "DishSumInt": 359,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 612,
-        "DishSumInt": 1236,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 537,
-        "DishSumInt": 846,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 7995,
-        "DishSumInt": 9572,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 6796,
-        "DishSumInt": 8332,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 2957,
-        "DishSumInt": 2998,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 2953,
-        "DishSumInt": 2953,
-        "HourOpen": "10",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 3582,
-        "DishSumInt": 3610,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 7677,
-        "DishSumInt": 8781,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 1936,
-        "DishSumInt": 1936,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 5775,
-        "DishSumInt": 5877,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 1726,
-        "DishSumInt": 1726,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 3599,
-        "DishSumInt": 5100,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 7073,
-        "DishSumInt": 10163,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 3758,
-        "DishSumInt": 4477,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 3209,
-        "DishSumInt": 3209,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 3227,
-        "DishSumInt": 3844,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 1706,
-        "DishSumInt": 1706,
-        "HourOpen": "18",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 4474,
-        "DishSumInt": 4884,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 4940,
-        "DishSumInt": 5571,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 5113,
-        "DishSumInt": 5611,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Домашний",
-        "DishDiscountSumInt": 405,
-        "DishSumInt": 947,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 4302,
-        "DishSumInt": 5532,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 6322,
-        "DishSumInt": 7617,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 1836,
-        "DishSumInt": 1836,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 10459,
-        "DishSumInt": 12186,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 5323,
-        "DishSumInt": 5382,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 1427,
-        "DishSumInt": 1427,
-        "HourOpen": "10",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 5283,
-        "DishSumInt": 6963,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 11231,
-        "DishSumInt": 11773,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 14215,
-        "DishSumInt": 17169,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 20
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 1495,
-        "DishSumInt": 1495,
-        "HourOpen": "13",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 14786,
-        "DishSumInt": 17121,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 5218,
-        "DishSumInt": 6304,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 3961,
-        "DishSumInt": 4394,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 5312,
-        "DishSumInt": 5611,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 7632,
-        "DishSumInt": 8758,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 5409,
-        "DishSumInt": 6296,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Драмтеатр",
-        "DishDiscountSumInt": 5175,
-        "DishSumInt": 5732,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1944,
-        "DishSumInt": 2154,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 349,
-        "DishSumInt": 349,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 479,
-        "DishSumInt": 479,
-        "HourOpen": "07",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 3383,
-        "DishSumInt": 3689,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 10756,
-        "DishSumInt": 13438,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 28
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1794,
-        "DishSumInt": 1794,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1838,
-        "DishSumInt": 2594,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 9568,
-        "DishSumInt": 11331,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 3839,
-        "DishSumInt": 3839,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 6715,
-        "DishSumInt": 7425,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 2004,
-        "DishSumInt": 2004,
-        "HourOpen": "10",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 578,
-        "DishSumInt": 578,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 5527,
-        "DishSumInt": 6747,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1887,
-        "DishSumInt": 1887,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 4505,
-        "DishSumInt": 4516,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 2334,
-        "DishSumInt": 2334,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 8368,
-        "DishSumInt": 9727,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 4541,
-        "DishSumInt": 4541,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 170,
-        "DishSumInt": 339,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 9960,
-        "DishSumInt": 10740,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 758,
-        "DishSumInt": 758,
-        "HourOpen": "14",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 3421,
-        "DishSumInt": 4184,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 827,
-        "DishSumInt": 827,
-        "HourOpen": "15",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 2521,
-        "DishSumInt": 3697,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1019,
-        "DishSumInt": 1047,
-        "HourOpen": "16",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 528,
-        "DishSumInt": 528,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1651,
-        "DishSumInt": 1651,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 776,
-        "DishSumInt": 776,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 5841,
-        "DishSumInt": 7123,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 873,
-        "DishSumInt": 885,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 7522,
-        "DishSumInt": 8968,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 708,
-        "DishSumInt": 708,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 868,
-        "DishSumInt": 957,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Европа",
-        "DishDiscountSumInt": 1268,
-        "DishSumInt": 1705,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 5159,
-        "DishSumInt": 5849,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 622,
-        "DishSumInt": 687,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 975,
-        "DishSumInt": 1145,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 15677,
-        "DishSumInt": 17418,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 26
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 2144,
-        "DishSumInt": 2643,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 2939,
-        "DishSumInt": 3259,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 19481,
-        "DishSumInt": 22002,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 35
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 292,
-        "DishSumInt": 309,
-        "HourOpen": "09",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 14283,
-        "DishSumInt": 16240,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 1243,
-        "DishSumInt": 1256,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 8942,
-        "DishSumInt": 9739,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 758,
-        "DishSumInt": 758,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 2729,
-        "DishSumInt": 2729,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 8800,
-        "DishSumInt": 10287,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 4403,
-        "DishSumInt": 4826,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 11527,
-        "DishSumInt": 12871,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 20
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 2025,
-        "DishSumInt": 2025,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 773,
-        "DishSumInt": 838,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 12803,
-        "DishSumInt": 13294,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 855,
-        "DishSumInt": 897,
-        "HourOpen": "14",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 889,
-        "DishSumInt": 977,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 8490,
-        "DishSumInt": 9327,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 389,
-        "DishSumInt": 389,
-        "HourOpen": "15",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 2551,
-        "DishSumInt": 2601,
-        "HourOpen": "16",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 15680,
-        "DishSumInt": 15776,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 3330,
-        "DishSumInt": 3440,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 8645,
-        "DishSumInt": 8920,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 512,
-        "DishSumInt": 538,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 7026,
-        "DishSumInt": 7309,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 787,
-        "DishSumInt": 787,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 10989,
-        "DishSumInt": 13103,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 279,
-        "DishSumInt": 279,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 2966,
-        "DishSumInt": 2966,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 409,
-        "DishSumInt": 409,
-        "HourOpen": "21",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 9413,
-        "DishSumInt": 10711,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 319,
-        "DishSumInt": 319,
-        "HourOpen": "22",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Калинка",
-        "DishDiscountSumInt": 3522,
-        "DishSumInt": 3535,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 239,
-        "DishSumInt": 319,
-        "HourOpen": "07",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 3485,
-        "DishSumInt": 3935,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 338,
-        "DishSumInt": 388,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 16998,
-        "DishSumInt": 20132,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1361,
-        "DishSumInt": 1634,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 8717,
-        "DishSumInt": 11025,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1746,
-        "DishSumInt": 1746,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 7233,
-        "DishSumInt": 8389,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 329,
-        "DishSumInt": 339,
-        "HourOpen": "10",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 227,
-        "DishSumInt": 239,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 6801,
-        "DishSumInt": 8015,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1288,
-        "DishSumInt": 1288,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 3253,
-        "DishSumInt": 3338,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 8457,
-        "DishSumInt": 8901,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 897,
-        "DishSumInt": 897,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1177,
-        "DishSumInt": 1235,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 9545,
-        "DishSumInt": 10038,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1536,
-        "DishSumInt": 1536,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 540,
-        "DishSumInt": 848,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 6992,
-        "DishSumInt": 7089,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 357,
-        "DishSumInt": 468,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 5391,
-        "DishSumInt": 6103,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1251,
-        "DishSumInt": 1316,
-        "HourOpen": "16",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 2462,
-        "DishSumInt": 3158,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1433,
-        "DishSumInt": 1476,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 6113,
-        "DishSumInt": 7401,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 3518,
-        "DishSumInt": 8538,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 2548,
-        "DishSumInt": 2592,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1818,
-        "DishSumInt": 2722,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Мельникайте",
-        "DishDiscountSumInt": 1710,
-        "DishSumInt": 1934,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 2055,
-        "DishSumInt": 3695,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 587,
-        "DishSumInt": 677,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 10988,
-        "DishSumInt": 13143,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 2194,
-        "DishSumInt": 2424,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 14459,
-        "DishSumInt": 17662,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 1480,
-        "DishSumInt": 1743,
-        "HourOpen": "09",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 815,
-        "DishSumInt": 827,
-        "HourOpen": "10",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 7499,
-        "DishSumInt": 8607,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 15
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 269,
-        "DishSumInt": 269,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 12666,
-        "DishSumInt": 15669,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 367,
-        "DishSumInt": 638,
-        "HourOpen": "11",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 1717,
-        "DishSumInt": 1717,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 2319,
-        "DishSumInt": 2742,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 16611,
-        "DishSumInt": 20646,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 26
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 1053,
-        "DishSumInt": 1147,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 24551,
-        "DishSumInt": 26006,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 33
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 9152,
-        "DishSumInt": 9880,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 898,
-        "DishSumInt": 898,
-        "HourOpen": "14",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 368,
-        "DishSumInt": 368,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 9291,
-        "DishSumInt": 10176,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 1187,
-        "DishSumInt": 1187,
-        "HourOpen": "15",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 6179,
-        "DishSumInt": 8743,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 777,
-        "DishSumInt": 817,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 5188,
-        "DishSumInt": 5833,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 872,
-        "DishSumInt": 1007,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 10174,
-        "DishSumInt": 11463,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 909,
-        "DishSumInt": 1017,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 5178,
-        "DishSumInt": 5568,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 4780,
-        "DishSumInt": 5574,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 319,
-        "DishSumInt": 319,
-        "HourOpen": "21",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 1547,
-        "DishSumInt": 2466,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Новин",
-        "DishDiscountSumInt": 411,
-        "DishSumInt": 587,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 9186,
-        "DishSumInt": 9155,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 808,
-        "DishSumInt": 808,
-        "HourOpen": "07",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 2157,
-        "DishSumInt": 2601,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 9673,
-        "DishSumInt": 10071,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 22
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 558,
-        "DishSumInt": 608,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 2504,
-        "DishSumInt": 2504,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 1662,
-        "DishSumInt": 1874,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 14700,
-        "DishSumInt": 15047,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 33
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 399,
-        "DishSumInt": 877,
-        "HourOpen": "10",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 7636,
-        "DishSumInt": 8753,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 596,
-        "DishSumInt": 658,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 13113,
-        "DishSumInt": 14533,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 1906,
-        "DishSumInt": 2014,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 15056,
-        "DishSumInt": 16755,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 20
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 4345,
-        "DishSumInt": 4384,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 15320,
-        "DishSumInt": 16573,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 28
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 235,
-        "DishSumInt": 338,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 19773,
-        "DishSumInt": 20794,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 29
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 1177,
-        "DishSumInt": 1177,
-        "HourOpen": "14",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 788,
-        "DishSumInt": 788,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 14455,
-        "DishSumInt": 15318,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 699,
-        "DishSumInt": 699,
-        "HourOpen": "15",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 7699,
-        "DishSumInt": 8354,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 2958,
-        "DishSumInt": 3039,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 14178,
-        "DishSumInt": 15950,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 2240,
-        "DishSumInt": 2591,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 11959,
-        "DishSumInt": 13331,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 20
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 1046,
-        "DishSumInt": 1266,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 14690,
-        "DishSumInt": 18265,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 29
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 2370,
-        "DishSumInt": 2461,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 13964,
-        "DishSumInt": 14733,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 4880,
-        "DishSumInt": 5682,
-        "HourOpen": "21",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 13194,
-        "DishSumInt": 13771,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 2006,
-        "DishSumInt": 2244,
-        "HourOpen": "22",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 9660,
-        "DishSumInt": 10970,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Океан",
-        "DishDiscountSumInt": 3975,
-        "DishSumInt": 5101,
-        "HourOpen": "23",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 1574,
-        "DishSumInt": 2532,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 4188,
-        "DishSumInt": 7187,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 3076,
-        "DishSumInt": 3510,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 3410,
-        "DishSumInt": 4297,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 2310,
-        "DishSumInt": 3927,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 6913,
-        "DishSumInt": 6913,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 4309,
-        "DishSumInt": 4623,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 3521,
-        "DishSumInt": 3917,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 2690,
-        "DishSumInt": 2739,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 3121,
-        "DishSumInt": 3648,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Осипенко",
-        "DishDiscountSumInt": 1683,
-        "DishSumInt": 1927,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 5941,
-        "DishSumInt": 7871,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 9919,
-        "DishSumInt": 11748,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 20
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1235,
-        "DishSumInt": 1565,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1022,
-        "DishSumInt": 1207,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 8231,
-        "DishSumInt": 9376,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1597,
-        "DishSumInt": 1597,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 239,
-        "DishSumInt": 239,
-        "HourOpen": "10",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 8181,
-        "DishSumInt": 9159,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 319,
-        "DishSumInt": 319,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 13024,
-        "DishSumInt": 14271,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 281,
-        "DishSumInt": 289,
-        "HourOpen": "11",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1432,
-        "DishSumInt": 1546,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 16743,
-        "DishSumInt": 17951,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 26
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 3044,
-        "DishSumInt": 3044,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 289,
-        "DishSumInt": 289,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 8889,
-        "DishSumInt": 9641,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1447,
-        "DishSumInt": 1447,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 4836,
-        "DishSumInt": 5444,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 3503,
-        "DishSumInt": 5983,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 5287,
-        "DishSumInt": 5589,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 289,
-        "DishSumInt": 289,
-        "HourOpen": "16",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 4885,
-        "DishSumInt": 5463,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1048,
-        "DishSumInt": 1048,
-        "HourOpen": "17",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 4412,
-        "DishSumInt": 5105,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 558,
-        "DishSumInt": 558,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 3553,
-        "DishSumInt": 5172,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1171,
-        "DishSumInt": 1366,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 4176,
-        "DishSumInt": 4176,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 3635,
-        "DishSumInt": 3728,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Панорама",
-        "DishDiscountSumInt": 1534,
-        "DishSumInt": 1853,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 2011,
-        "DishSumInt": 4356,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 13075,
-        "DishSumInt": 17757,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 30
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 1626,
-        "DishSumInt": 1776,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 1198,
-        "DishSumInt": 1467,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 14454,
-        "DishSumInt": 20026,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 27
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 1057,
-        "DishSumInt": 1217,
-        "HourOpen": "09",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 9988,
-        "DishSumInt": 12177,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 18050,
-        "DishSumInt": 20452,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 296,
-        "DishSumInt": 399,
-        "HourOpen": "11",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 17707,
-        "DishSumInt": 21633,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 32
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 12098,
-        "DishSumInt": 13533,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 1297,
-        "DishSumInt": 1297,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 17544,
-        "DishSumInt": 20806,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 28
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 7767,
-        "DishSumInt": 9297,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 10554,
-        "DishSumInt": 12293,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 1005,
-        "DishSumInt": 1047,
-        "HourOpen": "16",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 6224,
-        "DishSumInt": 8190,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 7909,
-        "DishSumInt": 9192,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 4941,
-        "DishSumInt": 5384,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 3226,
-        "DishSumInt": 4268,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Паруса",
-        "DishDiscountSumInt": 1226,
-        "DishSumInt": 1226,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 5008,
-        "DishSumInt": 5909,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 1379,
-        "DishSumInt": 1475,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 21710,
-        "DishSumInt": 36233,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 37
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 2523,
-        "DishSumInt": 2599,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 16004,
-        "DishSumInt": 18400,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 30
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 1498,
-        "DishSumInt": 1498,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 15564,
-        "DishSumInt": 17159,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 30
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 1686,
-        "DishSumInt": 1686,
-        "HourOpen": "10",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 14021,
-        "DishSumInt": 15804,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 15334,
-        "DishSumInt": 17288,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 22
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 251,
-        "DishSumInt": 259,
-        "HourOpen": "12",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 1128,
-        "DishSumInt": 1128,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 15584,
-        "DishSumInt": 16309,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 26
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 18004,
-        "DishSumInt": 20184,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 289,
-        "DishSumInt": 289,
-        "HourOpen": "15",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 8130,
-        "DishSumInt": 9591,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 13
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 524,
-        "DishSumInt": 1047,
-        "HourOpen": "15",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 698,
-        "DishSumInt": 698,
-        "HourOpen": "15",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 12882,
-        "DishSumInt": 13706,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 13088,
-        "DishSumInt": 13155,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 21
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 658,
-        "DishSumInt": 658,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 17542,
-        "DishSumInt": 30190,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 1174,
-        "DishSumInt": 1216,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 6968,
-        "DishSumInt": 8529,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 1844,
-        "DishSumInt": 1844,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 9593,
-        "DishSumInt": 10294,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 319,
-        "DishSumInt": 319,
-        "HourOpen": "21",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 6125,
-        "DishSumInt": 6828,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Преображенский",
-        "DishDiscountSumInt": 5572,
-        "DishSumInt": 6719,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1962,
-        "DishSumInt": 2192,
-        "HourOpen": "07",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 8591,
-        "DishSumInt": 10239,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1206,
-        "DishSumInt": 1286,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 2115,
-        "DishSumInt": 2115,
-        "HourOpen": "07",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 638,
-        "DishSumInt": 718,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 13606,
-        "DishSumInt": 16049,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 687,
-        "DishSumInt": 687,
-        "HourOpen": "08",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 15098,
-        "DishSumInt": 16360,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 29
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 12772,
-        "DishSumInt": 15021,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 120,
-        "DishSumInt": 239,
-        "HourOpen": "11",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 17298,
-        "DishSumInt": 19176,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 22
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 5929,
-        "DishSumInt": 5929,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 2333,
-        "DishSumInt": 2333,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 21204,
-        "DishSumInt": 25067,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 28
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 370,
-        "DishSumInt": 379,
-        "HourOpen": "12",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 988,
-        "DishSumInt": 988,
-        "HourOpen": "12",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1861,
-        "DishSumInt": 1914,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 13809,
-        "DishSumInt": 15817,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 26
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1707,
-        "DishSumInt": 1707,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 787,
-        "DishSumInt": 787,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 14044,
-        "DishSumInt": 15006,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 22
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 7321,
-        "DishSumInt": 9397,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 14
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1366,
-        "DishSumInt": 1366,
-        "HourOpen": "15",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1739,
-        "DishSumInt": 1756,
-        "HourOpen": "16",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 13884,
-        "DishSumInt": 15610,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 22
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 794,
-        "DishSumInt": 927,
-        "HourOpen": "17",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 15333,
-        "DishSumInt": 16126,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 19
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 827,
-        "DishSumInt": 827,
-        "HourOpen": "17",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 1325,
-        "DishSumInt": 1325,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 12905,
-        "DishSumInt": 13725,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 18
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 359,
-        "DishSumInt": 359,
-        "HourOpen": "18",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 6020,
-        "DishSumInt": 6219,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 319,
-        "DishSumInt": 319,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 6780,
-        "DishSumInt": 7007,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 3968,
-        "DishSumInt": 4003,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Свердлова",
-        "DishDiscountSumInt": 3387,
-        "DishSumInt": 3483,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 4850,
-        "DishSumInt": 5847,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 582,
-        "DishSumInt": 599,
-        "HourOpen": "07",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 2138,
-        "DishSumInt": 2503,
-        "HourOpen": "08",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 5
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 13714,
-        "DishSumInt": 18457,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 1647,
-        "DishSumInt": 1805,
-        "HourOpen": "09",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 10632,
-        "DishSumInt": 12869,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 1155,
-        "DishSumInt": 1395,
-        "HourOpen": "09",
-        "OrderType": "С собой*",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 1808,
-        "DishSumInt": 2104,
-        "HourOpen": "10",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 16741,
-        "DishSumInt": 18277,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 23
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 17848,
-        "DishSumInt": 20212,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 618,
-        "DishSumInt": 618,
-        "HourOpen": "11",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 1323,
-        "DishSumInt": 1323,
-        "HourOpen": "12",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 15146,
-        "DishSumInt": 16647,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 25
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 607,
-        "DishSumInt": 607,
-        "HourOpen": "13",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 16406,
-        "DishSumInt": 17315,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 27
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 848,
-        "DishSumInt": 848,
-        "HourOpen": "13",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 494,
-        "DishSumInt": 728,
-        "HourOpen": "14",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 4493,
-        "DishSumInt": 7368,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 5630,
-        "DishSumInt": 7276,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 379,
-        "DishSumInt": 379,
-        "HourOpen": "16",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 6981,
-        "DishSumInt": 8359,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 12
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 6772,
-        "DishSumInt": 8871,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 488,
-        "DishSumInt": 488,
-        "HourOpen": "18",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 4744,
-        "DishSumInt": 5033,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 285,
-        "DishSumInt": 319,
-        "HourOpen": "19",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 2967,
-        "DishSumInt": 2967,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 4
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 1542,
-        "DishSumInt": 1725,
-        "HourOpen": "20",
-        "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 1
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 5125,
-        "DishSumInt": 5945,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 3772,
-        "DishSumInt": 5401,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Советская",
-        "DishDiscountSumInt": 1405,
-        "DishSumInt": 1405,
-        "HourOpen": "22",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 578,
-        "DishSumInt": 767,
-        "HourOpen": "07",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 2168,
-        "DishSumInt": 2698,
-        "HourOpen": "08",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 2554,
-        "DishSumInt": 2554,
-        "HourOpen": "08",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 2
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 4263,
-        "DishSumInt": 6692,
-        "HourOpen": "09",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 4189,
-        "DishSumInt": 4189,
-        "HourOpen": "09",
-        "OrderType": "Яндекс Еда Тюмень",
-        "UniqOrderId.OrdersCount": 3
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 5031,
-        "DishSumInt": 6528,
-        "HourOpen": "10",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 3894,
-        "DishSumInt": 6041,
-        "HourOpen": "11",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 3540,
-        "DishSumInt": 4545,
-        "HourOpen": "12",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 2772,
-        "DishSumInt": 4039,
-        "HourOpen": "13",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 4162,
-        "DishSumInt": 4794,
-        "HourOpen": "14",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 3850,
-        "DishSumInt": 4289,
-        "HourOpen": "15",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 7
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 5398,
-        "DishSumInt": 12631,
-        "HourOpen": "16",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 8
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 7299,
-        "DishSumInt": 9109,
-        "HourOpen": "17",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 2260,
-        "DishSumInt": 2371,
-        "HourOpen": "18",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 6
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 7017,
-        "DishSumInt": 7235,
-        "HourOpen": "19",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 10
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 4946,
-        "DishSumInt": 5515,
-        "HourOpen": "20",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 9
-      },
-      {
-        "Department": "Софилэнд",
-        "DishDiscountSumInt": 1286,
-        "DishSumInt": 1286,
-        "HourOpen": "21",
-        "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
-      }
-    ],
-    "summary": []
-  },
   "sales_mtd_raw": {
     "data": [
       {
@@ -8709,9 +4509,9 @@
       },
       {
         "Department": "Видный",
-        "DishDiscountSumInt": 3289122,
-        "DishSumInt": 3781776,
-        "UniqOrderId.OrdersCount": 4950
+        "DishDiscountSumInt": 3292281,
+        "DishSumInt": 3785365,
+        "UniqOrderId.OrdersCount": 4956
       },
       {
         "Department": "Ворлд Класс",
@@ -8721,9 +4521,9 @@
       },
       {
         "Department": "Гагарина",
-        "DishDiscountSumInt": 1996386,
-        "DishSumInt": 2237698,
-        "UniqOrderId.OrdersCount": 2665
+        "DishDiscountSumInt": 1998821,
+        "DishSumInt": 2240889,
+        "UniqOrderId.OrdersCount": 2670
       },
       {
         "Department": "Газпром",
@@ -8733,15 +4533,15 @@
       },
       {
         "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 2048066,
-        "DishSumInt": 2512167,
-        "UniqOrderId.OrdersCount": 3004
+        "DishDiscountSumInt": 2048844,
+        "DishSumInt": 2513123,
+        "UniqOrderId.OrdersCount": 3006
       },
       {
         "Department": "Гарден Кофе Тобольск",
-        "DishDiscountSumInt": 2378452,
-        "DishSumInt": 2600502,
-        "UniqOrderId.OrdersCount": 3625
+        "DishDiscountSumInt": 2380556,
+        "DishSumInt": 2603132,
+        "UniqOrderId.OrdersCount": 3630
       },
       {
         "Department": "Домашний",
@@ -8751,21 +4551,21 @@
       },
       {
         "Department": "Драмтеатр",
-        "DishDiscountSumInt": 1725025,
-        "DishSumInt": 1992357,
-        "UniqOrderId.OrdersCount": 3269
+        "DishDiscountSumInt": 1725652,
+        "DishSumInt": 1993064,
+        "UniqOrderId.OrdersCount": 3272
       },
       {
         "Department": "Европа",
-        "DishDiscountSumInt": 2050163,
-        "DishSumInt": 2393911,
-        "UniqOrderId.OrdersCount": 3546
+        "DishDiscountSumInt": 2054834,
+        "DishSumInt": 2398885,
+        "UniqOrderId.OrdersCount": 3551
       },
       {
         "Department": "Калинка",
-        "DishDiscountSumInt": 3338528,
-        "DishSumInt": 3745448,
-        "UniqOrderId.OrdersCount": 5681
+        "DishDiscountSumInt": 3344718,
+        "DishSumInt": 3753514,
+        "UniqOrderId.OrdersCount": 5689
       },
       {
         "Department": "Мельникайте",
@@ -8781,9 +4581,9 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 4745507,
-        "DishSumInt": 5205203,
-        "UniqOrderId.OrdersCount": 8324
+        "DishDiscountSumInt": 4747254,
+        "DishSumInt": 5211961,
+        "UniqOrderId.OrdersCount": 8347
       },
       {
         "Department": "Осипенко",
@@ -8793,39 +4593,39 @@
       },
       {
         "Department": "Панорама",
-        "DishDiscountSumInt": 2642888,
-        "DishSumInt": 2964183,
-        "UniqOrderId.OrdersCount": 4453
+        "DishDiscountSumInt": 2644883,
+        "DishSumInt": 2966308,
+        "UniqOrderId.OrdersCount": 4455
       },
       {
         "Department": "Паруса",
-        "DishDiscountSumInt": 3008146,
-        "DishSumInt": 3993993,
-        "UniqOrderId.OrdersCount": 5050
+        "DishDiscountSumInt": 3009202,
+        "DishSumInt": 3995199,
+        "UniqOrderId.OrdersCount": 5051
       },
       {
         "Department": "Преображенский",
-        "DishDiscountSumInt": 3879490,
-        "DishSumInt": 4436418,
-        "UniqOrderId.OrdersCount": 5933
+        "DishDiscountSumInt": 3881888,
+        "DishSumInt": 4439455,
+        "UniqOrderId.OrdersCount": 5938
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 3790547,
-        "DishSumInt": 4298809,
-        "UniqOrderId.OrdersCount": 5993
+        "DishDiscountSumInt": 3796071,
+        "DishSumInt": 4304762,
+        "UniqOrderId.OrdersCount": 5999
       },
       {
         "Department": "Советская",
-        "DishDiscountSumInt": 2599071,
-        "DishSumInt": 2996823,
-        "UniqOrderId.OrdersCount": 4720
+        "DishDiscountSumInt": 2599773,
+        "DishSumInt": 2997769,
+        "UniqOrderId.OrdersCount": 4722
       },
       {
         "Department": "Софилэнд",
-        "DishDiscountSumInt": 1168840,
-        "DishSumInt": 2821458,
-        "UniqOrderId.OrdersCount": 1990
+        "DishDiscountSumInt": 1173253,
+        "DishSumInt": 2826998,
+        "UniqOrderId.OrdersCount": 1995
       }
     ],
     "summary": []
@@ -8851,7 +4651,7 @@
         "DishSumInt": 1257
       },
       {
-        "DishAmountInt": 3173,
+        "DishAmountInt": 3176,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 170 мл (Кофе 250 мл)",
         "DishSumInt": 0
@@ -8869,7 +4669,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1272,
+        "DishAmountInt": 1273,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 250 мл (Кофе 350мл)",
         "DishSumInt": 0
@@ -8887,7 +4687,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2157,
+        "DishAmountInt": 2159,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*без молока",
         "DishSumInt": 0
@@ -8899,10 +4699,10 @@
         "DishSumInt": 10080
       },
       {
-        "DishAmountInt": 1519,
+        "DishAmountInt": 1520,
         "DishGroup": "Молоко Латте Матча",
         "DishName": "- *Кокосовое Латте Матча",
-        "DishSumInt": 121390
+        "DishSumInt": 121470
       },
       {
         "DishAmountInt": 441,
@@ -8923,7 +4723,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 468,
+        "DishAmountInt": 469,
         "DishGroup": "Молоко Раф Ваниль",
         "DishName": "- *Молоко 450 Раф Ваниль ",
         "DishSumInt": 0
@@ -8935,13 +4735,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1201,
+        "DishAmountInt": 1203,
         "DishGroup": "Молоко Раф Солен.кар.",
         "DishName": "- *Молоко 450 Раф Соленая карамель ",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 314,
+        "DishAmountInt": 315,
         "DishGroup": "Молоко Раф Цитрус",
         "DishName": "- *Молоко 450 Раф Цитрус ",
         "DishSumInt": 0
@@ -8959,7 +4759,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2400,
+        "DishAmountInt": 2401,
         "DishGroup": "*Молоко Какао",
         "DishName": "- *Молоко Какао",
         "DishSumInt": 0
@@ -8977,13 +4777,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 15805.87,
+        "DishAmountInt": 15830.87,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 6240.5,
+        "DishAmountInt": 6243.5,
         "DishGroup": "Молоко Капучино 250мл*",
         "DishName": "- *Молоко Капучино М",
         "DishSumInt": 0
@@ -9025,13 +4825,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2134,
+        "DishAmountInt": 2136,
         "DishGroup": "Молоко Латте 250мл*",
         "DishName": "- *Молоко Латте 250 мл",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 5134.33,
+        "DishAmountInt": 5142.33,
         "DishGroup": "Молоко Латте 350мл*",
         "DishName": "- *Молоко Латте 350 мл",
         "DishSumInt": 0
@@ -9169,19 +4969,19 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2267,
+        "DishAmountInt": 2270,
         "DishGroup": "Молоко РАФ Арахис",
         "DishName": "- *Молоко Раф Арахис",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 21,
+        "DishAmountInt": 22,
         "DishGroup": "Молоко Раф Арахис_450",
         "DishName": "- *Молоко Раф Арахис_450",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1609,
+        "DishAmountInt": 1611,
         "DishGroup": "Молоко РАФ Ваниль",
         "DishName": "- *Молоко Раф Ваниль",
         "DishSumInt": 0
@@ -9199,7 +4999,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3436,
+        "DishAmountInt": 3442,
         "DishGroup": "Молоко РАФ Солен.кар.",
         "DishName": "- *Молоко Раф Соленая карамель",
         "DishSumInt": 0
@@ -9235,7 +5035,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1067,
+        "DishAmountInt": 1068,
         "DishGroup": "Молоко РАФ Цитрус",
         "DishName": "- *Молоко Раф Цитрус",
         "DishSumInt": 0
@@ -9247,7 +5047,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2052,
+        "DishAmountInt": 2055,
         "DishGroup": "Молоко РАФ Яблочный штрудель",
         "DishName": "- *Молоко Раф Яблочный штрудель",
         "DishSumInt": 0
@@ -9301,13 +5101,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2754.5,
+        "DishAmountInt": 2759.5,
         "DishGroup": "Молоко Флэт Уайт 350мл",
         "DishName": "- *Молоко Флэт Уайт_б",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2073,
+        "DishAmountInt": 2076,
         "DishGroup": "Молоко Флэт Уайт 250мл",
         "DishName": "- *Молоко Флэт Уайт_м",
         "DishSumInt": 0
@@ -9511,10 +5311,10 @@
         "DishSumInt": 1440
       },
       {
-        "DishAmountInt": 327,
+        "DishAmountInt": 328,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- Банановое Капучино Б",
-        "DishSumInt": 26160
+        "DishSumInt": 26240
       },
       {
         "DishAmountInt": 95,
@@ -10207,7 +6007,7 @@
         "DishSumInt": 99
       },
       {
-        "DishAmountInt": 467,
+        "DishAmountInt": 468,
         "DishGroup": "Сиропы",
         "DishName": "- Ванильный сироп 10 г",
         "DishSumInt": 0
@@ -10219,7 +6019,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 338,
+        "DishAmountInt": 340,
         "DishGroup": "Сиропы",
         "DishName": "- Ванильный сироп 20 г",
         "DishSumInt": 0
@@ -10237,7 +6037,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 272,
+        "DishAmountInt": 273,
         "DishGroup": "Сиропы/соусы к ванил рафу 450",
         "DishName": "- Ванильный сироп 30г",
         "DishSumInt": 0
@@ -10381,10 +6181,10 @@
         "DishSumInt": 180
       },
       {
-        "DishAmountInt": 951,
+        "DishAmountInt": 952,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- Кокосовое Капучино Б",
-        "DishSumInt": 76080
+        "DishSumInt": 76160
       },
       {
         "DishAmountInt": 354,
@@ -10423,10 +6223,10 @@
         "DishSumInt": 1170
       },
       {
-        "DishAmountInt": 103,
+        "DishAmountInt": 105,
         "DishGroup": "Молоко Латте 250мл*",
         "DishName": "- Кокосовое Латте 250 мл",
-        "DishSumInt": 8180
+        "DishSumInt": 8340
       },
       {
         "DishAmountInt": 300,
@@ -11197,13 +6997,13 @@
         "DishSumInt": 702
       },
       {
-        "DishAmountInt": 2866,
+        "DishAmountInt": 2870,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 10 мл",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2243,
+        "DishAmountInt": 2246,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 20 мл",
         "DishSumInt": 0
@@ -11647,10 +7447,10 @@
         "DishSumInt": 156
       },
       {
-        "DishAmountInt": 2421,
+        "DishAmountInt": 2424,
         "DishGroup": "Соусы",
         "DishName": "- Солёная карамель 40 г",
-        "DishSumInt": 144259
+        "DishSumInt": 144446
       },
       {
         "DishAmountInt": 66,
@@ -11701,10 +7501,10 @@
         "DishSumInt": 78
       },
       {
-        "DishAmountInt": 54,
+        "DishAmountInt": 55,
         "DishGroup": "*Допы Кухня",
         "DishName": "- Творожный сыр 30 гр",
-        "DishSumInt": 3127
+        "DishSumInt": 3186
       },
       {
         "DishAmountInt": 2,
@@ -11737,16 +7537,16 @@
         "DishSumInt": 395
       },
       {
-        "DishAmountInt": 14,
+        "DishAmountInt": 16,
         "DishGroup": "Сиропы и соусы к ванил рафу",
         "DishName": "- Топпинг карамельный 20 г",
-        "DishSumInt": 546
+        "DishSumInt": 624
       },
       {
-        "DishAmountInt": 484,
+        "DishAmountInt": 485,
         "DishGroup": "Соусы",
         "DishName": "- Топпинг карамельный 20 г",
-        "DishSumInt": 23776
+        "DishSumInt": 23825
       },
       {
         "DishAmountInt": 7,
@@ -11767,7 +7567,7 @@
         "DishSumInt": 1120
       },
       {
-        "DishAmountInt": 6562,
+        "DishAmountInt": 6565,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- Хлеб зерновой солодовый 40гр",
         "DishSumInt": 0
@@ -11797,7 +7597,7 @@
         "DishSumInt": 597
       },
       {
-        "DishAmountInt": 592,
+        "DishAmountInt": 593,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- американо 250 мл ",
         "DishSumInt": 0
@@ -11899,7 +7699,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 397,
+        "DishAmountInt": 398,
         "DishGroup": "С СОБОЙ 250мл/В ЧАШКЕ",
         "DishName": "- в чашке ",
         "DishSumInt": 0
@@ -11959,7 +7759,7 @@
         "DishSumInt": 138
       },
       {
-        "DishAmountInt": 2451,
+        "DishAmountInt": 2452,
         "DishGroup": "*Допы Напитки",
         "DishName": "- зефирки 10 г",
         "DishSumInt": 0
@@ -11977,7 +7777,7 @@
         "DishSumInt": 1176
       },
       {
-        "DishAmountInt": 2369,
+        "DishAmountInt": 2370,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- капучино 250 мл ",
         "DishSumInt": 0
@@ -12067,7 +7867,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 7421,
+        "DishAmountInt": 7430,
         "DishGroup": "*Допы Напитки",
         "DishName": "- корица молотая ",
         "DishSumInt": 0
@@ -12091,10 +7891,10 @@
         "DishSumInt": 38
       },
       {
-        "DishAmountInt": 551,
+        "DishAmountInt": 552,
         "DishGroup": "*Допы Кухня",
         "DishName": "- курица 50 гр",
-        "DishSumInt": 71209
+        "DishSumInt": 71338
       },
       {
         "DishAmountInt": 39,
@@ -12115,7 +7915,7 @@
         "DishSumInt": 87
       },
       {
-        "DishAmountInt": 939,
+        "DishAmountInt": 941,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- латте 250 мл ",
         "DishSumInt": 0
@@ -12127,10 +7927,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 406,
+        "DishAmountInt": 407,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- латте 350 мл ",
-        "DishSumInt": 31668
+        "DishSumInt": 31746
       },
       {
         "DishAmountInt": 1,
@@ -12391,7 +8191,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3011,
+        "DishAmountInt": 3019,
         "DishGroup": "*сиропы кофе 250",
         "DishName": "- сахарный сироп 10 мл",
         "DishSumInt": 0
@@ -12541,10 +8341,10 @@
         "DishSumInt": 49
       },
       {
-        "DishAmountInt": 89,
+        "DishAmountInt": 90,
         "DishGroup": "*сиропы кофе 250",
         "DishName": "- соус Халва 25 гр",
-        "DishSumInt": 3531
+        "DishSumInt": 3570
       },
       {
         "DishAmountInt": 6,
@@ -12685,7 +8485,7 @@
         "DishSumInt": 10643
       },
       {
-        "DishAmountInt": 689,
+        "DishAmountInt": 690,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- фильтр кофе 250 мл",
         "DishSumInt": 0
@@ -12715,10 +8515,10 @@
         "DishSumInt": 245
       },
       {
-        "DishAmountInt": 268,
+        "DishAmountInt": 269,
         "DishGroup": "*Допы Кухня",
         "DishName": "- форель 20 гр",
-        "DishSumInt": 48162
+        "DishSumInt": 48341
       },
       {
         "DishAmountInt": 20,
@@ -12739,7 +8539,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 4761.75,
+        "DishAmountInt": 4767.75,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный 50 гр",
         "DishSumInt": 0
@@ -12823,10 +8623,10 @@
         "DishSumInt": 1711
       },
       {
-        "DishAmountInt": 1409,
+        "DishAmountInt": 1414,
         "DishGroup": "*Допы Напитки",
         "DishName": "- эспрессо 1 порция",
-        "DishSumInt": 69431
+        "DishSumInt": 69676
       },
       {
         "DishAmountInt": 16,
@@ -12835,10 +8635,10 @@
         "DishSumInt": 944
       },
       {
-        "DishAmountInt": 714,
+        "DishAmountInt": 715,
         "DishGroup": "*Допы Кухня",
         "DishName": "- яйцо 1 шт",
-        "DishSumInt": 49496
+        "DishSumInt": 49565
       },
       {
         "DishAmountInt": 3,
@@ -12949,10 +8749,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2107,
+        "DishAmountInt": 2108,
         "DishGroup": "Кофе Терминал",
         "DishName": "Американо 350 мл ",
-        "DishSumInt": 608223
+        "DishSumInt": 608512
       },
       {
         "DishAmountInt": 30,
@@ -13021,10 +8821,10 @@
         "DishSumInt": 9438
       },
       {
-        "DishAmountInt": 198,
+        "DishAmountInt": 199,
         "DishGroup": "Сладкие",
         "DishName": "Банан 20 г",
-        "DishSumInt": 7722
+        "DishSumInt": 7761
       },
       {
         "DishAmountInt": 34,
@@ -13153,10 +8953,10 @@
         "DishSumInt": 396
       },
       {
-        "DishAmountInt": 1120.5,
+        "DishAmountInt": 1121.5,
         "DishGroup": "Блины и сырники",
         "DishName": "Блинчики с ветчиной ",
-        "DishSumInt": 382080
+        "DishSumInt": 382419
       },
       {
         "DishAmountInt": 160,
@@ -13177,16 +8977,16 @@
         "DishSumInt": 390799
       },
       {
-        "DishAmountInt": 318,
+        "DishAmountInt": 320,
         "DishGroup": "Блины и сырники(ЯНДЕКС)",
         "DishName": "Блинчики со сметаной и клубнич.компоте(ЯНДЕКС)",
-        "DishSumInt": 111482
+        "DishSumInt": 112180
       },
       {
-        "DishAmountInt": 1033,
+        "DishAmountInt": 1037,
         "DishGroup": "Блины и сырники",
         "DishName": "Блины Жюльен ",
-        "DishSumInt": 394097
+        "DishSumInt": 395653
       },
       {
         "DishAmountInt": 108,
@@ -13213,16 +9013,16 @@
         "DishSumInt": 2394
       },
       {
-        "DishAmountInt": 64,
+        "DishAmountInt": 65,
         "DishGroup": "Кофе в зернах",
         "DishName": "Бразилия Бэрри 1 кг",
-        "DishSumInt": 153755
+        "DishSumInt": 156155
       },
       {
-        "DishAmountInt": 206,
+        "DishAmountInt": 207,
         "DishGroup": "Кофе в зернах",
         "DishName": "Бразилия Бэрри 200 г ",
-        "DishSumInt": 121900
+        "DishSumInt": 122500
       },
       {
         "DishAmountInt": 14,
@@ -13249,10 +9049,10 @@
         "DishSumInt": 490
       },
       {
-        "DishAmountInt": 847,
+        "DishAmountInt": 848,
         "DishGroup": "Десерты Терминал",
         "DishName": "Булка маковая ",
-        "DishSumInt": 168553
+        "DishSumInt": 168752
       },
       {
         "DishAmountInt": 52,
@@ -13297,7 +9097,7 @@
         "DishSumInt": 50
       },
       {
-        "DishAmountInt": 4138,
+        "DishAmountInt": 4144,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Вместе",
         "DishSumInt": 0
@@ -13429,10 +9229,10 @@
         "DishSumInt": 449
       },
       {
-        "DishAmountInt": 1238.75,
+        "DishAmountInt": 1240.75,
         "DishGroup": "Завтраки",
         "DishName": "Деревенский завтрак ",
-        "DishSumInt": 671867
+        "DishSumInt": 672945
       },
       {
         "DishAmountInt": 326,
@@ -13489,10 +9289,10 @@
         "DishSumInt": 20159
       },
       {
-        "DishAmountInt": 1896,
+        "DishAmountInt": 1897,
         "DishGroup": "Завтраки",
         "DishName": "Драник с форелью",
-        "DishSumInt": 1101504
+        "DishSumInt": 1102103
       },
       {
         "DishAmountInt": 101,
@@ -13687,10 +9487,10 @@
         "DishSumInt": 5327
       },
       {
-        "DishAmountInt": 1815,
+        "DishAmountInt": 1816,
         "DishGroup": "Авторские напитки 350",
         "DishName": "Какао молочный 350 мл",
-        "DishSumInt": 561795
+        "DishSumInt": 562104
       },
       {
         "DishAmountInt": 309,
@@ -13747,13 +9547,13 @@
         "DishSumInt": 13067
       },
       {
-        "DishAmountInt": 7083.5,
+        "DishAmountInt": 7086.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 250 мл",
-        "DishSumInt": 1670594
+        "DishSumInt": 1671311
       },
       {
-        "DishAmountInt": 382,
+        "DishAmountInt": 384,
         "DishGroup": "Акции кофе в подарок",
         "DishName": "Капучино 250 мл в подарок",
         "DishSumInt": 0
@@ -13765,10 +9565,10 @@
         "DishSumInt": 10797
       },
       {
-        "DishAmountInt": 18257.87,
+        "DishAmountInt": 18284.87,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 5262457
+        "DishSumInt": 5269870
       },
       {
         "DishAmountInt": 206,
@@ -13837,28 +9637,28 @@
         "DishSumInt": 8070
       },
       {
-        "DishAmountInt": 1019,
+        "DishAmountInt": 1023,
         "DishGroup": "Каши",
         "DishName": "Каша овсяная с карамельным бананом",
-        "DishSumInt": 265352
+        "DishSumInt": 266388
       },
       {
-        "DishAmountInt": 174,
+        "DishAmountInt": 175,
         "DishGroup": "Каши(ЯНДЕКС)",
         "DishName": "Каша овсяная с карамельным бананом(ЯНДЕКС)",
-        "DishSumInt": 57466
+        "DishSumInt": 57795
       },
       {
-        "DishAmountInt": 1047,
+        "DishAmountInt": 1053,
         "DishGroup": "Каши",
         "DishName": "Каша рисовая на кокосовом ",
-        "DishSumInt": 272153
+        "DishSumInt": 273717
       },
       {
-        "DishAmountInt": 146,
+        "DishAmountInt": 148,
         "DishGroup": "Каши(ЯНДЕКС)",
         "DishName": "Каша рисовая на кокосовом (ЯНДЕКС)",
-        "DishSumInt": 48234
+        "DishSumInt": 48892
       },
       {
         "DishAmountInt": 159,
@@ -13909,10 +9709,10 @@
         "DishSumInt": 30129
       },
       {
-        "DishAmountInt": 1299,
+        "DishAmountInt": 1302,
         "DishGroup": "Десерты Терминал",
         "DishName": "Кекс морковный 1 порц ",
-        "DishSumInt": 310461
+        "DishSumInt": 311178
       },
       {
         "DishAmountInt": 17,
@@ -14089,10 +9889,10 @@
         "DishSumInt": 28095
       },
       {
-        "DishAmountInt": 3345,
+        "DishAmountInt": 3349,
         "DishGroup": "Завтраки",
         "DishName": "Комбо завтрак Бариста ",
-        "DishSumInt": 1712275
+        "DishSumInt": 1714311
       },
       {
         "DishAmountInt": 149,
@@ -14113,10 +9913,10 @@
         "DishSumInt": 52477
       },
       {
-        "DishAmountInt": 1227,
+        "DishAmountInt": 1228,
         "DishGroup": "Завтраки",
         "DishName": "Комбо завтрак Шерлока ",
-        "DishSumInt": 580533
+        "DishSumInt": 581002
       },
       {
         "DishAmountInt": 1,
@@ -14197,10 +9997,10 @@
         "DishSumInt": 539
       },
       {
-        "DishAmountInt": 1011,
+        "DishAmountInt": 1012,
         "DishGroup": "Десерты Терминал",
         "DishName": "Круассан ",
-        "DishSumInt": 221409
+        "DishSumInt": 221628
       },
       {
         "DishAmountInt": 23,
@@ -14227,10 +10027,10 @@
         "DishSumInt": 1938
       },
       {
-        "DishAmountInt": 250,
+        "DishAmountInt": 251,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Круассан с ветчиной ",
-        "DishSumInt": 120550
+        "DishSumInt": 121029
       },
       {
         "DishAmountInt": 36,
@@ -14299,10 +10099,10 @@
         "DishSumInt": 1672
       },
       {
-        "DishAmountInt": 1399,
+        "DishAmountInt": 1400,
         "DishGroup": "Десерты Терминал",
         "DishName": "Кукис шоколадный",
-        "DishSumInt": 208451
+        "DishSumInt": 208600
       },
       {
         "DishAmountInt": 20,
@@ -14371,10 +10171,10 @@
         "DishSumInt": 174
       },
       {
-        "DishAmountInt": 2343,
+        "DishAmountInt": 2346,
         "DishGroup": "Кофе Терминал",
         "DishName": "Латте 250 мл ",
-        "DishSumInt": 545633
+        "DishSumInt": 546350
       },
       {
         "DishAmountInt": 28,
@@ -14389,10 +10189,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 5813.33,
+        "DishAmountInt": 5821.33,
         "DishGroup": "Кофе Терминал",
         "DishName": "Латте 350 мл ",
-        "DishSumInt": 1679352
+        "DishSumInt": 1681674
       },
       {
         "DishAmountInt": 127,
@@ -14491,10 +10291,10 @@
         "DishSumInt": 4046
       },
       {
-        "DishAmountInt": 1186,
+        "DishAmountInt": 1187,
         "DishGroup": "Завтраки",
         "DishName": "Ливанский завтрак (с болгарским перцем)",
-        "DishSumInt": 474014
+        "DishSumInt": 474413
       },
       {
         "DishAmountInt": 64,
@@ -14635,10 +10435,10 @@
         "DishSumInt": 273
       },
       {
-        "DishAmountInt": 5429,
+        "DishAmountInt": 5433,
         "DishGroup": "Десерты Терминал",
         "DishName": "Макаруны ",
-        "DishSumInt": 808921
+        "DishSumInt": 809517
       },
       {
         "DishAmountInt": 43,
@@ -14707,10 +10507,10 @@
         "DishSumInt": 33358
       },
       {
-        "DishAmountInt": 1712,
+        "DishAmountInt": 1713,
         "DishGroup": "Авторские напитки 350",
         "DishName": "Матча Латте 350 мл",
-        "DishSumInt": 477648
+        "DishSumInt": 477927
       },
       {
         "DishAmountInt": 174,
@@ -14761,10 +10561,10 @@
         "DishSumInt": 2016
       },
       {
-        "DishAmountInt": 1334,
+        "DishAmountInt": 1335,
         "DishGroup": "Десерты Терминал",
         "DishName": "Медовик классический ",
-        "DishSumInt": 412206
+        "DishSumInt": 412515
       },
       {
         "DishAmountInt": 47,
@@ -14857,10 +10657,10 @@
         "DishSumInt": 3091
       },
       {
-        "DishAmountInt": 428,
+        "DishAmountInt": 429,
         "DishGroup": "Добавки БАР",
         "DishName": "Молоко 50 мл",
-        "DishSumInt": 12432
+        "DishSumInt": 12461
       },
       {
         "DishAmountInt": 214,
@@ -14869,10 +10669,10 @@
         "DishSumInt": 14786
       },
       {
-        "DishAmountInt": 718,
+        "DishAmountInt": 719,
         "DishGroup": "Холодные напитки 350",
         "DishName": "Молочный коктейль ",
-        "DishSumInt": 229043
+        "DishSumInt": 229362
       },
       {
         "DishAmountInt": 19,
@@ -14989,10 +10789,10 @@
         "DishSumInt": 19
       },
       {
-        "DishAmountInt": 99,
+        "DishAmountInt": 100,
         "DishGroup": "Несладкие",
         "DishName": "Огурец свежий 30 г",
-        "DishSumInt": 3891
+        "DishSumInt": 3930
       },
       {
         "DishAmountInt": 2,
@@ -15019,10 +10819,10 @@
         "DishSumInt": 878
       },
       {
-        "DishAmountInt": 664,
+        "DishAmountInt": 665,
         "DishGroup": "Завтраки",
         "DishName": "Омлет с трюфельным соусом",
-        "DishSumInt": 259066
+        "DishSumInt": 259455
       },
       {
         "DishAmountInt": 75,
@@ -15145,10 +10945,10 @@
         "DishSumInt": 2115
       },
       {
-        "DishAmountInt": 2433,
+        "DishAmountInt": 2436,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Арахисовый ",
-        "DishSumInt": 773577
+        "DishSumInt": 774534
       },
       {
         "DishAmountInt": 42,
@@ -15169,16 +10969,16 @@
         "DishSumInt": 129
       },
       {
-        "DishAmountInt": 22,
+        "DishAmountInt": 23,
         "DishGroup": "Авторские напитки 450(ЯНДЕКС)",
         "DishName": "Раф Арахисовый_450(ЯНДЕКС)",
-        "DishSumInt": 13468
+        "DishSumInt": 14077
       },
       {
-        "DishAmountInt": 1689,
+        "DishAmountInt": 1691,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Ванильный ",
-        "DishSumInt": 536071
+        "DishSumInt": 536709
       },
       {
         "DishAmountInt": 21,
@@ -15187,10 +10987,10 @@
         "DishSumInt": 9039
       },
       {
-        "DishAmountInt": 514,
+        "DishAmountInt": 515,
         "DishGroup": "Рафы 450",
         "DishName": "Раф Ванильный 450",
-        "DishSumInt": 230896
+        "DishSumInt": 231345
       },
       {
         "DishAmountInt": 1,
@@ -15217,16 +11017,16 @@
         "DishSumInt": 14817
       },
       {
-        "DishAmountInt": 3606,
+        "DishAmountInt": 3612,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Солёная карамель",
-        "DishSumInt": 1143984
+        "DishSumInt": 1145898
       },
       {
-        "DishAmountInt": 1259,
+        "DishAmountInt": 1261,
         "DishGroup": "Рафы 450",
         "DishName": "Раф Солёная карамель 450",
-        "DishSumInt": 565501
+        "DishSumInt": 566399
       },
       {
         "DishAmountInt": 72,
@@ -15241,10 +11041,10 @@
         "DishSumInt": 20097
       },
       {
-        "DishAmountInt": 1127,
+        "DishAmountInt": 1128,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Цитрусовый ",
-        "DishSumInt": 358393
+        "DishSumInt": 358712
       },
       {
         "DishAmountInt": 20,
@@ -15253,10 +11053,10 @@
         "DishSumInt": 8700
       },
       {
-        "DishAmountInt": 328,
+        "DishAmountInt": 329,
         "DishGroup": "Рафы 450",
         "DishName": "Раф Цитрусовый 450",
-        "DishSumInt": 147352
+        "DishSumInt": 147801
       },
       {
         "DishAmountInt": 9,
@@ -15265,10 +11065,10 @@
         "DishSumInt": 5541
       },
       {
-        "DishAmountInt": 2136,
+        "DishAmountInt": 2139,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Яблочный штрудель",
-        "DishSumInt": 682085
+        "DishSumInt": 683042
       },
       {
         "DishAmountInt": 22,
@@ -15313,10 +11113,10 @@
         "DishSumInt": 950
       },
       {
-        "DishAmountInt": 1417,
+        "DishAmountInt": 1418,
         "DishGroup": "Десерты Терминал",
         "DishName": "Рулет Меренговый с манго ",
-        "DishSumInt": 437853
+        "DishSumInt": 438162
       },
       {
         "DishAmountInt": 28,
@@ -15343,16 +11143,16 @@
         "DishSumInt": 5200
       },
       {
-        "DishAmountInt": 1870,
+        "DishAmountInt": 1871,
         "DishGroup": "Салаты и горячее",
         "DishName": "Салат \"Цезарь\"",
-        "DishSumInt": 713800
+        "DishSumInt": 714179
       },
       {
-        "DishAmountInt": 84,
+        "DishAmountInt": 85,
         "DishGroup": "Салаты и горячее",
         "DishName": "Салат \"Цезарь\" с креветками",
-        "DishSumInt": 46316
+        "DishSumInt": 46865
       },
       {
         "DishAmountInt": 149,
@@ -15367,10 +11167,10 @@
         "DishSumInt": 438
       },
       {
-        "DishAmountInt": 700,
+        "DishAmountInt": 701,
         "DishGroup": "Салаты и горячее",
         "DishName": "Салат с креветками и киноа",
-        "DishSumInt": 363600
+        "DishSumInt": 364119
       },
       {
         "DishAmountInt": 38,
@@ -15523,10 +11323,10 @@
         "DishSumInt": 4491
       },
       {
-        "DishAmountInt": 2102,
+        "DishAmountInt": 2104,
         "DishGroup": "Завтраки",
         "DishName": "Скрембл с форелью ",
-        "DishSumInt": 1263548
+        "DishSumInt": 1264746
       },
       {
         "DishAmountInt": 143,
@@ -15583,10 +11383,10 @@
         "DishSumInt": 13226
       },
       {
-        "DishAmountInt": 64,
+        "DishAmountInt": 65,
         "DishGroup": "Несладкие",
         "DishName": "Сметана 30 г",
-        "DishSumInt": 2546
+        "DishSumInt": 2585
       },
       {
         "DishAmountInt": 840,
@@ -15667,10 +11467,10 @@
         "DishSumInt": 801
       },
       {
-        "DishAmountInt": 29,
+        "DishAmountInt": 30,
         "DishGroup": "Сладкие",
         "DishName": "Соус лесные ягоды 30 г",
-        "DishSumInt": 1711
+        "DishSumInt": 1770
       },
       {
         "DishAmountInt": 5,
@@ -15709,10 +11509,10 @@
         "DishSumInt": 8822
       },
       {
-        "DishAmountInt": 36,
+        "DishAmountInt": 37,
         "DishGroup": "Несладкие",
         "DishName": "Соус цезарь 30 г",
-        "DishSumInt": 1064
+        "DishSumInt": 1093
       },
       {
         "DishAmountInt": 114,
@@ -15727,7 +11527,7 @@
         "DishSumInt": 1691
       },
       {
-        "DishAmountInt": 8195,
+        "DishAmountInt": 8199,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Сразу",
         "DishSumInt": 0
@@ -15781,10 +11581,10 @@
         "DishSumInt": 2844
       },
       {
-        "DishAmountInt": 1986,
+        "DishAmountInt": 1987,
         "DishGroup": "Блины и сырники",
         "DishName": "Сырники классика ",
-        "DishSumInt": 638214
+        "DishSumInt": 638533
       },
       {
         "DishAmountInt": 226,
@@ -15793,10 +11593,10 @@
         "DishSumInt": 97074
       },
       {
-        "DishAmountInt": 1126,
+        "DishAmountInt": 1127,
         "DishGroup": "Блины и сырники",
         "DishName": "Сырники мак лесные ягоды",
-        "DishSumInt": 385754
+        "DishSumInt": 386093
       },
       {
         "DishAmountInt": 110,
@@ -15817,10 +11617,10 @@
         "DishSumInt": 9101
       },
       {
-        "DishAmountInt": 923,
+        "DishAmountInt": 925,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Сэндвич на тосте с курицей",
-        "DishSumInt": 368477
+        "DishSumInt": 369275
       },
       {
         "DishAmountInt": 24,
@@ -15829,10 +11629,10 @@
         "DishSumInt": 12936
       },
       {
-        "DishAmountInt": 200,
+        "DishAmountInt": 201,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Сэндвич на тосте с форелью",
-        "DishSumInt": 109820
+        "DishSumInt": 110369
       },
       {
         "DishAmountInt": 3,
@@ -15859,10 +11659,10 @@
         "DishSumInt": 343121
       },
       {
-        "DishAmountInt": 111,
+        "DishAmountInt": 112,
         "DishGroup": "Сэндвичи(ЯНДЕКС)",
         "DishName": "Сэндвич на фокачче с курицей (ЯНДЕКС)",
-        "DishSumInt": 59829
+        "DishSumInt": 60368
       },
       {
         "DishAmountInt": 215,
@@ -15907,10 +11707,10 @@
         "DishSumInt": 7826
       },
       {
-        "DishAmountInt": 163,
+        "DishAmountInt": 164,
         "DishGroup": "Десерты Терминал",
         "DishName": "Тарталетка с яблоком",
-        "DishSumInt": 63407
+        "DishSumInt": 63796
       },
       {
         "DishAmountInt": 420,
@@ -15949,7 +11749,7 @@
         "DishSumInt": 2090
       },
       {
-        "DishAmountInt": 546.291,
+        "DishAmountInt": 561.291,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 101646
@@ -16021,10 +11821,10 @@
         "DishSumInt": 23961
       },
       {
-        "DishAmountInt": 1260,
+        "DishAmountInt": 1262,
         "DishGroup": "Десерты Терминал",
         "DishName": "Улитка ореховая с карамелью",
-        "DishSumInt": 364140
+        "DishSumInt": 364718
       },
       {
         "DishAmountInt": 20,
@@ -16045,10 +11845,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2234.08,
+        "DishAmountInt": 2239.08,
         "DishGroup": "Кофе Терминал",
         "DishName": "Фильтр Кофе Безлимит",
-        "DishSumInt": 642853
+        "DishSumInt": 644388
       },
       {
         "DishAmountInt": 14,
@@ -16093,10 +11893,10 @@
         "DishSumInt": 790
       },
       {
-        "DishAmountInt": 2351,
+        "DishAmountInt": 2354,
         "DishGroup": "Кофе Терминал",
         "DishName": "Флэт Уайт 250 мл ",
-        "DishSumInt": 631969
+        "DishSumInt": 632786
       },
       {
         "DishAmountInt": 15,
@@ -16111,10 +11911,10 @@
         "DishSumInt": 129
       },
       {
-        "DishAmountInt": 3106.5,
+        "DishAmountInt": 3111.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Флэт Уайт 350 мл ",
-        "DishSumInt": 1109914
+        "DishSumInt": 1111709
       },
       {
         "DishAmountInt": 26,
@@ -16147,10 +11947,10 @@
         "DishSumInt": 1000
       },
       {
-        "DishAmountInt": 287,
+        "DishAmountInt": 288,
         "DishGroup": "Фреши",
         "DishName": "Фреш Апельсиновый 250 мл ",
-        "DishSumInt": 137534
+        "DishSumInt": 138013
       },
       {
         "DishAmountInt": 331.5,
@@ -16657,10 +12457,10 @@
         "DishSumInt": 8998
       },
       {
-        "DishAmountInt": 1012,
+        "DishAmountInt": 1013,
         "DishGroup": "Чай Авторский 450",
         "DishName": "Чай Облепиха Маракуйя 450",
-        "DishSumInt": 414408
+        "DishSumInt": 414817
       },
       {
         "DishAmountInt": 1,
@@ -16789,10 +12589,10 @@
         "DishSumInt": 2490
       },
       {
-        "DishAmountInt": 59,
+        "DishAmountInt": 60,
         "DishGroup": "Несладкие",
         "DishName": "Черри 30 г",
-        "DishSumInt": 3491
+        "DishSumInt": 3550
       },
       {
         "DishAmountInt": 908,
@@ -17043,6 +12843,11 @@
         "DishDiscountSumInt": 3068867,
         "DishSumInt": 3510186,
         "OpenDate.Typed": "2026-09-19"
+      },
+      {
+        "DishDiscountSumInt": 37799,
+        "DishSumInt": 49678,
+        "OpenDate.Typed": "2026-09-20"
       }
     ],
     "summary": []
@@ -17051,123 +12856,39 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 2575674,
-        "net_sum": 2404031,
-        "discount_sum": 28009
-      },
-      {
-        "discount_type": "Rehome",
-        "gross_sum": 1233,
-        "net_sum": 215,
-        "discount_sum": 1018
+        "gross_sum": 19588,
+        "net_sum": 13586,
+        "discount_sum": 3510
       },
       {
         "discount_type": "iikoCard",
-        "gross_sum": 15511,
-        "net_sum": 11620,
-        "discount_sum": 3314
+        "gross_sum": 598,
+        "net_sum": 478,
+        "discount_sum": 120
       },
       {
         "discount_type": "iikoCard, iikoCard5 Бонусы Гости",
-        "gross_sum": 478,
-        "net_sum": 366,
-        "discount_sum": 112
-      },
-      {
-        "discount_type": "iikoCard, Кофе по сниженной цене",
-        "gross_sum": 698,
-        "net_sum": 339,
-        "discount_sum": 359
-      },
-      {
-        "discount_type": "iikoCard, Скидка 100% на ДР на десерт/кофе",
-        "gross_sum": 269,
-        "net_sum": 0,
-        "discount_sum": 269
+        "gross_sum": 358,
+        "net_sum": 300,
+        "discount_sum": 58
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости",
-        "gross_sum": 473896,
-        "net_sum": 350124,
-        "discount_sum": 101413
+        "gross_sum": 697,
+        "net_sum": 482,
+        "discount_sum": 66
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене",
-        "gross_sum": 31840,
-        "net_sum": 21985,
-        "discount_sum": 7822
-      },
-      {
-        "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене, Скидка 100% на ДР на десерт/кофе",
-        "gross_sum": 1037,
-        "net_sum": 538,
-        "discount_sum": 499
-      },
-      {
-        "discount_type": "iikoCard5 Бонусы Гости, Скидка 100% на ДР на десерт/кофе",
-        "gross_sum": 4637,
-        "net_sum": 1762,
-        "discount_sum": 2875
-      },
-      {
-        "discount_type": "Депозит iikocard5",
-        "gross_sum": 319,
-        "net_sum": 0,
-        "discount_sum": 319
+        "gross_sum": 3468,
+        "net_sum": 2149,
+        "discount_sum": 1319
       },
       {
         "discount_type": "Кофе по сниженной цене",
-        "gross_sum": 264213,
-        "net_sum": 219988,
-        "discount_sum": 26512
-      },
-      {
-        "discount_type": "Кофе по сниженной цене, Скидка 100% на ДР на десерт/кофе",
-        "gross_sum": 947,
-        "net_sum": 0,
-        "discount_sum": 947
-      },
-      {
-        "discount_type": "Подарочный сертификат",
-        "gross_sum": 7977,
-        "net_sum": 1110,
-        "discount_sum": 5211
-      },
-      {
-        "discount_type": "Подарочный сертификат, Скидка сотрудника iikoCard",
-        "gross_sum": 3202,
-        "net_sum": 0,
-        "discount_sum": 3202
-      },
-      {
-        "discount_type": "Применен промокод SKIDKA",
-        "gross_sum": 3906,
-        "net_sum": 2407,
-        "discount_sum": 1032
-      },
-      {
-        "discount_type": "Пять Звезд (для ваучера)",
-        "gross_sum": 997,
-        "net_sum": 0,
-        "discount_sum": 997
-      },
-      {
-        "discount_type": "Скидка 100% на ДР на десерт/кофе",
-        "gross_sum": 28560,
-        "net_sum": 14244,
-        "discount_sum": 11217
-      },
-      {
-        "discount_type": "Скидка сотрудника iikoCard",
-        "gross_sum": 70208,
-        "net_sum": 33533,
-        "discount_sum": 14668
-      },
-      {
-        "discount_type": "Сскидка 30% Республики 245 (World Class)",
-        "gross_sum": 24584,
-        "net_sum": 6605,
-        "discount_sum": 3445
+        "gross_sum": 24969,
+        "net_sum": 20804,
+        "discount_sum": 2550
       }
     ],
     "summary": []
