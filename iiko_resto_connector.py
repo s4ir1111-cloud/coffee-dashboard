@@ -32,12 +32,14 @@ import getpass
 import hashlib
 import json
 import os
-from datetime import date, timedelta
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import requests
 
 HOST = os.environ.get("IIKO_HOST", "https://kofeinya-garden-co.iiko.it")
 VERIFY_SSL = True  # если сервер с самоподписанным сертификатом, поставьте False
+DASHBOARD_TIMEZONE = ZoneInfo(os.environ.get("DASHBOARD_TIMEZONE", "Asia/Yekaterinburg"))
 
 
 def login(host: str, username: str, password: str) -> str:
@@ -228,7 +230,9 @@ def olap_top_items(host: str, token: str, month_start: str, next_day: str) -> di
 
 
 def main():
-    today = date.today()
+    # GitHub-hosted runners use UTC. The coffee shops use Yekaterinburg time,
+    # so date.today() selected yesterday during the first five local hours.
+    today = datetime.now(DASHBOARD_TIMEZONE).date()
     today_str = today.isoformat()
     yesterday_str = (today - timedelta(days=1)).isoformat()
     tomorrow = (today + timedelta(days=1)).isoformat()
@@ -248,6 +252,15 @@ def main():
     try:
         print(f"2. Строим отчёт по продажам за {today_str}...")
         sales = olap_sales_report(HOST, token, today_str, tomorrow)
+
+        # A transient empty OLAP response must not overwrite the last valid
+        # dashboard snapshot once the trading day is already under way.
+        local_now = datetime.now(DASHBOARD_TIMEZONE)
+        if local_now.hour >= 8 and not sales.get("data"):
+            raise RuntimeError(
+                f"IIKO вернул пустой отчёт за {today_str} в {local_now:%H:%M}; "
+                "предыдущие данные сохранены"
+            )
 
         print(f"2а. Строим почасовой отчёт за {yesterday_str}...")
         sales_yesterday = olap_sales_report(HOST, token, yesterday_str, today_str)
