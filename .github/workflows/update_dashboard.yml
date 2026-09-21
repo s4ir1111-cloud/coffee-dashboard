@@ -2,13 +2,27 @@ name: Update Dashboard Data
 
 on:
   schedule:
-    # Каждые 15 минут (UTC). Для Тюмени/Сургута UTC+5 — т.е. с 05:00 до 23:00 местного.
-    - cron: '*/15 * * * *'
+    # Уводим запуски с :00/:15/:30/:45 — в эти минуты GitHub чаще
+    # задерживает или отбрасывает scheduled jobs из-за общей нагрузки.
+    - cron: '7,22,37,52 * * * *'
+  push:
+    branches: [main]
+    # Резервный запуск при успешном обновлении соседних отчётов.
+    # Файлы самого дашборда не включены, поэтому рекурсии не будет.
+    paths:
+      - 'finance_data.json'
+      - 'pnl_data.json'
+      - 'operational_alerts.json'
+      - 'guest_cdp_data.json'
+      - '.github/workflows/update_dashboard.yml'
   workflow_dispatch:  # ручной запуск из интерфейса GitHub
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    concurrency:
+      group: update-dashboard-data
+      cancel-in-progress: false
     permissions:
       contents: write
 
@@ -29,6 +43,7 @@ jobs:
           IIKO_HOST: ${{ secrets.IIKO_HOST }}
           IIKO_LOGIN: ${{ secrets.IIKO_LOGIN }}
           IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
+          DASHBOARD_TIMEZONE: Asia/Yekaterinburg
         run: python iiko_resto_connector.py
 
       - name: Build dashboard data
