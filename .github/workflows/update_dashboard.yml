@@ -1,20 +1,11 @@
 name: Update Dashboard Data
 
 on:
+  workflow_call:
   schedule:
-    # Уводим запуски с :00/:15/:30/:45 — в эти минуты GitHub чаще
-    # задерживает или отбрасывает scheduled jobs из-за общей нагрузки.
-    - cron: '7,22,37,52 * * * *'
-  push:
-    branches: [main]
-    # Резервный запуск при успешном обновлении соседних отчётов.
-    # Файлы самого дашборда не включены, поэтому рекурсии не будет.
-    paths:
-      - 'finance_data.json'
-      - 'pnl_data.json'
-      - 'operational_alerts.json'
-      - 'guest_cdp_data.json'
-      - '.github/workflows/update_dashboard.yml'
+    # Первый из четырёх независимых планировщиков. Остальные находятся
+    # в dashboard_schedule_*.yml и вызывают этот workflow повторно.
+    - cron: '7 * * * *'
   workflow_dispatch:  # ручной запуск из интерфейса GitHub
 
 jobs:
