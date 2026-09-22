@@ -1,0 +1,14 @@
+name: Dashboard Scheduler 37
+
+on:
+  schedule:
+    - cron: '37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    uses: ./.github/workflows/update_dashboard.yml
+    secrets: inherit
