@@ -4,13 +4,119 @@
     "revenue": 0,
     "orders": 0,
     "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": "04",
+    "yesterday_same_hour_revenue": 942534,
+    "yesterday_same_hour_orders": 1767,
+    "comparison_hour": "11",
     "discount_pct": null
   },
   "points": [],
-  "yesterday_same_hour_points": [],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Прео",
+      "revenue": 85105,
+      "orders": 141
+    },
+    {
+      "name": "Океан",
+      "revenue": 79695,
+      "orders": 147
+    },
+    {
+      "name": "Свердлова",
+      "revenue": 69275,
+      "orders": 129
+    },
+    {
+      "name": "Калинка",
+      "revenue": 57112,
+      "orders": 118
+    },
+    {
+      "name": "Видный",
+      "revenue": 56748,
+      "orders": 92
+    },
+    {
+      "name": "Новин",
+      "revenue": 55503,
+      "orders": 100
+    },
+    {
+      "name": "Европа",
+      "revenue": 55110,
+      "orders": 86
+    },
+    {
+      "name": "Советская",
+      "revenue": 55028,
+      "orders": 106
+    },
+    {
+      "name": "Панорама",
+      "revenue": 50463,
+      "orders": 91
+    },
+    {
+      "name": "Паруса",
+      "revenue": 49661,
+      "orders": 106
+    },
+    {
+      "name": "Гарден Кофе Тобольск",
+      "revenue": 49600,
+      "orders": 77
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 44284,
+      "orders": 53
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 34667,
+      "orders": 76
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 34557,
+      "orders": 71
+    },
+    {
+      "name": "Гагарина",
+      "revenue": 31906,
+      "orders": 48
+    },
+    {
+      "name": "Арсиб",
+      "revenue": 31730,
+      "orders": 71
+    },
+    {
+      "name": "Газпром",
+      "revenue": 27770,
+      "orders": 106
+    },
+    {
+      "name": "Домашний",
+      "revenue": 27446,
+      "orders": 45
+    },
+    {
+      "name": "Осипенко",
+      "revenue": 18087,
+      "orders": 42
+    },
+    {
+      "name": "Софилэнд",
+      "revenue": 15481,
+      "orders": 30
+    },
+    {
+      "name": "Ворлд Класс",
+      "revenue": 13306,
+      "orders": 32
+    }
+  ],
   "hourly": [],
   "weekly": [
     {
@@ -232,54 +338,68 @@
       "revenue": 1339714
     }
   ],
-  "summer_drinks": [
+  "top_food": [
     {
-      "name": "Матча Латте 350 мл",
-      "group": "Авторские напитки 350",
-      "qty": 1881,
-      "revenue": 524799
+      "name": "Комбо завтрак Бариста",
+      "group": "Завтраки",
+      "qty": 3993,
+      "revenue": 2044017
     },
     {
-      "name": "Лимонад Клубника-Маракуйя",
-      "group": "Лимонады 350",
-      "qty": 1831,
-      "revenue": 510849
+      "name": "Скрембл с форелью",
+      "group": "Завтраки",
+      "qty": 2521,
+      "revenue": 1515129
     },
     {
-      "name": "Бамбл кофе на фреше",
-      "group": "Бамбл",
-      "qty": 1114.5,
-      "revenue": 383506
+      "name": "Драник с форелью",
+      "group": "Завтраки",
+      "qty": 2306,
+      "revenue": 1339714
     },
     {
-      "name": "Смузи Клубника Банан",
-      "group": "Смузи",
-      "qty": 1024,
-      "revenue": 377857
+      "name": "Комбо Завтрак Баварский",
+      "group": "Завтраки",
+      "qty": 2420,
+      "revenue": 1240791
     },
     {
-      "name": "Лимонад Клубника-Маракуйя 590 мл",
-      "group": "Лимонады 590",
-      "qty": 937,
-      "revenue": 355123
+      "name": "Паста с ветчиной",
+      "group": "Салаты и горячее",
+      "qty": 3385,
+      "revenue": 1184515
+    }
+  ],
+  "top_drinks": [
+    {
+      "name": "Капучино 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 22150.12,
+      "revenue": 6383459
     },
     {
-      "name": "Эспрессо Тоник классик",
-      "group": "Тоник",
-      "qty": 1060,
-      "revenue": 306620
+      "name": "Латте 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 7061.33,
+      "revenue": 2039844
     },
     {
-      "name": "Лимонад Классический",
-      "group": "Лимонады 350",
-      "qty": 1089,
-      "revenue": 303831
+      "name": "Капучино 250 мл",
+      "group": "Кофе Терминал",
+      "qty": 8664.5,
+      "revenue": 2039842
     },
     {
-      "name": "Молочный коктейль",
-      "group": "Холодные напитки 350",
-      "qty": 881.5,
-      "revenue": 281200
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 4793.5,
+      "revenue": 1714617
+    },
+    {
+      "name": "Раф Солёная карамель",
+      "group": "Рафы 350",
+      "qty": 4356,
+      "revenue": 1381634
     }
   ],
   "plan": {

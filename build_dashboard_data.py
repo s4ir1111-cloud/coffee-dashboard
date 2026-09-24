@@ -26,18 +26,25 @@ DEPT_ALIASES = {
     "Преображенский": "Прео",
 }
 
-# Ключевые слова для определения летних/холодных напитков
-# Проверяются в названии группы (DishGroup) и названии блюда (DishName)
-SUMMER_GROUP_KW = ['лет', 'холод', 'смузи', 'лимонад', 'summer', 'cold', 'ice', 'fresh']
-SUMMER_NAME_KW  = ['лимонад', 'смузи', 'фреш', 'айс', 'холодн', 'мохито', 'тоник',
-                   'милкшейк', 'шейк', 'фраппе', 'гранита', 'матча', 'cold brew',
-                   'ice', 'iced', 'lemonade', 'smoothie']
+# Группы IIKO для двух товарных рейтингов. Допы, доставка, товары и услуги
+# намеренно не входят ни в блюда, ни в напитки.
+DRINK_GROUP_KW = [
+    'кофе', 'раф', 'чай', 'какао', 'матча', 'лимонад', 'смузи', 'бамбл',
+    'тоник', 'фреш', 'напит', 'милкшейк', 'шейк', 'глинтвейн',
+]
+FOOD_GROUP_KW = [
+    'завтрак', 'десерт', 'салат', 'горяч', 'блин', 'сырник', 'сэндвич',
+    'круассан', 'каша', 'паста', 'фитнес блюда', 'комбо терминал',
+]
 
-def is_summer_drink(name: str, group: str) -> bool:
-    g = group.lower()
-    n = name.lower()
-    return (any(kw in g for kw in SUMMER_GROUP_KW) or
-            any(kw in n for kw in SUMMER_NAME_KW))
+
+def item_kind(group: str):
+    normalized = (group or '').casefold().replace('ё', 'е')
+    if any(keyword in normalized for keyword in DRINK_GROUP_KW):
+        return 'drink'
+    if any(keyword in normalized for keyword in FOOD_GROUP_KW):
+        return 'food'
+    return None
 
 BASE_DIR = os.path.dirname(__file__)
 IN_PATH = os.path.join(BASE_DIR, "dashboard_data.json")
@@ -150,9 +157,9 @@ def main():
     items.sort(key=lambda x: -x["revenue"])
     top_items = items[:8]
 
-    # --- Топ летних напитков с начала месяца ---
-    summer_drinks = [it for it in items if is_summer_drink(it["name"], it["group"])]
-    summer_drinks = summer_drinks[:8]
+    # --- Топ-5 блюд и напитков с начала месяца ---
+    top_food = [it for it in items if item_kind(it["group"]) == 'food'][:5]
+    top_drinks = [it for it in items if item_kind(it["group"]) == 'drink'][:5]
 
     # --- Итоги (сегодня) ---
     total_revenue = sum(p["revenue"] for p in points)
@@ -254,7 +261,8 @@ def main():
         "hourly": hourly,
         "weekly": weekly,
         "top_items": top_items,
-        "summer_drinks": summer_drinks,
+        "top_food": top_food,
+        "top_drinks": top_drinks,
         "plan": {
             "summary": plan_summary,
             "points": plan_rows,
