@@ -32,6 +32,7 @@ import getpass
 import hashlib
 import json
 import os
+import time
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -40,12 +41,33 @@ import requests
 HOST = os.environ.get("IIKO_HOST", "https://kofeinya-garden-co.iiko.it")
 VERIFY_SSL = True  # если сервер с самоподписанным сертификатом, поставьте False
 DASHBOARD_TIMEZONE = ZoneInfo(os.environ.get("DASHBOARD_TIMEZONE", "Asia/Yekaterinburg"))
+REQUEST_ATTEMPTS = 5
+
+
+def _request(method: str, url: str, **kwargs) -> requests.Response:
+    """HTTP-запрос с повторами при временных DNS/сетевых ошибках IIKO."""
+    last_error = None
+    for attempt in range(1, REQUEST_ATTEMPTS + 1):
+        try:
+            return requests.request(method, url, **kwargs)
+        except requests.RequestException as error:
+            last_error = error
+            if attempt == REQUEST_ATTEMPTS:
+                break
+            delay = 2 ** (attempt - 1)
+            print(
+                f"   Сетевая ошибка IIKO (попытка {attempt}/{REQUEST_ATTEMPTS}): "
+                f"{error}. Повтор через {delay} с..."
+            )
+            time.sleep(delay)
+    raise last_error
 
 
 def login(host: str, username: str, password: str) -> str:
     """Авторизация: возвращает токен (key)."""
     pass_hash = hashlib.sha1(password.encode("utf-8")).hexdigest()
-    resp = requests.get(
+    resp = _request(
+        "GET",
         f"{host}/resto/api/auth",
         params={"login": username, "pass": pass_hash},
         verify=VERIFY_SSL,
@@ -58,16 +80,21 @@ def login(host: str, username: str, password: str) -> str:
 
 
 def logout(host: str, token: str) -> None:
-    requests.get(
-        f"{host}/resto/api/logout",
-        params={"key": token},
-        verify=VERIFY_SSL,
-        timeout=20,
-    )
+    try:
+        _request(
+            "GET",
+            f"{host}/resto/api/logout",
+            params={"key": token},
+            verify=VERIFY_SSL,
+            timeout=20,
+        )
+    except requests.RequestException as error:
+        print(f"   Предупреждение: не удалось выполнить logout ({error})")
 
 
 def _olap(host: str, token: str, body: dict) -> dict:
-    resp = requests.post(
+    resp = _request(
+        "POST",
         f"{host}/resto/api/v2/reports/olap",
         params={"key": token},
         json=body,
@@ -82,7 +109,8 @@ def _olap(host: str, token: str, body: dict) -> dict:
 
 def _olap_columns(host: str, token: str, report_type: str = "SALES") -> dict:
     """Возвращает каталог доступных колонок OLAP с локализованными названиями."""
-    resp = requests.get(
+    resp = _request(
+        "GET",
         f"{host}/resto/api/v2/reports/olap/columns",
         params={"key": token, "reportType": report_type},
         verify=VERIFY_SSL,
