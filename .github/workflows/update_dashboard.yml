@@ -29,6 +29,12 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Resolve IIKO host via DNS-over-HTTPS
+        run: |
+          IIKO_IP=$(python -c "import requests; data=requests.get('https://dns.google/resolve', params={'name':'kofeinya-garden-co.iiko.it','type':'A'}, timeout=20).json(); print(next(row['data'] for row in data.get('Answer', []) if row.get('type') == 1))")
+          test -n "$IIKO_IP"
+          echo "$IIKO_IP kofeinya-garden-co.iiko.it" | sudo tee -a /etc/hosts > /dev/null
+
       - name: Fetch IIKO data
         env:
           IIKO_HOST: ${{ secrets.IIKO_HOST }}
