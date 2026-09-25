@@ -6,6 +6,15 @@ on:
     # Первый из четырёх независимых планировщиков. Остальные находятся
     # в dashboard_schedule_*.yml и вызывают этот workflow повторно.
     - cron: '7 * * * *'
+  # Резервные события: эти отчёты имеют собственные расписания. Их завершение
+  # запускает продажи даже тогда, когда GitHub пропустил все dashboard cron.
+  workflow_run:
+    workflows:
+      - Update Finance Data
+      - Update P&L Data
+      - Update Guest CDP
+      - Operational Purchase and Usage Monitor
+    types: [completed]
   workflow_dispatch:  # ручной запуск из интерфейса GitHub
 
 jobs:
