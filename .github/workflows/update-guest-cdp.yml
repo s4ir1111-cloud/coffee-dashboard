@@ -13,6 +13,11 @@ on:
         required: false
         default: '100'
         type: string
+      monthly_months:
+        description: 'Глубина помесячной аналитики, месяцев'
+        required: false
+        default: '24'
+        type: string
 
 permissions:
   contents: write
@@ -24,7 +29,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -40,7 +45,8 @@ jobs:
           IIKO_LOGIN: ${{ secrets.IIKO_LOGIN }}
           IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
           DAYS_BACK: ${{ inputs.days_back || '100' }}
-        run: python3 build_guest_cdp_data.py --days-back "$DAYS_BACK"
+          MONTHLY_MONTHS: ${{ inputs.monthly_months || '24' }}
+        run: python3 build_guest_cdp_data.py --days-back "$DAYS_BACK" --monthly-months "$MONTHLY_MONTHS"
 
       - name: Собрать дашборд (полные номера без маскировки)
         run: |

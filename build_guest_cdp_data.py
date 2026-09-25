@@ -199,6 +199,130 @@ def fetch_location_per_guest(connector, host, token, date_from, date_to):
     })
 
 
+def _shift_month(value, offset):
+    """Сдвиг первого дня месяца без внешних зависимостей."""
+    absolute = value.year * 12 + value.month - 1 + offset
+    return date(absolute // 12, absolute % 12 + 1, 1)
+
+
+def fetch_monthly_guest_history(connector, host, token, today, months):
+    """Загружает агрегаты по гостям отдельно за каждый календарный месяц."""
+    first_month = _shift_month(today.replace(day=1), -(months - 1))
+    result = []
+    for offset in range(months):
+        month_start = _shift_month(first_month, offset)
+        next_month = _shift_month(month_start, 1)
+        month_end = min(today, next_month - timedelta(days=1))
+        print(f"  OLAP: помесячная аналитика {month_start:%Y-%m}…")
+        try:
+            response = connector._olap(host, token, {
+                "reportType": "SALES",
+                "groupByRowFields": GUEST_FIELDS,
+                "aggregateFields": [
+                    "DishDiscountSumInt", "DishSumInt", "UniqOrderId.OrdersCount",
+                ],
+                "filters": {
+                    "OpenDate.Typed": {
+                        "filterType": "DateRange", "periodType": "CUSTOM",
+                        "from": month_start.isoformat(), "to": month_end.isoformat(),
+                        "includeLow": True, "includeHigh": True,
+                    }
+                },
+            })
+            rows = response.get("data", [])
+            print(f"    → {len(rows):,} строк")
+            result.append({"period": month_start.strftime("%Y-%m"), "rows": rows})
+        except Exception as exc:
+            print(f"    ⚠ {month_start:%Y-%m}: {exc}. Месяц пропущен.")
+    return result
+
+
+def build_monthly_history(raw_months, lifetime_guests, today):
+    """Строит обезличенные управленческие KPI по месяцам."""
+    lifetime_orders = {g["id"]: g["orders"] for g in lifetime_guests}
+    window_orders = {}
+    active_by_month = []
+    for item in raw_months:
+        active = {}
+        for row in item["rows"]:
+            key = _row_key(row)
+            if not key:
+                continue
+            orders = _safe_int(row.get("UniqOrderId.OrdersCount"))
+            if orders <= 0:
+                continue
+            target = active.setdefault(key, {"orders": 0, "revenue": 0.0, "gross": 0.0})
+            target["orders"] += orders
+            target["revenue"] += _safe_float(row.get("DishDiscountSumInt"))
+            target["gross"] += _safe_float(row.get("DishSumInt"))
+            window_orders[key] = window_orders.get(key, 0) + orders
+        active_by_month.append((item, active))
+
+    known_before_window = {
+        key for key, orders in lifetime_orders.items() if orders > window_orders.get(key, 0)
+    }
+    seen = set(known_before_window)
+    previous_active = set()
+    output = []
+    for item, active in active_by_month:
+        period = item["period"]
+        active_keys = set(active)
+        all_revenue = round(sum(_safe_float(r.get("DishDiscountSumInt")) for r in item["rows"]))
+        identified_revenue = round(sum(v["revenue"] for v in active.values()))
+        identified_gross = round(sum(v["gross"] for v in active.values()))
+        visits = sum(v["orders"] for v in active.values())
+        new_guests = len(active_keys - seen)
+        returned_guests = len(active_keys & previous_active) if previous_active else None
+        retention_pct = (
+            round(returned_guests / len(previous_active) * 100, 1)
+            if previous_active and returned_guests is not None else None
+        )
+        repeat_guests = sum(1 for v in active.values() if v["orders"] >= 2)
+        active_count = len(active_keys)
+        discount_amount = max(0, identified_gross - identified_revenue)
+        output.append({
+            "period": period,
+            "is_complete": period < today.strftime("%Y-%m"),
+            "identified_revenue": identified_revenue,
+            "total_revenue": all_revenue,
+            "loyalty_revenue_share_pct": round(identified_revenue / all_revenue * 100, 1) if all_revenue else 0,
+            "active_guests": active_count,
+            "new_guests": new_guests,
+            "returned_guests": returned_guests,
+            "retention_pct": retention_pct,
+            "repeat_guest_pct": round(repeat_guests / active_count * 100, 1) if active_count else 0,
+            "visits": visits,
+            "visits_per_guest": round(visits / active_count, 2) if active_count else 0,
+            "avg_check": round(identified_revenue / visits) if visits else 0,
+            "revenue_per_guest": round(identified_revenue / active_count) if active_count else 0,
+            "discount_amount": round(discount_amount),
+            "discount_pct": round(discount_amount / identified_gross * 100, 1) if identified_gross else 0,
+        })
+        seen.update(active_keys)
+        previous_active = active_keys
+
+    by_period = {row["period"]: row for row in output}
+    delta_metrics = ("identified_revenue", "active_guests", "visits", "avg_check", "retention_pct")
+    for index, row in enumerate(output):
+        previous = output[index - 1] if index else None
+        year, month = map(int, row["period"].split("-"))
+        yoy = by_period.get(f"{year - 1:04d}-{month:02d}")
+        row["mom_pct"], row["yoy_pct"] = {}, {}
+        for metric in delta_metrics:
+            current_value = row.get(metric)
+            previous_value = previous.get(metric) if previous else None
+            yoy_value = yoy.get(metric) if yoy else None
+            row["mom_pct"][metric] = (
+                round((current_value - previous_value) / abs(previous_value) * 100, 1)
+                if row["is_complete"] and current_value is not None and previous_value else None
+            )
+            row["yoy_pct"][metric] = (
+                round((current_value - yoy_value) / abs(yoy_value) * 100, 1)
+                if row["is_complete"] and current_value is not None and yoy_value else None
+            )
+    return output
+
+
 # ─────────────── Обработка ────────────────────────────────────────────────────
 def _safe_float(val, default=0.0):
     try:
@@ -401,6 +525,8 @@ def main():
                         help="Окно для поиска последнего визита (дефолт: 100 дней — достаточно для RFM recency)")
     parser.add_argument("--all-time-from", default="2019-01-01",
                         help="Начало периода для LTV (дефолт: 2019-01-01)")
+    parser.add_argument("--monthly-months", type=int, default=24,
+                        help="Глубина помесячной аналитики (дефолт: 24 месяца)")
     parser.add_argument("--out", default="guest_cdp_data.json",
                         help="Путь выходного файла")
     args = parser.parse_args()
@@ -432,6 +558,7 @@ def main():
     ltv_rows      = []
     recent_rows   = []
     location_rows = []
+    monthly_rows  = []
 
     try:
         ltv_data      = fetch_ltv_per_guest(connector, host, token, args.all_time_from, date_to)
@@ -445,6 +572,11 @@ def main():
         location_data = fetch_location_per_guest(connector, host, token, recent_from, date_to)
         location_rows = location_data.get("data", [])
         print(f"   → {len(location_rows):,} строк\n")
+
+        if args.monthly_months > 0:
+            monthly_rows = fetch_monthly_guest_history(
+                connector, host, token, today, max(1, args.monthly_months)
+            )
 
         # Снимок на конец прошлого календарного месяца для сравнения KPI.
         current_month_start = today.replace(day=1)
@@ -469,6 +601,7 @@ def main():
     print("⚙️  Обработка данных…")
     guests = process(ltv_rows, recent_rows, location_rows, today)
     output = build_output(guests, today, args.all_time_from, args.days_back)
+    output["monthly_history"] = build_monthly_history(monthly_rows, guests, today)
     previous_guests = process(previous_ltv_rows, previous_recent_rows, [], previous_as_of)
     previous_output = build_output(
         previous_guests, previous_as_of, args.all_time_from, args.days_back

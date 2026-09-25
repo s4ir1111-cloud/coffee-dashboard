@@ -81,6 +81,16 @@ tbody td{padding:9px 12px;font-size:12px;white-space:nowrap}
 .pbtn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)} .pbtn:disabled{opacity:.4;cursor:default}
 .pinfo{font-size:11px;color:var(--sub);margin:0 8px}
 
+/* Monthly analytics */
+.monthly-title{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 16px;background:var(--card2);border-bottom:1px solid var(--border)}
+.monthly-title h2{font-size:15px;color:#fff}.monthly-title p{font-size:11px;color:var(--sub);margin-top:3px}
+.period-switch{display:flex;gap:5px;flex-wrap:wrap}.period-switch button.active{border-color:var(--accent);color:var(--accent)}
+.monthly-scroll{overflow:auto}.monthly-table{min-width:1500px}
+.monthly-table th,.monthly-table td{text-align:right}.monthly-table th:first-child,.monthly-table td:first-child{text-align:left;position:sticky;left:0;z-index:2;background:var(--card)}
+.monthly-table th:first-child{background:var(--card2);z-index:3}.monthly-table tr.partial td{opacity:.75}.month-note{font-size:10px;color:var(--accent);display:block;margin-top:2px}
+.delta{display:block;font-size:10px;margin-top:2px}.delta.up{color:var(--green)}.delta.down{color:var(--red)}.delta.flat{color:var(--sub)}
+.monthly-empty{padding:22px;color:var(--sub);text-align:center}
+
 /* Error/warning */
 .col-warn{margin-bottom:16px;background:#ff980015;border:1px solid #ff980044;border-radius:8px;padding:12px 16px;font-size:12px;color:#ff9800}
 
@@ -145,6 +155,31 @@ tbody td{padding:9px 12px;font-size:12px;white-space:nowrap}
     <div class="cbox"><div class="ctitle">Топ-20 гостей по LTV</div><div class="cwrap"><canvas id="cTop"></canvas></div></div>
     <div class="cbox"><div class="ctitle">Распределение LTV</div><div class="cwrap"><canvas id="cLtv"></canvas></div></div>
   </div>
+
+  <section class="twrap" id="monthlySection">
+    <div class="monthly-title">
+      <div><h2>Помесячная эффективность бонусной системы</h2><p>Выручка = активные гости × частота × средний чек</p></div>
+      <div class="period-switch" id="monthlyPeriodSwitch">
+        <button class="pbtn" data-months="6">6 мес.</button>
+        <button class="pbtn active" data-months="12">12 мес.</button>
+        <button class="pbtn" data-months="24">24 мес.</button>
+        <button class="pbtn" data-months="all">Всё</button>
+        <button class="pbtn" type="button" onclick="exportMonthlyCSV()">⬇ CSV</button>
+      </div>
+    </div>
+    <div class="monthly-scroll">
+      <table class="monthly-table">
+        <thead><tr>
+          <th>Месяц</th><th>Выручка по картам</th><th>Доля общей</th><th>Активные гости</th>
+          <th>Новые</th><th>Вернулись</th><th>Удержание</th><th>Повторные</th>
+          <th>Визиты</th><th>Визитов/гостя</th><th>Средний чек</th><th>Выручка/гостя</th>
+          <th>Скидка</th><th>Скидка, %</th><th>Год к году</th>
+        </tr></thead>
+        <tbody id="monthlyTableBody"></tbody>
+      </table>
+      <div class="monthly-empty" id="monthlyEmpty" style="display:none">Помесячная история появится после следующего обновления данных из iiko.</div>
+    </div>
+  </section>
   <div class="charts2">
     <div class="cbox"><div class="ctitle">Частота визитов</div><div class="cwrap"><canvas id="cFreq"></canvas></div></div>
     <div class="cbox"><div class="ctitle">Средний LTV по сегментам</div><div class="cwrap"><canvas id="cSegLtv"></canvas></div></div>
@@ -198,7 +233,7 @@ const SEG_META = {
 };
 
 // ─── State ────────────────────────────────────────────────────────────────────
-let guests = [], filtered = [], activeSeg = "", page = 0, comparison = null;
+let guests = [], filtered = [], activeSeg = "", page = 0, comparison = null, monthlyHistory = [], monthlyLimit = 12;
 const PAGE = 100;
 let charts = {};
 let hasName=false, hasPhone=false, hasCard=false, hasFav=false, hasBonus=false, hasDiscount=false, hasRecent=false;
@@ -228,6 +263,7 @@ function loadFromJSON(data){
   hasName=true; hasPhone=true; hasCard=true; hasFav=true; hasBonus=false;
   hasDiscount=true; hasRecent=true;
   comparison = data.comparison || null;
+  monthlyHistory = Array.isArray(data.monthly_history) ? data.monthly_history : [];
 
   guests = data.guests.map(g => ({
     name:       g.name || "",
@@ -347,6 +383,7 @@ function processFile(file) {
 }
 
 function parseAndRender(rows, fileName) {
+  monthlyHistory=[];comparison=null;
   const headers = Object.keys(rows[0]);
 
   // Detect columns
@@ -449,6 +486,7 @@ function renderDashboard() {
 
   buildSegCards(sm);
   buildCharts(sm, sc);
+  renderMonthlyTable();
   buildTableHead();
   applyFilter();
 }
@@ -657,7 +695,7 @@ function exportCSV(){
 }
 
 function resetToUpload(){
-  guests=[];filtered=[];activeSeg="";page=0;
+  guests=[];filtered=[];activeSeg="";page=0;monthlyHistory=[];comparison=null;
   Object.values(charts).forEach(c=>c.destroy());charts={};
   hasName=hasPhone=hasCard=hasFav=hasBonus=hasDiscount=hasRecent=false;
   document.getElementById("dashboard").style.display="none";
@@ -708,6 +746,59 @@ function loadDemo(){
     }
   }
   parseAndRender(rawRows, "демо-данные.xlsx");
+}
+
+// Monthly analytics
+function monthLabel(period){
+  const [year,month]=period.split("-").map(Number);
+  return new Intl.DateTimeFormat("ru-RU",{month:"long",year:"numeric"}).format(new Date(year,month-1,1));
+}
+function deltaBadge(value,label="к пред. мес."){
+  if(value===undefined||value===null)return '<span class="delta flat">—</span>';
+  const cls=value>.05?"up":value<-.05?"down":"flat";
+  const arrow=value>.05?"▲":value<-.05?"▼":"•";
+  return `<span class="delta ${cls}">${arrow} ${Math.abs(value).toFixed(1)}% ${label}</span>`;
+}
+function moneyFull(value){return `${fmt(Math.round(Number(value||0)))} ₽`;}
+function valueWithMom(row,key,formatter=fmt){return `${formatter(row[key])}${deltaBadge(row.mom_pct?.[key])}`;}
+function renderMonthlyTable(){
+  const body=document.getElementById("monthlyTableBody");
+  const empty=document.getElementById("monthlyEmpty");
+  if(!body||!empty)return;
+  const rows=[...monthlyHistory].sort((a,b)=>b.period.localeCompare(a.period));
+  const shown=monthlyLimit==="all"?rows:rows.slice(0,Number(monthlyLimit));
+  empty.style.display=shown.length?"none":"block";
+  body.innerHTML=shown.map(row=>`<tr class="${row.is_complete?"":"partial"}">
+    <td><strong>${monthLabel(row.period)}</strong>${row.is_complete?"":'<span class="month-note">неполный месяц</span>'}</td>
+    <td>${valueWithMom(row,"identified_revenue",moneyFull)}</td>
+    <td>${Number(row.loyalty_revenue_share_pct||0).toFixed(1)}%</td>
+    <td>${valueWithMom(row,"active_guests",fmt)}</td><td>${fmt(row.new_guests)}</td>
+    <td>${row.returned_guests==null?"—":fmt(row.returned_guests)}</td>
+    <td>${row.retention_pct==null?"—":Number(row.retention_pct).toFixed(1)+"%"}</td>
+    <td>${Number(row.repeat_guest_pct||0).toFixed(1)}%</td>
+    <td>${valueWithMom(row,"visits",fmt)}</td><td>${Number(row.visits_per_guest||0).toFixed(2)}</td>
+    <td>${valueWithMom(row,"avg_check",moneyFull)}</td><td>${moneyFull(row.revenue_per_guest)}</td>
+    <td>${moneyFull(row.discount_amount)}</td><td>${Number(row.discount_pct||0).toFixed(1)}%</td>
+    <td>${deltaBadge(row.yoy_pct?.identified_revenue,"год к году")}</td>
+  </tr>`).join("");
+  document.querySelectorAll("#monthlyPeriodSwitch button[data-months]").forEach(button=>{
+    button.classList.toggle("active",String(button.dataset.months)===String(monthlyLimit));
+    button.onclick=()=>{monthlyLimit=button.dataset.months;renderMonthlyTable();};
+  });
+}
+function exportMonthlyCSV(){
+  if(!monthlyHistory.length){alert("Помесячных данных пока нет");return;}
+  const headers=["Месяц","Выручка по картам","Доля общей выручки, %","Активные гости","Новые гости","Вернувшиеся гости","Удержание, %","Повторные гости, %","Визиты","Визитов на гостя","Средний чек","Выручка на гостя","Скидка","Скидка, %","Выручка MoM, %","Выручка YoY, %"];
+  const rows=[...monthlyHistory].sort((a,b)=>a.period.localeCompare(b.period)).map(r=>[
+    r.period,r.identified_revenue,r.loyalty_revenue_share_pct,r.active_guests,r.new_guests,
+    r.returned_guests??"",r.retention_pct??"",r.repeat_guest_pct,r.visits,r.visits_per_guest,
+    r.avg_check,r.revenue_per_guest,r.discount_amount,r.discount_pct,
+    r.mom_pct?.identified_revenue??"",r.yoy_pct?.identified_revenue??""
+  ]);
+  const csv=[headers,...rows].map(row=>row.map(value=>`"${String(value).replaceAll('"','""')}"`).join(";")).join("\n");
+  const link=document.createElement("a");
+  link.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  link.download="guest_cdp_monthly.csv";link.click();URL.revokeObjectURL(link.href);
 }
 
 // Helpers
