@@ -367,7 +367,12 @@
       .catch(err => console.error('Ошибка загрузки:', err));
   }
   loadData();
-  setInterval(loadData, 5 * 60 * 1000);
+  // Обновляем данные чаще и сразу после возвращения на вкладку.
+  setInterval(loadData, 60 * 1000);
+  document.addEventListener('visibilitychange', () => {
+    if(!document.hidden) loadData();
+  });
+  window.addEventListener('focus', loadData);
 
   // CHART
   const canvas = document.getElementById('revenueChart');

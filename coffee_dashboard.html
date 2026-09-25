@@ -877,7 +877,13 @@
   }
 
   loadData();
-  setInterval(loadData, 5 * 60 * 1000);
+  // Обновляем данные чаще и сразу после возвращения на вкладку. Так страница,
+  // открытая до завершения GitHub Actions, не остаётся с нулевым снимком.
+  setInterval(loadData, 60 * 1000);
+  document.addEventListener('visibilitychange', () => {
+    if(!document.hidden) loadData();
+  });
+  window.addEventListener('focus', loadData);
 
   // ── ГРАФИК ──
   const canvas = document.getElementById('revenueChart');
