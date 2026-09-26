@@ -4,13 +4,19 @@
     "revenue": 0,
     "orders": 0,
     "avg_check": 0,
-    "yesterday_same_hour_revenue": 0,
-    "yesterday_same_hour_orders": 0,
-    "comparison_hour": null,
+    "yesterday_same_hour_revenue": 5149,
+    "yesterday_same_hour_orders": 2,
+    "comparison_hour": "02",
     "discount_pct": null
   },
   "points": [],
-  "yesterday_same_hour_points": [],
+  "yesterday_same_hour_points": [
+    {
+      "name": "Прео",
+      "revenue": 5149,
+      "orders": 2
+    }
+  ],
   "hourly": [],
   "weekly": [
     {
@@ -193,7 +199,7 @@
       "day_name": "Сб",
       "day_label": "26",
       "date_label": "26.09",
-      "revenue": 2907866
+      "revenue": 2909176
     },
     {
       "date": "2026-09-27",
@@ -249,8 +255,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 2591,
-      "revenue": 1505449
+      "qty": 2592,
+      "revenue": 1506028
     }
   ],
   "top_food": [
@@ -269,8 +275,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 2591,
-      "revenue": 1505449
+      "qty": 2592,
+      "revenue": 1506028
     },
     {
       "name": "Комбо Завтрак Баварский",
@@ -319,8 +325,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 67425727,
-      "mtd_orders": 113790,
+      "mtd_revenue": 67427037,
+      "mtd_orders": 113791,
       "mtd_avg_check": 593,
       "plan_month": 81500000,
       "expected_to_date": 73350000,
@@ -344,13 +350,13 @@
       },
       {
         "name": "Прео",
-        "mtd_revenue": 5298434,
-        "mtd_orders": 8110,
+        "mtd_revenue": 5299744,
+        "mtd_orders": 8111,
         "mtd_avg_check": 653,
         "plan_month": 6650000,
         "expected_to_date": 5985000,
         "pct_of_plan": 79.7,
-        "pct_vs_expected": 88.5,
+        "pct_vs_expected": 88.6,
         "avg_check_plan": 675,
         "pct_avg_check": 96.7
       },
