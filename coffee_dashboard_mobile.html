@@ -360,9 +360,25 @@
     drawChart();
   }
 
+  function isEmptySalesSnapshot(data){
+    return !data || (!(data.points || []).length && Number(data.summary?.revenue || 0) === 0);
+  }
+
+  function loadLatestDataViaGithubApi(){
+    const apiUrl = 'https://api.github.com/repos/s4ir1111-cloud/coffee-dashboard/contents/dashboard_data_view.json?ref=main&t=' + Date.now();
+    return fetch(apiUrl, {cache:'no-store'})
+      .then(r => { if(!r.ok) throw new Error('GitHub API HTTP ' + r.status); return r.json(); })
+      .then(file => {
+        const binary = atob((file.content || '').replace(/\s/g, ''));
+        const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
+        return JSON.parse(new TextDecoder().decode(bytes));
+      });
+  }
+
   function loadData(){
     fetch('https://raw.githubusercontent.com/s4ir1111-cloud/coffee-dashboard/main/dashboard_data_view.json?t=' + Date.now(), {cache:'no-store'})
       .then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(data => isEmptySalesSnapshot(data) ? loadLatestDataViaGithubApi() : data)
       .then(renderData)
       .catch(err => console.error('Ошибка загрузки:', err));
   }
