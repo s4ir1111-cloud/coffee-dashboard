@@ -238,6 +238,7 @@ def main():
 
     output = {
         "date": raw["date"],
+        "generated_at": raw.get("generated_at"),
         "summary": {
             "revenue": total_revenue,
             "orders": total_orders,

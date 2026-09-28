@@ -360,8 +360,33 @@
     drawChart();
   }
 
+  const DASHBOARD_CACHE_KEY = 'garden-dashboard-last-valid-v1';
+
   function isEmptySalesSnapshot(data){
     return !data || (!(data.points || []).length && Number(data.summary?.revenue || 0) === 0);
+  }
+
+  function yekaterinburgHour(){
+    return Number(new Intl.DateTimeFormat('en-GB', {
+      timeZone:'Asia/Yekaterinburg', hour:'2-digit', hourCycle:'h23'
+    }).format(new Date()));
+  }
+
+  function renderAndCacheData(data){
+    if(isEmptySalesSnapshot(data) && yekaterinburgHour() >= 6){
+      throw new Error('Получен пустой снимок продаж после начала рабочего дня');
+    }
+    if(!isEmptySalesSnapshot(data)){
+      try{ localStorage.setItem(DASHBOARD_CACHE_KEY, JSON.stringify(data)); }catch(error){}
+    }
+    renderData(data);
+  }
+
+  function renderCachedData(){
+    try{
+      const cached = JSON.parse(localStorage.getItem(DASHBOARD_CACHE_KEY) || 'null');
+      if(cached && !isEmptySalesSnapshot(cached)) renderData(cached);
+    }catch(error){}
   }
 
   function loadLatestDataViaGithubApi(){
@@ -378,10 +403,12 @@
   function loadData(){
     fetch('https://raw.githubusercontent.com/s4ir1111-cloud/coffee-dashboard/main/dashboard_data_view.json?t=' + Date.now(), {cache:'no-store'})
       .then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .catch(() => loadLatestDataViaGithubApi())
       .then(data => isEmptySalesSnapshot(data) ? loadLatestDataViaGithubApi() : data)
-      .then(renderData)
+      .then(renderAndCacheData)
       .catch(err => console.error('Ошибка загрузки:', err));
   }
+  renderCachedData();
   loadData();
   // Обновляем данные чаще и сразу после возвращения на вкладку.
   setInterval(loadData, 60 * 1000);

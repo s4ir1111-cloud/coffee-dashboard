@@ -42,6 +42,8 @@ HOST = os.environ.get("IIKO_HOST", "https://kofeinya-garden-co.iiko.it")
 VERIFY_SSL = True  # если сервер с самоподписанным сертификатом, поставьте False
 DASHBOARD_TIMEZONE = ZoneInfo(os.environ.get("DASHBOARD_TIMEZONE", "Asia/Yekaterinburg"))
 REQUEST_ATTEMPTS = 5
+EMPTY_REPORT_ATTEMPTS = 3
+EMPTY_REPORT_RETRY_DELAY = 15
 
 
 def _request(method: str, url: str, **kwargs) -> requests.Response:
@@ -162,6 +164,25 @@ def olap_sales_report(host: str, token: str, day: str, next_day: str) -> dict:
     return _olap(host, token, body)
 
 
+def current_sales_report(host: str, token: str, day: str, next_day: str, local_now: datetime) -> dict:
+    """Получает текущие продажи и повторяет временно пустой OLAP-ответ."""
+    report = None
+    for attempt in range(1, EMPTY_REPORT_ATTEMPTS + 1):
+        report = olap_sales_report(host, token, day, next_day)
+        if report.get("data") or local_now.hour < 6:
+            return report
+        if attempt < EMPTY_REPORT_ATTEMPTS:
+            print(
+                f"   IIKO вернул пустой отчёт (попытка {attempt}/{EMPTY_REPORT_ATTEMPTS}); "
+                f"повтор через {EMPTY_REPORT_RETRY_DELAY} с..."
+            )
+            time.sleep(EMPTY_REPORT_RETRY_DELAY)
+    raise RuntimeError(
+        f"IIKO вернул пустой отчёт за {day} в {local_now:%H:%M} после "
+        f"{EMPTY_REPORT_ATTEMPTS} попыток; предыдущие данные сохранены"
+    )
+
+
 def olap_mtd_report(host: str, token: str, month_start: str, next_day: str) -> dict:
     """OLAP-отчёт по продажам с начала месяца по сегодня: по точкам."""
     body = {
@@ -279,19 +300,8 @@ def main():
 
     try:
         print(f"2. Строим отчёт по продажам за {today_str}...")
-        sales = olap_sales_report(HOST, token, today_str, tomorrow)
-
-        # A transient empty OLAP response must not overwrite the last valid
-        # dashboard snapshot once the trading day is already under way.
         local_now = datetime.now(DASHBOARD_TIMEZONE)
-        # Кофейни начинают работать рано. После 06:00 пустой ответ обычно
-        # означает, что OLAP ещё не сформировался или временно недоступен.
-        # Не публикуем такой снимок: иначе он обнуляет карточки и таблицу.
-        if local_now.hour >= 6 and not sales.get("data"):
-            raise RuntimeError(
-                f"IIKO вернул пустой отчёт за {today_str} в {local_now:%H:%M}; "
-                "предыдущие данные сохранены"
-            )
+        sales = current_sales_report(HOST, token, today_str, tomorrow, local_now)
 
         print(f"2а. Строим почасовой отчёт за {yesterday_str}...")
         sales_yesterday = olap_sales_report(HOST, token, yesterday_str, today_str)
@@ -314,6 +324,7 @@ def main():
 
         output = {
             "date": today_str,
+            "generated_at": datetime.now(DASHBOARD_TIMEZONE).isoformat(timespec="seconds"),
             "month_start": month_start,
             "sales_raw": sales,
             "sales_yesterday_raw": sales_yesterday,
