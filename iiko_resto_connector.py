@@ -284,7 +284,10 @@ def main():
         # A transient empty OLAP response must not overwrite the last valid
         # dashboard snapshot once the trading day is already under way.
         local_now = datetime.now(DASHBOARD_TIMEZONE)
-        if local_now.hour >= 8 and not sales.get("data"):
+        # Кофейни начинают работать рано. После 06:00 пустой ответ обычно
+        # означает, что OLAP ещё не сформировался или временно недоступен.
+        # Не публикуем такой снимок: иначе он обнуляет карточки и таблицу.
+        if local_now.hour >= 6 and not sales.get("data"):
             raise RuntimeError(
                 f"IIKO вернул пустой отчёт за {today_str} в {local_now:%H:%M}; "
                 "предыдущие данные сохранены"
