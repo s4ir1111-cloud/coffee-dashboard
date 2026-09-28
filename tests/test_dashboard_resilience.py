@@ -62,6 +62,8 @@ class PublishedArtifactTests(unittest.TestCase):
                 self.assertIn("raw.githubusercontent.com", html)
                 self.assertIn("api.github.com/repos/", html)
                 self.assertIn("DASHBOARD_CACHE_KEY", html)
+                self.assertIn("GITHUB_API_REFRESH_MS", html)
+                self.assertIn("incomingTime < displayedTime", html)
                 self.assertIn("renderCachedData();", html)
                 self.assertIn("visibilitychange", html)
                 self.assertIn("setInterval(loadData, 60 * 1000)", html)
