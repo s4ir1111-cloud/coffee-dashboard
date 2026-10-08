@@ -1,9 +1,18 @@
 {
   "date": "2026-10-08",
-  "generated_at": "2026-10-08T05:28:10+05:00",
+  "generated_at": "2026-10-08T07:15:17+05:00",
   "month_start": "2026-10-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Софилэнд",
+        "DishDiscountSumInt": 500,
+        "DishSumInt": 500,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4271,9 +4280,9 @@
       },
       {
         "Department": "Софилэнд",
-        "DishDiscountSumInt": 325078,
-        "DishSumInt": 390171,
-        "UniqOrderId.OrdersCount": 568
+        "DishDiscountSumInt": 325578,
+        "DishSumInt": 390671,
+        "UniqOrderId.OrdersCount": 569
       }
     ],
     "summary": []
@@ -10041,10 +10050,10 @@
         "DishSumInt": 1770
       },
       {
-        "DishAmountInt": 117,
+        "DishAmountInt": 118,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
-        "DishSumInt": 26000
+        "DishSumInt": 26500
       },
       {
         "DishAmountInt": 7,
@@ -10781,12 +10790,24 @@
         "DishDiscountSumInt": 2364804,
         "DishSumInt": 2698165,
         "OpenDate.Typed": "2026-10-07"
+      },
+      {
+        "DishDiscountSumInt": 500,
+        "DishSumInt": 500,
+        "OpenDate.Typed": "2026-10-08"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 500,
+        "net_sum": 500,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
