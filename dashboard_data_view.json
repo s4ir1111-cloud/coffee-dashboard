@@ -1,16 +1,32 @@
 {
   "date": "2026-10-09",
-  "generated_at": "2026-10-09T07:18:38+05:00",
+  "generated_at": "2026-10-09T07:32:54+05:00",
   "summary": {
-    "revenue": 0,
-    "orders": 1,
-    "avg_check": 0,
+    "revenue": 239,
+    "orders": 3,
+    "avg_check": 80,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
-    "discount_pct": null
+    "discount_pct": 20.1
   },
   "points": [
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 239,
+      "orders": 1,
+      "avg_check": 239,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Паруса",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
     {
       "name": "Прео",
       "revenue": 0,
@@ -24,7 +40,7 @@
   "hourly": [
     {
       "hour": "07",
-      "revenue": 0
+      "revenue": 239
     }
   ],
   "weekly": [
@@ -89,15 +105,15 @@
       "day_name": "Пт",
       "day_label": "9",
       "date_label": "09.10",
-      "revenue": 0
+      "revenue": 239
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 7184,
-      "revenue": 2102936
+      "qty": 7185,
+      "revenue": 2103235
     },
     {
       "name": "Латте 350 мл",
@@ -178,8 +194,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 7184,
-      "revenue": 2102936
+      "qty": 7185,
+      "revenue": 2103235
     },
     {
       "name": "Латте 350 мл",
@@ -208,8 +224,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 18289890,
-      "mtd_orders": 30254,
+      "mtd_revenue": 18290129,
+      "mtd_orders": 30256,
       "mtd_avg_check": 605,
       "plan_month": 81500000,
       "expected_to_date": 23661290,
@@ -318,14 +334,14 @@
       {
         "name": "Паруса",
         "mtd_revenue": 970021,
-        "mtd_orders": 1604,
-        "mtd_avg_check": 605,
+        "mtd_orders": 1605,
+        "mtd_avg_check": 604,
         "plan_month": 4850000,
         "expected_to_date": 1408065,
         "pct_of_plan": 20.0,
         "pct_vs_expected": 68.9,
         "avg_check_plan": 647,
-        "pct_avg_check": 93.5
+        "pct_avg_check": 93.4
       },
       {
         "name": "Гарден Кофе Тобольск",
@@ -377,13 +393,13 @@
       },
       {
         "name": "Гарден Кофе Сургут",
-        "mtd_revenue": 711504,
-        "mtd_orders": 1019,
+        "mtd_revenue": 711743,
+        "mtd_orders": 1020,
         "mtd_avg_check": 698,
         "plan_month": 3450000,
         "expected_to_date": 1001613,
         "pct_of_plan": 20.6,
-        "pct_vs_expected": 71.0,
+        "pct_vs_expected": 71.1,
         "avg_check_plan": 750,
         "pct_avg_check": 93.1
       },

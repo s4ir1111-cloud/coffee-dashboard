@@ -1,9 +1,25 @@
 {
   "date": "2026-10-09",
-  "generated_at": "2026-10-09T07:18:38+05:00",
+  "generated_at": "2026-10-09T07:32:54+05:00",
   "month_start": "2026-10-01",
   "sales_raw": {
     "data": [
+      {
+        "Department": "Гарден Кофе Сургут",
+        "DishDiscountSumInt": 239,
+        "DishSumInt": 299,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Паруса",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      },
       {
         "Department": "Преображенский",
         "DishDiscountSumInt": 0,
@@ -3086,9 +3102,9 @@
       },
       {
         "Department": "Гарден Кофе Сургут",
-        "DishDiscountSumInt": 711504,
-        "DishSumInt": 874110,
-        "UniqOrderId.OrdersCount": 1019
+        "DishDiscountSumInt": 711743,
+        "DishSumInt": 874409,
+        "UniqOrderId.OrdersCount": 1020
       },
       {
         "Department": "Гарден Кофе Тобольск",
@@ -3154,7 +3170,7 @@
         "Department": "Паруса",
         "DishDiscountSumInt": 970021,
         "DishSumInt": 1176633,
-        "UniqOrderId.OrdersCount": 1604
+        "UniqOrderId.OrdersCount": 1605
       },
       {
         "Department": "Преображенский",
@@ -3312,7 +3328,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 6367,
+        "DishAmountInt": 6368,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
@@ -5016,7 +5032,7 @@
         "DishSumInt": 117
       },
       {
-        "DishAmountInt": 1061,
+        "DishAmountInt": 1064,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 10 мл",
         "DishSumInt": 0
@@ -7278,10 +7294,10 @@
         "DishSumInt": 4606
       },
       {
-        "DishAmountInt": 7184,
+        "DishAmountInt": 7185,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 2102936
+        "DishSumInt": 2103235
       },
       {
         "DishAmountInt": 100,
@@ -9867,8 +9883,8 @@
         "OpenDate.Typed": "2026-10-08"
       },
       {
-        "DishDiscountSumInt": 0,
-        "DishSumInt": 0,
+        "DishDiscountSumInt": 239,
+        "DishSumInt": 299,
         "OpenDate.Typed": "2026-10-09"
       }
     ],
@@ -9881,6 +9897,12 @@
         "gross_sum": 0,
         "net_sum": 0,
         "discount_sum": 0
+      },
+      {
+        "discount_type": "iikoCard",
+        "gross_sum": 299,
+        "net_sum": 239,
+        "discount_sum": 60
       }
     ],
     "summary": []
