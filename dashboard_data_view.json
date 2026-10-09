@@ -1,18 +1,32 @@
 {
   "date": "2026-10-09",
-  "generated_at": "2026-10-09T05:42:17+05:00",
+  "generated_at": "2026-10-09T07:18:38+05:00",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
-    "comparison_hour": "04",
+    "comparison_hour": "06",
     "discount_pct": null
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Прео",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-10-01",
@@ -195,7 +209,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 18289890,
-      "mtd_orders": 30253,
+      "mtd_orders": 30254,
       "mtd_avg_check": 605,
       "plan_month": 81500000,
       "expected_to_date": 23661290,
@@ -256,14 +270,14 @@
       {
         "name": "Прео",
         "mtd_revenue": 1207047,
-        "mtd_orders": 1902,
-        "mtd_avg_check": 635,
+        "mtd_orders": 1903,
+        "mtd_avg_check": 634,
         "plan_month": 6650000,
         "expected_to_date": 1930645,
         "pct_of_plan": 18.2,
         "pct_vs_expected": 62.5,
         "avg_check_plan": 675,
-        "pct_avg_check": 94.1
+        "pct_avg_check": 93.9
       },
       {
         "name": "Панорама",

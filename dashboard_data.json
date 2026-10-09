@@ -1,9 +1,18 @@
 {
   "date": "2026-10-09",
-  "generated_at": "2026-10-09T05:42:17+05:00",
+  "generated_at": "2026-10-09T07:18:38+05:00",
   "month_start": "2026-10-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -3151,7 +3160,7 @@
         "Department": "Преображенский",
         "DishDiscountSumInt": 1207047,
         "DishSumInt": 1373047,
-        "UniqOrderId.OrdersCount": 1902
+        "UniqOrderId.OrdersCount": 1903
       },
       {
         "Department": "Свердлова",
@@ -9063,7 +9072,7 @@
         "DishSumInt": 2242
       },
       {
-        "DishAmountInt": 133,
+        "DishAmountInt": 134,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 28500
@@ -9856,12 +9865,24 @@
         "DishDiscountSumInt": 2338850,
         "DishSumInt": 2702838,
         "OpenDate.Typed": "2026-10-08"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 0,
+        "OpenDate.Typed": "2026-10-09"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 0,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
