@@ -169,7 +169,8 @@ def current_sales_report(host: str, token: str, day: str, next_day: str, local_n
     report = None
     for attempt in range(1, EMPTY_REPORT_ATTEMPTS + 1):
         report = olap_sales_report(host, token, day, next_day)
-        if report.get("data") or local_now.hour < 6:
+                if report.get("data"):
+
             return report
         if attempt < EMPTY_REPORT_ATTEMPTS:
             print(
