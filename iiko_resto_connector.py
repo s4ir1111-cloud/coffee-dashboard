@@ -1,4 +1,3 @@
-if report.get("data"):
 """
 Коннектор iikoServer (resto/api) -> данные для дашборда продаж кофеен.
 
@@ -166,12 +165,11 @@ def olap_sales_report(host: str, token: str, day: str, next_day: str) -> dict:
 
 
 def current_sales_report(host: str, token: str, day: str, next_day: str, local_now: datetime) -> dict:
-    """Получает текущие продажи и повторяет временно пустой OLAP-ответ."""
+    """Получает текущие продажи, но никогда не принимает пустой OLAP-ответ."""
     report = None
     for attempt in range(1, EMPTY_REPORT_ATTEMPTS + 1):
         report = olap_sales_report(host, token, day, next_day)
-                if report.get("data"):
-
+        if report.get("data"):
             return report
         if attempt < EMPTY_REPORT_ATTEMPTS:
             print(
