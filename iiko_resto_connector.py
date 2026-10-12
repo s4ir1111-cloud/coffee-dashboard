@@ -1,3 +1,4 @@
+if report.get("data"):
 """
 Коннектор iikoServer (resto/api) -> данные для дашборда продаж кофеен.
 
