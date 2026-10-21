@@ -1,0 +1,113 @@
+name: Dashboard Continuous Keeper
+
+on:
+  # GitHub can occasionally delay or omit scheduled events. One keeper run
+  # performs several updates itself, so later refreshes do not depend on a
+  # new cron event arriving every 15 minutes.
+  schedule:
+    - cron: '13 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dashboard-continuous-keeper
+  cancel-in-progress: false
+
+jobs:
+  keep-fresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 175
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Resolve IIKO host via DNS-over-HTTPS
+        run: |
+          IIKO_IP=$(python -c "import requests; data=requests.get('https://dns.google/resolve', params={'name':'kofeinya-garden-co.iiko.it','type':'A'}, timeout=20).json(); print(next(row['data'] for row in data.get('Answer', []) if row.get('type') == 1))")
+          test -n "$IIKO_IP"
+          echo "$IIKO_IP kofeinya-garden-co.iiko.it" | sudo tee -a /etc/hosts > /dev/null
+
+      - name: Configure publisher
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Keep dashboard fresh for the next three hours
+        env:
+          IIKO_HOST: ${{ secrets.IIKO_HOST }}
+          IIKO_LOGIN: ${{ secrets.IIKO_LOGIN }}
+          IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
+          DASHBOARD_TIMEZONE: Asia/Yekaterinburg
+        run: |
+          failures=0
+
+          for cycle in $(seq 1 12); do
+            echo "::group::Refresh $cycle of 12"
+
+            # Pick up changes made by the ordinary schedulers before building
+            # and publishing the next snapshot.
+            git restore dashboard_data.json dashboard_data_view.json
+            if ! git pull --rebase origin main; then
+              echo "::warning::Could not synchronize main before refresh $cycle"
+              git rebase --abort || true
+              failures=$((failures + 1))
+            elif ! python iiko_resto_connector.py; then
+              echo "::warning::IIKO fetch failed during refresh $cycle"
+              failures=$((failures + 1))
+            elif ! python build_dashboard_data.py; then
+              echo "::warning::Dashboard build failed during refresh $cycle"
+              failures=$((failures + 1))
+            else
+              git add dashboard_data_view.json dashboard_data.json
+
+              if git diff --staged --quiet; then
+                echo "No data changes during refresh $cycle"
+              else
+                git commit -m "data: keeper update $(date -u '+%Y-%m-%d %H:%M UTC')"
+                published=false
+
+                for attempt in 1 2 3 4; do
+                  if git pull --rebase origin main && git push origin main; then
+                    published=true
+                    break
+                  fi
+                  git rebase --abort || true
+                  sleep $((attempt * 5))
+                done
+
+                if [ "$published" != true ]; then
+                  echo "::warning::Could not publish refresh $cycle after 4 attempts"
+                  failures=$((failures + 1))
+                  git fetch origin main
+                  git reset --hard origin/main
+                fi
+              fi
+            fi
+
+            echo "::endgroup::"
+
+            # Twelve refreshes start 14 minutes apart (154 minutes between
+            # first and last). The next 3-hour cron plus four ordinary cron
+            # workflows overlap this window and reseed the keeper if needed.
+            if [ "$cycle" -lt 12 ]; then
+              sleep 840
+            fi
+          done
+
+          # A transient failure is recorded as a warning, while the remaining
+          # cycles continue. Fail only when every refresh failed.
+          if [ "$failures" -ge 12 ]; then
+            echo "All keeper refreshes failed" >&2
+            exit 1
+          fi
