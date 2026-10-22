@@ -325,7 +325,8 @@
     tbody.innerHTML = '';
     data.points.forEach(p => {
       const plan = planMap[p.name];
-      const pc = plan ? (plan.pct_vs_expected >= 100 ? 'good' : plan.pct_vs_expected >= 90 ? '' : 'bad') : '';
+      const hasPlan = !!(plan && plan.plan_month > 0);
+      const pc = hasPlan ? (plan.pct_vs_expected >= 100 ? 'good' : plan.pct_vs_expected >= 90 ? '' : 'bad') : '';
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${cleanName(p.name)}</td>
@@ -333,8 +334,8 @@
         <td>${p.orders}</td>
         <td>${fmtShort(p.avg_check)}</td>
         <td>${plan ? fmtShort(plan.mtd_revenue) : '—'}</td>
-        <td>${plan ? plan.pct_of_plan+'%' : '—'}</td>
-        <td class="${pc}">${plan ? plan.pct_vs_expected+'%' : '—'}</td>`;
+        <td>${hasPlan ? plan.pct_of_plan+'%' : '—'}</td>
+        <td class="${pc}">${hasPlan ? plan.pct_vs_expected+'%' : '—'}</td>`;
       tbody.appendChild(tr);
     });
 

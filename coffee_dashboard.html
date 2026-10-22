@@ -618,8 +618,14 @@
     const dom = data.plan.summary?.day_of_month || new Date().getDate();
     const dim = data.plan.summary?.days_in_month || 30;
     const pace = dom / dim;
-    const planPoints = Object.entries(monthlyPlans).map(([rawName,planValue]) => {
-      const name = canonicalPlanName(rawName);
+    const allNames = new Set([
+      ...oldPoints.keys(),
+      ...(data.points || []).map(point => point.name),
+      ...Object.keys(monthlyPlans).map(canonicalPlanName)
+    ]);
+    const planPoints = Array.from(allNames).map(name => {
+      const rawName = Object.keys(monthlyPlans).find(key => canonicalPlanName(key) === name) || name;
+      const planValue = monthlyPlans[rawName];
       const old = oldPoints.get(name) || {};
       const planMonth = Math.round(numberFromCell(planValue) || 0);
       const mtdRevenue = old.mtd_revenue || 0;
@@ -635,7 +641,8 @@
         avg_check_plan:avgCheckPlan,
         pct_avg_check:avgCheckPlan && mtdAvgCheck ? Math.round(mtdAvgCheck/avgCheckPlan*1000)/10 : null
       };
-    }).filter(point => point.plan_month > 0).sort((a,b) => b.mtd_revenue-a.mtd_revenue);
+    }).filter(point => point.plan_month > 0 || point.mtd_revenue > 0)
+      .sort((a,b) => b.mtd_revenue-a.mtd_revenue);
     const totalMtd = planPoints.reduce((sum,p) => sum+p.mtd_revenue,0);
     const totalOrders = planPoints.reduce((sum,p) => sum+p.mtd_orders,0);
     const totalPlan = planPoints.reduce((sum,p) => sum+p.plan_month,0);
@@ -825,7 +832,8 @@
 
     points.forEach((p, idx) => {
       const pl = planMap[p.name];
-      const paceClass = pl ? (pl.pct_vs_expected >= 100 ? 'good' : pl.pct_vs_expected >= 90 ? '' : 'bad') : '';
+      const hasPlan = !!(pl && pl.plan_month > 0);
+      const paceClass = hasPlan ? (pl.pct_vs_expected >= 100 ? 'good' : pl.pct_vs_expected >= 90 ? '' : 'bad') : '';
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td class="name-cell">${cleanName(p.name)}</td>
@@ -833,9 +841,9 @@
         <td data-label="Заказы">${p.orders}</td>
         <td data-label="Средний чек">${fmtMoneyShort(p.avg_check)}</td>
         <td data-label="Факт МТД">${pl ? fmtMoneyShort(pl.mtd_revenue) : '—'}</td>
-        <td data-label="План месяца">${pl ? fmtMoneyShort(pl.plan_month)  : '—'}</td>
-        <td data-label="От плана">${pl ? pl.pct_of_plan  + '%' : '—'}</td>
-        <td data-label="От темпа" class="${paceClass}">${pl ? pl.pct_vs_expected + '%' : '—'}</td>`;
+        <td data-label="План месяца">${hasPlan ? fmtMoneyShort(pl.plan_month)  : '—'}</td>
+        <td data-label="От плана">${hasPlan ? pl.pct_of_plan  + '%' : '—'}</td>
+        <td data-label="От темпа" class="${paceClass}">${hasPlan ? pl.pct_vs_expected + '%' : '—'}</td>`;
       (idx < half ? tbody1 : tbody2).appendChild(tr);
     });
 

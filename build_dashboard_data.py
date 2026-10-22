@@ -195,7 +195,11 @@ def main():
     total_mtd = 0
     total_plan = 0
     total_mtd_orders = 0
-    for dept, plan_month in plans.items():
+    # MTD is sales data, not plan data. Keep every department returned by
+    # IIKO even when a new cafe has not been added to plans.json yet.
+    all_plan_depts = set(plans) | set(mtd_by_dept) | set(by_dept)
+    for dept in all_plan_depts:
+        plan_month = plans.get(dept, 0)
         mtd_revenue = mtd_by_dept.get(dept, 0)
         mtd_orders = mtd_orders_by_dept.get(dept, 0)
         mtd_avg_check = round(mtd_revenue / mtd_orders) if mtd_orders else 0
