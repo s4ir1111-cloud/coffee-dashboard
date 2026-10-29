@@ -1,9 +1,17 @@
 {
   "date": "2026-10-29",
-  "generated_at": "2026-10-29T07:08:29+05:00",
+  "generated_at": "2026-10-29T07:22:41+05:00",
   "month_start": "2026-10-01",
   "sales_raw": {
     "data": [
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 947,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 2
+      },
       {
         "Department": "Паруса",
         "DishDiscountSumInt": 0,
@@ -4461,8 +4469,8 @@
       {
         "Department": "Океан",
         "DishDiscountSumInt": 6853141,
-        "DishSumInt": 7610956,
-        "UniqOrderId.OrdersCount": 11094
+        "DishSumInt": 7611903,
+        "UniqOrderId.OrdersCount": 11096
       },
       {
         "Department": "Осипенко",
@@ -4638,7 +4646,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 22660.5,
+        "DishAmountInt": 22662.5,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
@@ -8958,10 +8966,10 @@
         "DishSumInt": 17650
       },
       {
-        "DishAmountInt": 1600,
+        "DishAmountInt": 1601,
         "DishGroup": "Блины и сырники",
         "DishName": "Блинчики с ветчиной ",
-        "DishSumInt": 558640
+        "DishSumInt": 558989
       },
       {
         "DishAmountInt": 171,
@@ -9504,10 +9512,10 @@
         "DishSumInt": 13818
       },
       {
-        "DishAmountInt": 25865.5,
+        "DishAmountInt": 25867.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 7677030
+        "DishSumInt": 7677628
       },
       {
         "DishAmountInt": 308,
@@ -12452,7 +12460,7 @@
       },
       {
         "DishDiscountSumInt": 0,
-        "DishSumInt": 0,
+        "DishSumInt": 947,
         "OpenDate.Typed": "2026-10-29"
       }
     ],
@@ -12462,9 +12470,9 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 0,
+        "gross_sum": 947,
         "net_sum": 0,
-        "discount_sum": 0
+        "discount_sum": 947
       }
     ],
     "summary": []
