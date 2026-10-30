@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "generated_at": "2026-10-30T16:38:04+05:00",
+  "generated_at": "2026-10-30T16:38:33+05:00",
   "month_start": "2026-10-01",
   "sales_raw": {
     "data": [
@@ -2846,6 +2846,14 @@
       },
       {
         "Department": "Свердлова",
+        "DishDiscountSumInt": 788,
+        "DishSumInt": 788,
+        "HourOpen": "15",
+        "OrderType": "С собой*",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Свердлова",
         "DishDiscountSumInt": 908,
         "DishSumInt": 908,
         "HourOpen": "15",
@@ -2854,11 +2862,11 @@
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 6606,
-        "DishSumInt": 6657,
+        "DishDiscountSumInt": 8221,
+        "DishSumInt": 8870,
         "HourOpen": "16",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 11
+        "UniqOrderId.OrdersCount": 14
       },
       {
         "Department": "Советская",
@@ -7506,9 +7514,9 @@
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 5682494,
-        "DishSumInt": 6477971,
-        "UniqOrderId.OrdersCount": 8575
+        "DishDiscountSumInt": 5684897,
+        "DishSumInt": 6480972,
+        "UniqOrderId.OrdersCount": 8579
       },
       {
         "Department": "Советская",
@@ -7534,7 +7542,7 @@
         "DishSumInt": 10043
       },
       {
-        "DishAmountInt": 4881,
+        "DishAmountInt": 4882,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 170 мл (Кофе 250 мл)",
         "DishSumInt": 0
@@ -7654,13 +7662,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 24147.5,
+        "DishAmountInt": 24149.5,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 9478,
+        "DishAmountInt": 9479,
         "DishGroup": "Молоко Капучино 250мл*",
         "DishName": "- *Молоко Капучино М",
         "DishSumInt": 0
@@ -7846,7 +7854,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3582,
+        "DishAmountInt": 3583,
         "DishGroup": "Молоко РАФ Арахис",
         "DishName": "- *Молоко Раф Арахис",
         "DishSumInt": 0
@@ -8530,10 +8538,10 @@
         "DishSumInt": 210
       },
       {
-        "DishAmountInt": 1553,
+        "DishAmountInt": 1554,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- Безлактозное Капучино Б",
-        "DishSumInt": 77870
+        "DishSumInt": 77920
       },
       {
         "DishAmountInt": 548,
@@ -9022,10 +9030,10 @@
         "DishSumInt": 1200
       },
       {
-        "DishAmountInt": 1292,
+        "DishAmountInt": 1293,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- Кокосовое Капучино Б",
-        "DishSumInt": 103280
+        "DishSumInt": 103360
       },
       {
         "DishAmountInt": 488,
@@ -10582,7 +10590,7 @@
         "DishSumInt": 1440
       },
       {
-        "DishAmountInt": 10112.5,
+        "DishAmountInt": 10113.5,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- Хлеб зерновой солодовый 40гр",
         "DishSumInt": 0
@@ -10780,7 +10788,7 @@
         "DishSumInt": 637
       },
       {
-        "DishAmountInt": 3698,
+        "DishAmountInt": 3699,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- капучино 250 мл ",
         "DishSumInt": 0
@@ -10852,7 +10860,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 11574,
+        "DishAmountInt": 11575,
         "DishGroup": "*Допы Напитки",
         "DishName": "- корица молотая ",
         "DishSumInt": 0
@@ -11536,7 +11544,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 6289,
+        "DishAmountInt": 6290,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный 50 гр",
         "DishSumInt": 0
@@ -12226,10 +12234,10 @@
         "DishSumInt": 579
       },
       {
-        "DishAmountInt": 214.25,
+        "DishAmountInt": 215.25,
         "DishGroup": "Добавки БАР",
         "DishName": "Горячий шоколад 20 г",
-        "DishSumInt": 14825
+        "DishSumInt": 14894
       },
       {
         "DishAmountInt": 17,
@@ -12532,10 +12540,10 @@
         "DishSumInt": 362167
       },
       {
-        "DishAmountInt": 10729,
+        "DishAmountInt": 10730,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 250 мл",
-        "DishSumInt": 2591029
+        "DishSumInt": 2591278
       },
       {
         "DishAmountInt": 675,
@@ -12550,10 +12558,10 @@
         "DishSumInt": 15463
       },
       {
-        "DishAmountInt": 27566.5,
+        "DishAmountInt": 27569.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 8184560
+        "DishSumInt": 8185457
       },
       {
         "DishAmountInt": 329,
@@ -12838,10 +12846,10 @@
         "DishSumInt": 13226
       },
       {
-        "DishAmountInt": 3228,
+        "DishAmountInt": 3229,
         "DishGroup": "Завтраки",
         "DishName": "Комбо Завтрак Баварский ",
-        "DishSumInt": 1701942
+        "DishSumInt": 1702471
       },
       {
         "DishAmountInt": 14,
@@ -13720,10 +13728,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 3944,
+        "DishAmountInt": 3945,
         "DishGroup": "Салаты и горячее",
         "DishName": "Паста с ветчиной ",
-        "DishSumInt": 1502656
+        "DishSumInt": 1503045
       },
       {
         "DishAmountInt": 291,
@@ -13822,10 +13830,10 @@
         "DishSumInt": 3576
       },
       {
-        "DishAmountInt": 3764,
+        "DishAmountInt": 3765,
         "DishGroup": "Рафы 350",
         "DishName": "Раф Арахисовый ",
-        "DishSumInt": 1262246
+        "DishSumInt": 1262585
       },
       {
         "DishAmountInt": 55,
@@ -13996,10 +14004,10 @@
         "DishSumInt": 67947
       },
       {
-        "DishAmountInt": 2384,
+        "DishAmountInt": 2385,
         "DishGroup": "Салаты и горячее",
         "DishName": "Салат \"Цезарь\"",
-        "DishSumInt": 945306
+        "DishSumInt": 945705
       },
       {
         "DishAmountInt": 270,
@@ -15526,8 +15534,8 @@
         "OpenDate.Typed": "2026-10-29"
       },
       {
-        "DishDiscountSumInt": 1940431,
-        "DishSumInt": 2212384,
+        "DishDiscountSumInt": 1942834,
+        "DishSumInt": 2215385,
         "OpenDate.Typed": "2026-10-30"
       }
     ],
@@ -15537,8 +15545,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 1438643,
-        "net_sum": 1352695,
+        "gross_sum": 1441644,
+        "net_sum": 1355098,
         "discount_sum": 13949
       },
       {
