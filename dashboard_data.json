@@ -1,6 +1,6 @@
 {
   "date": "2026-11-01",
-  "generated_at": "2026-11-01T21:12:33+05:00",
+  "generated_at": "2026-11-01T21:12:54+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
     "data": [
@@ -2382,11 +2382,19 @@
       },
       {
         "Department": "Новин",
-        "DishDiscountSumInt": 1016,
-        "DishSumInt": 1045,
+        "DishDiscountSumInt": 1191,
+        "DishSumInt": 1681,
         "HourOpen": "20",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 2
+        "UniqOrderId.OrdersCount": 3
+      },
+      {
+        "Department": "Новин",
+        "DishDiscountSumInt": 556,
+        "DishSumInt": 795,
+        "HourOpen": "21",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
       },
       {
         "Department": "Океан",
@@ -2983,10 +2991,10 @@
       {
         "Department": "Паруса",
         "DishDiscountSumInt": 8682,
-        "DishSumInt": 10380,
+        "DishSumInt": 10679,
         "HourOpen": "15",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 17
+        "UniqOrderId.OrdersCount": 18
       },
       {
         "Department": "Паруса",
@@ -8040,9 +8048,9 @@
       },
       {
         "Department": "Новин",
-        "DishDiscountSumInt": 133867,
-        "DishSumInt": 150046,
-        "UniqOrderId.OrdersCount": 180
+        "DishDiscountSumInt": 134598,
+        "DishSumInt": 151477,
+        "UniqOrderId.OrdersCount": 182
       },
       {
         "Department": "Океан",
@@ -8065,8 +8073,8 @@
       {
         "Department": "Паруса",
         "DishDiscountSumInt": 119875,
-        "DishSumInt": 159212,
-        "UniqOrderId.OrdersCount": 151
+        "DishSumInt": 159511,
+        "UniqOrderId.OrdersCount": 152
       },
       {
         "Department": "Преображенский",
@@ -8206,7 +8214,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 659,
+        "DishAmountInt": 660,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- *Молоко Капучино Б",
         "DishSumInt": 0
@@ -10564,10 +10572,10 @@
         "DishSumInt": 987
       },
       {
-        "DishAmountInt": 761,
+        "DishAmountInt": 762,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 226839
+        "DishSumInt": 227138
       },
       {
         "DishAmountInt": 10,
@@ -11068,10 +11076,10 @@
         "DishSumInt": 39
       },
       {
-        "DishAmountInt": 202,
+        "DishAmountInt": 211,
         "DishGroup": "Десерты Терминал",
         "DishName": "Макаруны ",
-        "DishSumInt": 32068
+        "DishSumInt": 33499
       },
       {
         "DishAmountInt": 4,
@@ -12285,8 +12293,8 @@
   "sales_weekly_raw": {
     "data": [
       {
-        "DishDiscountSumInt": 2381816,
-        "DishSumInt": 2679695,
+        "DishDiscountSumInt": 2385487,
+        "DishSumInt": 2685082,
         "OpenDate.Typed": "2026-11-01"
       }
     ],
@@ -12296,8 +12304,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 1985382,
-        "net_sum": 1849653,
+        "gross_sum": 1989179,
+        "net_sum": 1852434,
         "discount_sum": 13897
       },
       {
@@ -12374,9 +12382,9 @@
       },
       {
         "discount_type": "Скидка сотрудника iikoCard",
-        "gross_sum": 23614,
-        "net_sum": 15040,
-        "discount_sum": 6769
+        "gross_sum": 25204,
+        "net_sum": 15930,
+        "discount_sum": 7151
       },
       {
         "discount_type": "Сскидка 30% Республики 245 (World Class)",
