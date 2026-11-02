@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "generated_at": "2026-11-02T23:12:33+05:00",
+  "generated_at": "2026-11-02T23:26:42+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
     "data": [
@@ -2798,11 +2798,11 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 2172,
-        "DishSumInt": 2213,
+        "DishDiscountSumInt": 2385,
+        "DishSumInt": 2462,
         "HourOpen": "19",
         "OrderType": "На подносе (Киоск)",
-        "UniqOrderId.OrdersCount": 5
+        "UniqOrderId.OrdersCount": 6
       },
       {
         "Department": "Океан",
@@ -8284,9 +8284,9 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 477345,
-        "DishSumInt": 523358,
-        "UniqOrderId.OrdersCount": 724
+        "DishDiscountSumInt": 477558,
+        "DishSumInt": 523607,
+        "UniqOrderId.OrdersCount": 725
       },
       {
         "Department": "Осипенко",
@@ -8456,7 +8456,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 592,
+        "DishAmountInt": 593,
         "DishGroup": "Молоко Капучино 250мл*",
         "DishName": "- *Молоко Капучино М",
         "DishSumInt": 0
@@ -11342,10 +11342,10 @@
         "DishSumInt": 26871
       },
       {
-        "DishAmountInt": 669,
+        "DishAmountInt": 670,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 250 мл",
-        "DishSumInt": 160612
+        "DishSumInt": 160861
       },
       {
         "DishAmountInt": 35,
@@ -13350,8 +13350,8 @@
         "OpenDate.Typed": "2026-11-01"
       },
       {
-        "DishDiscountSumInt": 2120097,
-        "DishSumInt": 7713819,
+        "DishDiscountSumInt": 2120310,
+        "DishSumInt": 7714068,
         "OpenDate.Typed": "2026-11-02"
       }
     ],
@@ -13454,6 +13454,12 @@
         "gross_sum": 2105,
         "net_sum": 1103,
         "discount_sum": 473
+      },
+      {
+        "discount_type": "Ручная скидка",
+        "gross_sum": 249,
+        "net_sum": 213,
+        "discount_sum": 36
       },
       {
         "discount_type": "Скидка 100% на ДР на десерт/кофе",
