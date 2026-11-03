@@ -1,14 +1,14 @@
 {
   "date": "2026-11-03",
-  "generated_at": "2026-11-03T10:06:32+05:00",
+  "generated_at": "2026-11-03T10:06:55+05:00",
   "summary": {
-    "revenue": 433200,
-    "orders": 813,
+    "revenue": 437767,
+    "orders": 822,
     "avg_check": 533,
     "yesterday_same_hour_revenue": 384736,
     "yesterday_same_hour_orders": 737,
     "comparison_hour": "09",
-    "discount_pct": 11.1
+    "discount_pct": 11.0
   },
   "points": [
     {
@@ -68,6 +68,14 @@
       "yesterday_same_hour_orders": 42
     },
     {
+      "name": "Советская",
+      "revenue": 25350,
+      "orders": 53,
+      "avg_check": 478,
+      "yesterday_same_hour_revenue": 21881,
+      "yesterday_same_hour_orders": 42
+    },
+    {
       "name": "Прео",
       "revenue": 25269,
       "orders": 55,
@@ -82,14 +90,6 @@
       "avg_check": 523,
       "yesterday_same_hour_revenue": 22119,
       "yesterday_same_hour_orders": 41
-    },
-    {
-      "name": "Советская",
-      "revenue": 20783,
-      "orders": 44,
-      "avg_check": 472,
-      "yesterday_same_hour_revenue": 21881,
-      "yesterday_same_hour_orders": 42
     },
     {
       "name": "Газпром",
@@ -311,11 +311,11 @@
     },
     {
       "hour": "09",
-      "revenue": 178993
+      "revenue": 180207
     },
     {
       "hour": "10",
-      "revenue": 4798
+      "revenue": 8151
     }
   ],
   "weekly": [
@@ -338,7 +338,7 @@
       "day_name": "Вт",
       "day_label": "3",
       "date_label": "03.11",
-      "revenue": 433200
+      "revenue": 437767
     }
   ],
   "top_items": [
@@ -363,8 +363,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1975,
-      "revenue": 589195
+      "qty": 1978,
+      "revenue": 590092
     },
     {
       "name": "Тестовое блюдо",
@@ -413,8 +413,8 @@
     {
       "name": "Скрембл с форелью",
       "group": "Завтраки",
-      "qty": 185,
-      "revenue": 116035
+      "qty": 186,
+      "revenue": 116664
     },
     {
       "name": "Драник с форелью",
@@ -433,8 +433,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1975,
-      "revenue": 589195
+      "qty": 1978,
+      "revenue": 590092
     },
     {
       "name": "Капучино 250 мл",
@@ -449,21 +449,21 @@
       "revenue": 166921
     },
     {
-      "name": "Раф Солёная карамель",
-      "group": "Рафы 350",
-      "qty": 351,
-      "revenue": 118559
+      "name": "Флэт Уайт 350 мл",
+      "group": "Кофе Терминал",
+      "qty": 315,
+      "revenue": 119206
     }
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 4998270,
-      "mtd_orders": 7806,
+      "mtd_revenue": 5002837,
+      "mtd_orders": 7815,
       "mtd_avg_check": 640,
       "plan_month": 81500000,
       "expected_to_date": 8150000,
       "pct_of_plan": 6.1,
-      "pct_vs_expected": 61.3,
+      "pct_vs_expected": 61.4,
       "day_of_month": 3,
       "days_in_month": 30
     },
@@ -577,6 +577,18 @@
         "pct_avg_check": 103.8
       },
       {
+        "name": "Советская",
+        "mtd_revenue": 261140,
+        "mtd_orders": 431,
+        "mtd_avg_check": 606,
+        "plan_month": 4550000,
+        "expected_to_date": 455000,
+        "pct_of_plan": 5.7,
+        "pct_vs_expected": 57.4,
+        "avg_check_plan": 591,
+        "pct_avg_check": 102.5
+      },
+      {
         "name": "Гарден Кофе Тобольск",
         "mtd_revenue": 259875,
         "mtd_orders": 381,
@@ -587,18 +599,6 @@
         "pct_vs_expected": 59.7,
         "avg_check_plan": 680,
         "pct_avg_check": 100.3
-      },
-      {
-        "name": "Советская",
-        "mtd_revenue": 256573,
-        "mtd_orders": 422,
-        "mtd_avg_check": 608,
-        "plan_month": 4550000,
-        "expected_to_date": 455000,
-        "pct_of_plan": 5.6,
-        "pct_vs_expected": 56.4,
-        "avg_check_plan": 591,
-        "pct_avg_check": 102.9
       },
       {
         "name": "Арсиб",
