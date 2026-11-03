@@ -1,10 +1,10 @@
 {
   "date": "2026-11-03",
-  "generated_at": "2026-11-03T22:36:45+05:00",
+  "generated_at": "2026-11-03T22:51:02+05:00",
   "summary": {
-    "revenue": 2365764,
-    "orders": 3848,
-    "avg_check": 615,
+    "revenue": 2367802,
+    "orders": 3854,
+    "avg_check": 614,
     "yesterday_same_hour_revenue": 2107938,
     "yesterday_same_hour_orders": 3585,
     "comparison_hour": "21",
@@ -13,9 +13,9 @@
   "points": [
     {
       "name": "Океан",
-      "revenue": 191583,
-      "orders": 341,
-      "avg_check": 562,
+      "revenue": 192923,
+      "orders": 344,
+      "avg_check": 561,
       "terminal_revenue": 21651,
       "terminal_orders": 38,
       "yesterday_same_hour_revenue": 202205,
@@ -44,8 +44,8 @@
     {
       "name": "Прео",
       "revenue": 162783,
-      "orders": 247,
-      "avg_check": 659,
+      "orders": 249,
+      "avg_check": 654,
       "terminal_revenue": 14389,
       "terminal_orders": 21,
       "yesterday_same_hour_revenue": 158272,
@@ -92,6 +92,16 @@
       "yesterday_same_hour_orders": 180
     },
     {
+      "name": "Московская",
+      "revenue": 130912,
+      "orders": 180,
+      "avg_check": 727,
+      "terminal_revenue": 12955,
+      "terminal_orders": 21,
+      "yesterday_same_hour_revenue": 91003,
+      "yesterday_same_hour_orders": 140
+    },
+    {
       "name": "Паруса",
       "revenue": 130606,
       "orders": 199,
@@ -100,16 +110,6 @@
       "terminal_orders": 0,
       "yesterday_same_hour_revenue": 112124,
       "yesterday_same_hour_orders": 177
-    },
-    {
-      "name": "Московская",
-      "revenue": 130214,
-      "orders": 179,
-      "avg_check": 727,
-      "terminal_revenue": 12955,
-      "terminal_orders": 21,
-      "yesterday_same_hour_revenue": 91003,
-      "yesterday_same_hour_orders": 140
     },
     {
       "name": "Гарден Кофе Тобольск",
@@ -407,7 +407,7 @@
     },
     {
       "hour": "22",
-      "revenue": 4267
+      "revenue": 6305
     }
   ],
   "weekly": [
@@ -430,7 +430,7 @@
       "day_name": "Вт",
       "day_label": "3",
       "date_label": "03.11",
-      "revenue": 2365764
+      "revenue": 2367802
     }
   ],
   "top_items": [
@@ -461,7 +461,7 @@
     {
       "name": "Тестовое блюдо",
       "group": "",
-      "qty": 1070,
+      "qty": 1072,
       "revenue": 520000
     },
     {
@@ -549,40 +549,40 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 6930834,
-      "mtd_orders": 10841,
+      "mtd_revenue": 6932872,
+      "mtd_orders": 10847,
       "mtd_avg_check": 639,
       "plan_month": 81500000,
       "expected_to_date": 8150000,
       "pct_of_plan": 8.5,
-      "pct_vs_expected": 85.0,
+      "pct_vs_expected": 85.1,
       "day_of_month": 3,
       "days_in_month": 30
     },
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 669141,
-        "mtd_orders": 1066,
-        "mtd_avg_check": 628,
+        "mtd_revenue": 670481,
+        "mtd_orders": 1069,
+        "mtd_avg_check": 627,
         "plan_month": 8000000,
         "expected_to_date": 800000,
         "pct_of_plan": 8.4,
-        "pct_vs_expected": 83.6,
+        "pct_vs_expected": 83.8,
         "avg_check_plan": 585,
-        "pct_avg_check": 107.4
+        "pct_avg_check": 107.2
       },
       {
         "name": "Прео",
         "mtd_revenue": 495279,
-        "mtd_orders": 711,
-        "mtd_avg_check": 697,
+        "mtd_orders": 713,
+        "mtd_avg_check": 695,
         "plan_month": 6650000,
         "expected_to_date": 665000,
         "pct_of_plan": 7.4,
         "pct_vs_expected": 74.5,
         "avg_check_plan": 675,
-        "pct_avg_check": 103.3
+        "pct_avg_check": 103.0
       },
       {
         "name": "Свердлова",
@@ -622,8 +622,8 @@
       },
       {
         "name": "Московская",
-        "mtd_revenue": 392388,
-        "mtd_orders": 529,
+        "mtd_revenue": 393086,
+        "mtd_orders": 530,
         "mtd_avg_check": 742,
         "plan_month": 0,
         "expected_to_date": 0,
