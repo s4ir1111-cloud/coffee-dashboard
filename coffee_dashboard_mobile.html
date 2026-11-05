@@ -163,7 +163,6 @@
   }
   .top-items li:last-child{border-bottom:none;}
   .top-items .qty{color:var(--muted);font-size:11px;}
-  .terminal-sales{display:block;color:var(--muted);font-size:10px;margin-top:2px;white-space:nowrap;}
   .top-heading{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:4px 0;}
 
   footer{
@@ -331,7 +330,7 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${cleanName(p.name)}</td>
-        <td>${fmtShort(p.revenue)}<span class="terminal-sales">Терминал: ${fmtShort(p.terminal_revenue || 0)} · ${p.terminal_orders || 0} зак.</span></td>
+        <td>${fmtShort(p.revenue)}</td>
         <td>${p.orders}</td>
         <td>${fmtShort(p.avg_check)}</td>
         <td>${plan ? fmtShort(plan.mtd_revenue) : '—'}</td>

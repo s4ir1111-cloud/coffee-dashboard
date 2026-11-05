@@ -79,16 +79,9 @@ def main():
     by_dept = {}
     for r in rows:
         dept = DEPT_ALIASES.get(r["Department"], r["Department"])
-        d = by_dept.setdefault(
-            dept,
-            {"revenue": 0, "orders": 0, "terminal_revenue": 0, "terminal_orders": 0},
-        )
+        d = by_dept.setdefault(dept, {"revenue": 0, "orders": 0})
         d["revenue"] += r.get("DishDiscountSumInt", 0)
         d["orders"] += r.get("UniqOrderId.OrdersCount", 0)
-        order_type = str(r.get("OrderType") or "").casefold().replace("ё", "е")
-        if "киоск" in order_type or "терминал" in order_type:
-            d["terminal_revenue"] += r.get("DishDiscountSumInt", 0)
-            d["terminal_orders"] += r.get("UniqOrderId.OrdersCount", 0)
 
     # Вчера до последнего полностью завершённого часа по местному времени.
     # Нельзя брать максимальный HourOpen сегодняшних строк: интернет-предзаказ
@@ -125,8 +118,6 @@ def main():
             "revenue": revenue,
             "orders": orders,
             "avg_check": avg_check,
-            "terminal_revenue": d["terminal_revenue"],
-            "terminal_orders": d["terminal_orders"],
             "yesterday_same_hour_revenue": yesterday_by_dept.get(dept, 0),
             "yesterday_same_hour_orders": yesterday_orders_by_dept.get(dept, 0),
         })

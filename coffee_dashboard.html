@@ -176,7 +176,6 @@
   }
   .top-items li:last-child{border-bottom:none;}
   .top-items .qty{color:var(--muted);font-size:10px;}
-  .terminal-sales{display:block;color:var(--muted);font-size:10px;margin-top:2px;white-space:nowrap;}
   .sales-top-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;min-width:0;}
   .sales-top-column{min-width:0;}
   .sales-top-heading{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
@@ -838,7 +837,7 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td class="name-cell">${cleanName(p.name)}</td>
-        <td data-label="Выручка">${fmtMoneyShort(p.revenue)}<span class="terminal-sales">Терминал: ${fmtMoneyShort(p.terminal_revenue || 0)} · ${p.terminal_orders || 0} зак.</span></td>
+        <td data-label="Выручка">${fmtMoneyShort(p.revenue)}</td>
         <td data-label="Заказы">${p.orders}</td>
         <td data-label="Средний чек">${fmtMoneyShort(p.avg_check)}</td>
         <td data-label="Факт МТД">${pl ? fmtMoneyShort(pl.mtd_revenue) : '—'}</td>
