@@ -1,10 +1,10 @@
 {
   "date": "2026-11-05",
-  "generated_at": "2026-11-05T10:24:09+05:00",
+  "generated_at": "2026-11-05T10:24:34+05:00",
   "summary": {
-    "revenue": 476700,
-    "orders": 918,
-    "avg_check": 519,
+    "revenue": 477945,
+    "orders": 920,
+    "avg_check": 520,
     "yesterday_same_hour_revenue": 306395,
     "yesterday_same_hour_orders": 444,
     "comparison_hour": "09",
@@ -122,6 +122,16 @@
       "yesterday_same_hour_orders": 21
     },
     {
+      "name": "Газпром",
+      "revenue": 19836,
+      "orders": 71,
+      "avg_check": 279,
+      "terminal_revenue": 0,
+      "terminal_orders": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
       "name": "Гарден Кофе Сургут",
       "revenue": 19830,
       "orders": 34,
@@ -130,16 +140,6 @@
       "terminal_orders": 0,
       "yesterday_same_hour_revenue": 22467,
       "yesterday_same_hour_orders": 25
-    },
-    {
-      "name": "Газпром",
-      "revenue": 18591,
-      "orders": 69,
-      "avg_check": 269,
-      "terminal_revenue": 0,
-      "terminal_orders": 0,
-      "yesterday_same_hour_revenue": 0,
-      "yesterday_same_hour_orders": 0
     },
     {
       "name": "Арсиб",
@@ -354,7 +354,7 @@
     },
     {
       "hour": "10",
-      "revenue": 50300
+      "revenue": 51545
     }
   ],
   "weekly": [
@@ -391,7 +391,7 @@
       "day_name": "Чт",
       "day_label": "5",
       "date_label": "05.11",
-      "revenue": 476700
+      "revenue": 477945
     }
   ],
   "top_items": [
@@ -434,8 +434,8 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 1493,
-      "revenue": 357966
+      "qty": 1494,
+      "revenue": 358215
     },
     {
       "name": "Латте 350 мл",
@@ -486,8 +486,8 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 1493,
-      "revenue": 357966
+      "qty": 1494,
+      "revenue": 358215
     },
     {
       "name": "Латте 350 мл",
@@ -510,13 +510,13 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 9908094,
-      "mtd_orders": 15466,
+      "mtd_revenue": 9909339,
+      "mtd_orders": 15468,
       "mtd_avg_check": 641,
       "plan_month": 81500000,
       "expected_to_date": 13583333,
       "pct_of_plan": 12.2,
-      "pct_vs_expected": 72.9,
+      "pct_vs_expected": 73.0,
       "day_of_month": 5,
       "days_in_month": 30
     },
@@ -775,15 +775,15 @@
       },
       {
         "name": "Газпром",
-        "mtd_revenue": 77915,
-        "mtd_orders": 264,
-        "mtd_avg_check": 295,
+        "mtd_revenue": 79160,
+        "mtd_orders": 266,
+        "mtd_avg_check": 298,
         "plan_month": 850000,
         "expected_to_date": 141667,
-        "pct_of_plan": 9.2,
-        "pct_vs_expected": 55.0,
+        "pct_of_plan": 9.3,
+        "pct_vs_expected": 55.9,
         "avg_check_plan": 284,
-        "pct_avg_check": 103.9
+        "pct_avg_check": 104.9
       }
     ]
   }
