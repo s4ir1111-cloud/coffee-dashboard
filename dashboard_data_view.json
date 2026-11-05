@@ -1,10 +1,10 @@
 {
   "date": "2026-11-05",
-  "generated_at": "2026-11-05T16:03:09+05:00",
+  "generated_at": "2026-11-05T16:05:36+05:00",
   "summary": {
-    "revenue": 1518099,
-    "orders": 2525,
-    "avg_check": 601,
+    "revenue": 1524991,
+    "orders": 2532,
+    "avg_check": 602,
     "yesterday_same_hour_revenue": 1761125,
     "yesterday_same_hour_orders": 2482,
     "comparison_hour": "15",
@@ -60,20 +60,20 @@
       "yesterday_same_hour_orders": 138
     },
     {
+      "name": "Панорама",
+      "revenue": 83746,
+      "orders": 144,
+      "avg_check": 582,
+      "yesterday_same_hour_revenue": 97268,
+      "yesterday_same_hour_orders": 135
+    },
+    {
       "name": "Советская",
       "revenue": 79847,
       "orders": 161,
       "avg_check": 496,
       "yesterday_same_hour_revenue": 62792,
       "yesterday_same_hour_orders": 105
-    },
-    {
-      "name": "Панорама",
-      "revenue": 77671,
-      "orders": 139,
-      "avg_check": 559,
-      "yesterday_same_hour_revenue": 97268,
-      "yesterday_same_hour_orders": 135
     },
     {
       "name": "Видный",
@@ -157,9 +157,9 @@
     },
     {
       "name": "Софилэнд",
-      "revenue": 38761,
-      "orders": 65,
-      "avg_check": 596,
+      "revenue": 39578,
+      "orders": 67,
+      "avg_check": 591,
       "yesterday_same_hour_revenue": 52378,
       "yesterday_same_hour_orders": 85
     },
@@ -330,7 +330,11 @@
     },
     {
       "hour": "15",
-      "revenue": 136020
+      "revenue": 142125
+    },
+    {
+      "hour": "16",
+      "revenue": 787
     }
   ],
   "weekly": [
@@ -367,7 +371,7 @@
       "day_name": "Чт",
       "day_label": "5",
       "date_label": "05.11",
-      "revenue": 1518099
+      "revenue": 1524991
     }
   ],
   "top_items": [
@@ -386,8 +390,8 @@
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
       "group": "Завтраки(ЯНДЕКС)",
-      "qty": 1008,
-      "revenue": 996912
+      "qty": 1009,
+      "revenue": 997901
     },
     {
       "name": "Доставка Яндекс Тмн",
@@ -424,8 +428,8 @@
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
       "group": "Завтраки(ЯНДЕКС)",
-      "qty": 1008,
-      "revenue": 996912
+      "qty": 1009,
+      "revenue": 997901
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -486,13 +490,13 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 10949493,
-      "mtd_orders": 17073,
+      "mtd_revenue": 10956385,
+      "mtd_orders": 17080,
       "mtd_avg_check": 641,
       "plan_month": 81500000,
       "expected_to_date": 13583333,
       "pct_of_plan": 13.4,
-      "pct_vs_expected": 80.6,
+      "pct_vs_expected": 80.7,
       "day_of_month": 5,
       "days_in_month": 30
     },
@@ -583,15 +587,15 @@
       },
       {
         "name": "Панорама",
-        "mtd_revenue": 598108,
-        "mtd_orders": 923,
-        "mtd_avg_check": 648,
+        "mtd_revenue": 604183,
+        "mtd_orders": 928,
+        "mtd_avg_check": 651,
         "plan_month": 4000000,
         "expected_to_date": 666667,
-        "pct_of_plan": 15.0,
-        "pct_vs_expected": 89.7,
+        "pct_of_plan": 15.1,
+        "pct_vs_expected": 90.6,
         "avg_check_plan": 609,
-        "pct_avg_check": 106.4
+        "pct_avg_check": 106.9
       },
       {
         "name": "Паруса",
@@ -727,13 +731,13 @@
       },
       {
         "name": "Софилэнд",
-        "mtd_revenue": 235243,
-        "mtd_orders": 422,
+        "mtd_revenue": 236060,
+        "mtd_orders": 424,
         "mtd_avg_check": 557,
         "plan_month": 2300000,
         "expected_to_date": 383333,
-        "pct_of_plan": 10.2,
-        "pct_vs_expected": 61.4,
+        "pct_of_plan": 10.3,
+        "pct_vs_expected": 61.6,
         "avg_check_plan": 546,
         "pct_avg_check": 102.0
       },
