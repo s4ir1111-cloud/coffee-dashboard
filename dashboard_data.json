@@ -1,6 +1,6 @@
 {
   "date": "2026-11-07",
-  "generated_at": "2026-11-07T22:43:37+05:00",
+  "generated_at": "2026-11-07T22:57:46+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
     "data": [
@@ -2814,11 +2814,19 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 8261,
-        "DishSumInt": 9449,
+        "DishDiscountSumInt": 420,
+        "DishSumInt": 439,
+        "HourOpen": "22",
+        "OrderType": "На подносе (Киоск)",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 10124,
+        "DishSumInt": 11312,
         "HourOpen": "22",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 16
+        "UniqOrderId.OrdersCount": 20
       },
       {
         "Department": "Океан",
@@ -8476,9 +8484,9 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 1559744,
-        "DishSumInt": 1717340,
-        "UniqOrderId.OrdersCount": 2471
+        "DishDiscountSumInt": 1562027,
+        "DishSumInt": 1719642,
+        "UniqOrderId.OrdersCount": 2476
       },
       {
         "Department": "Осипенко",
@@ -8630,13 +8638,13 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1021,
+        "DishAmountInt": 1023,
         "DishGroup": "*Молоко Какао",
         "DishName": "- *Молоко Какао",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 171,
+        "DishAmountInt": 172,
         "DishGroup": "*Молоко Какао 500",
         "DishName": "- *Молоко Какао 500",
         "DishSumInt": 0
@@ -10274,7 +10282,7 @@
         "DishSumInt": 156
       },
       {
-        "DishAmountInt": 936,
+        "DishAmountInt": 937,
         "DishGroup": "Сиропы",
         "DishName": "- Сахарный сироп 10 мл",
         "DishSumInt": 0
@@ -10934,7 +10942,7 @@
         "DishSumInt": 1796
       },
       {
-        "DishAmountInt": 1016,
+        "DishAmountInt": 1018,
         "DishGroup": "*Допы Напитки",
         "DishName": "- зефирки 10 г",
         "DishSumInt": 0
@@ -11036,10 +11044,10 @@
         "DishSumInt": 259
       },
       {
-        "DishAmountInt": 195,
+        "DishAmountInt": 196,
         "DishGroup": "*Допы Кухня",
         "DishName": "- курица 50 гр",
-        "DishSumInt": 25225
+        "DishSumInt": 25354
       },
       {
         "DishAmountInt": 20,
@@ -12344,16 +12352,16 @@
         "DishSumInt": 2514
       },
       {
-        "DishAmountInt": 771,
+        "DishAmountInt": 773,
         "DishGroup": "Авторские напитки 350",
         "DishName": "Какао молочный 350 мл",
-        "DishSumInt": 244709
+        "DishSumInt": 245347
       },
       {
-        "DishAmountInt": 134,
+        "DishAmountInt": 135,
         "DishGroup": "Авторские напитки 450",
         "DishName": "Какао молочный 450",
-        "DishSumInt": 58976
+        "DishSumInt": 59415
       },
       {
         "DishAmountInt": 4,
@@ -12758,10 +12766,10 @@
         "DishSumInt": 627
       },
       {
-        "DishAmountInt": 245,
+        "DishAmountInt": 246,
         "DishGroup": "Десерты Терминал",
         "DishName": "Круассан ",
-        "DishSumInt": 55715
+        "DishSumInt": 55944
       },
       {
         "DishAmountInt": 8,
@@ -13430,10 +13438,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 863,
+        "DishAmountInt": 864,
         "DishGroup": "Салаты и горячее",
         "DishName": "Паста с ветчиной ",
-        "DishSumInt": 332807
+        "DishSumInt": 333196
       },
       {
         "DishAmountInt": 68,
@@ -14648,10 +14656,10 @@
         "DishSumInt": 13085
       },
       {
-        "DishAmountInt": 32,
+        "DishAmountInt": 33,
         "DishGroup": "Чай листовой",
         "DishName": "Чай Иван Чай ",
-        "DishSumInt": 7628
+        "DishSumInt": 7867
       },
       {
         "DishAmountInt": 1,
@@ -14738,10 +14746,10 @@
         "DishSumInt": 20753
       },
       {
-        "DishAmountInt": 209,
+        "DishAmountInt": 210,
         "DishGroup": "Чай листовой",
         "DishName": "Чай черный Юньнань ",
-        "DishSumInt": 48397
+        "DishSumInt": 48636
       },
       {
         "DishAmountInt": 1,
@@ -14905,8 +14913,8 @@
         "OpenDate.Typed": "2026-11-06"
       },
       {
-        "DishDiscountSumInt": 2500329,
-        "DishSumInt": 2827389,
+        "DishDiscountSumInt": 2502612,
+        "DishSumInt": 2829691,
         "OpenDate.Typed": "2026-11-07"
       }
     ],
@@ -14916,8 +14924,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 2073447,
-        "net_sum": 1929034,
+        "gross_sum": 2075310,
+        "net_sum": 1930897,
         "discount_sum": 20853
       },
       {
@@ -14934,9 +14942,9 @@
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости",
-        "gross_sum": 401042,
-        "net_sum": 313124,
-        "discount_sum": 66329
+        "gross_sum": 401481,
+        "net_sum": 313544,
+        "discount_sum": 66348
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене",
