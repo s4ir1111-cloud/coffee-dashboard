@@ -1,10 +1,10 @@
 {
   "date": "2026-11-08",
-  "generated_at": "2026-11-08T18:43:26+05:00",
+  "generated_at": "2026-11-08T18:47:38+05:00",
   "summary": {
-    "revenue": 2004105,
-    "orders": 2809,
-    "avg_check": 713,
+    "revenue": 2016014,
+    "orders": 2822,
+    "avg_check": 714,
     "yesterday_same_hour_revenue": 2129775,
     "yesterday_same_hour_orders": 2960,
     "comparison_hour": "17",
@@ -28,20 +28,20 @@
       "yesterday_same_hour_orders": 233
     },
     {
+      "name": "Прео",
+      "revenue": 146507,
+      "orders": 208,
+      "avg_check": 704,
+      "yesterday_same_hour_revenue": 147374,
+      "yesterday_same_hour_orders": 202
+    },
+    {
       "name": "Московская",
       "revenue": 145109,
       "orders": 162,
       "avg_check": 896,
       "yesterday_same_hour_revenue": 160771,
       "yesterday_same_hour_orders": 189
-    },
-    {
-      "name": "Прео",
-      "revenue": 138851,
-      "orders": 202,
-      "avg_check": 687,
-      "yesterday_same_hour_revenue": 147374,
-      "yesterday_same_hour_orders": 202
     },
     {
       "name": "Видный",
@@ -61,17 +61,17 @@
     },
     {
       "name": "Калинка",
-      "revenue": 112525,
-      "orders": 163,
+      "revenue": 113910,
+      "orders": 165,
       "avg_check": 690,
       "yesterday_same_hour_revenue": 129770,
       "yesterday_same_hour_orders": 175
     },
     {
       "name": "Новин",
-      "revenue": 111097,
-      "orders": 152,
-      "avg_check": 731,
+      "revenue": 113747,
+      "orders": 156,
+      "avg_check": 729,
       "yesterday_same_hour_revenue": 132250,
       "yesterday_same_hour_orders": 172
     },
@@ -101,9 +101,9 @@
     },
     {
       "name": "Паруса",
-      "revenue": 88839,
-      "orders": 128,
-      "avg_check": 694,
+      "revenue": 89057,
+      "orders": 129,
+      "avg_check": 690,
       "yesterday_same_hour_revenue": 127736,
       "yesterday_same_hour_orders": 173
     },
@@ -321,7 +321,7 @@
     },
     {
       "hour": "18",
-      "revenue": 73798
+      "revenue": 85707
     }
   ],
   "weekly": [
@@ -379,7 +379,7 @@
       "day_name": "Вс",
       "day_label": "8",
       "date_label": "08.11",
-      "revenue": 2004105
+      "revenue": 2016014
     }
   ],
   "top_items": [
@@ -392,8 +392,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 6576.5,
-      "revenue": 1961924
+      "qty": 6579.5,
+      "revenue": 1962821
     },
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
@@ -410,8 +410,8 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 2747,
-      "revenue": 661740
+      "qty": 2748,
+      "revenue": 661989
     },
     {
       "name": "Комбо завтрак Бариста",
@@ -422,8 +422,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 2148,
-      "revenue": 640893
+      "qty": 2149,
+      "revenue": 641192
     },
     {
       "name": "Тестовое блюдо",
@@ -468,20 +468,20 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 6576.5,
-      "revenue": 1961924
+      "qty": 6579.5,
+      "revenue": 1962821
     },
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 2747,
-      "revenue": 661740
+      "qty": 2748,
+      "revenue": 661989
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 2148,
-      "revenue": 640893
+      "qty": 2149,
+      "revenue": 641192
     },
     {
       "name": "Раф Солёная карамель",
@@ -498,8 +498,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 18332647,
-      "mtd_orders": 28119,
+      "mtd_revenue": 18344556,
+      "mtd_orders": 28132,
       "mtd_avg_check": 652,
       "plan_month": 81500000,
       "expected_to_date": 21733333,
@@ -535,15 +535,15 @@
       },
       {
         "name": "Прео",
-        "mtd_revenue": 1294709,
-        "mtd_orders": 1882,
-        "mtd_avg_check": 688,
+        "mtd_revenue": 1302365,
+        "mtd_orders": 1888,
+        "mtd_avg_check": 690,
         "plan_month": 6650000,
         "expected_to_date": 1773333,
-        "pct_of_plan": 19.5,
-        "pct_vs_expected": 73.0,
+        "pct_of_plan": 19.6,
+        "pct_vs_expected": 73.4,
         "avg_check_plan": 675,
-        "pct_avg_check": 101.9
+        "pct_avg_check": 102.2
       },
       {
         "name": "Видный",
@@ -571,15 +571,27 @@
       },
       {
         "name": "Калинка",
-        "mtd_revenue": 1108024,
-        "mtd_orders": 1772,
+        "mtd_revenue": 1109409,
+        "mtd_orders": 1774,
         "mtd_avg_check": 625,
         "plan_month": 5750000,
         "expected_to_date": 1533333,
         "pct_of_plan": 19.3,
-        "pct_vs_expected": 72.3,
+        "pct_vs_expected": 72.4,
         "avg_check_plan": 623,
         "pct_avg_check": 100.3
+      },
+      {
+        "name": "Новин",
+        "mtd_revenue": 1030843,
+        "mtd_orders": 1498,
+        "mtd_avg_check": 688,
+        "plan_month": 4750000,
+        "expected_to_date": 1266667,
+        "pct_of_plan": 21.7,
+        "pct_vs_expected": 81.4,
+        "avg_check_plan": 665,
+        "pct_avg_check": 103.5
       },
       {
         "name": "Панорама",
@@ -594,28 +606,16 @@
         "pct_avg_check": 107.7
       },
       {
-        "name": "Новин",
-        "mtd_revenue": 1028193,
-        "mtd_orders": 1494,
-        "mtd_avg_check": 688,
-        "plan_month": 4750000,
-        "expected_to_date": 1266667,
-        "pct_of_plan": 21.6,
-        "pct_vs_expected": 81.2,
-        "avg_check_plan": 665,
-        "pct_avg_check": 103.5
-      },
-      {
         "name": "Паруса",
-        "mtd_revenue": 962355,
-        "mtd_orders": 1435,
-        "mtd_avg_check": 671,
+        "mtd_revenue": 962573,
+        "mtd_orders": 1436,
+        "mtd_avg_check": 670,
         "plan_month": 4850000,
         "expected_to_date": 1293333,
         "pct_of_plan": 19.8,
         "pct_vs_expected": 74.4,
         "avg_check_plan": 647,
-        "pct_avg_check": 103.7
+        "pct_avg_check": 103.6
       },
       {
         "name": "Советская",
