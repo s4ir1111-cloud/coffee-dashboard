@@ -1,6 +1,6 @@
 {
   "date": "2026-11-08",
-  "generated_at": "2026-11-08T07:41:35+05:00",
+  "generated_at": "2026-11-08T07:45:42+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
     "data": [
@@ -19,6 +19,14 @@
         "HourOpen": "07",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Калинка",
+        "DishDiscountSumInt": 1665,
+        "DishSumInt": 1665,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 3
       },
       {
         "Department": "Свердлова",
@@ -4348,9 +4356,9 @@
       },
       {
         "Department": "Калинка",
-        "DishDiscountSumInt": 995499,
-        "DishSumInt": 1108292,
-        "UniqOrderId.OrdersCount": 1609
+        "DishDiscountSumInt": 997164,
+        "DishSumInt": 1109957,
+        "UniqOrderId.OrdersCount": 1612
       },
       {
         "Department": "Мельникайте",
@@ -4430,7 +4438,7 @@
         "DishSumInt": 927
       },
       {
-        "DishAmountInt": 1036,
+        "DishAmountInt": 1038,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 170 мл (Кофе 250 мл)",
         "DishSumInt": 0
@@ -4442,7 +4450,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 460,
+        "DishAmountInt": 461,
         "DishGroup": "Кофе (молоко) комбо-завт",
         "DishName": "*Молоко 250 мл (Кофе 350мл)",
         "DishSumInt": 0
@@ -6662,7 +6670,7 @@
         "DishSumInt": 196
       },
       {
-        "DishAmountInt": 2126,
+        "DishAmountInt": 2127,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- Хлеб зерновой солодовый 40гр",
         "DishSumInt": 0
@@ -6848,16 +6856,16 @@
         "DishSumInt": 147
       },
       {
-        "DishAmountInt": 809,
+        "DishAmountInt": 810,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- капучино 250 мл ",
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 403,
+        "DishAmountInt": 404,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- капучино 350 мл ",
-        "DishSumInt": 31434
+        "DishSumInt": 31512
       },
       {
         "DishAmountInt": 50,
@@ -6950,7 +6958,7 @@
         "DishSumInt": 2185
       },
       {
-        "DishAmountInt": 276,
+        "DishAmountInt": 277,
         "DishGroup": "*Кофе к комбо",
         "DishName": "- латте 250 мл ",
         "DishSumInt": 0
@@ -7166,7 +7174,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1091,
+        "DishAmountInt": 1092,
         "DishGroup": "*сиропы кофе 250",
         "DishName": "- сахарный сироп 10 мл",
         "DishSumInt": 0
@@ -7460,7 +7468,7 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 1478,
+        "DishAmountInt": 1480,
         "DishGroup": "Хлеб на выбор",
         "DishName": "- хлеб ремесленый ржано-пшеничный 50 гр",
         "DishSumInt": 0
@@ -7970,7 +7978,7 @@
         "DishSumInt": 273
       },
       {
-        "DishAmountInt": 1406,
+        "DishAmountInt": 1409,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Вместе",
         "DishSumInt": 0
@@ -8534,10 +8542,10 @@
         "DishSumInt": 3501
       },
       {
-        "DishAmountInt": 541,
+        "DishAmountInt": 542,
         "DishGroup": "Завтраки",
         "DishName": "Комбо Завтрак Баварский ",
-        "DishSumInt": 286479
+        "DishSumInt": 287008
       },
       {
         "DishAmountInt": 135,
@@ -8564,10 +8572,10 @@
         "DishSumInt": 18914
       },
       {
-        "DishAmountInt": 1106,
+        "DishAmountInt": 1108,
         "DishGroup": "Завтраки",
         "DishName": "Комбо завтрак Бариста ",
-        "DishSumInt": 585704
+        "DishSumInt": 586762
       },
       {
         "DishAmountInt": 51,
@@ -9914,7 +9922,7 @@
         "DishSumInt": 623
       },
       {
-        "DishAmountInt": 2636,
+        "DishAmountInt": 2637,
         "DishGroup": "Вместе/Сразу",
         "DishName": "Сразу",
         "DishSumInt": 0
@@ -10806,8 +10814,8 @@
         "OpenDate.Typed": "2026-11-07"
       },
       {
-        "DishDiscountSumInt": 2742,
-        "DishSumInt": 4440,
+        "DishDiscountSumInt": 4407,
+        "DishSumInt": 6105,
         "OpenDate.Typed": "2026-11-08"
       }
     ],
@@ -10817,8 +10825,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 1488,
-        "net_sum": 528,
+        "gross_sum": 3153,
+        "net_sum": 2193,
         "discount_sum": 0
       },
       {
