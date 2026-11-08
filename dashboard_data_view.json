@@ -1,21 +1,45 @@
 {
   "date": "2026-11-08",
-  "generated_at": "2026-11-08T07:27:28+05:00",
+  "generated_at": "2026-11-08T07:41:11+05:00",
   "summary": {
-    "revenue": 0,
-    "orders": 1,
-    "avg_check": 0,
+    "revenue": 2742,
+    "orders": 7,
+    "avg_check": 392,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
     "comparison_hour": "06",
-    "discount_pct": 0.0
+    "discount_pct": 10.8
   },
   "points": [
     {
+      "name": "Видный",
+      "revenue": 1457,
+      "orders": 2,
+      "avg_check": 728,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Советская",
+      "revenue": 787,
+      "orders": 2,
+      "avg_check": 394,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
       "name": "Свердлова",
-      "revenue": 0,
+      "revenue": 259,
+      "orders": 2,
+      "avg_check": 130,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    },
+    {
+      "name": "Гарден Кофе Сургут",
+      "revenue": 239,
       "orders": 1,
-      "avg_check": 0,
+      "avg_check": 239,
       "yesterday_same_hour_revenue": 0,
       "yesterday_same_hour_orders": 0
     }
@@ -24,7 +48,7 @@
   "hourly": [
     {
       "hour": "07",
-      "revenue": 0
+      "revenue": 2742
     }
   ],
   "weekly": [
@@ -82,7 +106,7 @@
       "day_name": "Вс",
       "day_label": "8",
       "date_label": "08.11",
-      "revenue": 0
+      "revenue": 2742
     }
   ],
   "top_items": [
@@ -95,8 +119,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 5884.5,
-      "revenue": 1755506
+      "qty": 5885.5,
+      "revenue": 1755805
     },
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
@@ -125,8 +149,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1947,
-      "revenue": 580894
+      "qty": 1951,
+      "revenue": 582090
     },
     {
       "name": "Тестовое блюдо",
@@ -151,8 +175,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 657,
-      "revenue": 393543
+      "qty": 659,
+      "revenue": 394741
     },
     {
       "name": "Скрембл с форелью",
@@ -171,8 +195,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 5884.5,
-      "revenue": 1755506
+      "qty": 5885.5,
+      "revenue": 1755805
     },
     {
       "name": "Капучино 250 мл",
@@ -183,8 +207,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 1947,
-      "revenue": 580894
+      "qty": 1951,
+      "revenue": 582090
     },
     {
       "name": "Флэт Уайт 350 мл",
@@ -201,8 +225,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 16328542,
-      "mtd_orders": 25311,
+      "mtd_revenue": 16331284,
+      "mtd_orders": 25317,
       "mtd_avg_check": 645,
       "plan_month": 81500000,
       "expected_to_date": 21733333,
@@ -226,8 +250,8 @@
       },
       {
         "name": "Свердлова",
-        "mtd_revenue": 1193594,
-        "mtd_orders": 1768,
+        "mtd_revenue": 1193853,
+        "mtd_orders": 1769,
         "mtd_avg_check": 675,
         "plan_month": 6100000,
         "expected_to_date": 1626667,
@@ -250,13 +274,13 @@
       },
       {
         "name": "Видный",
-        "mtd_revenue": 1050107,
-        "mtd_orders": 1496,
+        "mtd_revenue": 1051564,
+        "mtd_orders": 1498,
         "mtd_avg_check": 702,
         "plan_month": 5200000,
         "expected_to_date": 1386667,
         "pct_of_plan": 20.2,
-        "pct_vs_expected": 75.7,
+        "pct_vs_expected": 75.8,
         "avg_check_plan": 700,
         "pct_avg_check": 100.3
       },
@@ -322,15 +346,15 @@
       },
       {
         "name": "Советская",
-        "mtd_revenue": 824498,
-        "mtd_orders": 1410,
-        "mtd_avg_check": 585,
+        "mtd_revenue": 825285,
+        "mtd_orders": 1412,
+        "mtd_avg_check": 584,
         "plan_month": 4550000,
         "expected_to_date": 1213333,
         "pct_of_plan": 18.1,
         "pct_vs_expected": 68.0,
         "avg_check_plan": 591,
-        "pct_avg_check": 99.0
+        "pct_avg_check": 98.8
       },
       {
         "name": "Арсиб",
@@ -382,8 +406,8 @@
       },
       {
         "name": "Гарден Кофе Сургут",
-        "mtd_revenue": 594458,
-        "mtd_orders": 836,
+        "mtd_revenue": 594697,
+        "mtd_orders": 837,
         "mtd_avg_check": 711,
         "plan_month": 3450000,
         "expected_to_date": 920000,
