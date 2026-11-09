@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "generated_at": "2026-11-09T22:42:50+05:00",
+  "generated_at": "2026-11-09T22:50:35+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
     "data": [
@@ -2790,11 +2790,19 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 3379,
-        "DishSumInt": 3438,
+        "DishDiscountSumInt": 1142,
+        "DishSumInt": 1156,
+        "HourOpen": "22",
+        "OrderType": "На подносе (Киоск)",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 3788,
+        "DishSumInt": 3847,
         "HourOpen": "22",
         "OrderType": "С собой",
-        "UniqOrderId.OrdersCount": 5
+        "UniqOrderId.OrdersCount": 6
       },
       {
         "Department": "Осипенко",
@@ -3555,6 +3563,14 @@
         "HourOpen": "21",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 7
+      },
+      {
+        "Department": "Преображенский",
+        "DishDiscountSumInt": 153,
+        "DishSumInt": 219,
+        "HourOpen": "22",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
       },
       {
         "Department": "Свердлова",
@@ -8164,9 +8180,9 @@
       },
       {
         "Department": "Океан",
-        "DishDiscountSumInt": 1945782,
-        "DishSumInt": 2153169,
-        "UniqOrderId.OrdersCount": 3090
+        "DishDiscountSumInt": 1947333,
+        "DishSumInt": 2154734,
+        "UniqOrderId.OrdersCount": 3092
       },
       {
         "Department": "Осипенко",
@@ -8188,9 +8204,9 @@
       },
       {
         "Department": "Преображенский",
-        "DishDiscountSumInt": 1469509,
-        "DishSumInt": 1676993,
-        "UniqOrderId.OrdersCount": 2146
+        "DishDiscountSumInt": 1469662,
+        "DishSumInt": 1677212,
+        "UniqOrderId.OrdersCount": 2147
       },
       {
         "Department": "Свердлова",
@@ -12170,10 +12186,10 @@
         "DishSumInt": 490
       },
       {
-        "DishAmountInt": 430,
+        "DishAmountInt": 431,
         "DishGroup": "Чай Авторский 450",
         "DishName": "Иван чай пихта-жимолость 450",
-        "DishSumInt": 176830
+        "DishSumInt": 177239
       },
       {
         "DishAmountInt": 1,
@@ -12248,10 +12264,10 @@
         "DishSumInt": 4117
       },
       {
-        "DishAmountInt": 619,
+        "DishAmountInt": 621,
         "DishGroup": "Десерты Терминал",
         "DishName": "Канеле крем соленая карамель",
-        "DishSumInt": 104611
+        "DishSumInt": 104949
       },
       {
         "DishAmountInt": 3138,
@@ -12686,10 +12702,10 @@
         "DishSumInt": 30582
       },
       {
-        "DishAmountInt": 409,
+        "DishAmountInt": 410,
         "DishGroup": "Десерты Терминал",
         "DishName": "Кукис Арахисовый ",
-        "DishSumInt": 89151
+        "DishSumInt": 89370
       },
       {
         "DishAmountInt": 16,
@@ -14582,10 +14598,10 @@
         "DishSumInt": 478
       },
       {
-        "DishAmountInt": 698,
+        "DishAmountInt": 699,
         "DishGroup": "Чай Авторский 450",
         "DishName": "Чай Клубника Лайм 450",
-        "DishSumInt": 286452
+        "DishSumInt": 286861
       },
       {
         "DishAmountInt": 104,
@@ -14606,10 +14622,10 @@
         "DishSumInt": 1227
       },
       {
-        "DishAmountInt": 571,
+        "DishAmountInt": 572,
         "DishGroup": "Чай Авторский 450",
         "DishName": "Чай Облепиха Маракуйя 450",
-        "DishSumInt": 234419
+        "DishSumInt": 234828
       },
       {
         "DishAmountInt": 1,
@@ -14843,8 +14859,8 @@
         "OpenDate.Typed": "2026-11-08"
       },
       {
-        "DishDiscountSumInt": 1928703,
-        "DishSumInt": 2208864,
+        "DishDiscountSumInt": 1930407,
+        "DishSumInt": 2210648,
         "OpenDate.Typed": "2026-11-09"
       }
     ],
@@ -14854,8 +14870,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 1506686,
-        "net_sum": 1402208,
+        "gross_sum": 1507095,
+        "net_sum": 1402617,
         "discount_sum": 17751
       },
       {
@@ -14872,9 +14888,9 @@
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости",
-        "gross_sum": 295825,
-        "net_sum": 229115,
-        "discount_sum": 51978
+        "gross_sum": 296981,
+        "net_sum": 230257,
+        "discount_sum": 51992
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене",
@@ -14938,9 +14954,9 @@
       },
       {
         "discount_type": "Скидка сотрудника iikoCard",
-        "gross_sum": 43173,
-        "net_sum": 27768,
-        "discount_sum": 11562
+        "gross_sum": 43392,
+        "net_sum": 27921,
+        "discount_sum": 11628
       },
       {
         "discount_type": "Сскидка 30% Республики 245 (World Class)",
