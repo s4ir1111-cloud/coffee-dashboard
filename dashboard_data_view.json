@@ -1,9 +1,9 @@
 {
   "date": "2026-11-15",
-  "generated_at": "2026-11-15T16:36:35+05:00",
+  "generated_at": "2026-11-15T16:38:21+05:00",
   "summary": {
-    "revenue": 1805403,
-    "orders": 2417,
+    "revenue": 1812700,
+    "orders": 2426,
     "avg_check": 747,
     "yesterday_same_hour_revenue": 2072336,
     "yesterday_same_hour_orders": 2860,
@@ -28,6 +28,14 @@
       "yesterday_same_hour_orders": 199
     },
     {
+      "name": "Московская",
+      "revenue": 124873,
+      "orders": 134,
+      "avg_check": 932,
+      "yesterday_same_hour_revenue": 118722,
+      "yesterday_same_hour_orders": 133
+    },
+    {
       "name": "Свердлова",
       "revenue": 124050,
       "orders": 162,
@@ -36,18 +44,10 @@
       "yesterday_same_hour_orders": 194
     },
     {
-      "name": "Московская",
-      "revenue": 121358,
-      "orders": 131,
-      "avg_check": 926,
-      "yesterday_same_hour_revenue": 118722,
-      "yesterday_same_hour_orders": 133
-    },
-    {
       "name": "Видный",
-      "revenue": 116726,
-      "orders": 143,
-      "avg_check": 816,
+      "revenue": 117424,
+      "orders": 144,
+      "avg_check": 815,
       "yesterday_same_hour_revenue": 114495,
       "yesterday_same_hour_orders": 169
     },
@@ -77,9 +77,9 @@
     },
     {
       "name": "Советская",
-      "revenue": 89890,
-      "orders": 121,
-      "avg_check": 743,
+      "revenue": 90717,
+      "orders": 123,
+      "avg_check": 738,
       "yesterday_same_hour_revenue": 109209,
       "yesterday_same_hour_orders": 147
     },
@@ -140,20 +140,20 @@
       "yesterday_same_hour_orders": 129
     },
     {
+      "name": "Домашний",
+      "revenue": 47032,
+      "orders": 74,
+      "avg_check": 636,
+      "yesterday_same_hour_revenue": 56912,
+      "yesterday_same_hour_orders": 88
+    },
+    {
       "name": "Драмтеатр",
       "revenue": 46352,
       "orders": 72,
       "avg_check": 644,
       "yesterday_same_hour_revenue": 54578,
       "yesterday_same_hour_orders": 97
-    },
-    {
-      "name": "Домашний",
-      "revenue": 45775,
-      "orders": 72,
-      "avg_check": 636,
-      "yesterday_same_hour_revenue": 56912,
-      "yesterday_same_hour_orders": 88
     },
     {
       "name": "Мельникайте",
@@ -173,9 +173,9 @@
     },
     {
       "name": "Осипенко",
-      "revenue": 23116,
-      "orders": 44,
-      "avg_check": 525,
+      "revenue": 24116,
+      "orders": 45,
+      "avg_check": 536,
       "yesterday_same_hour_revenue": 21740,
       "yesterday_same_hour_orders": 44
     }
@@ -326,7 +326,7 @@
     },
     {
       "hour": "16",
-      "revenue": 92609
+      "revenue": 99906
     }
   ],
   "weekly": [
@@ -433,15 +433,15 @@
       "day_name": "Вс",
       "day_label": "15",
       "date_label": "15.11",
-      "revenue": 1805403
+      "revenue": 1812700
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 12374.5,
-      "revenue": 3692106
+      "qty": 12379.5,
+      "revenue": 3693591
     },
     {
       "name": "Бленд Бариста 1 кг",
@@ -452,8 +452,8 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 2399,
-      "revenue": 1270011
+      "qty": 2400,
+      "revenue": 1270530
     },
     {
       "name": "Капучино 250 мл",
@@ -476,8 +476,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 1431,
-      "revenue": 857169
+      "qty": 1433,
+      "revenue": 858367
     },
     {
       "name": "Доставка Яндекс Тмн",
@@ -490,8 +490,8 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 2399,
-      "revenue": 1270011
+      "qty": 2400,
+      "revenue": 1270530
     },
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
@@ -502,8 +502,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 1431,
-      "revenue": 857169
+      "qty": 1433,
+      "revenue": 858367
     },
     {
       "name": "Скрембл с форелью",
@@ -522,8 +522,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 12374.5,
-      "revenue": 3692106
+      "qty": 12379.5,
+      "revenue": 3693591
     },
     {
       "name": "Капучино 250 мл",
@@ -552,8 +552,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 34305801,
-      "mtd_orders": 53224,
+      "mtd_revenue": 34313098,
+      "mtd_orders": 53233,
       "mtd_avg_check": 645,
       "plan_month": 81500000,
       "expected_to_date": 40750000,
@@ -601,8 +601,8 @@
       },
       {
         "name": "Видный",
-        "mtd_revenue": 2128600,
-        "mtd_orders": 3005,
+        "mtd_revenue": 2129298,
+        "mtd_orders": 3006,
         "mtd_avg_check": 708,
         "plan_month": 5200000,
         "expected_to_date": 2600000,
@@ -625,8 +625,8 @@
       },
       {
         "name": "Московская",
-        "mtd_revenue": 1989645,
-        "mtd_orders": 2565,
+        "mtd_revenue": 1993160,
+        "mtd_orders": 2568,
         "mtd_avg_check": 776,
         "plan_month": 0,
         "expected_to_date": 0,
@@ -661,13 +661,13 @@
       },
       {
         "name": "Советская",
-        "mtd_revenue": 1791200,
-        "mtd_orders": 2957,
+        "mtd_revenue": 1792027,
+        "mtd_orders": 2959,
         "mtd_avg_check": 606,
         "plan_month": 4550000,
         "expected_to_date": 2275000,
         "pct_of_plan": 39.4,
-        "pct_vs_expected": 78.7,
+        "pct_vs_expected": 78.8,
         "avg_check_plan": 591,
         "pct_avg_check": 102.5
       },
@@ -769,13 +769,13 @@
       },
       {
         "name": "Домашний",
-        "mtd_revenue": 998444,
-        "mtd_orders": 1590,
+        "mtd_revenue": 999701,
+        "mtd_orders": 1592,
         "mtd_avg_check": 628,
         "plan_month": 2950000,
         "expected_to_date": 1475000,
-        "pct_of_plan": 33.8,
-        "pct_vs_expected": 67.7,
+        "pct_of_plan": 33.9,
+        "pct_vs_expected": 67.8,
         "avg_check_plan": 658,
         "pct_avg_check": 95.4
       },
@@ -805,13 +805,13 @@
       },
       {
         "name": "Осипенко",
-        "mtd_revenue": 415483,
-        "mtd_orders": 951,
+        "mtd_revenue": 416483,
+        "mtd_orders": 952,
         "mtd_avg_check": 437,
         "plan_month": 900000,
         "expected_to_date": 450000,
-        "pct_of_plan": 46.2,
-        "pct_vs_expected": 92.3,
+        "pct_of_plan": 46.3,
+        "pct_vs_expected": 92.6,
         "avg_check_plan": 426,
         "pct_avg_check": 102.6
       },
