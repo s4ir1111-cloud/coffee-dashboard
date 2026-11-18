@@ -1,9 +1,9 @@
 {
   "date": "2026-11-18",
-  "generated_at": "2026-11-18T22:05:06+05:00",
+  "generated_at": "2026-11-18T22:19:17+05:00",
   "summary": {
-    "revenue": 2180645,
-    "orders": 3587,
+    "revenue": 2186723,
+    "orders": 3599,
     "avg_check": 608,
     "yesterday_same_hour_revenue": 2146119,
     "yesterday_same_hour_orders": 3572,
@@ -13,9 +13,9 @@
   "points": [
     {
       "name": "Океан",
-      "revenue": 198588,
-      "orders": 319,
-      "avg_check": 623,
+      "revenue": 204666,
+      "orders": 330,
+      "avg_check": 620,
       "yesterday_same_hour_revenue": 162009,
       "yesterday_same_hour_orders": 268
     },
@@ -118,8 +118,8 @@
     {
       "name": "Гагарина",
       "revenue": 81735,
-      "orders": 114,
-      "avg_check": 717,
+      "orders": 115,
+      "avg_check": 711,
       "yesterday_same_hour_revenue": 90741,
       "yesterday_same_hour_orders": 111
     },
@@ -359,7 +359,11 @@
     },
     {
       "hour": "21",
-      "revenue": 54621
+      "revenue": 59663
+    },
+    {
+      "hour": "22",
+      "revenue": 1036
     }
   ],
   "weekly": [
@@ -487,15 +491,15 @@
       "day_name": "Ср",
       "day_label": "18",
       "date_label": "18.11",
-      "revenue": 2180645
+      "revenue": 2186723
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 14956.5,
-      "revenue": 4462814
+      "qty": 14959.5,
+      "revenue": 4463711
     },
     {
       "name": "Бленд Бариста 1 кг",
@@ -512,20 +516,20 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 6210,
-      "revenue": 1497189
+      "qty": 6211,
+      "revenue": 1497438
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 4799,
-      "revenue": 1432383
+      "qty": 4800,
+      "revenue": 1432682
     },
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 1720,
-      "revenue": 1030280
+      "qty": 1721,
+      "revenue": 1030879
     },
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
@@ -550,8 +554,8 @@
     {
       "name": "Драник с форелью",
       "group": "Завтраки",
-      "qty": 1720,
-      "revenue": 1030280
+      "qty": 1721,
+      "revenue": 1030879
     },
     {
       "name": "Норвежский завтрак (ЯНДЕКС)",
@@ -576,20 +580,20 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 14956.5,
-      "revenue": 4462814
+      "qty": 14959.5,
+      "revenue": 4463711
     },
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 6210,
-      "revenue": 1497189
+      "qty": 6211,
+      "revenue": 1497438
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 4799,
-      "revenue": 1432383
+      "qty": 4800,
+      "revenue": 1432682
     },
     {
       "name": "Флэт Уайт 350мл",
@@ -600,34 +604,34 @@
     {
       "name": "Раф Солёная карамель 350мл",
       "group": "Рафы 350",
-      "qty": 2789,
-      "revenue": 941804
+      "qty": 2791,
+      "revenue": 942482
     }
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 41241371,
-      "mtd_orders": 64691,
-      "mtd_avg_check": 638,
+      "mtd_revenue": 41247449,
+      "mtd_orders": 64703,
+      "mtd_avg_check": 637,
       "plan_month": 81500000,
       "expected_to_date": 48900000,
       "pct_of_plan": 50.6,
-      "pct_vs_expected": 84.3,
+      "pct_vs_expected": 84.4,
       "day_of_month": 18,
       "days_in_month": 30
     },
     "points": [
       {
         "name": "Океан",
-        "mtd_revenue": 3700820,
-        "mtd_orders": 5906,
-        "mtd_avg_check": 627,
+        "mtd_revenue": 3706898,
+        "mtd_orders": 5917,
+        "mtd_avg_check": 626,
         "plan_month": 8000000,
         "expected_to_date": 4800000,
         "pct_of_plan": 46.3,
-        "pct_vs_expected": 77.1,
+        "pct_vs_expected": 77.2,
         "avg_check_plan": 585,
-        "pct_avg_check": 107.2
+        "pct_avg_check": 107.0
       },
       {
         "name": "Свердлова",
@@ -764,7 +768,7 @@
       {
         "name": "Гагарина",
         "mtd_revenue": 1562564,
-        "mtd_orders": 1972,
+        "mtd_orders": 1973,
         "mtd_avg_check": 792,
         "plan_month": 3000000,
         "expected_to_date": 1800000,
