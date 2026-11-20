@@ -1,14 +1,14 @@
 {
   "date": "2026-11-20",
-  "generated_at": "2026-11-20T08:39:42+05:00",
+  "generated_at": "2026-11-20T08:42:47+05:00",
   "summary": {
-    "revenue": 164754,
-    "orders": 326,
-    "avg_check": 505,
+    "revenue": 167872,
+    "orders": 334,
+    "avg_check": 503,
     "yesterday_same_hour_revenue": 74782,
     "yesterday_same_hour_orders": 132,
     "comparison_hour": "07",
-    "discount_pct": 11.8
+    "discount_pct": 11.7
   },
   "points": [
     {
@@ -68,12 +68,28 @@
       "yesterday_same_hour_orders": 6
     },
     {
+      "name": "Драмтеатр",
+      "revenue": 7814,
+      "orders": 24,
+      "avg_check": 326,
+      "yesterday_same_hour_revenue": 1763,
+      "yesterday_same_hour_orders": 5
+    },
+    {
       "name": "Панорама",
       "revenue": 7714,
       "orders": 17,
       "avg_check": 454,
       "yesterday_same_hour_revenue": 3769,
       "yesterday_same_hour_orders": 7
+    },
+    {
+      "name": "Мельникайте",
+      "revenue": 6960,
+      "orders": 13,
+      "avg_check": 535,
+      "yesterday_same_hour_revenue": 1166,
+      "yesterday_same_hour_orders": 2
     },
     {
       "name": "Арсиб",
@@ -92,28 +108,12 @@
       "yesterday_same_hour_orders": 3
     },
     {
-      "name": "Мельникайте",
-      "revenue": 5934,
-      "orders": 11,
-      "avg_check": 539,
-      "yesterday_same_hour_revenue": 1166,
-      "yesterday_same_hour_orders": 2
-    },
-    {
       "name": "Гарден Кофе Сургут",
       "revenue": 5838,
       "orders": 10,
       "avg_check": 584,
       "yesterday_same_hour_revenue": 2222,
       "yesterday_same_hour_orders": 4
-    },
-    {
-      "name": "Драмтеатр",
-      "revenue": 5722,
-      "orders": 18,
-      "avg_check": 318,
-      "yesterday_same_hour_revenue": 1763,
-      "yesterday_same_hour_orders": 5
     },
     {
       "name": "Европа",
@@ -297,7 +297,7 @@
     },
     {
       "hour": "08",
-      "revenue": 89375
+      "revenue": 92493
     }
   ],
   "weekly": [
@@ -439,15 +439,15 @@
       "day_name": "Пт",
       "day_label": "20",
       "date_label": "20.11",
-      "revenue": 164754
+      "revenue": 167872
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 15969.5,
-      "revenue": 4765201
+      "qty": 15970.5,
+      "revenue": 4765500
     },
     {
       "name": "Бленд Бариста 1 кг",
@@ -464,14 +464,14 @@
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 6573,
-      "revenue": 1585294
+      "qty": 6577,
+      "revenue": 1586290
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 5070,
-      "revenue": 1513292
+      "qty": 5071,
+      "revenue": 1513591
     },
     {
       "name": "Драник с форелью",
@@ -528,20 +528,20 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 15969.5,
-      "revenue": 4765201
+      "qty": 15970.5,
+      "revenue": 4765500
     },
     {
       "name": "Капучино 250 мл",
       "group": "Кофе Терминал",
-      "qty": 6573,
-      "revenue": 1585294
+      "qty": 6577,
+      "revenue": 1586290
     },
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 5070,
-      "revenue": 1513292
+      "qty": 5071,
+      "revenue": 1513591
     },
     {
       "name": "Флэт Уайт 350мл",
@@ -558,8 +558,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 43538108,
-      "mtd_orders": 68579,
+      "mtd_revenue": 43541226,
+      "mtd_orders": 68587,
       "mtd_avg_check": 635,
       "plan_month": 81500000,
       "expected_to_date": 54333333,
@@ -751,8 +751,8 @@
       },
       {
         "name": "Мельникайте",
-        "mtd_revenue": 1490074,
-        "mtd_orders": 2379,
+        "mtd_revenue": 1491100,
+        "mtd_orders": 2381,
         "mtd_avg_check": 626,
         "plan_month": 2700000,
         "expected_to_date": 1800000,
@@ -775,15 +775,15 @@
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 1266251,
-        "mtd_orders": 2307,
-        "mtd_avg_check": 549,
+        "mtd_revenue": 1268343,
+        "mtd_orders": 2313,
+        "mtd_avg_check": 548,
         "plan_month": 2950000,
         "expected_to_date": 1966667,
-        "pct_of_plan": 42.9,
-        "pct_vs_expected": 64.4,
+        "pct_of_plan": 43.0,
+        "pct_vs_expected": 64.5,
         "avg_check_plan": 565,
-        "pct_avg_check": 97.2
+        "pct_avg_check": 97.0
       },
       {
         "name": "Софилэнд",
