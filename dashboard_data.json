@@ -1,6 +1,6 @@
 {
   "date": "2026-11-21",
-  "generated_at": "2026-11-21T22:24:38+05:00",
+  "generated_at": "2026-11-21T22:34:48+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
     "data": [
@@ -3838,6 +3838,14 @@
       },
       {
         "Department": "Свердлова",
+        "DishDiscountSumInt": 549,
+        "DishSumInt": 549,
+        "HourOpen": "15",
+        "OrderType": "С собой*",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Свердлова",
         "DishDiscountSumInt": 1230,
         "DishSumInt": 1624,
         "HourOpen": "16",
@@ -3878,11 +3886,27 @@
       },
       {
         "Department": "Свердлова",
+        "DishDiscountSumInt": 349,
+        "DishSumInt": 349,
+        "HourOpen": "18",
+        "OrderType": "С собой*",
+        "UniqOrderId.OrdersCount": 1
+      },
+      {
+        "Department": "Свердлова",
         "DishDiscountSumInt": 5719,
         "DishSumInt": 7274,
         "HourOpen": "19",
         "OrderType": "С собой",
         "UniqOrderId.OrdersCount": 8
+      },
+      {
+        "Department": "Свердлова",
+        "DishDiscountSumInt": 1411,
+        "DishSumInt": 1466,
+        "HourOpen": "19",
+        "OrderType": "С собой*",
+        "UniqOrderId.OrdersCount": 1
       },
       {
         "Department": "Свердлова",
@@ -8826,9 +8850,9 @@
       },
       {
         "Department": "Свердлова",
-        "DishDiscountSumInt": 3526020,
-        "DishSumInt": 4024823,
-        "UniqOrderId.OrdersCount": 5284
+        "DishDiscountSumInt": 3528329,
+        "DishSumInt": 4027187,
+        "UniqOrderId.OrdersCount": 5287
       },
       {
         "Department": "Советская",
@@ -14524,10 +14548,10 @@
         "DishSumInt": 0
       },
       {
-        "DishAmountInt": 2576,
+        "DishAmountInt": 2577,
         "DishGroup": "Салаты и горячее",
         "DishName": "Паста с ветчиной ",
-        "DishSumInt": 993646
+        "DishSumInt": 994035
       },
       {
         "DishAmountInt": 205,
@@ -14536,10 +14560,10 @@
         "DishSumInt": 92045
       },
       {
-        "DishAmountInt": 1813,
+        "DishAmountInt": 1814,
         "DishGroup": "Салаты и горячее",
         "DishName": "Паста с креветкой и кабачком",
-        "DishSumInt": 984141
+        "DishSumInt": 984690
       },
       {
         "DishAmountInt": 73,
@@ -15214,10 +15238,10 @@
         "DishSumInt": 6974
       },
       {
-        "DishAmountInt": 1866,
+        "DishAmountInt": 1869,
         "DishGroup": "Блины и сырники",
         "DishName": "Сырники классика ",
-        "DishSumInt": 649994
+        "DishSumInt": 651041
       },
       {
         "DishAmountInt": 314,
@@ -15238,10 +15262,10 @@
         "DishSumInt": 48654
       },
       {
-        "DishAmountInt": 645,
+        "DishAmountInt": 646,
         "DishGroup": "Сэндвичи и круассаны",
         "DishName": "Сэндвич на тосте с ветчиной",
-        "DishSumInt": 244275
+        "DishSumInt": 244654
       },
       {
         "DishAmountInt": 77,
@@ -16231,8 +16255,8 @@
         "OpenDate.Typed": "2026-11-20"
       },
       {
-        "DishDiscountSumInt": 2577768,
-        "DishSumInt": 2902507,
+        "DishDiscountSumInt": 2580077,
+        "DishSumInt": 2904871,
         "OpenDate.Typed": "2026-11-21"
       }
     ],
@@ -16242,8 +16266,8 @@
     "data": [
       {
         "discount_type": "",
-        "gross_sum": 2102355,
-        "net_sum": 1966061,
+        "gross_sum": 2103253,
+        "net_sum": 1966959,
         "discount_sum": 26437
       },
       {
@@ -16260,9 +16284,9 @@
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости",
-        "gross_sum": 384526,
-        "net_sum": 311395,
-        "discount_sum": 59637
+        "gross_sum": 385992,
+        "net_sum": 312806,
+        "discount_sum": 59692
       },
       {
         "discount_type": "iikoCard5 Бонусы Гости, Кофе по сниженной цене",
