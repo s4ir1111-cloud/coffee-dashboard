@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-11-24T09:11:55.853514+00:00",
+  "stores": [
+    "Арсиб",
+    "Видный",
+    "Ворлд Класс",
+    "Гагарина",
+    "Газпром",
+    "Гарден Кофе Сургут",
+    "Гарден Кофе Тобольск",
+    "Домашний",
+    "Драмтеатр",
+    "Европа",
+    "Калинка",
+    "Мельникайте",
+    "Московская",
+    "Новин",
+    "Океан",
+    "Осипенко",
+    "Панорама",
+    "Паруса",
+    "Прео",
+    "Преображенский",
+    "Свердлова",
+    "Советская",
+    "Софилэнд"
+  ],
+  "current_date": "2026-11-24",
+  "sales_months": [
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "pnl_months": [
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "metrics": {
+    "current": [
+      "avg_check",
+      "discount_pct",
+      "orders",
+      "revenue"
+    ],
+    "monthly_sales": [
+      "avg_check",
+      "orders",
+      "revenue"
+    ],
+    "pnl": [
+      "cogs",
+      "cogs_pct",
+      "ebitda",
+      "ebitda_pct",
+      "gross_margin_pct",
+      "gross_profit",
+      "net_margin_pct",
+      "net_profit",
+      "opex",
+      "opex_pct",
+      "revenue"
+    ],
+    "plan": [
+      "avg_check_plan",
+      "expected_to_date",
+      "mtd_avg_check",
+      "mtd_revenue",
+      "pct_of_plan",
+      "pct_vs_expected",
+      "plan_month"
+    ]
+  },
+  "history_snapshots": [
+    "2026-11-24"
+  ],
+  "sources": [
+    {
+      "file": "dashboard_data_view.json",
+      "generated_at": "2026-11-24T14:04:52+05:00",
+      "sha256": "087134b1f3674a67ccfb714087e6848ed1fe1ad7f1f1e86701f329bce0400676",
+      "age_hours": 0.1
+    },
+    {
+      "file": "finance_data.json",
+      "generated_at": "2026-11-23T13:49:14Z",
+      "sha256": "a56289b9433cdc1b0d116a090825c9f7d516ac328d5996c56b7b310f5d1b35bd",
+      "age_hours": 19.4
+    },
+    {
+      "file": "pnl_data.json",
+      "generated_at": "2026-11-23",
+      "sha256": "caa65b9af7a01de8664dae569d2dfadaf0bcaa7f55536576474009612c9a1726",
+      "age_hours": 33.2
+    }
+  ],
+  "privacy": "Guest-level PII is excluded from this analytics layer."
+}
