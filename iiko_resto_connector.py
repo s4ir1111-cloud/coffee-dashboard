@@ -44,6 +44,7 @@ DASHBOARD_TIMEZONE = ZoneInfo(os.environ.get("DASHBOARD_TIMEZONE", "Asia/Yekater
 REQUEST_ATTEMPTS = 5
 EMPTY_REPORT_ATTEMPTS = 3
 EMPTY_REPORT_RETRY_DELAY = 15
+EMPTY_REPORT_GUARD_HOUR = 6
 
 
 def _request(method: str, url: str, **kwargs) -> requests.Response:
@@ -170,6 +171,10 @@ def current_sales_report(host: str, token: str, day: str, next_day: str, local_n
     for attempt in range(1, EMPTY_REPORT_ATTEMPTS + 1):
         report = olap_sales_report(host, token, day, next_day)
         if report.get("data"):
+            return report
+        # До начала рабочего дня пустой отчёт является корректным состоянием,
+        # а не сбоем источника. Не ждём повторов и не блокируем обновление.
+        if local_now.hour < EMPTY_REPORT_GUARD_HOUR:
             return report
         if attempt < EMPTY_REPORT_ATTEMPTS:
             print(
