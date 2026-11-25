@@ -1,18 +1,32 @@
 {
   "date": "2026-11-25",
-  "generated_at": "2026-11-25T05:57:49+05:00",
+  "generated_at": "2026-11-25T07:25:32+05:00",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
-    "comparison_hour": "04",
-    "discount_pct": null
+    "comparison_hour": "06",
+    "discount_pct": 0.0
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Океан",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-11-01",
@@ -194,8 +208,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 20405.5,
-      "revenue": 6088986
+      "qty": 20406.5,
+      "revenue": 6089285
     },
     {
       "name": "Бленд Бариста 1 кг",
@@ -276,8 +290,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 20405.5,
-      "revenue": 6088986
+      "qty": 20406.5,
+      "revenue": 6089285
     },
     {
       "name": "Капучино 250 мл",
@@ -307,7 +321,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 54310160,
-      "mtd_orders": 85244,
+      "mtd_orders": 85245,
       "mtd_avg_check": 637,
       "plan_month": 85800000,
       "expected_to_date": 71500000,
@@ -320,7 +334,7 @@
       {
         "name": "Океан",
         "mtd_revenue": 4940771,
-        "mtd_orders": 7813,
+        "mtd_orders": 7814,
         "mtd_avg_check": 632,
         "plan_month": 8000000,
         "expected_to_date": 6666667,

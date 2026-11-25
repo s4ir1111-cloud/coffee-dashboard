@@ -1,9 +1,18 @@
 {
   "date": "2026-11-25",
-  "generated_at": "2026-11-25T05:57:49+05:00",
+  "generated_at": "2026-11-25T07:25:32+05:00",
   "month_start": "2026-11-01",
   "sales_raw": {
-    "data": [],
+    "data": [
+      {
+        "Department": "Океан",
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 349,
+        "HourOpen": "07",
+        "OrderType": "С собой",
+        "UniqOrderId.OrdersCount": 1
+      }
+    ],
     "summary": []
   },
   "sales_yesterday_raw": {
@@ -4092,8 +4101,8 @@
       {
         "Department": "Океан",
         "DishDiscountSumInt": 4940771,
-        "DishSumInt": 5651562,
-        "UniqOrderId.OrdersCount": 7813
+        "DishSumInt": 5651911,
+        "UniqOrderId.OrdersCount": 7814
       },
       {
         "Department": "Осипенко",
@@ -5091,10 +5100,10 @@
         "DishSumInt": 1100
       },
       {
-        "DishAmountInt": 1287,
+        "DishAmountInt": 1288,
         "DishGroup": "Молоко Капучино 350мл*",
         "DishName": "- Безлактозное Капучино Б",
-        "DishSumInt": 64540
+        "DishSumInt": 64590
       },
       {
         "DishAmountInt": 450,
@@ -8805,10 +8814,10 @@
         "DishSumInt": 14805
       },
       {
-        "DishAmountInt": 20405.5,
+        "DishAmountInt": 20406.5,
         "DishGroup": "Кофе Терминал",
         "DishName": "Капучино 350 мл ",
-        "DishSumInt": 6088986
+        "DishSumInt": 6089285
       },
       {
         "DishAmountInt": 374,
@@ -10779,7 +10788,7 @@
         "DishSumInt": 3290
       },
       {
-        "DishAmountInt": 1565,
+        "DishAmountInt": 1566,
         "DishGroup": null,
         "DishName": "Тестовое блюдо",
         "DishSumInt": 643500
@@ -11736,12 +11745,24 @@
         "DishDiscountSumInt": 2015068,
         "DishSumInt": 2361164,
         "OpenDate.Typed": "2026-11-24"
+      },
+      {
+        "DishDiscountSumInt": 0,
+        "DishSumInt": 349,
+        "OpenDate.Typed": "2026-11-25"
       }
     ],
     "summary": []
   },
   "discounts_raw": {
-    "data": [],
+    "data": [
+      {
+        "discount_type": "",
+        "gross_sum": 349,
+        "net_sum": 0,
+        "discount_sum": 0
+      }
+    ],
     "summary": []
   }
 }
