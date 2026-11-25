@@ -1,10 +1,10 @@
 {
   "date": "2026-11-25",
-  "generated_at": "2026-11-25T10:39:47+05:00",
+  "generated_at": "2026-11-25T10:44:42+05:00",
   "summary": {
-    "revenue": 541233,
-    "orders": 999,
-    "avg_check": 542,
+    "revenue": 544699,
+    "orders": 1003,
+    "avg_check": 543,
     "yesterday_same_hour_revenue": 420473,
     "yesterday_same_hour_orders": 770,
     "comparison_hour": "09",
@@ -117,11 +117,19 @@
     },
     {
       "name": "Мельникайте",
-      "revenue": 20113,
-      "orders": 42,
-      "avg_check": 479,
+      "revenue": 20861,
+      "orders": 43,
+      "avg_check": 485,
       "yesterday_same_hour_revenue": 18057,
       "yesterday_same_hour_orders": 31
+    },
+    {
+      "name": "Драмтеатр",
+      "revenue": 20370,
+      "orders": 46,
+      "avg_check": 443,
+      "yesterday_same_hour_revenue": 9965,
+      "yesterday_same_hour_orders": 23
     },
     {
       "name": "Газпром",
@@ -130,14 +138,6 @@
       "avg_check": 284,
       "yesterday_same_hour_revenue": 19869,
       "yesterday_same_hour_orders": 60
-    },
-    {
-      "name": "Драмтеатр",
-      "revenue": 17652,
-      "orders": 43,
-      "avg_check": 411,
-      "yesterday_same_hour_revenue": 9965,
-      "yesterday_same_hour_orders": 23
     },
     {
       "name": "Домашний",
@@ -315,7 +315,7 @@
     },
     {
       "hour": "10",
-      "revenue": 75460
+      "revenue": 78926
     }
   ],
   "weekly": [
@@ -492,15 +492,15 @@
       "day_name": "Ср",
       "day_label": "25",
       "date_label": "25.11",
-      "revenue": 541233
+      "revenue": 544699
     }
   ],
   "top_items": [
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 20721.5,
-      "revenue": 6183300
+      "qty": 20722.5,
+      "revenue": 6183599
     },
     {
       "name": "Бленд Бариста 1 кг",
@@ -511,8 +511,8 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 3822,
-      "revenue": 2023468
+      "qty": 3823,
+      "revenue": 2023997
     },
     {
       "name": "Капучино 250 мл",
@@ -523,8 +523,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 6450,
-      "revenue": 1925282
+      "qty": 6451,
+      "revenue": 1925581
     },
     {
       "name": "Драник с форелью",
@@ -549,8 +549,8 @@
     {
       "name": "Комбо завтрак Бариста",
       "group": "Завтраки",
-      "qty": 3822,
-      "revenue": 2023468
+      "qty": 3823,
+      "revenue": 2023997
     },
     {
       "name": "Драник с форелью",
@@ -581,8 +581,8 @@
     {
       "name": "Капучино 350 мл",
       "group": "Кофе Терминал",
-      "qty": 20721.5,
-      "revenue": 6183300
+      "qty": 20722.5,
+      "revenue": 6183599
     },
     {
       "name": "Капучино 250 мл",
@@ -593,8 +593,8 @@
     {
       "name": "Латте 350 мл",
       "group": "Кофе Терминал",
-      "qty": 6450,
-      "revenue": 1925282
+      "qty": 6451,
+      "revenue": 1925581
     },
     {
       "name": "Флэт Уайт 350мл",
@@ -611,8 +611,8 @@
   ],
   "plan": {
     "summary": {
-      "mtd_revenue": 54851393,
-      "mtd_orders": 86243,
+      "mtd_revenue": 54854859,
+      "mtd_orders": 86247,
       "mtd_avg_check": 636,
       "plan_month": 85800000,
       "expected_to_date": 71500000,
@@ -804,13 +804,13 @@
       },
       {
         "name": "Мельникайте",
-        "mtd_revenue": 1868147,
-        "mtd_orders": 3019,
+        "mtd_revenue": 1868895,
+        "mtd_orders": 3020,
         "mtd_avg_check": 619,
         "plan_month": 2700000,
         "expected_to_date": 2250000,
         "pct_of_plan": 69.2,
-        "pct_vs_expected": 83.0,
+        "pct_vs_expected": 83.1,
         "avg_check_plan": 610,
         "pct_avg_check": 101.5
       },
@@ -828,13 +828,13 @@
       },
       {
         "name": "Драмтеатр",
-        "mtd_revenue": 1563546,
-        "mtd_orders": 2848,
+        "mtd_revenue": 1566264,
+        "mtd_orders": 2851,
         "mtd_avg_check": 549,
         "plan_month": 2950000,
         "expected_to_date": 2458333,
-        "pct_of_plan": 53.0,
-        "pct_vs_expected": 63.6,
+        "pct_of_plan": 53.1,
+        "pct_vs_expected": 63.7,
         "avg_check_plan": 565,
         "pct_avg_check": 97.2
       },
