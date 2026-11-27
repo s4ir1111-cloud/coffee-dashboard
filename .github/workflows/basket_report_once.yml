@@ -1,0 +1,34 @@
+name: One-time encrypted basket report
+on:
+  push:
+    branches: [analysis/basket-size-202611]
+permissions:
+  contents: read
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Resolve iiko host as in dashboard keeper
+        run: |
+          IP=$(python -c "import requests; r=requests.get('https://dns.google/resolve', params={'name':'kofeinya-garden-co.iiko.it','type':'A'}, timeout=20); r.raise_for_status(); print(next(row['data'] for row in r.json()['Answer'] if row['type']==1))")
+          echo "$IP kofeinya-garden-co.iiko.it" | sudo tee -a /etc/hosts > /dev/null
+      - name: Read sales aggregates and encrypt output
+        env:
+          IIKO_HOST: ${{ secrets.IIKO_HOST }}
+          IIKO_LOGIN: ${{ secrets.IIKO_LOGIN }}
+          IIKO_PASSWORD: ${{ secrets.IIKO_PASSWORD }}
+        run: |
+          umask 077
+          python basket_report_once.py
+          openssl cms -encrypt -binary -aes256 -in basket.json -outform DER -out basket.enc basket_public.pem
+      - uses: actions/upload-artifact@v4
+        with:
+          name: basket-encrypted
+          path: basket.enc
+          retention-days: 1
