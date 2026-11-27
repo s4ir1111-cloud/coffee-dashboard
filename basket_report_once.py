@@ -36,7 +36,7 @@ try:
         if not rows or any(not r["Department"] or r[qty] is None or not r[checks] for r in rows):
             raise ValueError("Incomplete aggregates")
         stage = "fetch product groups " + start
-        items = query(["Department", "DishName", "DishGroup", "DishCategory"], filt, [qty])
+        items = query(["Department", "DishName", "DishGroup", "DishCategory"], filt, [qty, "DishDiscountSumInt"])
         if not items:
             raise ValueError("No product aggregates")
         reports.append(dict(start=start, end_exclusive=end, rows=rows, items=items))
