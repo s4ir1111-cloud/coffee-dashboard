@@ -12,11 +12,11 @@ stage = "authentication"
 token = None
 try:
     token = login()
-    def query(cols, filters):
+    def query(cols, filters, aggregates=None):
         response = requests.post(
             f"{HOST}/resto/api/v2/reports/olap", params={"key": token}, timeout=75,
             json=dict(reportType="SALES", groupByRowFields=cols, groupByColFields=[],
-                      aggregateFields=[qty, checks], filters=filters),
+                      aggregateFields=aggregates or [qty, checks], filters=filters),
         )
         response.raise_for_status()
         return response.json()["data"]
@@ -35,7 +35,11 @@ try:
         rows = query(["Department"], filt)
         if not rows or any(not r["Department"] or r[qty] is None or not r[checks] for r in rows):
             raise ValueError("Incomplete aggregates")
-        reports.append(dict(start=start, end_exclusive=end, rows=rows))
+        stage = "fetch product groups " + start
+        items = query(["Department", "DishName", "DishGroup", "DishCategory"], filt, [qty])
+        if not items:
+            raise ValueError("No product aggregates")
+        reports.append(dict(start=start, end_exclusive=end, rows=rows, items=items))
     with open("basket.json", "w", encoding="utf-8") as f:
         json.dump(dict(as_of=now.isoformat(), reports=reports), f, ensure_ascii=False)
 except Exception as exc:
