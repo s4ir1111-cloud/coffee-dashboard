@@ -1,18 +1,32 @@
 {
   "date": "2026-11-27",
-  "generated_at": "2026-11-27T05:47:07+05:00",
+  "generated_at": "2026-11-27T07:28:34+05:00",
   "summary": {
     "revenue": 0,
-    "orders": 0,
+    "orders": 1,
     "avg_check": 0,
     "yesterday_same_hour_revenue": 0,
     "yesterday_same_hour_orders": 0,
-    "comparison_hour": "04",
+    "comparison_hour": "06",
     "discount_pct": null
   },
-  "points": [],
+  "points": [
+    {
+      "name": "Гагарина",
+      "revenue": 0,
+      "orders": 1,
+      "avg_check": 0,
+      "yesterday_same_hour_revenue": 0,
+      "yesterday_same_hour_orders": 0
+    }
+  ],
   "yesterday_same_hour_points": [],
-  "hourly": [],
+  "hourly": [
+    {
+      "hour": "07",
+      "revenue": 0
+    }
+  ],
   "weekly": [
     {
       "date": "2026-11-01",
@@ -321,7 +335,7 @@
   "plan": {
     "summary": {
       "mtd_revenue": 58518297,
-      "mtd_orders": 92238,
+      "mtd_orders": 92239,
       "mtd_avg_check": 634,
       "plan_month": 85800000,
       "expected_to_date": 77220000,
@@ -490,7 +504,7 @@
       {
         "name": "Гагарина",
         "mtd_revenue": 2159633,
-        "mtd_orders": 2768,
+        "mtd_orders": 2769,
         "mtd_avg_check": 780,
         "plan_month": 3000000,
         "expected_to_date": 2700000,
